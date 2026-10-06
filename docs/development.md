@@ -14,7 +14,7 @@
 
 ## 다음 작업
 
-1. [001 공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001~T008이 첫 착수 후보이며 역할은 SHARED, 담당자는 미배정이다. [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)의 검토·병합과 실제 구현 완료는 구분한다. 공통 준비 뒤 서버·웹·모바일의 로컬 작업을 역할별로 진행한다.
+1. [001 공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T008이 첫 착수 후보이며 역할은 SHARED, 담당자는 미배정이다. [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)의 검토·병합과 실제 구현 완료는 구분한다. 공통 준비 뒤 서버·웹·모바일의 로컬 작업을 역할별로 진행한다.
 2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비자를 검사한다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
 3. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈다.
 4. 이후 기반 구성과 기능 구현을 진행하고 실제 기기·서버 연동을 확인한다.
@@ -27,8 +27,8 @@
 
 | 구현 대상 | 동작·데이터 기준 | 화면 기준 |
 |---|---|---|
-| 일정 | [S03~S05](functional-spec.md#s03-일정-목록달력) · [상태](functional-spec.md#51-일정-상태와-방문-기록) | [일정](screen-design.md#screen-01-01) |
-| 개인 기록·크루 방문 | [S08~S14](functional-spec.md#s08-기록-목록--전체--내-방문--크루-방문) · [기록 관계](record-relationships.md) | [기록](screen-design.md#screen-02-01) |
+| 일정 | [S03–S05](functional-spec.md#s03-일정-목록달력) · [상태](functional-spec.md#51-일정-상태와-방문-기록) | [일정](screen-design.md#screen-01-01) |
+| 개인 기록·크루 방문 | [S08–S14](functional-spec.md#s08-기록-목록--전체--내-방문--크루-방문) · [기록 관계](record-relationships.md) | [기록](screen-design.md#screen-02-01) |
 | 운동 중 기록 | [운동 명세](workout-recording-spec.md) | [02.13](screen-design.md#screen-02-13) |
 | 암장·추천 | [선택](functional-spec.md#s06-암장-검색추천선택) · [지도](functional-spec.md#s23-암장-지도--확정) · [계산](functional-spec.md#54-암장-추천-계산) | [암장](screen-design.md#screen-03-01) |
 | 통계 | [S15](functional-spec.md#s15-개인-통계) · [계산](functional-spec.md#53-통계-계산) | [통계](screen-design.md#screen-04-01) |
@@ -43,6 +43,6 @@
 
 현재는 실행할 앱 코드가 없다. 기본 구조가 만들어지면 이 문서에 실제 설치·실행·검증 명령과 필요한 설정을 추가한다. 예정 명령을 실행 가능한 것처럼 적지 않는다.
 
-기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01~T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
+기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 
 문서 링크와 화면 번호는 프로젝트 루트에서 `python3 scripts/check-docs.py`로 확인한다.

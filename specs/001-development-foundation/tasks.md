@@ -21,7 +21,7 @@
 
 목표: 기존 자료를 보존하면서 재현 가능한 도구·작업 공간을 준비한다.
 
-- [ ] T001 [SHARED] `docs/setup-checklist.md`에 개발 도구·Docker daemon·Xcode/Android 도구의 실제 준비 상태와 Git 설정 오류를 확인해 기록하고, 서버 사양·휴대폰 미정을 유지한다. 선행 없음; FR-007~009·SC-005. 검사/전달: 도구 존재와 실행 성공을 구분하고 운영 자료·비밀값을 출력하지 않는다. 서버/휴대폰 결정은 이 작업의 완료 조건이 아니다.
+- [ ] T001 [SHARED] `docs/setup-checklist.md`에 개발 도구·Docker daemon·Xcode/Android 도구의 실제 준비 상태와 Git 설정 오류를 확인해 기록하고, 서버 사양·휴대폰 미정을 유지한다. 선행 없음; FR-007–009·SC-005. 검사/전달: 도구 존재와 실행 성공을 구분하고 운영 자료·비밀값을 출력하지 않는다. 서버/휴대폰 결정은 이 작업의 완료 조건이 아니다.
 - [ ] T002 [SHARED] `.nvmrc`, `.npmrc`, `package.json`, `package-lock.json`과 `apps/mobile/package.json`, `apps/admin/package.json`, `apps/api/package.json`, `packages/contracts/package.json`에 workspace·패키지 이름·호환 도구/의존성 정확한 버전을 고정한다. 선행 T001; FR-001·002·005. 검사/전달: 계획의 Node/npm·SDK 계열에서 공식 메타데이터/엔진을 재확인하고 `npm ci`가 재현되는지 확인한다. 빈 작업 폴더를 만든다는 이유로 기존 계약·문서·시안을 덮어쓰지 않는다.
 - [ ] T003 [SHARED] `tsconfig.base.json`, `eslint.config.mjs`, `.gitignore`에 공통 타입/lint 기준과 로컬 비밀·서명·인증서·DB/파일 자료 제외 규칙을 준비한다. 선행 T002; FR-006·007·009. 검사/전달: 공개 예시는 추적할 수 있고 실제 비밀/빌드/저장 자료는 추적되지 않는지 합성 파일로 확인한다. 앱별 React 조합을 공통 설정에서 강제하지 않는다.
 
@@ -49,7 +49,7 @@
 - [ ] T014 [P] [US1] [FE] `apps/mobile/package.json`, `apps/mobile/app.config.ts`, `apps/mobile/metro.config.js`, `apps/mobile/tsconfig.json`, `apps/mobile/App.tsx`, `apps/mobile/.env.example`에 Expo·전용 개발 빌드·계약 패키지 소비 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: SDK 지원 조합·타입·Metro 모듈 해석·설정 누락을 확인한다. 제품 화면/탐색과 로그인/지도/푸시 동작은 추가하지 않는다. 로컬 가상 기기는 개발용 앱 식별자로 준비하고 실제 배포 식별자·실기기 서명이 필요한 검사는 후속 T031에서 확인한다. lock 변경은 공통 담당에게 전달한다.
 - [ ] T015 [US1] [FE] `apps/mobile/app.config.ts`와 `docs/history/development/001-foundation-verification.md`에 로컬 Xcode/Android 도구·개발용 앱 식별자를 준비하고 iOS 시뮬레이터/Android 에뮬레이터용 전용 개발 빌드 설치/시작 결과를 기록한다. 선행 T014 및 로컬 플랫폼 빌드 도구; FR-002·008·SC-001·005. 검사/전달: OS/가상 기기/도구·실제 명령·결과를 남긴다. Metro 시작/Expo Go로 전용 개발 빌드를 대신하지 않고 가상 기기를 실기기로 표시하지 않는다. 휴대폰·스토어 계정·물리 서버 미정으로 이 작업을 막지 않는다.
 - [ ] T016 [P] [US1] [BE] `specs/001-development-foundation/contracts/admin-bootstrap.md`에 초기 관리자 비밀 입력·전달·Argon2id 해시·명시적 교체·재실행/실패 절차를 작성해004에 전달한다. 선행 T008; FR-002·007·008. 검사/전달: C02 원본에 맞고 기존 비밀번호를 조용히 덮어쓰지 않는 절차인지 확인한다. 실제 principal 저장·로그인·cookie/CSRF 구현/실행은004에 연결하며001 완료 조건으로 당겨오지 않는다.
-- [ ] T017 [US1] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 API/worker·개발 DB·웹·모바일의 실제 시작·설정 누락 실패와 DB 정상 재시작/자료 보존 결과를 합쳐 기록한다. 선행 T010~T016; FR-001~003·007~009·SC-001·003·005. 검사/전달: 같은 계약/도구 버전과 합성 자료를 사용하고 대상별 성공/실패/미수행을 분리한다. 로컬 플랫폼 도구 미준비 시 해당 실행만 미수행으로 남긴다. 실물 서버/휴대폰 미정은 로컬 실행의 차단 조건이 아니다.
+- [ ] T017 [US1] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 API/worker·개발 DB·웹·모바일의 실제 시작·설정 누락 실패와 DB 정상 재시작/자료 보존 결과를 합쳐 기록한다. 선행 T010–T016; FR-001–003·007–009·SC-001·003·005. 검사/전달: 같은 계약/도구 버전과 합성 자료를 사용하고 대상별 성공/실패/미수행을 분리한다. 로컬 플랫폼 도구 미준비 시 해당 실행만 미수행으로 남긴다. 실물 서버/휴대폰 미정은 로컬 실행의 차단 조건이 아니다.
 
 ## Phase 4: US2 — 앱과 서버 연결 확인 (P1)
 
@@ -72,29 +72,29 @@
 독립 확인: 안내한 검사 명령의 성공·실패·재실행을 확인한다. 미정 서버/기기 때문에 수행하지 못한 항목은 통과로 집계하지 않는다.
 
 - [ ] T025 [US3] [SHARED] `scripts/test/check-runner.test.mjs`에 검사 실패/설정 누락/필수 명령 부재의 비정상 종료와 대상·원인 표시 검사를 먼저 작성한다. 선행 T008; FR-006·008·SC-004·005. 검사/전달: 검사 하나가 실패해도 전체 성공으로 바뀌지 않고 실행하지 않은 대상을 통과로 표시하지 않아야 한다.
-- [ ] T026 [US3] [SHARED] `scripts/check-workspaces.mjs`, 루트 `package.json`, `apps/api/package.json`, `apps/admin/package.json`, `apps/mobile/package.json`에 `typecheck`/`lint`/`test`/`build:admin`/`build:api`/`test:foundation`과 개발 실행 명령을 연결한다. 선행 T010~T014·T019~T021·T025; FR-002·006·SC-004. 검사/전달: workspace의 실제 명령을 루트에서 호출하며 Python 문서/계약 검사도 안내한다. `test:foundation`은 실제 시험 DB·queue를 쓰고 실제 기기 검사는 별도 명시한다. T025 통과와 비정상 종료 전파를 확인한다.
+- [ ] T026 [US3] [SHARED] `scripts/check-workspaces.mjs`, 루트 `package.json`, `apps/api/package.json`, `apps/admin/package.json`, `apps/mobile/package.json`에 `typecheck`/`lint`/`test`/`build:admin`/`build:api`/`test:foundation`과 개발 실행 명령을 연결한다. 선행 T010–T014·T019–T021·T025; FR-002·006·SC-004. 검사/전달: workspace의 실제 명령을 루트에서 호출하며 Python 문서/계약 검사도 안내한다. `test:foundation`은 실제 시험 DB·queue를 쓰고 실제 기기 검사는 별도 명시한다. T025 통과와 비정상 종료 전파를 확인한다.
 - [ ] T027 [US3] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 공개 예시·추적 파일·웹/API 빌드·모바일 공개 설정·로그의 서버 비밀 미포함 검토 결과를 기록한다. 선행 T026; FR-007·008·SC-004·005. 검사/전달: 합성 비밀 표식으로 경계를 확인하고 실제 비밀/개인 자료를 검사 결과에 저장하지 않는다. 모든 출력/플랫폼을 확인하지 않았다면 해당 부분을 미수행으로 남긴다.
 - [ ] T028 [US3] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 별도 시험 작업 폴더에서 `npm ci`·계약 재생성·타입/lint/test/build·설정 누락 실패/복구·DB/worker 재시작 결과를 기록한다. 선행 T026; FR-002·003·005·006·009·SC-003·004·006. 검사/전달: lockfile/이미지 기준으로 재현되고 일부러 잘못된 설정/입력에서 실패 후 복구되는지 확인한다. 기존 문서/시안·개발 DB 볼륨을 삭제하지 않는다.
 - [ ] T029 [US3] [INTEGRATION] `docs/setup-checklist.md`와 `docs/history/development/001-foundation-verification.md`에 물리 서버 사양·기기·계정·초기 자료의 준비 여부와 각 실행 증거의 범위를 대조한다. 선행 T017·T022·T027·T028; FR-008·SC-005. 검사/전달: “로컬 통과가 외부 검사 상태를 바꾸지 않는다”를 지키고 미정/미수행 사유를 남긴다. 초기 암장 자료·관리자 실제 계정·네이티브 기능 검사는 해당 후속 스펙에 전달한다. 서버를 결정/배포해야만 기록할 수 있는 작업은 아니다.
 
 ## Phase 6: 공통 마무리
 
-- [ ] T030 [INTEGRATION] `docs/development.md`, `specs/001-development-foundation/quickstart.md`, `docs/setup-checklist.md`에 실제 설치/실행/검사 명령과 성공 조건·필수 설정 이름·문제 해결 절차를 반영한다. 선행 T026·T028·T029; FR-002·006·008·009·SC-004~006. 검사/전달: 실행 확인한 명령만 현재 안내에 추가하고 기기 대기 항목은 미수행으로 유지한다. 문서 링크/화면 번호·`git diff --check`를 확인한다.
-- [ ] T031 [INTEGRATION] `docs/history/development/001-foundation-verification.md`와 `docs/setup-checklist.md`에 결정된 iOS/Android 실기기의 전용 개발 빌드·로컬 개발 API 연결200/503/네트워크 불가·standalone validator 결과를 확인해 기록한다. 선행 T015·T019·T021·T023 및 해당 실기기/서명/접속 환경 준비; FR-002·004·005·008·SC-001·002·005. 검사/전달: 로컬 가상 기기 결과와 구분하고 기기의 `localhost`를 PC 주소로 쓰지 않는다. 현재 휴대폰 미정으로 이 확인만 대기한다. 이 작업은 T001~T030의 로컬 개발·검사 및 T033 전달을 막지 않는다. 물리 서버 현장 연결이 필요하면 준비된 환경에서 별도로 기록하며 운영 배포로 확장하지 않는다.
-- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001~009·SC-001~006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027~T031; FR-001~009·SC-001~006. 검사/전달: 필수 결과가 모두 확인된 범위만 완료 표시한다. 실기기 필수 검사가 남으면001 전체 완료를 선언하지 않고 누락 작업/사유를 유지한다. 작업 체크·PR 병합·이슈 완료는 별도로 판단한다.
+- [ ] T030 [INTEGRATION] `docs/development.md`, `specs/001-development-foundation/quickstart.md`, `docs/setup-checklist.md`에 실제 설치/실행/검사 명령과 성공 조건·필수 설정 이름·문제 해결 절차를 반영한다. 선행 T026·T028·T029; FR-002·006·008·009·SC-004–006. 검사/전달: 실행 확인한 명령만 현재 안내에 추가하고 기기 대기 항목은 미수행으로 유지한다. 문서 링크/화면 번호·`git diff --check`를 확인한다.
+- [ ] T031 [INTEGRATION] `docs/history/development/001-foundation-verification.md`와 `docs/setup-checklist.md`에 결정된 iOS/Android 실기기의 전용 개발 빌드·로컬 개발 API 연결200/503/네트워크 불가·standalone validator 결과를 확인해 기록한다. 선행 T015·T019·T021·T023 및 해당 실기기/서명/접속 환경 준비; FR-002·004·005·008·SC-001·002·005. 검사/전달: 로컬 가상 기기 결과와 구분하고 기기의 `localhost`를 PC 주소로 쓰지 않는다. 현재 휴대폰 미정으로 이 확인만 대기한다. 이 작업은 T001–T030의 로컬 개발·검사 및 T033 전달을 막지 않는다. 물리 서버 현장 연결이 필요하면 준비된 환경에서 별도로 기록하며 운영 배포로 확장하지 않는다.
+- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T031; FR-001–009·SC-001–006. 검사/전달: 필수 결과가 모두 확인된 범위만 완료 표시한다. 실기기 필수 검사가 남으면001 전체 완료를 선언하지 않고 누락 작업/사유를 유지한다. 작업 체크·PR 병합·이슈 완료는 별도로 판단한다.
 - [ ] T033 [SHARED] `packages/contracts/README.md`, `specs/002-shared-contracts/quickstart.md`, `specs/development-roles.md`에 기반 도구/소비자 검사 결과와 후속003/004/006의 전달 링크를 갱신한다. 선행 T024·T030; FR-001·005·008·009. 검사/전달: 제품 계약 필드를 복사하지 않고 검증된 버전·소비 범위·미검증 항목만 연결한다.001 기반 완료를002 전체 합의나 제품 기능 완료로 바꾸지 않는다.
 
 ## 선행 관계와 진행 순서
 
 ```mermaid
 flowchart TD
-  A[공통 준비 T001~T003] --> B[계약 소비 기반 T004~T008]
-  B --> C[API·DB·worker T009~T012]
+  A[공통 준비 T001–T003] --> B[계약 소비 기반 T004–T008]
+  B --> C[API·DB·worker T009–T012]
   B --> D[웹 T013]
   B --> E[모바일 T014]
   B --> F[관리자 준비 절차 T016]
   E --> G[로컬 가상 기기 빌드 T015]
-  C --> H[health 검사·구현 T018~T019]
+  C --> H[health 검사·구현 T018–T019]
   D --> I[웹 소비 T020]
   E --> J[앱 소비 T021]
   H --> K[웹 실제 연결 T022]
@@ -110,9 +110,9 @@ flowchart TD
   J --> O
   H --> O
   N --> O
-  O --> P[설정 경계·재현·상태 T027~T029]
+  O --> P[설정 경계·재현·상태 T027–T029]
   P --> Q[실행 안내 T030]
-  M --> R[실기기 확인·최종 대조 T031~T032]
+  M --> R[실기기 확인·최종 대조 T031–T032]
   Q --> R
   M --> S[로컬 결과 전달 T033]
   Q --> S
@@ -144,17 +144,17 @@ flowchart TD
 
 | 요구사항 | 구현/준비 작업 | 핵심 확인 작업 |
 |---|---|---|
-| FR-001 작업 위치/역할 | T002·T007·T010~T014 | T017·T032·T033 |
-| FR-002 실제 명령/설정 | T001~T003·T010~T016·T026 | T017·T028·T030 |
+| FR-001 작업 위치/역할 | T002·T007·T010–T014 | T017·T032·T033 |
+| FR-002 실제 명령/설정 | T001–T003·T010–T016·T026 | T017·T028·T030 |
 | FR-003 개발 저장 | T009·T011·T012 | T017·T028 |
-| FR-004 앱/웹 연결 | T018~T021 | T022·T023·T024 |
-| FR-005 동일 계약 | T004~T008·T020·T021 | T024·T028·T033 |
-| FR-006 코드/문서 검사 | T003~T008·T025·T026 | T028·T030·T032 |
-| FR-007 비밀 분리 | T001~T003·T007·T010~T016·T019~T021 | T027·T032 |
-| FR-008 상태 구분 | T001·T008·T015~T017 | T022~T024·T027~T033 |
-| FR-009 기존 자료 보존 | T001~T003 | T028·T030~T033 |
-| SC-001 대상별 실행 | T010~T015 | T017 |
-| SC-002 연결 성공/불가 | T018~T021 | T022~T024 |
+| FR-004 앱/웹 연결 | T018–T021 | T022·T023·T024 |
+| FR-005 동일 계약 | T004–T008·T020·T021 | T024·T028·T033 |
+| FR-006 코드/문서 검사 | T003–T008·T025·T026 | T028·T030·T032 |
+| FR-007 비밀 분리 | T001–T003·T007·T010–T016·T019–T021 | T027·T032 |
+| FR-008 상태 구분 | T001·T008·T015–T017 | T022–T024·T027–T033 |
+| FR-009 기존 자료 보존 | T001–T003 | T028·T030–T033 |
+| SC-001 대상별 실행 | T010–T015 | T017 |
+| SC-002 연결 성공/불가 | T018–T021 | T022–T024 |
 | SC-003 저장 환경 재시작 | T009·T011·T012 | T017·T028 |
 | SC-004 검사 성공/실패/재실행 | T025·T026 | T027·T028·T030 |
 | SC-005 외부 미수행 구분 | T001·T015 | T017·T023·T024·T029·T031·T032 |
@@ -164,17 +164,17 @@ flowchart TD
 
 첫 결과(MVP)는 공통 준비·계약 생성·US1의 로컬 실행이다. 이어서 US2 로컬 연결·US3 재현 검사와 T033 후속 전달까지 로컬에서 진행한다. 실물 서버·휴대폰 미정으로 코드 개발을 기다리지 않는다. 실기기 확인 T031은 준비 뒤 별도로 진행하고 최종 T032에서 로컬 완료/외부 미수행을 구분한다. 실제 기기에서 수행하지 않은 검사를 통과로 바꾸지 않는다.
 
-역할별 이슈/PR로 묶을 때의 후보다. 현재 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)과 [공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)만 등록했고 실제 상위·서브 관계를 확인했다. 준비 문서는 [draft PR #3](https://github.com/trycatch98/Holdlog/pull/3)에 연결했다. #2는 ready·담당 미배정이며 T001~T008 구현은 아직 없다. 나머지 후보는 미등록이다. 선행 범위가 준비된 가까운 묶음부터 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 중복/담당/상태를 확인한다.
+역할별 이슈/PR로 묶을 때의 후보다. 현재 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)과 [공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)만 등록했고 실제 상위·서브 관계를 확인했다. 준비 문서는 [draft PR #3](https://github.com/trycatch98/Holdlog/pull/3)에 연결했다. #2는 ready·담당 미배정이며 T001–T008 구현은 아직 없다. 나머지 후보는 미등록이다. 선행 범위가 준비된 가까운 묶음부터 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 중복/담당/상태를 확인한다.
 
 | 작업 식별자 후보 | 역할·영역 | 포함 작업 | 결과 |
 |---|---|---|---|
-| 001/shared-foundation | SHARED·루트/계약 | T001~T008 | 버전·workspace·공통 생성/검사 기반 |
-| 001/backend-runtime | BE·API/DB/worker | T009~T012·T018·T019 | 실행·저장/queue·health |
+| 001/shared-foundation | SHARED·루트/계약 | T001–T008 | 버전·workspace·공통 생성/검사 기반 |
+| 001/backend-runtime | BE·API/DB/worker | T009–T012·T018·T019 | 실행·저장/queue·health |
 | 001/admin-runtime | FE·관리자 웹 | T013·T020 | 웹 실행·소비 검사 |
 | 001/mobile-runtime | FE·모바일 | T014·T015·T021 | 앱 준비·기기 빌드·소비 검사 |
 | 001/admin-bootstrap-guide | BE·준비 절차 | T016 |004에 넘길 비밀/계정 준비 절차 |
 | 001/check-commands | SHARED·공통 명령 | T025·T026 | 자동 검사/실행 명령 |
-| 001/foundation-integration | INTEGRATION·로컬 확인/문서 | T017·T022~T024·T027~T030 | 로컬 대상·연결·재현 증거 |
+| 001/foundation-integration | INTEGRATION·로컬 확인/문서 | T017·T022–T024·T027–T030 | 로컬 대상·연결·재현 증거 |
 | 001/device-verification | INTEGRATION·실기기 확인 | T031 | 기기 준비 뒤 실제 결과 확인, 로컬 개발과 별도 완료 |
 | 001/foundation-final-audit | INTEGRATION·최종 확인 | T032 | 전체 FR/SC·필수 증거·남은 범위 대조 |
 | 001/contracts-handoff | SHARED·계약 안내/역할 문서 | T033 | 검증한 범위와 후속 소비 조건 전달 |
