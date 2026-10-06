@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-01",
+  "status": "Figma 제작·390 이미지 검수 완료, 사용자 검토 대기",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "decisions": {
+    "scheduled": "선택한 3안: 모든 행 흰색, 시간 아래 별도 응답 줄",
+    "empty": "선택한 1안: 중앙 달력 그림·제목·안내",
+    "visibleItemLimit": 2,
+    "width": 390,
+    "scroll": "목록 내부만 세로 스크롤, 생성 버튼 고정",
+    "unansweredExample": "전체 화면 추가 없이 시트 인스턴스만 복사",
+    "responseColors": {
+      "Attending": "기존 보라색",
+      "Declined": "#B65D58 코랄",
+      "Unanswered": "기존 회색"
+    },
+    "prototypeNavigationRequired": false
+  },
+  "atoms": {
+    "createdNodeIds": [
+      "410:4332",
+      "410:4333",
+      "410:4334",
+      "410:4335",
+      "410:4336",
+      "410:4337",
+      "410:4338",
+      "410:4339",
+      "410:4340",
+      "410:4341",
+      "410:4342",
+      "410:4346",
+      "410:4348",
+      "410:4349",
+      "410:4350",
+      "410:4351",
+      "410:4352",
+      "410:4353",
+      "410:4357",
+      "410:4359",
+      "410:4360",
+      "410:4361",
+      "410:4362",
+      "410:4363",
+      "410:4366",
+      "410:4368",
+      "410:4369",
+      "410:4370",
+      "410:4371",
+      "410:4373",
+      "410:4374",
+      "410:4375",
+      "410:4376",
+      "410:4377",
+      "410:4383",
+      "410:4384",
+      "410:4386"
+    ],
+    "variableIds": [
+      "VariableID:410:4322",
+      "VariableID:410:4323",
+      "VariableID:410:4325",
+      "VariableID:410:4326",
+      "VariableID:410:4327",
+      "VariableID:410:4328",
+      "VariableID:410:4329",
+      "VariableID:410:4330",
+      "VariableID:410:4331"
+    ],
+    "section": "410:4332",
+    "captionMasters": {
+      "Link": "410:4333",
+      "Declined": "410:4335"
+    },
+    "iconSet": "410:4368",
+    "responseLineSet": "410:4369",
+    "responseLines": [
+      {
+        "id": "410:4341",
+        "name": "State=Attending",
+        "w": 105,
+        "h": 20
+      },
+      {
+        "id": "410:4352",
+        "name": "State=Declined",
+        "w": 105,
+        "h": 20
+      },
+      {
+        "id": "410:4362",
+        "name": "State=Unanswered",
+        "w": 160,
+        "h": 20
+      }
+    ],
+    "emptyState": "410:4376",
+    "emptyIcon": "410:4370",
+    "tokens": {
+      "coral": "VariableID:410:4323",
+      "muted": "VariableID:410:4325",
+      "sheet": "VariableID:410:4327",
+      "empty": "VariableID:410:4329",
+      "viewport": "VariableID:410:4331"
+    },
+    "reusedMutedPrimitive": "VariableID:4:7"
+  },
+  "compositions": {
+    "createdNodeIds": [
+      "414:4457",
+      "414:4481"
+    ],
+    "mutatedNodeIds": [
+      "414:4430",
+      "327:633",
+      "332:644",
+      "311:618",
+      "299:554",
+      "318:617",
+      "334:647",
+      "334:653",
+      "334:646"
+    ],
+    "removedNodeIds": [
+      "334:649",
+      "334:651",
+      "334:652",
+      "334:655"
+    ],
+    "declinedRow": "414:4401",
+    "viewport": "414:4430",
+    "list": "414:4457",
+    "rows": [
+      {
+        "id": "327:633",
+        "h": 124,
+        "y": 0,
+        "state": "SheetAttending",
+        "texts": [
+          "암장 미정",
+          "19:30",
+          "내가 참석해요",
+          "참여 3명 · 불참 1명 · 미응답 0명"
+        ]
+      },
+      {
+        "id": "311:618",
+        "h": 124,
+        "y": 125,
+        "state": "SheetDeclined",
+        "texts": [
+          "PEAK",
+          "그립 연남",
+          "20:00",
+          "내가 불참해요",
+          "참여 2명 · 불참 1명 · 미응답 1명"
+        ]
+      }
+    ],
+    "scrollingProof": {
+      "viewportHeight": 249,
+      "contentWithThreeHeight": 249,
+      "thirdY": 249,
+      "thirdHeight": 124,
+      "clips": true,
+      "overflow": "VERTICAL"
+    },
+    "scheduledHeight": 448,
+    "emptyHeight": 340
+  },
+  "sheets": [
+    {
+      "id": "349:1584",
+      "w": 390,
+      "h": 448,
+      "x": 0,
+      "y": 396,
+      "main": "299:554",
+      "texts": [
+        "9월 30일 수요일",
+        "일정 2개",
+        "이 날짜에 일정 만들기",
+        "암장 미정",
+        "19:30",
+        "내가 참석해요",
+        "참여 3명 · 불참 1명 · 미응답 0명",
+        "GRIP",
+        "그립 연남",
+        "20:00",
+        "내가 불참해요",
+        "참여 2명 · 불참 1명 · 미응답 1명"
+      ]
+    },
+    {
+      "id": "360:1634",
+      "w": 390,
+      "h": 340,
+      "x": 0,
+      "y": 504,
+      "main": "334:647",
+      "texts": [
+        "9월 28일 월요일",
+        "이 날짜에 일정 만들기",
+        "이 날짜에 일정이 없어요",
+        "함께할 일정을 만들어 보세요."
+      ]
+    },
+    {
+      "id": "414:4578",
+      "w": 390,
+      "h": 448,
+      "x": 1600,
+      "y": 1496,
+      "main": "299:554",
+      "texts": [
+        "9월 30일 수요일",
+        "일정 2개",
+        "이 날짜에 일정 만들기",
+        "암장 미정",
+        "19:30",
+        "아직 응답하지 않았어요",
+        "참여 2명 · 불참 1명 · 미응답 1명",
+        "GRIP",
+        "그립 연남",
+        "20:00",
+        "내가 불참해요",
+        "참여 2명 · 불참 1명 · 미응답 1명"
+      ]
+    }
+  ],
+  "verification": {
+    "removedNodeIds": [
+      "414:4685"
+    ],
+    "scrollProof": {
+      "height": 249,
+      "contentHeight": 373,
+      "thirdY": 249,
+      "thirdBottom": 373,
+      "clips": true,
+      "overflow": "VERTICAL"
+    },
+    "fontFamilies": [
+      {
+        "id": "I303:555;7:12",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I303:558;7:29",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I318:617;265:475;7:34",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I327:633;323:628;157:292",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I327:633;323:629;7:29",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I327:633;414:4394;410:4346;410:4334",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I327:633;323:630;7:29",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I311:618;414:4402;407:4187;407:4282",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I311:618;414:4406;157:292",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I311:618;414:4407;7:29",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I311:618;414:4408;410:4357;410:4336",
+        "font": "Noto Sans KR"
+      },
+      {
+        "id": "I311:618;414:4409;7:29",
+        "font": "Noto Sans KR"
+      }
+    ],
+    "instanceCount": 27,
+    "unchangedOtherScreens": [
+      {
+        "id": "123:310",
+        "identicalPng": true
+      },
+      {
+        "id": "123:479",
+        "identicalPng": true
+      },
+      {
+        "id": "118:160",
+        "identicalPng": true
+      },
+      {
+        "id": "123:221",
+        "identicalPng": true
+      }
+    ]
+  },
+  "pending": [
+    "사용자 검토",
+    "V07 로딩·조회 실패 상태"
+  ],
+  "scrollVerificationLimit": "Plugin API의 클리핑·세로 스크롤 설정 및 3항목 높이373/뷰포트249 확인. 실제 프로토타입 드래그 조작은 수행하지 않음."
+}

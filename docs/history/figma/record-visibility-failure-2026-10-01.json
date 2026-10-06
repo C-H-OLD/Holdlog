@@ -1,0 +1,1229 @@
+{
+  "date": "2026-10-01",
+  "status": "제작·검증 완료 / 사용자 검토 대기",
+  "rules": {
+    "visibilityNames": [
+      "공개",
+      "비공개"
+    ],
+    "visibilityIcons": [
+      "눈",
+      "자물쇠"
+    ],
+    "visibilitySize": [
+      88,
+      24
+    ],
+    "align": "아이콘16·글자영역36·화살표12·간격4, 세로 가운데",
+    "failure": "사진 위 붉은 덮개18%·테두리·중앙 다시 시도 아이콘. 실패 관련 문구 없음",
+    "retry": "중앙 아이콘을 눌러 해당 파일만 재시도. 오른쪽 위 ×로 제거",
+    "readOnly": "같은 공개 표시 부품에서 메뉴 화살표 숨김"
+  },
+  "newComponents": [
+    {
+      "id": "443:21734",
+      "name": "Primitive/Icon/Eye/Small"
+    },
+    {
+      "id": "443:21737",
+      "name": "Primitive/Icon/Retry/Regular"
+    },
+    {
+      "id": "443:21741",
+      "name": "Control/MediaRetry"
+    },
+    {
+      "id": "443:21744",
+      "name": "Data/MediaFailureEffect"
+    },
+    {
+      "id": "443:21907",
+      "name": "Primitive/MediaFailureTint"
+    }
+  ],
+  "checks": {
+    "failureTextCount": 0,
+    "oldVisibilityNameCount": 0
+  },
+  "audit": {
+    "audits": [
+      {
+        "id": "430:9338",
+        "nodes": 3948,
+        "instances": 1656,
+        "broken": [],
+        "textMismatch": [],
+        "missingStyle": [],
+        "brokenVars": [],
+        "textBounds": []
+      },
+      {
+        "id": "424:6061",
+        "nodes": 5187,
+        "instances": 2525,
+        "broken": [],
+        "textMismatch": [],
+        "missingStyle": [],
+        "brokenVars": [],
+        "textBounds": []
+      }
+    ],
+    "recordScreenCount": 25,
+    "allWidths390": true,
+    "screenOverlap": [],
+    "sectionOverlap": [],
+    "componentOverlap": [],
+    "screens": [
+      {
+        "number": "02.01.01",
+        "name": "02.01.01 기록 달력 / 기본",
+        "nodeId": "424:6062",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.01.02",
+        "name": "02.01.02 기록 달력 / 기록 없음",
+        "nodeId": "424:7217",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.02.01",
+        "name": "02.02.01 기록 목록 / 기본",
+        "nodeId": "424:6398",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.02.02",
+        "name": "02.02.02 기록 목록 / 필터 적용",
+        "nodeId": "424:6805",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.02.03",
+        "name": "02.02.03 기록 목록 / 기록 없음",
+        "nodeId": "424:7782",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.03.01",
+        "name": "02.03.01 날짜 기록 시트 / 방문 있음",
+        "nodeId": "430:12403",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.03.02",
+        "name": "02.03.02 날짜 기록 시트 / 기록 없음",
+        "nodeId": "430:12479",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.03.03",
+        "name": "02.03.03 날짜 기록 시트 / 내 기록 없음",
+        "nodeId": "430:12531",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.04.01",
+        "name": "02.04.01 개인 기록 작성 / 연결된 방문",
+        "nodeId": "430:12607",
+        "width": 390,
+        "height": 1234
+      },
+      {
+        "number": "02.04.02",
+        "name": "02.04.02 개인 기록 작성 / 독립 작성",
+        "nodeId": "430:12831",
+        "width": 390,
+        "height": 1234
+      },
+      {
+        "number": "02.04.03",
+        "name": "02.04.03 개인 기록 작성 / 수정",
+        "nodeId": "430:13026",
+        "width": 390,
+        "height": 1234
+      },
+      {
+        "number": "02.04.04",
+        "name": "02.04.04 개인 기록 작성 / 파일 업로드 실패",
+        "nodeId": "430:13250",
+        "width": 390,
+        "height": 1234
+      },
+      {
+        "number": "02.05.01",
+        "name": "02.05.01 개인 기록 상세 / 기본",
+        "nodeId": "430:13478",
+        "width": 390,
+        "height": 931
+      },
+      {
+        "number": "02.05.02",
+        "name": "02.05.02 개인 기록 상세 / 미입력",
+        "nodeId": "430:13601",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.06.01",
+        "name": "02.06.01 크루 방문 등록 / 기본",
+        "nodeId": "430:13703",
+        "width": 390,
+        "height": 850
+      },
+      {
+        "number": "02.06.02",
+        "name": "02.06.02 크루 방문 등록 / 연결된 방문 수정",
+        "nodeId": "430:13821",
+        "width": 390,
+        "height": 850
+      },
+      {
+        "number": "02.06.03",
+        "name": "02.06.03 크루 방문 등록 / 참석자 없음",
+        "nodeId": "430:13944",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.07.01",
+        "name": "02.07.01 실제 참석자 검색·추가 / 검색 결과",
+        "nodeId": "430:14025",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.07.02",
+        "name": "02.07.02 실제 참석자 검색·추가 / 선택됨",
+        "nodeId": "430:14094",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.07.03",
+        "name": "02.07.03 실제 참석자 검색·추가 / 검색 결과 없음",
+        "nodeId": "430:14174",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.08.01",
+        "name": "02.08.01 크루 방문 상세 / 내 기록 연결 안 됨",
+        "nodeId": "430:14234",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.08.02",
+        "name": "02.08.02 크루 방문 상세 / 내 기록 연결됨",
+        "nodeId": "430:14336",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.08.03",
+        "name": "02.08.03 크루 방문 상세 / 내 기록 미입력",
+        "nodeId": "430:14438",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.08.04",
+        "name": "02.08.04 크루 방문 상세 / 나는 불참",
+        "nodeId": "430:14540",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "02.03.04",
+        "name": "02.03.04 날짜 기록 시트 / 기록 종류 선택",
+        "nodeId": "434:17009",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "components": [
+      {
+        "id": "430:9339",
+        "name": "Primitive/Icon/Lock/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:9343",
+        "name": "Primitive/Icon/Search/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:9347",
+        "name": "Primitive/Icon/Camera/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:9408",
+        "name": "Data/RecordChipAvatar",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:9801",
+        "name": "Control/MediaAdd",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:16135",
+        "name": "Primitive/Icon/UserPlus/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:16154",
+        "name": "Primitive/Icon/Condition",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9375",
+            "name": "Level=매우 나쁨 , Tone=Secondary"
+          },
+          {
+            "id": "430:9381",
+            "name": "Level=나쁨 , Tone=Secondary"
+          },
+          {
+            "id": "430:9387",
+            "name": "Level=보통 , Tone=Secondary"
+          },
+          {
+            "id": "430:9393",
+            "name": "Level=좋음 , Tone=Primary"
+          },
+          {
+            "id": "430:9399",
+            "name": "Level=매우 좋음 , Tone=Secondary"
+          },
+          {
+            "id": "430:16271",
+            "name": "Level=좋음, Tone=Secondary"
+          }
+        ]
+      },
+      {
+        "id": "430:16155",
+        "name": "Primitive/DifficultyDot/Example",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9364",
+            "name": "Grade=1"
+          },
+          {
+            "id": "430:9366",
+            "name": "Grade=2"
+          },
+          {
+            "id": "430:9368",
+            "name": "Grade=3"
+          },
+          {
+            "id": "430:9370",
+            "name": "Grade=4"
+          },
+          {
+            "id": "430:9372",
+            "name": "Grade=5"
+          },
+          {
+            "id": "430:9374",
+            "name": "Grade=6"
+          },
+          {
+            "id": "437:17387",
+            "name": "Grade=7"
+          },
+          {
+            "id": "437:17388",
+            "name": "Grade=8"
+          },
+          {
+            "id": "437:17389",
+            "name": "Grade=9"
+          },
+          {
+            "id": "437:17390",
+            "name": "Grade=10"
+          },
+          {
+            "id": "437:17391",
+            "name": "Grade=11"
+          }
+        ]
+      },
+      {
+        "id": "430:16156",
+        "name": "Data/AttendeeChip",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9411",
+            "name": "Person=민수 · 나"
+          },
+          {
+            "id": "430:9420",
+            "name": "Person=지연"
+          },
+          {
+            "id": "430:9429",
+            "name": "Person=수빈"
+          },
+          {
+            "id": "430:9438",
+            "name": "Person=도윤"
+          }
+        ]
+      },
+      {
+        "id": "430:16157",
+        "name": "Data/AttendeeRecordRow",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9447",
+            "name": "State=Unlinked, Person=민수 · 나"
+          },
+          {
+            "id": "430:9463",
+            "name": "State=Linked, Person=민수 · 나"
+          },
+          {
+            "id": "430:9477",
+            "name": "State=Missing, Person=민수 · 나"
+          },
+          {
+            "id": "430:9491",
+            "name": "State=Member, Person=지연"
+          },
+          {
+            "id": "430:9505",
+            "name": "State=Member, Person=수빈"
+          },
+          {
+            "id": "430:9519",
+            "name": "State=Search, Person=도윤"
+          },
+          {
+            "id": "430:9530",
+            "name": "State=Selected, Person=도윤"
+          }
+        ]
+      },
+      {
+        "id": "430:16158",
+        "name": "Data/RecordDayVisit",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9543",
+            "name": "State=HasRecord"
+          },
+          {
+            "id": "430:9568",
+            "name": "State=NoRecordNotAttending"
+          },
+          {
+            "id": "430:9591",
+            "name": "State=NoRecordAttending"
+          },
+          {
+            "id": "430:9616",
+            "name": "State=Personal"
+          }
+        ]
+      },
+      {
+        "id": "430:16159",
+        "name": "Data/MediaThumbnail",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9797",
+            "name": "Kind=Photo, Size=Compact"
+          },
+          {
+            "id": "430:9799",
+            "name": "Kind=Video, Size=Compact"
+          },
+          {
+            "id": "430:12327",
+            "name": "Kind=Photo, Size=Wide"
+          },
+          {
+            "id": "430:12329",
+            "name": "Kind=Video, Size=Wide"
+          }
+        ]
+      },
+      {
+        "id": "430:16160",
+        "name": "Data/MediaFile",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9808",
+            "name": "Kind=Photo, State=Selected"
+          },
+          {
+            "id": "430:9818",
+            "name": "Kind=Video, State=Selected"
+          },
+          {
+            "id": "430:9828",
+            "name": "Kind=Video, State=Failure"
+          },
+          {
+            "id": "430:9840",
+            "name": "Kind=Photo, State=Shared"
+          },
+          {
+            "id": "430:9845",
+            "name": "Kind=Video, State=Shared"
+          },
+          {
+            "id": "430:12190",
+            "name": "Kind=Photo, State=ReadOnly"
+          },
+          {
+            "id": "430:12196",
+            "name": "Kind=Photo, State=CrewEdit"
+          },
+          {
+            "id": "430:12207",
+            "name": "Kind=Video, State=ReadOnly"
+          },
+          {
+            "id": "430:12217",
+            "name": "Kind=Video, State=CrewEdit"
+          }
+        ]
+      },
+      {
+        "id": "430:16161",
+        "name": "Overlay/RecordDaySheet",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9633",
+            "name": "State=Visits"
+          },
+          {
+            "id": "430:9699",
+            "name": "State=Empty"
+          },
+          {
+            "id": "430:9731",
+            "name": "State=NoRecord"
+          }
+        ]
+      },
+      {
+        "id": "430:16162",
+        "name": "Data/RecordMedia",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9850",
+            "name": "State=Edit"
+          },
+          {
+            "id": "430:9878",
+            "name": "State=Failure"
+          },
+          {
+            "id": "430:9908",
+            "name": "State=Shared"
+          },
+          {
+            "id": "430:9919",
+            "name": "State=Empty"
+          },
+          {
+            "id": "430:12228",
+            "name": "State=Detail"
+          },
+          {
+            "id": "430:12245",
+            "name": "State=CrewEdit"
+          }
+        ]
+      },
+      {
+        "id": "430:16163",
+        "name": "Data/RecordGradeGrid",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:9927",
+            "name": "State=Input"
+          },
+          {
+            "id": "430:9990",
+            "name": "State=Detail"
+          },
+          {
+            "id": "430:10035",
+            "name": "State=Blank"
+          },
+          {
+            "id": "430:10098",
+            "name": "State=Missing"
+          }
+        ]
+      },
+      {
+        "id": "430:16164",
+        "name": "Control/RecordCondition",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:10143",
+            "name": "State=Selected"
+          },
+          {
+            "id": "430:10189",
+            "name": "State=Blank"
+          },
+          {
+            "id": "430:10235",
+            "name": "State=Detail"
+          },
+          {
+            "id": "430:10246",
+            "name": "State=Missing"
+          }
+        ]
+      },
+      {
+        "id": "430:16165",
+        "name": "Control/RecordVisitFields",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:10251",
+            "name": "State=Linked"
+          },
+          {
+            "id": "430:10295",
+            "name": "State=Independent"
+          }
+        ]
+      },
+      {
+        "id": "430:16166",
+        "name": "Record/PersonalForm",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:10338",
+            "name": "State=Linked"
+          },
+          {
+            "id": "430:10544",
+            "name": "State=Independent"
+          },
+          {
+            "id": "430:10724",
+            "name": "State=Edit"
+          },
+          {
+            "id": "430:10930",
+            "name": "State=UploadFailure"
+          }
+        ]
+      },
+      {
+        "id": "430:16167",
+        "name": "Record/PersonalDetail",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:11140",
+            "name": "State=Default"
+          },
+          {
+            "id": "430:11262",
+            "name": "State=Missing"
+          }
+        ]
+      },
+      {
+        "id": "430:16168",
+        "name": "Record/CrewVisitForm",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:11352",
+            "name": "State=Create"
+          },
+          {
+            "id": "430:11468",
+            "name": "State=EditLinked"
+          },
+          {
+            "id": "430:11589",
+            "name": "State=NoAttendees"
+          }
+        ]
+      },
+      {
+        "id": "430:16169",
+        "name": "Overlay/AttendeeSearchSheet",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:11659",
+            "name": "State=Search"
+          },
+          {
+            "id": "430:11720",
+            "name": "State=Selected"
+          },
+          {
+            "id": "430:11792",
+            "name": "State=NoResult"
+          }
+        ]
+      },
+      {
+        "id": "430:16170",
+        "name": "Record/CrewVisitDetail",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "430:11844",
+            "name": "State=Unlinked"
+          },
+          {
+            "id": "430:11934",
+            "name": "State=Linked"
+          },
+          {
+            "id": "430:12024",
+            "name": "State=Missing"
+          },
+          {
+            "id": "430:12114",
+            "name": "State=NotAttending"
+          }
+        ]
+      },
+      {
+        "id": "430:16247",
+        "name": "Primitive/Icon/Close/Small",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:16250",
+        "name": "Primitive/Icon/Close/Medium",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "430:16436",
+        "name": "Data/PlaceStamp/PeakExample",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "147:223",
+            "name": "Size=44"
+          },
+          {
+            "id": "430:16422",
+            "name": "Size=38"
+          },
+          {
+            "id": "430:16429",
+            "name": "Size=48"
+          }
+        ]
+      },
+      {
+        "id": "430:16459",
+        "name": "Data/PlaceStamp/PeakOutlineExample",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "424:5024",
+            "name": "Size=44"
+          },
+          {
+            "id": "430:16445",
+            "name": "Size=38"
+          },
+          {
+            "id": "430:16452",
+            "name": "Size=48"
+          }
+        ]
+      },
+      {
+        "id": "430:16478",
+        "name": "Data/PlaceStamp/GripOutlineExample",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "424:5030",
+            "name": "Size=44"
+          },
+          {
+            "id": "430:16464",
+            "name": "Size=38"
+          },
+          {
+            "id": "430:16471",
+            "name": "Size=48"
+          }
+        ]
+      },
+      {
+        "id": "430:16497",
+        "name": "Data/PlaceStamp/PeakCoralExample",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "202:725",
+            "name": "Size=44"
+          },
+          {
+            "id": "430:16483",
+            "name": "Size=38"
+          },
+          {
+            "id": "430:16490",
+            "name": "Size=48"
+          }
+        ]
+      },
+      {
+        "id": "430:16516",
+        "name": "Data/PlaceStamp/GripExample",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "147:230",
+            "name": "Size=44"
+          },
+          {
+            "id": "430:16502",
+            "name": "Size=38"
+          },
+          {
+            "id": "430:16509",
+            "name": "Size=48"
+          }
+        ]
+      },
+      {
+        "id": "434:16995",
+        "name": "Overlay/RecordKindDialog",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "437:18210",
+        "name": "Control/PickerRow/Locked",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "437:18949",
+        "name": "Primitive/Text/Body/Right/Tone=Link",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "437:19790",
+        "name": "Primitive/Text/Caption/Right/Tone=Secondary",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "438:19801",
+        "name": "Primitive/Text/ConditionLabel",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "438:19797",
+            "name": "Tone=Secondary"
+          },
+          {
+            "id": "438:19799",
+            "name": "Tone=Link"
+          }
+        ]
+      },
+      {
+        "id": "438:19852",
+        "name": "Data/FieldLabel/Compact",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "438:20077",
+        "name": "Control/VisitInputGroup",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "438:19859",
+            "name": "State=Independent"
+          },
+          {
+            "id": "438:19910",
+            "name": "State=Linked"
+          },
+          {
+            "id": "438:19966",
+            "name": "State=Crew"
+          },
+          {
+            "id": "438:20020",
+            "name": "State=CrewLocked"
+          }
+        ]
+      },
+      {
+        "id": "439:20350",
+        "name": "Primitive/Text/CaptionCentered",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "442:21294",
+        "name": "Control/RecordVisibility",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "442:21272",
+            "name": "Scope=Public"
+          },
+          {
+            "id": "442:21278",
+            "name": "Scope=Private"
+          }
+        ]
+      },
+      {
+        "id": "442:21295",
+        "name": "Control/MediaRemove",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "443:21734",
+        "name": "Primitive/Icon/Eye/Small",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "443:21737",
+        "name": "Primitive/Icon/Retry/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "443:21741",
+        "name": "Control/MediaRetry",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "443:21744",
+        "name": "Data/MediaFailureEffect",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "443:21907",
+        "name": "Primitive/MediaFailureTint",
+        "type": "COMPONENT"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VariableID:420:4991",
+        "name": "Section/Record",
+        "values": {
+          "420:0": {
+            "r": 0.9098039269447327,
+            "g": 0.9607843160629272,
+            "b": 0.9333333373069763,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:423:5012",
+        "name": "Size/RecordListRowHeight",
+        "values": {
+          "4:1": 80
+        }
+      },
+      {
+        "id": "VariableID:423:5013",
+        "name": "Size/RecordViewportHeight",
+        "values": {
+          "4:1": 530
+        }
+      },
+      {
+        "id": "VariableID:423:5014",
+        "name": "Size/RecordFilterHeight",
+        "values": {
+          "4:1": 32
+        }
+      },
+      {
+        "id": "VariableID:429:9124",
+        "name": "Size/RecordCalendarStampAreaHeight",
+        "values": {
+          "4:1": 60
+        }
+      },
+      {
+        "id": "VariableID:430:9357",
+        "name": "Size/RecordGradeCellWidth",
+        "values": {
+          "4:1": 110
+        }
+      },
+      {
+        "id": "VariableID:430:9358",
+        "name": "Size/RecordMediaTile",
+        "values": {
+          "4:1": 104
+        }
+      },
+      {
+        "id": "VariableID:430:9359",
+        "name": "Size/RecordConditionOptionWidth",
+        "values": {
+          "4:1": 64
+        }
+      },
+      {
+        "id": "VariableID:430:9360",
+        "name": "Size/RecordSheetHeight",
+        "values": {
+          "4:1": 420
+        }
+      },
+      {
+        "id": "VariableID:430:9361",
+        "name": "Size/AttendeeSearchSheetHeight",
+        "values": {
+          "4:1": 448
+        }
+      },
+      {
+        "id": "VariableID:430:9362",
+        "name": "Size/RecordChipHeight",
+        "values": {
+          "4:1": 40
+        }
+      },
+      {
+        "id": "VariableID:430:9363",
+        "name": "Color/Difficulty/Example/1",
+        "values": {
+          "4:1": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:9365",
+        "name": "Color/Difficulty/Example/2",
+        "values": {
+          "4:1": {
+            "r": 1,
+            "g": 0.7490196228027344,
+            "b": 0.10196078568696976,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:9367",
+        "name": "Color/Difficulty/Example/3",
+        "values": {
+          "4:1": {
+            "r": 1,
+            "g": 0.5529412031173706,
+            "b": 0.10196078568696976,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:9369",
+        "name": "Color/Difficulty/Example/4",
+        "values": {
+          "4:1": {
+            "r": 0.12941177189350128,
+            "g": 0.7490196228027344,
+            "b": 0.3490196168422699,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:9371",
+        "name": "Color/Difficulty/Example/5",
+        "values": {
+          "4:1": {
+            "r": 0.16078431904315948,
+            "g": 0.4588235318660736,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:9373",
+        "name": "Color/Difficulty/Example/6",
+        "values": {
+          "4:1": {
+            "r": 1,
+            "g": 0.1882352977991104,
+            "b": 0.1882352977991104,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:12335",
+        "name": "Color/Status/Success",
+        "values": {
+          "4:1": {
+            "r": 0.12999999523162842,
+            "g": 0.7200000286102295,
+            "b": 0.3199999928474426,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:430:16119",
+        "name": "Space/6",
+        "values": {
+          "4:1": 6
+        }
+      },
+      {
+        "id": "VariableID:430:16120",
+        "name": "Size/RecordChipWidth",
+        "values": {
+          "4:1": 108
+        }
+      },
+      {
+        "id": "VariableID:430:16121",
+        "name": "Size/RecordChipAvatar",
+        "values": {
+          "4:1": 28
+        }
+      },
+      {
+        "id": "VariableID:430:16122",
+        "name": "Size/RecordMediaWideWidth",
+        "values": {
+          "4:1": 169
+        }
+      },
+      {
+        "id": "VariableID:430:16123",
+        "name": "Size/RecordMediaWideHeight",
+        "values": {
+          "4:1": 96
+        }
+      },
+      {
+        "id": "VariableID:430:16124",
+        "name": "Size/RecordMediaPreviewHeight",
+        "values": {
+          "4:1": 80
+        }
+      },
+      {
+        "id": "VariableID:430:16125",
+        "name": "Size/RecordConditionOptionHeight",
+        "values": {
+          "4:1": 64
+        }
+      },
+      {
+        "id": "VariableID:437:17382",
+        "name": "Color/Difficulty/Example/7",
+        "values": {
+          "4:1": {
+            "r": 0.9450980424880981,
+            "g": 0.4274509847164154,
+            "b": 0.6509804129600525,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:437:17383",
+        "name": "Color/Difficulty/Example/8",
+        "values": {
+          "4:1": {
+            "r": 0.5686274766921997,
+            "g": 0.22745098173618317,
+            "b": 0.7568627595901489,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:437:17384",
+        "name": "Color/Difficulty/Example/9",
+        "values": {
+          "4:1": {
+            "r": 0.545098066329956,
+            "g": 0.5568627715110779,
+            "b": 0.6000000238418579,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:437:17385",
+        "name": "Color/Difficulty/Example/10",
+        "values": {
+          "4:1": {
+            "r": 0.5764706134796143,
+            "g": 0.3803921639919281,
+            "b": 0.24313725531101227,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:437:17386",
+        "name": "Color/Difficulty/Example/11",
+        "values": {
+          "4:1": {
+            "r": 0.13333334028720856,
+            "g": 0.13725490868091583,
+            "b": 0.16470588743686676,
+            "a": 1
+          }
+        }
+      }
+    ],
+    "references": [
+      "08-unified-day-sheet-proposal.png",
+      "19-record-create-v3.png",
+      "18-record-detail-v2.png",
+      "20-crew-visit-create-v4.png",
+      "22-attendee-search-sheet-v2.png",
+      "21-crew-visit-detail-v2.png"
+    ]
+  },
+  "latestReport": "record-photo-icon-2026-10-01.json"
+}

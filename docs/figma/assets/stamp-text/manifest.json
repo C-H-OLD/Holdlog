@@ -1,0 +1,34 @@
+[
+  {
+    "node": "147:223",
+    "graphicOnly": "docs/figma/assets/stamp-text/stamp-peak-example-graphic-only.svg",
+    "historicalSource": "docs/figma/assets/v05-svg/stamp-peak-example.svg",
+    "labelComponentSet": "407:4284",
+    "textProperty": "Content#407:2",
+    "note": "그림 SVG만 사용하고 글자는 공통 Figma 텍스트 인스턴스로 조립. 공식 브랜드 원본 아님."
+  },
+  {
+    "node": "147:230",
+    "graphicOnly": "docs/figma/assets/stamp-text/stamp-grip-example-graphic-only.svg",
+    "historicalSource": "docs/figma/assets/v05-svg/stamp-grip-example.svg",
+    "labelComponentSet": "407:4284",
+    "textProperty": "Content#407:2",
+    "note": "그림 SVG만 사용하고 글자는 공통 Figma 텍스트 인스턴스로 조립. 공식 브랜드 원본 아님."
+  },
+  {
+    "node": "202:725",
+    "graphicOnly": "docs/figma/assets/stamp-text/stamp-peak-coral-example-graphic-only.svg",
+    "historicalSource": "docs/figma/assets/v06-svg/stamp-peak-coral-example.svg",
+    "labelComponentSet": "407:4284",
+    "textProperty": "Content#407:2",
+    "note": "그림 SVG만 사용하고 글자는 공통 Figma 텍스트 인스턴스로 조립. 공식 브랜드 원본 아님."
+  },
+  {
+    "node": "224:899",
+    "graphicOnly": "docs/figma/assets/stamp-text/stamp-grip-mountain-example-graphic-only.svg",
+    "historicalSource": "docs/figma/assets/v06-svg/stamp-grip-mountain-example.svg",
+    "labelComponentSet": "407:4284",
+    "textProperty": "Content#407:2",
+    "note": "그림 SVG만 사용하고 글자는 공통 Figma 텍스트 인스턴스로 조립. 공식 브랜드 원본 아님."
+  }
+]

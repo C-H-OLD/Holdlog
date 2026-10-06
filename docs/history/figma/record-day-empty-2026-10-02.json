@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-02",
+  "status": "제작·검증 완료 / 사용자 검토 대기",
+  "screen": "430:12479",
+  "referenceScreen": "123:922",
+  "componentSet": "537:32035",
+  "componentName": "Data/DaySheetEmptyState",
+  "scheduleVariant": "410:4376",
+  "recordVariant": "537:32023",
+  "sourceInstance": "537:32036",
+  "sideSpecification": "493:44721",
+  "emptySize": [
+    350,
+    136
+  ],
+  "iconSize": [
+    48,
+    48
+  ],
+  "sheetPosition": [
+    20,
+    100
+  ],
+  "title": "이 날짜에 기록이 없어요",
+  "newNumberedScreens": 0,
+  "changes": [
+    "왼쪽 작은 문구를 중앙 달력 그림·굵은 제목으로 변경",
+    "일정·기록 빈 상태를 같은 원본 묶음의 Context 변형으로 정리",
+    "기록에는 새 보조 안내 문구를 추가하지 않음",
+    "기록 작성 버튼·시트 높이 유지"
+  ],
+  "validation": {
+    "width": 390,
+    "brokenInstances": [],
+    "componentOverlap": [],
+    "sideOverlap": [],
+    "scheduleAppearancePreserved": true
+  },
+  "photo": "../../figma/assets/record-day-empty-2026-10-02/record.png"
+}

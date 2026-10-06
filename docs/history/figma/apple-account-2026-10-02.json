@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-02",
+  "commentId": "1950387064",
+  "commentRequest": "애플 계정 case 도 추가해주세요",
+  "replyDetail": "Apple 계정 & 애플 아이콘",
+  "baseScreen": "17:3",
+  "specimen": {
+    "id": "529:31281",
+    "name": "05.02 로그인 계정 / Apple 부품 견본",
+    "x": 964,
+    "y": 1740,
+    "w": 390,
+    "h": 128
+  },
+  "component": {
+    "id": "529:31278",
+    "name": "Primitive/Icon/Apple/OnLight"
+  },
+  "reusedComponent": "11:63",
+  "instance": "529:31282",
+  "photo": "../../figma/assets/apple-account-2026-10-02/apple-account.png",
+  "newNumberedScreens": 0,
+  "newNumberedStates": 0,
+  "validation": {
+    "width": 390,
+    "height": 128,
+    "providerIconSize": [
+      32,
+      32
+    ],
+    "missingSources": [],
+    "overlaps": [],
+    "screenshotVerified": true
+  },
+  "status": "사용자 검토 대기"
+}

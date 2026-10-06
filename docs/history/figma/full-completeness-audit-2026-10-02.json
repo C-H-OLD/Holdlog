@@ -1,0 +1,19 @@
+{
+  "mobileGroups": 38,
+  "mobileStates": 83,
+  "webGroups": 2,
+  "webStates": 3,
+  "specifications": 40,
+  "non390Mobile": [],
+  "missingNumberedStates": [],
+  "unlistedStates": [],
+  "missingMobileSpecs": [],
+  "scope": "40개 기본 시안 사진 확인, 86개 상태 목록·너비·명세 대조. 실제 앱 동작 및 모든 상태의 픽셀 단위 검수 제외",
+  "figmaMutated": false,
+  "findings": [
+    "A02 새 브랜드 이름 입력 진입점",
+    "A02 기존 암장 불러오기·수정 저장 진입점",
+    "작성 중 나가기 공통 확인 견본",
+    "현재 명세와 과거 설명·내부 번호 불일치"
+  ]
+}

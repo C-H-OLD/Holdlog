@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-02",
+  "status": "제작·검증 완료 / 사용자 검토 대기",
+  "componentSet": "533:31985",
+  "defaultComponent": "424:5196",
+  "appliedComponent": "533:31982",
+  "size": {
+    "default": [
+      24,
+      24
+    ],
+    "applied": [
+      76,
+      32
+    ]
+  },
+  "tokens": {
+    "background": "Color/Surface/Highlight",
+    "labelAndIcon": "Color/Action/Primary",
+    "corner": "Radius/8",
+    "padding": "Space/4"
+  },
+  "screens": [
+    {
+      "id": "424:7217",
+      "number": "02.01.02",
+      "example": "9월1~2일 적용 후 기록 없음",
+      "instance": "I429:9276;429:9153",
+      "state": "Applied",
+      "appliedConditionKinds": 1
+    },
+    {
+      "id": "424:6805",
+      "number": "02.02.02",
+      "example": "피크 성수 조건 적용",
+      "instance": "I429:9236;429:9153",
+      "state": "Applied",
+      "appliedConditionKinds": 1
+    }
+  ],
+  "preservedDefault": "424:6062",
+  "sideSpecifications": [
+    {
+      "id": "493:44646",
+      "height": 780
+    },
+    {
+      "id": "493:44676",
+      "height": 660
+    },
+    {
+      "id": "497:45927",
+      "height": 636
+    }
+  ],
+  "rules": [
+    "기본값과 다른 조건 적용 시 필터 N × 표시. N은 날짜·암장·참석자 조건 종류 수(1~3). 기본값은 세지 않고 여러 참석자도 한 종류로 계산",
+    "글자 영역은 현재 조건이 선택된 시트를 연다",
+    "×는 시트를 열지 않고 모든 추가 조건을 즉시 해제한다",
+    "해제 시 날짜는 현재 월 전체, 암장·참석자는 전체로 복귀",
+    "현재 월·크루·범위 탭·보기 방식 유지",
+    "임시 선택·닫기는 기존 적용 상태 유지",
+    "시트 초기화 후 적용하면 기본 상태 복귀"
+  ],
+  "newNumberedScreens": 0,
+  "photos": [
+    "../../figma/assets/record-filter-applied-2026-10-02/applied.png",
+    "../../figma/assets/record-filter-applied-2026-10-02/list.png",
+    "../../figma/assets/record-filter-applied-2026-10-02/component.png"
+  ],
+  "validation": {
+    "visualReview": "390 달력·목록에서 필터 적용 글자와 ×, 한 줄 월 이동, 보기 전환 간격·겹침 확인",
+    "brokenInstances": [],
+    "componentOverlap": [],
+    "sideSpecificationOverlap": [],
+    "runtimeBehaviorTested": false
+  },
+  "revision": "필터 적용 ×의 크기·강조를 줄여 필터 N ×,76×32,연보라 배경으로 교정",
+  "primitives": {
+    "label": "533:31990",
+    "closeIcon": "533:31992"
+  },
+  "controls": {
+    "open": "533:31999",
+    "clear": "533:31995"
+  }
+}

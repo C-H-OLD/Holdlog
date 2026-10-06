@@ -1,0 +1,1581 @@
+{
+  "date": "2026-10-02",
+  "tool": "figma-console MCP",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "scope": [
+    "06.02",
+    "06.03",
+    "06.04",
+    "06.05",
+    "06.06",
+    "06.07",
+    "06.08",
+    "06.09"
+  ],
+  "status": "상태 화면 정리·공통 부품 교정·390 PNG 검수 완료 / 사용자 검토 대기",
+  "screens": [
+    {
+      "id": "109:89",
+      "name": "06.01.01 크루 정보 / 일반 회원",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "475:33651",
+      "name": "06.01.02 크루 정보 / 관리자",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "477:34402",
+      "name": "06.02.01 크루원 목록 / 기본",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "477:34510",
+      "name": "06.02.02 크루원 목록 / 검색 결과 없음",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:35317",
+      "name": "06.03.01 내 크루 목록 / 기본",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:35423",
+      "name": "06.03.02 내 크루 목록 / 가입 크루 없음",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:35936",
+      "name": "06.04.01 크루 만들기 / 입력 완료",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:36581",
+      "name": "06.05.01 초대 코드 입력 / 빈 입력",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:36995",
+      "name": "06.06.01 QR 스캔 / 기본",
+      "width": 390,
+      "height": 852
+    },
+    {
+      "id": "478:37564",
+      "name": "06.07.01 초대 가입 확인 / 기본",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:38215",
+      "name": "06.08.01 초대 공유 / 기본",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:39499",
+      "name": "06.09.01 관리자 넘기기 / 선택 완료",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:39721",
+      "name": "06.09.02 관리자 넘기기 / 대상 없음",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:41934",
+      "name": "06.10.01 크루 선택창 / 일정 위",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:42265",
+      "name": "06.10.02 크루 선택창 / 기록 위",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "478:42635",
+      "name": "06.10.03 크루 선택창 / 많은 크루",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "483:43717",
+      "name": "06.06.02 QR 스캔 / 다이얼로그",
+      "width": 390,
+      "height": 852
+    },
+    {
+      "id": "487:43945",
+      "name": "06.07.02 초대 가입 확인 / 다이얼로그",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "487:44070",
+      "name": "06.09.03 관리자 넘기기 / 다이얼로그",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "examples": [
+    {
+      "id": "483:43667",
+      "name": "06.04 부품 상태"
+    },
+    {
+      "id": "483:43690",
+      "name": "06.05 부품 상태"
+    },
+    {
+      "id": "483:43726",
+      "name": "06.07 부품 상태"
+    }
+  ],
+  "instanceCount": 950,
+  "broken": [],
+  "buttonText": [
+    "크루 만들기"
+  ],
+  "forbidden": [],
+  "removedFrameIds": [
+    "477:34582",
+    "477:34644",
+    "477:34709",
+    "478:35487",
+    "478:35993",
+    "478:36046",
+    "478:36099",
+    "478:36622",
+    "478:36663",
+    "478:36704",
+    "478:36745",
+    "478:37024",
+    "478:37058",
+    "478:37596",
+    "478:37628",
+    "478:37651",
+    "478:37674",
+    "478:37697",
+    "478:37729",
+    "478:38274",
+    "478:38336",
+    "478:38398",
+    "478:38415",
+    "478:39569",
+    "478:39638",
+    "478:39749",
+    "478:39821",
+    "478:39846",
+    "478:39918"
+  ],
+  "removedSourceIds": [
+    "475:34206",
+    "475:34269",
+    "475:34335",
+    "478:35217",
+    "478:35802",
+    "478:35844",
+    "478:35886",
+    "478:36420",
+    "478:36460",
+    "478:36500",
+    "478:36540",
+    "478:36930",
+    "478:36963",
+    "478:37267",
+    "478:37299",
+    "478:37323",
+    "478:37347",
+    "478:37371",
+    "478:37403",
+    "478:38056",
+    "478:38119",
+    "478:38182",
+    "478:38198",
+    "478:38950",
+    "478:39286",
+    "478:39047",
+    "478:39119",
+    "478:39144",
+    "478:39216",
+    "475:33938",
+    "475:33965",
+    "475:33995",
+    "478:34993",
+    "478:35640",
+    "478:35676",
+    "478:35712",
+    "478:36243",
+    "478:36277",
+    "478:36311",
+    "478:36345",
+    "478:36841",
+    "478:36872",
+    "478:37132",
+    "478:37153",
+    "478:37166",
+    "478:37179",
+    "478:37192",
+    "478:37213",
+    "478:37872",
+    "478:37923",
+    "478:37974",
+    "478:37984",
+    "478:38579",
+    "478:38664",
+    "478:38730",
+    "478:38749",
+    "478:38815",
+    "475:33815",
+    "475:33818",
+    "478:35584",
+    "478:36197",
+    "478:37814"
+  ],
+  "components": {
+    "Overlay/IssueDialog": "483:43600",
+    "Control/CopyButton": "483:43614",
+    "Control/CopyButton/Copied": "483:43606",
+    "Overlay/AdminTransferConfirmDialog": "478:38502",
+    "Overlay/CenteredDialogPresentation": "487:43830"
+  },
+  "rules": [
+    "로딩·실패·저장 중 등 상태를 임의로 별도 화면으로 만들지 않는다.",
+    "요소 상태는 기본 화면 옆에 해당 부품만 인스턴스로 표시한다.",
+    "다이얼로그는 기존 화면 위에 겹친 대표 시안1개로 확인하고, 추가 메시지 상태는 다이얼로그 부품만 옆에 표시한다.",
+    "QR은 연속 스캔하며 다시 스캔 버튼을 두지 않는다.",
+    "복사 완료는 누른 복사 버튼을 초록색 복사됨으로 변경한다.",
+    "권한이 없으면 화면 진입을 막는다. 별도 권한 없음 화면을 만들지 않는다.",
+    "먼저 기본 시안 안에서 필요한 상태가 이미 보이는지 확인한다. 한 화면에서 선택·미선택 등 모든 상태를 보여주고 있으면 **화면도 부품 견본도 추가로 만들지 않는다.** 기본 시안에 없는 상태만 필요할 때 변하는 부품을 옆에 표시한다. 상태가 있다는 이유만으로 각각을 반드시 제작하지 않는다.",
+    "같은 역할의 요소가 한 화면에 여러 개 있으면 **그 요소들에 서로 다른 상태를 나눠 표시하여 한 시안 안에서 확인한다.** 예:06.08.01에서 코드 버튼은 초록색 ‘복사됨’, 링크 버튼은 ‘복사’로 표시한다. 이미 화면 안에서 비교할 수 있는 상태의 별도 화면·부품 견본은 만들지 않는다."
+  ],
+  "proofDirectory": "./assets/crew-state-policy-2026-10-02",
+  "verification": {
+    "screenWidth": 390,
+    "crewFullScreens": 19,
+    "elementSampleFrames": 3,
+    "crewScreenInstanceCount": 1019,
+    "profileCrewInstanceCount": 1256,
+    "brokenScreenInstances": 0,
+    "brokenComponentInstances": 0,
+    "screenOverlap": 0,
+    "componentGroupOverlap": 0,
+    "forbiddenRetryOrFailureTextInCrewComponents": 0,
+    "copiedButtonRightEdge": 334,
+    "visualReview": "기존 화면·어두운 배경·중앙 다이얼로그의3개 대표 시안과 추가 메시지 부품 PNG를 확인했다. 같은 배경을 메시지마다 복제하지 않는다.",
+    "representativeDialogScreens": 3
+  },
+  "componentsCurrent": [
+    {
+      "id": "473:32053",
+      "name": "Primitive/Icon/Bell/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "473:32058",
+      "name": "Primitive/Icon/Image/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "473:32068",
+      "name": "Account/ProfileSummary",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        76
+      ]
+    },
+    {
+      "id": "473:32109",
+      "name": "Navigation/MenuValueRow",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        110
+      ],
+      "variants": [
+        {
+          "id": "473:32081",
+          "name": "Item=Crews"
+        },
+        {
+          "id": "473:32094",
+          "name": "Item=Notification"
+        }
+      ]
+    },
+    {
+      "id": "473:32110",
+      "name": "Navigation/LogoutRow",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        64
+      ]
+    },
+    {
+      "id": "473:32116",
+      "name": "Account/Body",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        618
+      ]
+    },
+    {
+      "id": "473:32345",
+      "name": "Primitive/Text/AvatarMedium",
+      "type": "COMPONENT",
+      "size": [
+        56,
+        32
+      ]
+    },
+    {
+      "id": "473:32773",
+      "name": "Account/Screen",
+      "type": "COMPONENT_SET",
+      "size": [
+        1676,
+        884
+      ],
+      "variants": [
+        {
+          "id": "473:32241",
+          "name": "State=Default"
+        },
+        {
+          "id": "473:32464",
+          "name": "State=NoCrew"
+        },
+        {
+          "id": "473:32567",
+          "name": "State=NotificationsBlocked"
+        },
+        {
+          "id": "473:32670",
+          "name": "State=NotificationsUnset"
+        }
+      ]
+    },
+    {
+      "id": "473:33102",
+      "name": "Data/CrewSummary",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        132
+      ],
+      "variants": [
+        {
+          "id": "107:70",
+          "name": "Role=Member"
+        },
+        {
+          "id": "473:33090",
+          "name": "Role=Admin"
+        }
+      ]
+    },
+    {
+      "id": "473:33112",
+      "name": "Navigation/PageHeader",
+      "type": "COMPONENT_SET",
+      "size": [
+        1142,
+        144
+      ],
+      "variants": [
+        {
+          "id": "11:43",
+          "name": "Back=Arrow"
+        },
+        {
+          "id": "473:33103",
+          "name": "Back=Chevron"
+        },
+        {
+          "id": "478:39370",
+          "name": "Back=ChevronCrew"
+        }
+      ]
+    },
+    {
+      "id": "473:33113",
+      "name": "Primitive/Icon/Qr/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "473:33120",
+      "name": "Primitive/Icon/Transfer/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "473:33308",
+      "name": "Crew/InformationBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        640
+      ],
+      "variants": [
+        {
+          "id": "473:33126",
+          "name": "Role=Member"
+        },
+        {
+          "id": "473:33207",
+          "name": "Role=Admin"
+        }
+      ]
+    },
+    {
+      "id": "473:33463",
+      "name": "Crew/InformationScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        848,
+        884
+      ],
+      "variants": [
+        {
+          "id": "473:33309",
+          "name": "Role=Member"
+        },
+        {
+          "id": "473:33384",
+          "name": "Role=Admin"
+        }
+      ]
+    },
+    {
+      "id": "475:33752",
+      "name": "Data/RoleBadge",
+      "type": "COMPONENT_SET",
+      "size": [
+        178,
+        64
+      ],
+      "variants": [
+        {
+          "id": "473:33086",
+          "name": "Tone=Link"
+        },
+        {
+          "id": "475:33750",
+          "name": "Tone=Neutral"
+        }
+      ]
+    },
+    {
+      "id": "475:33801",
+      "name": "Data/CrewMemberRow",
+      "type": "COMPONENT_SET",
+      "size": [
+        1516,
+        104
+      ],
+      "variants": [
+        {
+          "id": "475:33753",
+          "name": "Member=하린"
+        },
+        {
+          "id": "475:33766",
+          "name": "Member=민수"
+        },
+        {
+          "id": "475:33779",
+          "name": "Member=지연"
+        },
+        {
+          "id": "475:33790",
+          "name": "Member=수빈"
+        }
+      ]
+    },
+    {
+      "id": "475:33802",
+      "name": "Primitive/Text/SectionSmall/Centered",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        24
+      ]
+    },
+    {
+      "id": "475:33824",
+      "name": "Data/CrewFeedback",
+      "type": "COMPONENT_SET",
+      "size": [
+        394,
+        212
+      ],
+      "variants": [
+        {
+          "id": "475:33804",
+          "name": "State=NoResults"
+        }
+      ]
+    },
+    {
+      "id": "475:34025",
+      "name": "Crew/MembersBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        844
+      ],
+      "variants": [
+        {
+          "id": "475:33825",
+          "name": "State=Default"
+        },
+        {
+          "id": "475:33895",
+          "name": "State=NoResults"
+        }
+      ]
+    },
+    {
+      "id": "475:34401",
+      "name": "Crew/MembersScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        848,
+        884
+      ],
+      "variants": [
+        {
+          "id": "475:34026",
+          "name": "State=Default"
+        },
+        {
+          "id": "475:34133",
+          "name": "State=NoResults"
+        }
+      ]
+    },
+    {
+      "id": "7:87",
+      "name": "Data/Avatar",
+      "type": "COMPONENT_SET",
+      "size": [
+        656,
+        152
+      ],
+      "variants": [
+        {
+          "id": "7:81",
+          "name": "Size=Small"
+        },
+        {
+          "id": "270:482",
+          "name": "Size=SmallSelf"
+        },
+        {
+          "id": "270:492",
+          "name": "Size=SmallMember"
+        },
+        {
+          "id": "7:84",
+          "name": "Size=Large"
+        },
+        {
+          "id": "473:32064",
+          "name": "Size=Medium"
+        },
+        {
+          "id": "475:33735",
+          "name": "Size=ExampleLavender"
+        },
+        {
+          "id": "475:33739",
+          "name": "Size=ExampleMint"
+        },
+        {
+          "id": "475:33743",
+          "name": "Size=ExampleCoral"
+        },
+        {
+          "id": "475:33747",
+          "name": "Size=ExampleBlue"
+        }
+      ]
+    },
+    {
+      "id": "478:34821",
+      "name": "Data/CrewListRow",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        128
+      ],
+      "variants": [
+        {
+          "id": "478:34781",
+          "name": "State=Current"
+        },
+        {
+          "id": "478:34802",
+          "name": "State=Other"
+        }
+      ]
+    },
+    {
+      "id": "478:34848",
+      "name": "Navigation/CrewActionRow",
+      "type": "COMPONENT_SET",
+      "size": [
+        1340,
+        126
+      ],
+      "variants": [
+        {
+          "id": "478:34822",
+          "name": "Action=크루 만들기, Size=Default"
+        },
+        {
+          "id": "478:34834",
+          "name": "Action=초대로 가입하기, Size=Default"
+        },
+        {
+          "id": "478:40032",
+          "name": "Action=크루 만들기, Size=Compact"
+        },
+        {
+          "id": "478:40047",
+          "name": "Action=초대로 가입하기, Size=Compact"
+        }
+      ]
+    },
+    {
+      "id": "478:35056",
+      "name": "Crew/MyCrewsBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        716
+      ],
+      "variants": [
+        {
+          "id": "478:34849",
+          "name": "State=Default"
+        },
+        {
+          "id": "478:34933",
+          "name": "State=Empty"
+        }
+      ]
+    },
+    {
+      "id": "478:35294",
+      "name": "Crew/MyCrewsScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        848,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:35057",
+          "name": "State=Default"
+        },
+        {
+          "id": "478:35143",
+          "name": "State=Empty"
+        }
+      ]
+    },
+    {
+      "id": "478:35295",
+      "name": "Primitive/Icon/ChevronLeft/Regular24",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "478:35300",
+      "name": "Primitive/Icon/PlusCircle/Regular",
+      "type": "COMPONENT",
+      "size": [
+        28,
+        28
+      ]
+    },
+    {
+      "id": "478:35592",
+      "name": "Control/CrewNameField",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        152
+      ],
+      "variants": [
+        {
+          "id": "478:35554",
+          "name": "State=Filled"
+        },
+        {
+          "id": "478:35569",
+          "name": "State=Empty"
+        }
+      ]
+    },
+    {
+      "id": "478:35593",
+      "name": "Data/CrewCreateHelp",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        104
+      ]
+    },
+    {
+      "id": "478:35759",
+      "name": "Crew/CreateBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        394,
+        452
+      ],
+      "variants": [
+        {
+          "id": "478:35604",
+          "name": "State=Filled"
+        }
+      ]
+    },
+    {
+      "id": "478:35930",
+      "name": "Crew/CreateScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        434,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:35760",
+          "name": "State=Filled"
+        }
+      ]
+    },
+    {
+      "id": "478:35931",
+      "name": "Primitive/Icon/Link/Regular",
+      "type": "COMPONENT",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "478:36154",
+      "name": "Control/QRScanButton",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        52
+      ]
+    },
+    {
+      "id": "478:36208",
+      "name": "Control/InviteCodeField",
+      "type": "COMPONENT_SET",
+      "size": [
+        1142,
+        152
+      ],
+      "variants": [
+        {
+          "id": "478:36164",
+          "name": "State=Empty"
+        },
+        {
+          "id": "478:36175",
+          "name": "State=Filled"
+        },
+        {
+          "id": "478:36186",
+          "name": "State=Invalid"
+        }
+      ]
+    },
+    {
+      "id": "478:36379",
+      "name": "Crew/JoinCodeBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        394,
+        469
+      ],
+      "variants": [
+        {
+          "id": "478:36209",
+          "name": "State=Empty"
+        }
+      ]
+    },
+    {
+      "id": "478:36580",
+      "name": "Crew/JoinCodeScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        434,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:36380",
+          "name": "State=Empty"
+        }
+      ]
+    },
+    {
+      "id": "478:36786",
+      "name": "Primitive/Illustration/ScanGuide",
+      "type": "COMPONENT",
+      "size": [
+        200,
+        196
+      ]
+    },
+    {
+      "id": "478:36803",
+      "name": "Media/QRScanPreview",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        540
+      ],
+      "variants": [
+        {
+          "id": "478:36789",
+          "name": "State=Camera"
+        },
+        {
+          "id": "478:36794",
+          "name": "State=Denied"
+        }
+      ]
+    },
+    {
+      "id": "478:36804",
+      "name": "Control/InviteCodeAlternative",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        52
+      ]
+    },
+    {
+      "id": "478:36901",
+      "name": "Crew/QRScanBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        394,
+        832
+      ],
+      "variants": [
+        {
+          "id": "478:36815",
+          "name": "State=Camera"
+        }
+      ]
+    },
+    {
+      "id": "478:36994",
+      "name": "Crew/QRScanScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        848,
+        892
+      ],
+      "variants": [
+        {
+          "id": "478:36902",
+          "name": "State=Camera"
+        },
+        {
+          "id": "487:43831",
+          "name": "State=Dialog"
+        }
+      ]
+    },
+    {
+      "id": "478:37098",
+      "name": "Data/CrewAvatar",
+      "type": "COMPONENT_SET",
+      "size": [
+        350,
+        250
+      ],
+      "variants": [
+        {
+          "id": "105:97",
+          "name": "Size=Medium"
+        },
+        {
+          "id": "478:37093",
+          "name": "Size=Large"
+        }
+      ]
+    },
+    {
+      "id": "478:37099",
+      "name": "Primitive/Text/Title/Centered",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        44
+      ]
+    },
+    {
+      "id": "478:37101",
+      "name": "Data/InviteCrewIdentity",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        322
+      ]
+    },
+    {
+      "id": "478:37234",
+      "name": "Crew/InviteConfirmBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        394,
+        574
+      ],
+      "variants": [
+        {
+          "id": "478:37111",
+          "name": "State=Default"
+        }
+      ]
+    },
+    {
+      "id": "478:37435",
+      "name": "Crew/InviteConfirmScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        848,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:37235",
+          "name": "State=Default"
+        },
+        {
+          "id": "487:43905",
+          "name": "State=Dialog"
+        }
+      ]
+    },
+    {
+      "id": "478:37436",
+      "name": "Primitive/Icon/CrewPeople/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "478:37449",
+      "name": "Primitive/Text/Body/Centered",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        24
+      ]
+    },
+    {
+      "id": "478:37761",
+      "name": "Primitive/Icon/Clipboard/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "478:37766",
+      "name": "Primitive/Icon/Share/Regular",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "478:37770",
+      "name": "Primitive/Illustration/InviteQRExample",
+      "type": "COMPONENT",
+      "size": [
+        160,
+        160
+      ]
+    },
+    {
+      "id": "478:37773",
+      "name": "Media/InviteQRCard",
+      "type": "COMPONENT",
+      "size": [
+        190,
+        190
+      ]
+    },
+    {
+      "id": "478:37813",
+      "name": "Data/InviteCopyField",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        120
+      ],
+      "variants": [
+        {
+          "id": "478:37785",
+          "name": "Kind=Code"
+        },
+        {
+          "id": "478:37799",
+          "name": "Kind=Link"
+        }
+      ]
+    },
+    {
+      "id": "10:40",
+      "name": "Control/Button",
+      "type": "COMPONENT_SET",
+      "size": [
+        1964,
+        168
+      ],
+      "variants": [
+        {
+          "id": "10:13",
+          "name": "Style=Primary, State=Default, LeadingIcon=None"
+        },
+        {
+          "id": "10:16",
+          "name": "Style=Primary, State=Pressed, LeadingIcon=None"
+        },
+        {
+          "id": "10:19",
+          "name": "Style=Primary, State=Disabled, LeadingIcon=None"
+        },
+        {
+          "id": "10:22",
+          "name": "Style=Link, State=Default, LeadingIcon=None"
+        },
+        {
+          "id": "10:25",
+          "name": "Style=Link, State=Pressed, LeadingIcon=None"
+        },
+        {
+          "id": "10:28",
+          "name": "Style=Link, State=Disabled, LeadingIcon=None"
+        },
+        {
+          "id": "10:31",
+          "name": "Style=Danger, State=Default, LeadingIcon=None"
+        },
+        {
+          "id": "10:34",
+          "name": "Style=Danger, State=Pressed, LeadingIcon=None"
+        },
+        {
+          "id": "10:37",
+          "name": "Style=Danger, State=Disabled, LeadingIcon=None"
+        },
+        {
+          "id": "265:474",
+          "name": "Style=Primary, State=Default, LeadingIcon=Plus"
+        },
+        {
+          "id": "478:37090",
+          "name": "Style=Secondary, State=Default, LeadingIcon=None"
+        },
+        {
+          "id": "478:37817",
+          "name": "Style=Primary, State=Default, LeadingIcon=Share"
+        }
+      ]
+    },
+    {
+      "id": "478:37994",
+      "name": "Crew/InviteShareBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        394,
+        706
+      ],
+      "variants": [
+        {
+          "id": "478:37824",
+          "name": "State=Default"
+        }
+      ]
+    },
+    {
+      "id": "478:38214",
+      "name": "Crew/InviteShareScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        434,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:37995",
+          "name": "State=Default"
+        }
+      ]
+    },
+    {
+      "id": "478:38432",
+      "name": "Data/PersonAvatar",
+      "type": "COMPONENT",
+      "size": [
+        56,
+        56
+      ]
+    },
+    {
+      "id": "478:38498",
+      "name": "Data/AdminCandidateRow",
+      "type": "COMPONENT_SET",
+      "size": [
+        1516,
+        128
+      ],
+      "variants": [
+        {
+          "id": "478:38437",
+          "name": "Name=박민수, State=Selected"
+        },
+        {
+          "id": "478:38453",
+          "name": "Name=박민수, State=Default"
+        },
+        {
+          "id": "478:38468",
+          "name": "Name=이서연, State=Default"
+        },
+        {
+          "id": "478:38483",
+          "name": "Name=최도윤, State=Default"
+        }
+      ]
+    },
+    {
+      "id": "478:38499",
+      "name": "Feedback/AdminTransferNotice",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        80
+      ]
+    },
+    {
+      "id": "478:38502",
+      "name": "Overlay/AdminTransferConfirmDialog",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        224
+      ]
+    },
+    {
+      "id": "478:38514",
+      "name": "Overlay/Dim/ProfileCrew",
+      "type": "COMPONENT",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "id": "478:38879",
+      "name": "Crew/AdminTransferBody",
+      "type": "COMPONENT_SET",
+      "size": [
+        768,
+        580
+      ],
+      "variants": [
+        {
+          "id": "478:38515",
+          "name": "State=Selected"
+        },
+        {
+          "id": "478:38642",
+          "name": "State=NoCandidates"
+        }
+      ]
+    },
+    {
+      "id": "478:39304",
+      "name": "Crew/AdminTransferScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        1262,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:38880",
+          "name": "State=Selected"
+        },
+        {
+          "id": "478:39019",
+          "name": "State=NoCandidates"
+        },
+        {
+          "id": "487:43986",
+          "name": "State=Dialog"
+        }
+      ]
+    },
+    {
+      "id": "478:39988",
+      "name": "Control/CurrentCrewCheck",
+      "type": "COMPONENT",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "478:40029",
+      "name": "Data/CrewSelectorRow",
+      "type": "COMPONENT_SET",
+      "size": [
+        592,
+        110
+      ],
+      "variants": [
+        {
+          "id": "478:39991",
+          "name": "State=Current"
+        },
+        {
+          "id": "478:40011",
+          "name": "State=Other"
+        }
+      ]
+    },
+    {
+      "id": "478:40278",
+      "name": "Overlay/CrewSelectorPanel",
+      "type": "COMPONENT_SET",
+      "size": [
+        656,
+        548
+      ],
+      "variants": [
+        {
+          "id": "478:40061",
+          "name": "State=Default"
+        },
+        {
+          "id": "478:40133",
+          "name": "State=ManyCrews"
+        }
+      ]
+    },
+    {
+      "id": "478:40618",
+      "name": "Crew/SelectorBackground",
+      "type": "COMPONENT_SET",
+      "size": [
+        848,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:40279",
+          "name": "Context=Schedule"
+        },
+        {
+          "id": "478:40323",
+          "name": "Context=Record"
+        }
+      ]
+    },
+    {
+      "id": "478:41933",
+      "name": "Crew/SelectorScreen",
+      "type": "COMPONENT_SET",
+      "size": [
+        1262,
+        884
+      ],
+      "variants": [
+        {
+          "id": "478:40619",
+          "name": "Context=Schedule"
+        },
+        {
+          "id": "478:41161",
+          "name": "Context=Record"
+        },
+        {
+          "id": "478:41530",
+          "name": "Context=ManyCrews"
+        }
+      ]
+    },
+    {
+      "id": "483:43600",
+      "name": "Overlay/IssueDialog",
+      "type": "COMPONENT",
+      "size": [
+        350,
+        132
+      ]
+    },
+    {
+      "id": "483:43614",
+      "name": "Control/CopyButton",
+      "type": "COMPONENT_SET",
+      "size": [
+        220,
+        64
+      ],
+      "variants": [
+        {
+          "id": "478:37777",
+          "name": "State=Default"
+        },
+        {
+          "id": "483:43606",
+          "name": "State=Copied"
+        }
+      ]
+    },
+    {
+      "id": "487:43830",
+      "name": "Overlay/CenteredDialogPresentation",
+      "type": "COMPONENT_SET",
+      "size": [
+        1262,
+        892
+      ],
+      "variants": [
+        {
+          "id": "487:43800",
+          "name": "Kind=Issue, Height=844"
+        },
+        {
+          "id": "487:43808",
+          "name": "Kind=Issue, Height=852"
+        },
+        {
+          "id": "487:43816",
+          "name": "Kind=Transfer, Height=844"
+        }
+      ]
+    }
+  ],
+  "proofs": [
+    {
+      "nodeId": "109:89",
+      "number": "06.01.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.01.01.png"
+    },
+    {
+      "nodeId": "475:33651",
+      "number": "06.01.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.01.02.png"
+    },
+    {
+      "nodeId": "477:34402",
+      "number": "06.02.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.02.01.png"
+    },
+    {
+      "nodeId": "477:34510",
+      "number": "06.02.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.02.02.png"
+    },
+    {
+      "nodeId": "478:35317",
+      "number": "06.03.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.03.01.png"
+    },
+    {
+      "nodeId": "478:35423",
+      "number": "06.03.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.03.02.png"
+    },
+    {
+      "nodeId": "478:35936",
+      "number": "06.04.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.04.01.png"
+    },
+    {
+      "nodeId": "478:36581",
+      "number": "06.05.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.05.01.png"
+    },
+    {
+      "nodeId": "478:36995",
+      "number": "06.06.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.06.01.png"
+    },
+    {
+      "nodeId": "478:37564",
+      "number": "06.07.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.07.01.png"
+    },
+    {
+      "nodeId": "478:38215",
+      "number": "06.08.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.08.01.png"
+    },
+    {
+      "nodeId": "478:39499",
+      "number": "06.09.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.09.01.png"
+    },
+    {
+      "nodeId": "478:39721",
+      "number": "06.09.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.09.02.png"
+    },
+    {
+      "nodeId": "478:41934",
+      "number": "06.10.01",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.10.01.png"
+    },
+    {
+      "nodeId": "478:42265",
+      "number": "06.10.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.10.02.png"
+    },
+    {
+      "nodeId": "478:42635",
+      "number": "06.10.03",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.10.03.png"
+    },
+    {
+      "nodeId": "483:43717",
+      "number": "06.06.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.06.02.png"
+    },
+    {
+      "nodeId": "487:43945",
+      "number": "06.07.02",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.07.02.png"
+    },
+    {
+      "nodeId": "487:44070",
+      "number": "06.09.03",
+      "path": "docs/figma/assets/profile-crew-2026-10-01/06.09.03.png"
+    }
+  ],
+  "elementProofs": [
+    {
+      "nodeId": "483:43667",
+      "path": "docs/figma/assets/crew-state-policy-2026-10-02/06.04-parts.png"
+    },
+    {
+      "nodeId": "483:43690",
+      "path": "docs/figma/assets/crew-state-policy-2026-10-02/06.05-parts.png"
+    },
+    {
+      "nodeId": "483:43726",
+      "path": "docs/figma/assets/crew-state-policy-2026-10-02/06.07-parts.png"
+    }
+  ],
+  "dialogPresentation": {
+    "rule": "다이얼로그는 **기존 화면 위에 배경을 어둡게 하고 겹쳐 표시한 대표 시안 1개**로 위치와 크기를 확인한다. 같은 기본 화면에서 여러 다이얼로그 메시지·버튼 상태가 필요하면 배경 화면을 반복 생성하지 않고 **추가 다이얼로그 부품만 대표 시안 옆에** 배치한다. 서로 다른 진입 화면의 대표 다이얼로그 시안은 각각 확인한다.",
+    "overlaySet": "487:43830",
+    "representativeScreens": [
+      {
+        "id": "483:43717",
+        "name": "06.06.02 QR 스캔 / 다이얼로그",
+        "width": 390,
+        "height": 852,
+        "source": "487:43831"
+      },
+      {
+        "id": "487:43945",
+        "name": "06.07.02 초대 가입 확인 / 다이얼로그",
+        "width": 390,
+        "height": 844,
+        "source": "487:43905"
+      },
+      {
+        "id": "487:44070",
+        "name": "06.09.03 관리자 넘기기 / 다이얼로그",
+        "width": 390,
+        "height": 844,
+        "source": "487:43986"
+      }
+    ],
+    "status": "기존 화면 위 다이얼로그 PNG 검수 완료 / 사용자 검토 대기"
+  },
+  "selectionCleanup": {
+    "removedDuplicateSample": "483:43746",
+    "removedLastDivider": "478:40060",
+    "selectorRowSources": [
+      "478:39991",
+      "478:40011"
+    ],
+    "countAndRoleTextSize": 14,
+    "countAndRoleAlign": "CENTER",
+    "status": "크루 선택창3화면 PNG 확인 완료 / 사용자 검토 대기"
+  },
+  "copyStateInScreen": {
+    "screen": "478:38215",
+    "body": "478:37824",
+    "code": "Copied",
+    "link": "Default",
+    "removedDuplicateSample": "483:43735",
+    "buttonWidths": [
+      80,
+      72
+    ],
+    "buttonRightEdges": [
+      334,
+      334
+    ],
+    "status": "390 PNG 확인 완료 / 사용자 검토 대기"
+  }
+}

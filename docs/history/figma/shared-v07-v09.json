@@ -1,0 +1,346 @@
+{
+  "status": "V07 두 상태/V08 만들기·수정/V09 세 응답상태390 시각 교정·원본 연결 검수 완료.2026-10-01 수정Console MCP조립.",
+  "date": "2026-09-30",
+  "owner": "schedule_figma_astra",
+  "screenWidth": 390,
+  "rules": [
+    "웹 UI 직접 편집만",
+    "Detach 금지",
+    "공통 원본은 병렬 중 읽기 전용",
+    "state.json 및 주요 문서는 루트 소유",
+    "클립보드 사용은 /tmp/holdlog-figma-clipboard.lock mkdir 배타 잠금 후 수행",
+    "잠금은copy→paste쌍에서만짧게사용,owner.txt로소유자통일. 탭대상 일반DOM/키보드작업은잠금없이병렬"
+  ],
+  "sources": [
+    "docs/assets/screens/12-schedule-day-sheet-v2.png",
+    "docs/assets/screens/16-schedule-create.png",
+    "docs/assets/screens/17-schedule-detail-v3.png"
+  ],
+  "shared": {
+    "subpageBar": {
+      "name": "Navigation/SubpageBar",
+      "setId": "241:452",
+      "variants": {
+        "More=Hidden": "241:451",
+        "More=Visible": "241:453"
+      },
+      "size": [
+        350,
+        44
+      ],
+      "layout": "수평, 세로 중앙, gap16, padding0. back24 + crew Fill/실제 Text Right + optional more24",
+      "crewText": "Primitive/Text/Button Primary 인스턴스; Noto Sans KR 16/24 Bold; Content 수정 가능",
+      "colors": {
+        "crew": "Color/Text/Primary",
+        "back": "Color/Text/Secondary",
+        "more": "Color/Text/Secondary"
+      },
+      "bindingLimit": "헤더 gap16/height44/padding0은 현재 수치값. Text/Primary는 아이콘 Stroke picker에서 검색되지 않아 뒤로 검정 변경 미적용; Secondary 유지. 기존 아이콘 원본 전체 색상 변경하지 않음."
+    },
+    "icons": {
+      "back": {
+        "id": "144:221",
+        "name": "Primitive/Icon/ChevronLeft/Regular",
+        "sourceSize": 16,
+        "headerInstanceSize": 24
+      },
+      "close": {
+        "id": "234:449",
+        "name": "Primitive/Icon/Close/Regular"
+      },
+      "clock": {
+        "id": "234:454",
+        "name": "Primitive/Icon/Clock/Regular"
+      },
+      "plus": {
+        "id": "234:458",
+        "name": "Primitive/Icon/Plus/Regular"
+      },
+      "check": {
+        "id": "234:462",
+        "name": "Primitive/Icon/Check/Regular"
+      },
+      "more": {
+        "id": "234:468",
+        "name": "Primitive/Icon/MoreHorizontal/Regular"
+      },
+      "mapPinFilled": {
+        "id": "335:758",
+        "name": "Primitive/Icon/MapPin/Filled",
+        "size": [
+          24,
+          24
+        ],
+        "fill": "Color/Text/Secondary",
+        "status": "공통원본335:758·Form암장iconSwap연결·최종390PNG검수확인"
+      }
+    },
+    "iconContract": "새 Regular 5개는24×24 직접SVG, Secondary 변수 연결. More의 잔여 black 직접값도 Secondary에 연결 확인. 원본234:468은 Go to main component로 확인.",
+    "primaryButton": {
+      "id": "10:13",
+      "setId": "10:40",
+      "sizeHeight": 52,
+      "radius": 12,
+      "bindings": [
+        "Size/Button",
+        "Radius/12",
+        "Space/8",
+        "Space/12",
+        "Color/Action/Primary",
+        "Color/Text/OnAction"
+      ],
+      "checked": "UI 실제 확인",
+      "plusState": "사용자 확인에 따라 기존 세트10:40에 LeadingIcon=None/Plus 추가 완료. 기존 9상태는 None 보존, 새265:474는 Style=Primary/State=Default/LeadingIcon=Plus. 공통 Plus234:458 인스턴스289:535와 OnAction 흰색 변수 연결. OnAction 기존 값 유지·Stroke 적용 범위 추가."
+    },
+    "responseBadge": {
+      "id": "140:230",
+      "name": "Data/ResponseBadge",
+      "size": [
+        54,
+        24
+      ],
+      "padding": [
+        10,
+        4
+      ],
+      "radius": 12,
+      "align": "Center",
+      "fill": "Color/Surface/Avatar",
+      "text": "Color/Text/Secondary",
+      "contract": "응답 문구는 nested Content 수정. 공통 원본 변경은 V09만 소유; 기존 기본 보존하고 응답 선택 표시 필요 시 의미 있는 상태만 추가. V07는 기존 상태 재사용 후 필요 추가는 루트 조율."
+    },
+    "smallBadge": {
+      "id": "150:352",
+      "name": "Data/DateBadge",
+      "size": [
+        43,
+        24
+      ],
+      "padding": [
+        8,
+        4
+      ],
+      "radius": 8,
+      "fill": "Color/Surface/Highlight",
+      "text": "Color/Action/Primary",
+      "contract": "V08 필수/선택은 기존 Default43×24를 유지. V09 단독으로 같은세트 Size=Default/Compact 상태 추가 중. Compact는 나 배지용 12/16글자·Hug약28×24·padding8/4·Radius8·동일색. 기존Default원본 변경금지.",
+      "setAndCompactStatus": {
+        "default": "150:352",
+        "compact": "309:597",
+        "property": "Size=Default/Compact",
+        "compactSize": [
+          28,
+          24
+        ],
+        "status": "UI상태추가및MemberRow내부Compact연결·최종확대검수확인. 기존Default43×24보존."
+      }
+    },
+    "texts": {
+      "Display40/48": "153:294",
+      "SectionSmall18/24": "157:294",
+      "ButtonPrimary16/24": "142:209",
+      "CaptionSmall12/16": "140:223",
+      "BodySet": "7:22",
+      "LabelSet": "7:27",
+      "CaptionSet": "7:32",
+      "ButtonSecondary16/24": "373:686",
+      "BodyLarge18/24Regular": "377:689",
+      "CaptionMuted14/20": "382:686",
+      "BodyMuted16/24": "400:4024"
+    },
+    "existingLedgerReuse": {
+      "Divider": "7:80",
+      "IconButton": "10:44",
+      "Field": "10:51",
+      "AvatarSmall": "7:81",
+      "AvatarSet": "7:87",
+      "AvatarSmallSelf": "270:482",
+      "AvatarSmallMember": "270:492"
+    },
+    "ledgerOnlyNote": "Divider/Field/Avatar 등은 기존 ledger 기준. 이번 공통 준비에서 실제 UI 수치 재감사하지 않았으므로 화면 담당자가 사용 전 모양 확인.",
+    "stamps": {
+      "Unspecified": "147:235",
+      "GripGExample": "147:230",
+      "PeakExample": "147:223",
+      "note": "시안 예시 벡터. 공식 브랜드 원본 아님. V07 GRIP은 G모양 사용."
+    },
+    "newTextStatus": "ButtonSecondary373:686 및 BodyLarge377:689 독립원본 UI등록보고. BodyLarge 내부텍스트377:687 새등록Text/BodyLarge18/24Regular·Secondary연결·Content속성. 날짜원본교환작업중.",
+    "scheduleDetail": {
+      "id": "385:686",
+      "size": [
+        390,
+        844
+      ],
+      "status": "독립원본385:686 및 세화면인스턴스 연결·세390PNG 루트검수통과"
+    }
+  },
+  "ownership": {
+    "V07": {
+      "frames": [
+        "123:877",
+        "123:922"
+      ],
+      "exclusiveAllowed": [
+        "기존 Data/ScheduleListItem 세트150:312에 Sheet 표시 변형 추가만; Default142:269와 Attending150:313 변경 금지",
+        "Control/Button 기존세트10:40에 아이콘유무 LeadingIcon=None/Plus 상태 추가만. 기존버튼은None유지",
+        "Overlay/ScheduleDaySheet 공통 묶음 및 빈 날짜 안내"
+      ],
+      "data": "9/30 암장미정19:30 참석 참여3/불참1/미응답0; GRIP20:00 불참 참여2/불참1/미응답1"
+    },
+    "V08": {
+      "frames": [
+        "118:160",
+        "118:242"
+      ],
+      "exclusiveAllowed": [
+        "Control/PickerRow",
+        "Data/FieldLabel",
+        "Control/DescriptionField",
+        "Form/ScheduleFields",
+        "직접SVG FilledMapPin24 작은원본 기존검색 후 신규등록·PickerRow연결",
+        "Color/Text/Primary 기존값유지·Stroke scope추가 및 SubpageBar뒤로 인스턴스만 연결. 다른전역아이콘색보존"
+      ],
+      "rules": [
+        "같은 이름 기존 원본 먼저 검색",
+        "날짜 및 시간 필수",
+        "하위 헤더 More=Hidden"
+      ]
+    },
+    "V09": {
+      "frames": [
+        "123:221",
+        "123:278",
+        "123:951"
+      ],
+      "exclusiveAllowed": [
+        "기존 Control/ResponseButton 기본119:86 선택119:88 교정/의미 변형",
+        "Data/ResponseMemberRow",
+        "Data/SchedulePlaceRow",
+        "Data/MyScheduleResponse",
+        "Data/ResponseBadge 기존 원본 보존하며 상태 추가",
+        "기존 Data/Avatar 세트7:87에 Small/Self·Small/Member 상태 추가만. 기존 Small/Large 모양 보존",
+        "Color/Surface/AvatarSelf #778292 및 AvatarMember #AAB1BF 신규 공통표면변수 단독 등록·Small/Self/Member 연결. 기존Avatar변수 보존",
+        "Size/ResponseButton40 기존 같은40크기 변수 검색 후 없을 때 단독 등록. 공통 주요 버튼 높이52는 보존",
+        "Data/ScheduleDetail 합성 원본 기존 같은역할 검색 후 작은 인스턴스들을 조립. 기존 V09 세 화면에 같은 원본 인스턴스 사용",
+        "DateBadge 기존150:352 Default43×24 보존하며 Compact 약28×24 상태 추가. 나 배지용 CaptionSmall12/16·좌우8/상하4·Hug. V08은Default유지",
+        "BodyLarge18/24Regular 같은역할 전체검색후 없으면 신규스타일·Primitive/Text/BodyLarge 원본(Content속성/Secondary변수) 추가. 날짜사용. 기존Body·SectionSmall·전역스타일보존",
+        "Primitive/Text/Button 기존4Tone 보존·Tone=Secondary만새상태추가. Control/Button10:40과별개텍스트세트, 기본Response라벨사용",
+        "Primitive/Text/Caption 기존Secondary/Danger보존·Tone=Muted만새상태추가. 기존Caption14/20Regular스타일/ColorTextMuted연결, 작성자/응답안내사용"
+      ],
+      "rules": [
+        "같은 이름 기존 원본 먼저 검색",
+        "독립 참여/불참 버튼",
+        "하위 헤더 More=Visible"
+      ]
+    }
+  },
+  "preserved": [
+    "V05 123:310",
+    "V06 123:479",
+    "CrewHeader148:296",
+    "기존 PageHeader11:43",
+    "기존 굵은 Close123:1014 및 More123:989"
+  ],
+  "proofs": [
+    "docs/figma/assets/shared-schedule-icons-proof.png",
+    "docs/figma/assets/shared-subpagebar-proof.png",
+    "docs/figma/assets/shared-crewheader-preserved.png",
+    "docs/figma/assets/v07-button-plus-proof.png",
+    "docs/figma/assets/v07-sheet-component-export.png",
+    "docs/figma/assets/v09-self-badge-compact-proof.png",
+    "docs/figma/assets/v09-attending-final.png",
+    "docs/figma/assets/v09-unanswered-final.png",
+    "docs/figma/assets/v09-declined-final.png",
+    "docs/figma/assets/v08-edit-final.png",
+    "docs/figma/assets/v08-create-after-console.png"
+  ],
+  "notDone": [
+    "SubpageBar뒤로Primary Stroke scope추가자동검토거절·Secondary유지",
+    "V07 로딩/오류변형미구현"
+  ],
+  "reviewRecovery": "임시 복사본236:446 및237:446/447만 정리, 원래CrewHeader 보존 캡처 확인. 범위선택+AutoLayout 거절 후 기존3자식 Fill/Right 구조로 안전하게 마무리. More 인스턴스 원본을234:468로 읽기 확인 후 이동.",
+  "agents": {
+    "V07": "/root/schedule_figma_astra",
+    "V08": "/root/v08_figma_astra",
+    "V09": "/root/v09_figma_astra"
+  },
+  "rootReview": [
+    "아이콘 확대 PNG에서 형태 확인",
+    "SubpageBar 기본/더보기 두 상태와 크루명 오른쪽 정렬 확인",
+    "CrewHeader 보존 PNG 확인",
+    "원본 ID·공통읽기전용·예외수정권한 계약 확인",
+    "V07 Button LeadingIcon=Plus 상태 및 아이콘 확대 확인",
+    "V09 ResponseButton 선택 상태171×40/Radius8/Border1/Check20 가운데 묶음 확대 확인",
+    "V09 MemberRow350×48 기본행 확대 확인; Self배지 검수 대기",
+    "V09 Self나배지43폭 확인; 시안의 작은배지를 맞추도록 같은세트Compact추가 V09단독배정·진행중",
+    "V07 Sheet390×400 전체PNG손잡이/날짜/닫기/두행/참석/구분선/Plus버튼확인",
+    "V09 Self Compact28×24+이름간격8확대확인",
+    "V07 Scheduled최종390×844 PNG검수통과. Empty날짜일부누락수정후재검수대기",
+    "V09 상세385:686 흰배경/날짜18/24/기본응답Secondary/Muted안내·작성자/5Divider전체시안대조확인",
+    "V09 참여최종390×844 PNG검수통과: 선택체크/Primary/안내/3·0·1/민수참여/4명행잘림없음",
+    "V09 미응답2/0/2와불참2/1/1최종390PNG검수통과. 버튼·민수배지·요약일치",
+    "2026-10-01 V08 수정390×844 Console MCP최종PNG·19:30/설명Primary/활성저장/동일Form연결·만들기보존확인"
+  ],
+  "newAvatarSurfaces": {
+    "owner": "V09",
+    "collection": "Holdlog Semantic",
+    "Color/Surface/AvatarSelf": "#778292",
+    "Color/Surface/AvatarMember": "#AAB1BF",
+    "status": "UI 등록·저장 및 SmallSelf270:482/SmallMember270:492 변수 연결·아바타 확대 검수 확인. 기존 Small/Large 보존. 화면 배치 진행 중.",
+    "sourceValueNote": "생성 시안의 그라디언트 회색에 근사한 공통 단색 값. 원본 이미지의 정확한 HEX라고 주장하지 않음"
+  },
+  "variableAudit": {
+    "date": "2026-10-01",
+    "status": "V07~V09 현재 7상태와 공통 의존 원본의 변수 점검·보완 완료. 고정 기하/인스턴스 크기 예외는 명시",
+    "report": "docs/history/figma/variable-audit-v07-v09.json",
+    "collections": [
+      {
+        "id": "VariableCollectionId:4:2",
+        "name": "Holdlog Primitives",
+        "count": 75
+      },
+      {
+        "id": "VariableCollectionId:4:3",
+        "name": "Holdlog Semantic",
+        "count": 78
+      }
+    ],
+    "missingSpacingPaddingRadius": 0,
+    "brokenAliases": 0,
+    "textStyleAndColor": "17개 원본 텍스트 모두 연결",
+    "width": 390,
+    "imageComparison": "11화면 영향 확인: 9개 픽셀 동일, V07 기본/V06 도장 글자 가장자리 SVG 반올림 차이 143/438픽셀. 전체 구성 유지",
+    "prototypes": "사용자 지시로 보류·변경 없음",
+    "historicalPendingNotes": "이전 결과의 V07~V09 변수 감사 미완료 문구는 이 보고서로 대체. V01~V30 전체 감사 완료라는 뜻은 아님"
+  },
+  "stampTextMigration": {
+    "date": "2026-10-01",
+    "status": "PEAK/GRIP 네 도장 글자 텍스트 전환 완료·글자 SVG 예외 해소",
+    "report": "docs/history/figma/stamp-text-migration.json",
+    "componentSet": "407:4284",
+    "variants": {
+      "38": "407:4275",
+      "44": "407:4183",
+      "48": "407:4278",
+      "60": "407:4281"
+    },
+    "font": "Noto Sans KR Bold",
+    "color": "Color/Text/OnAction VariableID:4:27",
+    "contentProperty": "Content#407:2",
+    "removedLetterVectorGroups": [
+      "147:220",
+      "147:227",
+      "202:722",
+      "224:896"
+    ],
+    "preserved": "원형 배경·산/G 심볼·도장 인스턴스 원본 연결·390 화면 배치",
+    "exceptionsRetained": "SVG 그림 경로·배경 그라데이션 및 고정 기하 규격",
+    "verification": "11개390화면 PNG 비교. 6화면의 도장 글자 영역만 변경, 나머지5화면 픽셀 동일. 4종 원본 글자벡터 그룹0·텍스트/스타일/흰색 변수/Content 연결 확인"
+  },
+  "prototypeConnections": {
+    "date": "2026-10-01",
+    "required": false,
+    "status": "작업 범위 제외",
+    "reason": "사용자가 Figma 클릭 연결은 필요하지 않으며 남은 일이 아니라고 확정"
+  }
+}

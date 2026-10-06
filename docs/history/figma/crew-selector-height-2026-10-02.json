@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-02",
+  "commentId": "1950388585",
+  "approvedRule": {
+    "rowHeight": 70,
+    "maxVisibleRows": 4,
+    "maxListHeight": 280,
+    "maxPanelHeight": 508,
+    "oneToThree": "내용에 따라 높이 조절",
+    "fixed": [
+      "크루 선택 제목",
+      "크루 만들기",
+      "초대로 가입하기"
+    ],
+    "scroll": "크루 목록만 세로 스크롤"
+  },
+  "componentSet": "478:40278",
+  "variant": "529:31300",
+  "specimen": "529:31418",
+  "instance": "529:31419",
+  "sideSpecification": "493:45411",
+  "photo": "../../figma/assets/crew-selector-height-2026-10-02/crew-selector-scrolled.png",
+  "newNumberedScreens": 0,
+  "newNumberedStates": 0,
+  "validation": {
+    "specimenSize": [
+      390,
+      548
+    ],
+    "panelSize": [
+      294,
+      508
+    ],
+    "listSize": [
+      262,
+      280
+    ],
+    "originalDefaultSize": [
+      294,
+      368
+    ],
+    "missingSources": [],
+    "overlaps": [],
+    "screenshotVerified": true
+  },
+  "implementationVerified": false,
+  "status": "사용자 검토 대기"
+}

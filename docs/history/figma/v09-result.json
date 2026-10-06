@@ -1,0 +1,422 @@
+{
+  "screen": "V09 일정 상세",
+  "status": "시각 제작 및 3상태 원본 연결 완료; 수치 변수 전체 감사와 프로토타입 미완료",
+  "method": "Figma 웹 UI 직접 조작만. CUA AX/DOM/키보드/클릭 사용. Figma MCP, 페이지 JS, 숨은 API 사용 안 함.",
+  "reference": "/Users/trycatch/work/Holdlog/docs/assets/screens/17-schedule-detail-v3.png",
+  "screens": [
+    {
+      "state": "미응답",
+      "frame": {
+        "id": "123:221",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-221"
+      },
+      "detailInstance": {
+        "id": "390:1568",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=390-1568"
+      },
+      "png": "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-unanswered-final.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "counts": {
+        "참여": 2,
+        "불참": 0,
+        "미응답": 2
+      },
+      "selfBadge": "미응답",
+      "selectedResponse": null,
+      "originalChildren": "기존 자식 숨김 보존",
+      "verified": true
+    },
+    {
+      "state": "참여",
+      "frame": {
+        "id": "123:278",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-278"
+      },
+      "detailInstance": {
+        "id": "391:1777",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=391-1777"
+      },
+      "png": "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-attending-final.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "counts": {
+        "참여": 3,
+        "불참": 0,
+        "미응답": 1
+      },
+      "selfBadge": "참여",
+      "selectedResponse": "참여할게요",
+      "originalChildren": "기존 자식 숨김 보존",
+      "verified": true
+    },
+    {
+      "state": "불참",
+      "frame": {
+        "id": "123:951",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-951"
+      },
+      "detailInstance": {
+        "id": "392:1877",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=392-1877"
+      },
+      "png": "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-declined-final.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "counts": {
+        "참여": 2,
+        "불참": 1,
+        "미응답": 1
+      },
+      "selfBadge": "불참",
+      "selectedResponse": "불참할게요",
+      "originalChildren": "기존 자식 숨김 보존",
+      "verified": true
+    }
+  ],
+  "mainComponent": {
+    "name": "Data/ScheduleDetail",
+    "id": "385:686",
+    "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=385-686",
+    "construction": "공통 Header/Display/BodyLarge/PlaceRow/MyScheduleResponse/MemberRow/Divider 인스턴스를 조립해 등록. 세 화면은 이 원본의 인스턴스이며 상태와 문구만 변경.",
+    "bounds": [
+      390,
+      844
+    ]
+  },
+  "newComponents": [
+    {
+      "name": "Data/SchedulePlaceRow",
+      "id": "260:506",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=260-506",
+      "bounds": [
+        350,
+        74
+      ],
+      "children": [
+        "PeakExample147:223 인스턴스 48×48",
+        "SectionSmall157:294 인스턴스 피크 성수"
+      ],
+      "fill": "Color/Surface/Highlight"
+    },
+    {
+      "name": "Data/ResponseMemberRow",
+      "id": "275:555",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=275-555",
+      "bounds": [
+        350,
+        48
+      ],
+      "properties": {
+        "ShowSelf": "boolean; default false"
+      },
+      "children": [
+        "Data/Avatar 기존 세트의 SmallSelf/SmallMember",
+        "Primitive/Text/Button Primary",
+        "Data/DateBadge Compact",
+        "Data/ResponseBadge Default/Selected"
+      ],
+      "memberNameLayout": {
+        "id": "313:616",
+        "name": "MemberName",
+        "gap": 8,
+        "horizontal": "Hug"
+      }
+    },
+    {
+      "name": "Data/MyScheduleResponse",
+      "id": "324:633",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=324-633",
+      "bounds": [
+        350,
+        100
+      ],
+      "children": [
+        "SectionSmall 제목",
+        "Caption Muted 안내",
+        "독립 ResponseButton 두 개"
+      ],
+      "responseRow": {
+        "buttonBounds": [
+          171,
+          40
+        ],
+        "gap": 8
+      }
+    },
+    {
+      "name": "Primitive/Text/BodyLarge",
+      "id": "377:689",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=377-689",
+      "textNode": "377:687",
+      "style": "Text/BodyLarge",
+      "font": "Noto Sans KR Regular",
+      "fontSize": 18,
+      "lineHeight": 24,
+      "color": "Color/Text/Secondary",
+      "properties": [
+        "Content"
+      ],
+      "construction": "새 텍스트 레이어에 새 스타일과 기존 색 변수 연결 후 원본 생성. 임시 Display 인스턴스375:686은 정리. 기존 Display 원본과 스타일 보존."
+    }
+  ],
+  "existingComponentChanges": [
+    {
+      "name": "Control/ResponseButton",
+      "default": {
+        "id": "119:86",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=119-86"
+      },
+      "selected": {
+        "id": "119:88",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=119-88"
+      },
+      "bounds": [
+        171,
+        40
+      ],
+      "radius": 8,
+      "stroke": 1,
+      "label": "Primitive/Text/Button 16/24 Bold; 기본 Secondary, 선택 Link(Primary와 같은 #512AFF)",
+      "selectedCheck": {
+        "instanceId": "260:468",
+        "mainId": "234:462",
+        "size": 20,
+        "color": "Color/Action/Primary"
+      },
+      "selectedFill": "Color/Surface/Highlight",
+      "note": "두 독립 버튼, 미응답은 둘 다 Default. 전역 Size/Button52는 변경 안 함."
+    },
+    {
+      "name": "Data/Avatar",
+      "set": {
+        "id": "7:87",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=7-87"
+      },
+      "preserved": [
+        "7:81 Small",
+        "기존 Large"
+      ],
+      "newVariants": [
+        {
+          "name": "SmallSelf",
+          "id": "270:482",
+          "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=270-482",
+          "surface": "Color/Surface/AvatarSelf"
+        },
+        {
+          "name": "SmallMember",
+          "id": "270:492",
+          "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=270-492",
+          "surface": "Color/Surface/AvatarMember"
+        }
+      ],
+      "text": "기존 Primitive/Text/AvatarSmall 인스턴스 및 OnAction 흰색"
+    },
+    {
+      "name": "Data/ResponseBadge",
+      "set": {
+        "id": "275:482",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=275-482"
+      },
+      "preservedDefault": {
+        "id": "140:230",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=140-230"
+      },
+      "selected": {
+        "id": "275:483",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=275-483"
+      },
+      "selectedFill": "Color/Surface/Highlight",
+      "selectedText": "Color/Text/Link",
+      "note": "기존 V05/V07 기본 배지 모양 보존"
+    },
+    {
+      "name": "Data/DateBadge",
+      "preservedDefault": {
+        "id": "150:352",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=150-352"
+      },
+      "defaultBounds": [
+        43,
+        24
+      ],
+      "compact": {
+        "id": "309:597",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=309-597"
+      },
+      "compactBounds": [
+        28,
+        24
+      ],
+      "sizeProperty": "Default/Compact",
+      "compactStyle": "CaptionSmall12/16, 좌우8/상하4, Hug, Radius8, Highlight/Primary"
+    },
+    {
+      "name": "Primitive/Text/Button",
+      "newVariant": {
+        "name": "Tone=Secondary",
+        "id": "373:686",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=373-686",
+        "color": "Color/Text/Secondary"
+      },
+      "preserved": [
+        "OnAction",
+        "Link",
+        "Disabled",
+        "Primary"
+      ],
+      "style": "기존 Text/Button16/24 Bold"
+    },
+    {
+      "name": "Primitive/Text/Caption",
+      "set": {
+        "id": "7:32",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=7-32"
+      },
+      "newVariant": {
+        "name": "Tone=Muted",
+        "id": "382:686",
+        "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=382-686",
+        "color": "Color/Text/Muted"
+      },
+      "preserved": [
+        "Secondary",
+        "Danger"
+      ],
+      "style": "기존 Text/Caption14/20 Regular"
+    }
+  ],
+  "newVariables": [
+    {
+      "collection": "Holdlog Semantic",
+      "name": "Color/Surface/AvatarSelf",
+      "value": "#778292",
+      "id": null
+    },
+    {
+      "collection": "Holdlog Semantic",
+      "name": "Color/Surface/AvatarMember",
+      "value": "#AAB1BF",
+      "id": null
+    }
+  ],
+  "newVariableNote": "UI에서 이름 중복 검색 후 생성/값/연결 확인. 소스 이미지의 정확 HEX라고 주장하지 않는 근사 공통값으로 root 승인. 변수 ID는 UI에서 미확보.",
+  "newTextStyle": {
+    "name": "Text/BodyLarge",
+    "font": "Noto Sans KR Regular",
+    "size": 18,
+    "lineHeight": 24,
+    "uiStyleKey": "e45da09166a7bd85f43f36598fe3bef4ad62502b",
+    "createdAfterDuplicateSearch": true
+  },
+  "reused": [
+    {
+      "name": "Navigation/SubpageBar Visible",
+      "id": "241:453",
+      "height": 44
+    },
+    {
+      "name": "Primitive/Text/Display",
+      "id": "153:294",
+      "style": "40/48"
+    },
+    {
+      "name": "Primitive/Text/SectionSmall",
+      "id": "157:294",
+      "style": "18/24"
+    },
+    {
+      "name": "Primitive/Text/Body",
+      "setId": "7:22",
+      "style": "16/24"
+    },
+    {
+      "name": "Primitive/Text/CaptionSmall",
+      "id": "140:223",
+      "style": "12/16"
+    },
+    {
+      "name": "Data/PlaceStamp/PeakExample",
+      "id": "147:223",
+      "note": "생성 시안의 예시 도장. 공식 브랜드 원본 아님"
+    },
+    {
+      "name": "Primitive/Divider",
+      "id": "7:80",
+      "countPerScreen": 5
+    },
+    {
+      "name": "Primitive/Icon/Check/Regular",
+      "id": "234:462"
+    },
+    {
+      "name": "Primitive/Icon/MoreHorizontal/Regular",
+      "id": "234:468"
+    }
+  ],
+  "validation": {
+    "frameWidth": 390,
+    "frameHeight": 844,
+    "tested320": false,
+    "sameMainComponentForAllStates": true,
+    "detachedInstances": false,
+    "fullScreenRasterOrSvg": false,
+    "memberNames": [
+      "민수",
+      "지연",
+      "수빈",
+      "도윤"
+    ],
+    "header": "뒤로/월요클럽/더보기; 높이44",
+    "noBottomNav": true,
+    "noFutureVisitRecordButton": true,
+    "selectedButtonsOnly": true,
+    "cleanPngExport": "Figma UI Export 1x; Downloads Holdlog(14)(15)(16).zip의 단일 PNG 추출",
+    "exportFilesOpenedForVisualVerification": true,
+    "textClippingObserved": false,
+    "sourceComparison": "전체 구성/부품 모양/도장/텍스트 비중/독립 버튼/4명 행/구분선 대조 통과"
+  },
+  "rootReview": {
+    "status": "세 390 PNG 시안 비교 통과",
+    "approved": [
+      "v09-unanswered-final.png",
+      "v09-attending-final.png",
+      "v09-declined-final.png"
+    ],
+    "checked": [
+      "미응답 둘 다 미선택 및2/0/2·민수미응답",
+      "참여 체크/Primary 선택 및3/0/1·민수참여",
+      "불참 체크/Primary 선택 및2/1/1·민수불참",
+      "4명/작은 나 배지/도장/구분선/본문 글자 잘림 없음"
+    ],
+    "note": "root가 최종 추가 디자인 변경 불필요 확인"
+  },
+  "evidence": {
+    "finalPngs": [
+      "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-unanswered-final.png",
+      "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-attending-final.png",
+      "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-declined-final.png"
+    ],
+    "structure": [
+      "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-unanswered-structure.txt",
+      "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-attending-structure.txt",
+      "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-declined-structure.txt"
+    ],
+    "approvedBase": "/Users/trycatch/work/Holdlog/docs/figma/assets/v09-detail-final-base-proof.png"
+  },
+  "unfinished": [
+    "숫자로 입력한 일부 size/space/radius/stroke의 전체 변수 연결 감사 미완료. 색상 및 글자 스타일은 재사용/연결 확인. root가 이번 마감에서 별도 미완료 명시 허용.",
+    "Size/ResponseButton40 신규 토큰은 만들지 않았으며 응답 원본 높이40은 수치값이다. 기존 Size/Button52 보존.",
+    "프로토타입 상호작용 미연결. 이번 시각 교정 범위 이상의 동작 확장 안 함."
+  ],
+  "approvalBlocks": [],
+  "toolIssue": "다운로드 waitForEvent가 시간 초과되어 CUA 세션을 다시 연결했으나 실제 Figma Export ZIP은 정상 저장됨. UI Export 결과를 파일로 확인/추출.",
+  "sharedDocsOwnership": "state.json/주요 문서/shared registry는 root가 갱신. 이 결과 파일만 V09 담당 저장."
+}

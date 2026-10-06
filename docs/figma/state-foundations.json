@@ -1,0 +1,617 @@
+{
+  "collections": [
+    {
+      "id": "VariableCollectionId:4:2",
+      "name": "Holdlog Primitives",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "4:0"
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:4:3",
+      "name": "Holdlog Semantic",
+      "modes": [
+        {
+          "name": "Light",
+          "modeId": "4:1"
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "id": "VariableID:4:4",
+      "name": "Palette/White",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:5",
+      "name": "Palette/Ink",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:6",
+      "name": "Palette/Slate",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:7",
+      "name": "Palette/Muted",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:8",
+      "name": "Palette/Purple",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:9",
+      "name": "Palette/PurplePressed",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:10",
+      "name": "Palette/Surface",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:11",
+      "name": "Palette/Lavender",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:12",
+      "name": "Palette/Border",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:13",
+      "name": "Palette/Danger",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:14",
+      "name": "Palette/DangerPressed",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:15",
+      "name": "Palette/Disabled",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:16",
+      "name": "Palette/DisabledText",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:17",
+      "name": "Palette/Focus",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:18",
+      "name": "Palette/GoogleBlue",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:19",
+      "name": "Palette/GoogleGreen",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:20",
+      "name": "Palette/GoogleYellow",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:21",
+      "name": "Palette/GoogleRed",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:22",
+      "name": "Color/Action/Primary",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:23",
+      "name": "Color/Action/Pressed",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:24",
+      "name": "Color/Text/Primary",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:25",
+      "name": "Color/Text/Secondary",
+      "collectionId": "VariableCollectionId:4:3",
+      "scopes": [
+        "TEXT_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ]
+    },
+    {
+      "id": "VariableID:4:26",
+      "name": "Color/Text/Muted",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:27",
+      "name": "Color/Text/OnAction",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:28",
+      "name": "Color/Text/Link",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:29",
+      "name": "Color/Surface/Default",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:30",
+      "name": "Color/Surface/Input",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:31",
+      "name": "Color/Surface/Avatar",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:32",
+      "name": "Color/Border/Default",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:33",
+      "name": "Color/Status/Danger",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:34",
+      "name": "Color/Status/DangerPressed",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:35",
+      "name": "Color/Surface/Disabled",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:36",
+      "name": "Color/Text/Disabled",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:37",
+      "name": "Color/Border/Focus",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:38",
+      "name": "Color/Brand/Google/Blue",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:39",
+      "name": "Color/Brand/Google/Green",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:40",
+      "name": "Color/Brand/Google/Yellow",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:41",
+      "name": "Color/Brand/Google/Red",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:42",
+      "name": "Value/Space/0",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:43",
+      "name": "Space/0",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:44",
+      "name": "Value/Space/4",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:45",
+      "name": "Space/4",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:46",
+      "name": "Value/Space/8",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:47",
+      "name": "Space/8",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:48",
+      "name": "Value/Space/12",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:49",
+      "name": "Space/12",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:50",
+      "name": "Value/Space/16",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:51",
+      "name": "Space/16",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:52",
+      "name": "Value/Space/20",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:53",
+      "name": "Space/20",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:54",
+      "name": "Value/Space/24",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:55",
+      "name": "Space/24",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:56",
+      "name": "Value/Space/32",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:57",
+      "name": "Space/32",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:58",
+      "name": "Value/Space/40",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:59",
+      "name": "Space/40",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:60",
+      "name": "Value/Space/48",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:61",
+      "name": "Space/48",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:62",
+      "name": "Value/Radius/0",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:63",
+      "name": "Radius/0",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:64",
+      "name": "Value/Radius/8",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:65",
+      "name": "Radius/8",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:66",
+      "name": "Value/Radius/12",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:67",
+      "name": "Radius/12",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:68",
+      "name": "Value/Radius/16",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:69",
+      "name": "Radius/16",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:70",
+      "name": "Value/Radius/999",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:71",
+      "name": "Radius/999",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:72",
+      "name": "Value/Size/Touch",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:73",
+      "name": "Size/Touch",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:74",
+      "name": "Value/Size/Button",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:75",
+      "name": "Size/Button",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:76",
+      "name": "Value/Size/Input",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:77",
+      "name": "Size/Input",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:78",
+      "name": "Value/Size/Row",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:79",
+      "name": "Size/Row",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:80",
+      "name": "Value/Size/Avatar",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:81",
+      "name": "Size/Avatar",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:82",
+      "name": "Value/Size/AvatarSmall",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:83",
+      "name": "Size/AvatarSmall",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:84",
+      "name": "Value/Size/Icon",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:85",
+      "name": "Size/Icon",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:86",
+      "name": "Value/Size/ProviderIcon",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:87",
+      "name": "Size/ProviderIcon",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:88",
+      "name": "Value/Size/Screen",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:89",
+      "name": "Size/Screen",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:90",
+      "name": "Value/Stroke/Default",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:91",
+      "name": "Stroke/Default",
+      "collectionId": "VariableCollectionId:4:3"
+    },
+    {
+      "id": "VariableID:4:92",
+      "name": "Value/Stroke/Focus",
+      "collectionId": "VariableCollectionId:4:2"
+    },
+    {
+      "id": "VariableID:4:93",
+      "name": "Stroke/Focus",
+      "collectionId": "VariableCollectionId:4:3"
+    }
+  ],
+  "styles": [
+    {
+      "id": "S:10eeb96169e9cd23b45e03480c19cadfa6527e6c,",
+      "name": "Text/Title",
+      "fontSize": 32,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      }
+    },
+    {
+      "id": "S:9df7400fae14b9cb0c988e0ba0aa2204009f3eee,",
+      "name": "Text/Section",
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      }
+    },
+    {
+      "id": "S:484771f3bac3db3a3dc1be78b5dd5487429133fd,",
+      "name": "Text/Body",
+      "fontSize": 16,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      }
+    },
+    {
+      "id": "S:767a606a5862d3c456523cd64dc1a3320923750b,",
+      "name": "Text/Label",
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      }
+    },
+    {
+      "id": "S:37f5e5da48ae564c70d165d118c52ccc8f87349d,",
+      "name": "Text/Caption",
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      }
+    },
+    {
+      "id": "S:07feb5d3badbf47a3b6ef235d71538996d20fe27,",
+      "name": "Text/Button",
+      "fontSize": 16,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      }
+    },
+    {
+      "id": "S:9de5eed1bc778ea2ffdba21f7c9225b3d3acb779,",
+      "name": "Text/Avatar",
+      "fontSize": 48,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 64
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      }
+    },
+    {
+      "id": "S:a0968e07be4775ee6455bbbbb79c3a1fb5afa27a,",
+      "name": "Text/AvatarSmall",
+      "fontSize": 16,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "font": {
+        "family": "Noto Sans KR",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      }
+    }
+  ],
+  "validation": {
+    "count": 90,
+    "invalidScopes": 0,
+    "missingSyntax": 0
+  },
+  "createdNodeIds": []
+}

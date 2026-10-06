@@ -1,0 +1,758 @@
+{
+  "date": "2026-10-05",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "phase": "Figma 제작·검증 완료 / 사용자 검토 대기",
+  "atoms": {
+    "area": "545:32060",
+    "texts": {
+      "body": "562:32063",
+      "label": "562:32065",
+      "labelWhite": "562:32067",
+      "number": "562:32069",
+      "metric": "562:32071",
+      "barGym": "562:32075"
+    },
+    "clock": "562:32077",
+    "clockWhite": "562:32080",
+    "plus": "562:32083",
+    "minus": "562:32087",
+    "minusDisabled": "562:32090",
+    "flag": "562:32092",
+    "arrowWhite": "562:32085",
+    "circle": "562:32095"
+  },
+  "controls": {
+    "area": "545:32060",
+    "variables": [
+      {
+        "id": "VariableID:562:32096",
+        "name": "Size/Workout/DifficultyDot"
+      },
+      {
+        "id": "VariableID:562:32097",
+        "name": "Size/Workout/CounterSurface"
+      }
+    ],
+    "controls": {
+      "set": "562:32111",
+      "plus": "562:32099",
+      "minus": "562:32103",
+      "minusDisabled": "562:32107"
+    },
+    "dots": [
+      "562:32112",
+      "562:32113",
+      "562:32114",
+      "562:32115",
+      "562:32116",
+      "562:32117",
+      "562:32118",
+      "562:32119",
+      "562:32120",
+      "562:32121",
+      "562:32122"
+    ],
+    "dotset": "562:32123",
+    "row": "562:32124",
+    "made": [
+      "VariableID:562:32096",
+      "VariableID:562:32097",
+      "562:32098",
+      "562:32099",
+      "562:32103",
+      "562:32107",
+      "562:32111",
+      "562:32112",
+      "562:32113",
+      "562:32114",
+      "562:32115",
+      "562:32116",
+      "562:32117",
+      "562:32118",
+      "562:32119",
+      "562:32120",
+      "562:32121",
+      "562:32122",
+      "562:32123",
+      "562:32124"
+    ]
+  },
+  "compositions": {
+    "ids": {
+      "gym": "562:32139",
+      "metrics": "562:32148",
+      "heading": "562:32163",
+      "list": "562:32168",
+      "bar": "562:32337",
+      "card": "562:32347",
+      "body": "562:32368"
+    },
+    "made": [
+      "562:32139",
+      "562:32148",
+      "562:32163",
+      "562:32168",
+      "562:32337",
+      "562:32347",
+      "562:32368"
+    ]
+  },
+  "screens": {
+    "screen": {
+      "id": "562:32587",
+      "name": "02.13.01 운동 중 기록 / 기본",
+      "x": 60,
+      "y": 12500,
+      "w": 390,
+      "h": 924
+    },
+    "specimen": {
+      "id": "562:32795",
+      "w": 390,
+      "h": 220
+    },
+    "spec": {
+      "id": "562:32827",
+      "h": 748
+    },
+    "liveBar": {
+      "id": "562:32817",
+      "screen": "424:6398",
+      "x": 20,
+      "y": 709,
+      "w": 350,
+      "h": 52
+    },
+    "sectionHeight": 13484,
+    "made": [
+      "562:32587",
+      "562:32795",
+      "562:32817",
+      "562:32827"
+    ]
+  },
+  "validation": {
+    "instanceCount": 163,
+    "missingMainComponents": [],
+    "textBoundsOverflow": [],
+    "componentOverlap": [],
+    "components": [
+      {
+        "id": "562:32063",
+        "name": "Primitive/Text/Workout/Body",
+        "size": [
+          150,
+          24
+        ]
+      },
+      {
+        "id": "562:32065",
+        "name": "Primitive/Text/Workout/Label",
+        "size": [
+          150,
+          20
+        ]
+      },
+      {
+        "id": "562:32067",
+        "name": "Primitive/Text/Workout/LabelOnAction",
+        "size": [
+          150,
+          20
+        ]
+      },
+      {
+        "id": "562:32069",
+        "name": "Primitive/Text/Workout/Count",
+        "size": [
+          36,
+          28
+        ]
+      },
+      {
+        "id": "562:32071",
+        "name": "Primitive/Text/Workout/Metric",
+        "size": [
+          150,
+          28
+        ]
+      },
+      {
+        "id": "562:32075",
+        "name": "Primitive/Text/Workout/GymOnAction",
+        "size": [
+          64,
+          20
+        ]
+      },
+      {
+        "id": "562:32077",
+        "name": "Primitive/Icon/Clock/WorkoutPrimary",
+        "size": [
+          24,
+          24
+        ]
+      },
+      {
+        "id": "562:32080",
+        "name": "Primitive/Icon/Clock/OnAction",
+        "size": [
+          24,
+          24
+        ]
+      },
+      {
+        "id": "562:32083",
+        "name": "Primitive/Icon/Plus/WorkoutPrimary",
+        "size": [
+          24,
+          24
+        ]
+      },
+      {
+        "id": "562:32085",
+        "name": "Primitive/Icon/ChevronRight/OnAction",
+        "size": [
+          16,
+          16
+        ]
+      },
+      {
+        "id": "562:32087",
+        "name": "Primitive/Icon/Minus/Regular",
+        "size": [
+          24,
+          24
+        ]
+      },
+      {
+        "id": "562:32090",
+        "name": "Primitive/Icon/Minus/Disabled",
+        "size": [
+          24,
+          24
+        ]
+      },
+      {
+        "id": "562:32092",
+        "name": "Primitive/Icon/Flag/Regular",
+        "size": [
+          24,
+          24
+        ]
+      },
+      {
+        "id": "562:32095",
+        "name": "Primitive/WorkoutCounterSurface",
+        "size": [
+          32,
+          32
+        ]
+      },
+      {
+        "id": "562:32098",
+        "name": "Primitive/WorkoutCounterSurface/Neutral",
+        "size": [
+          32,
+          32
+        ]
+      },
+      {
+        "id": "562:32099",
+        "name": "Action=Plus, State=Enabled",
+        "size": [
+          44,
+          44
+        ]
+      },
+      {
+        "id": "562:32103",
+        "name": "Action=Minus, State=Enabled",
+        "size": [
+          44,
+          44
+        ]
+      },
+      {
+        "id": "562:32107",
+        "name": "Action=Minus, State=Disabled",
+        "size": [
+          44,
+          44
+        ]
+      },
+      {
+        "id": "562:32112",
+        "name": "Grade=1, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32113",
+        "name": "Grade=2, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32114",
+        "name": "Grade=3, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32115",
+        "name": "Grade=4, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32116",
+        "name": "Grade=5, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32117",
+        "name": "Grade=6, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32118",
+        "name": "Grade=7, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32119",
+        "name": "Grade=8, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32120",
+        "name": "Grade=9, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32121",
+        "name": "Grade=10, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32122",
+        "name": "Grade=11, Size=20",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "id": "562:32124",
+        "name": "Control/WorkoutGradeRow",
+        "size": [
+          350,
+          44
+        ]
+      },
+      {
+        "id": "562:32139",
+        "name": "Data/WorkoutPlaceHeader",
+        "size": [
+          350,
+          64
+        ]
+      },
+      {
+        "id": "562:32148",
+        "name": "Data/WorkoutMetrics",
+        "size": [
+          350,
+          72
+        ]
+      },
+      {
+        "id": "562:32163",
+        "name": "Data/WorkoutCountHeading",
+        "size": [
+          350,
+          28
+        ]
+      },
+      {
+        "id": "562:32168",
+        "name": "Data/WorkoutGradeList",
+        "size": [
+          350,
+          484
+        ]
+      },
+      {
+        "id": "562:32337",
+        "name": "Navigation/WorkoutLiveBar",
+        "size": [
+          350,
+          52
+        ]
+      },
+      {
+        "id": "562:32347",
+        "name": "Data/WorkoutOngoingCard",
+        "size": [
+          350,
+          180
+        ]
+      },
+      {
+        "id": "562:32368",
+        "name": "Record/WorkoutBody",
+        "size": [
+          350,
+          836
+        ]
+      },
+      {
+        "id": "562:32834",
+        "name": "Primitive/Text/Workout/MetricRight",
+        "size": [
+          150,
+          28
+        ]
+      }
+    ],
+    "screenSize": [
+      390,
+      924
+    ],
+    "visualReview": "운동 화면·기록 목록·공통 알림 현재 PNG 확인",
+    "implementationTested": false
+  },
+  "createdComponents": [
+    {
+      "id": "562:32063",
+      "name": "Primitive/Text/Workout/Body",
+      "size": [
+        150,
+        24
+      ]
+    },
+    {
+      "id": "562:32065",
+      "name": "Primitive/Text/Workout/Label",
+      "size": [
+        150,
+        20
+      ]
+    },
+    {
+      "id": "562:32067",
+      "name": "Primitive/Text/Workout/LabelOnAction",
+      "size": [
+        150,
+        20
+      ]
+    },
+    {
+      "id": "562:32069",
+      "name": "Primitive/Text/Workout/Count",
+      "size": [
+        36,
+        28
+      ]
+    },
+    {
+      "id": "562:32071",
+      "name": "Primitive/Text/Workout/Metric",
+      "size": [
+        150,
+        28
+      ]
+    },
+    {
+      "id": "562:32075",
+      "name": "Primitive/Text/Workout/GymOnAction",
+      "size": [
+        64,
+        20
+      ]
+    },
+    {
+      "id": "562:32077",
+      "name": "Primitive/Icon/Clock/WorkoutPrimary",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "562:32080",
+      "name": "Primitive/Icon/Clock/OnAction",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "562:32083",
+      "name": "Primitive/Icon/Plus/WorkoutPrimary",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "562:32085",
+      "name": "Primitive/Icon/ChevronRight/OnAction",
+      "size": [
+        16,
+        16
+      ]
+    },
+    {
+      "id": "562:32087",
+      "name": "Primitive/Icon/Minus/Regular",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "562:32090",
+      "name": "Primitive/Icon/Minus/Disabled",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "562:32092",
+      "name": "Primitive/Icon/Flag/Regular",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "562:32095",
+      "name": "Primitive/WorkoutCounterSurface",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "562:32098",
+      "name": "Primitive/WorkoutCounterSurface/Neutral",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "562:32099",
+      "name": "Action=Plus, State=Enabled",
+      "size": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "562:32103",
+      "name": "Action=Minus, State=Enabled",
+      "size": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "562:32107",
+      "name": "Action=Minus, State=Disabled",
+      "size": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "562:32112",
+      "name": "Grade=1, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32113",
+      "name": "Grade=2, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32114",
+      "name": "Grade=3, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32115",
+      "name": "Grade=4, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32116",
+      "name": "Grade=5, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32117",
+      "name": "Grade=6, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32118",
+      "name": "Grade=7, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32119",
+      "name": "Grade=8, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32120",
+      "name": "Grade=9, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32121",
+      "name": "Grade=10, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32122",
+      "name": "Grade=11, Size=20",
+      "size": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "562:32124",
+      "name": "Control/WorkoutGradeRow",
+      "size": [
+        350,
+        44
+      ]
+    },
+    {
+      "id": "562:32139",
+      "name": "Data/WorkoutPlaceHeader",
+      "size": [
+        350,
+        64
+      ]
+    },
+    {
+      "id": "562:32148",
+      "name": "Data/WorkoutMetrics",
+      "size": [
+        350,
+        72
+      ]
+    },
+    {
+      "id": "562:32163",
+      "name": "Data/WorkoutCountHeading",
+      "size": [
+        350,
+        28
+      ]
+    },
+    {
+      "id": "562:32168",
+      "name": "Data/WorkoutGradeList",
+      "size": [
+        350,
+        484
+      ]
+    },
+    {
+      "id": "562:32337",
+      "name": "Navigation/WorkoutLiveBar",
+      "size": [
+        350,
+        52
+      ]
+    },
+    {
+      "id": "562:32347",
+      "name": "Data/WorkoutOngoingCard",
+      "size": [
+        350,
+        180
+      ]
+    },
+    {
+      "id": "562:32368",
+      "name": "Record/WorkoutBody",
+      "size": [
+        350,
+        836
+      ]
+    },
+    {
+      "id": "562:32834",
+      "name": "Primitive/Text/Workout/MetricRight",
+      "size": [
+        150,
+        28
+      ]
+    }
+  ]
+}

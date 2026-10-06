@@ -1,0 +1,3109 @@
+{
+  "date": "2026-10-02",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "tool": "figma-console MCP",
+  "scope": "01.06 제외, 현재29개 독립 화면의64개 시안 배치 검증 및 화면 옆 기능 명세 카드",
+  "result": "현재 PNG64장 직접 검토. 새 배치 수정 사항 없음. 화면 내부·크기·상태·원본 연결을 유지하고 캔버스 위치만 이동.",
+  "counts": {
+    "independentScreens": 29,
+    "numberedCompositions": 64,
+    "specCards": 64,
+    "elementSamples": 5
+  },
+  "excluded": [
+    "01.06 일정 미가입 안내"
+  ],
+  "validation": {
+    "width390": true,
+    "visualScreens": [
+      {
+        "id": "123:479",
+        "name": "01.01.01 일정 달력 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.01.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "123:310",
+        "name": "01.02.01 일정 목록 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.02.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "123:877",
+        "name": "01.03.01 날짜 일정 시트 / 일정 있음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.03.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "123:922",
+        "name": "01.03.02 날짜 일정 시트 / 일정 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.03.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "414:4578",
+        "name": "01.03.03 날짜 일정 시트 / 미응답 견본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.03.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "118:160",
+        "name": "01.04.01 일정 작성 / 만들기",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.04.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "118:242",
+        "name": "01.04.02 일정 작성 / 수정",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.04.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "123:221",
+        "name": "01.05.01 일정 상세 / 미응답",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.05.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "123:278",
+        "name": "01.05.02 일정 상세 / 참여",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.05.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "123:951",
+        "name": "01.05.03 일정 상세 / 불참",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/01.05.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "424:6062",
+        "name": "02.01.01 기록 달력 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.01.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "424:7217",
+        "name": "02.01.02 기록 달력 / 기록 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.01.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "424:6398",
+        "name": "02.02.01 기록 목록 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.02.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "424:6805",
+        "name": "02.02.02 기록 목록 / 필터 적용",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.02.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "424:7782",
+        "name": "02.02.03 기록 목록 / 기록 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.02.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:12403",
+        "name": "02.03.01 날짜 기록 시트 / 방문 있음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.03.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:12479",
+        "name": "02.03.02 날짜 기록 시트 / 기록 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.03.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:12531",
+        "name": "02.03.03 날짜 기록 시트 / 내 기록 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.03.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:12607",
+        "name": "02.04.01 개인 기록 작성 / 연결된 방문",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.04.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:12831",
+        "name": "02.04.02 개인 기록 작성 / 독립 작성",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.04.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13026",
+        "name": "02.04.03 개인 기록 작성 / 수정",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.04.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13250",
+        "name": "02.04.04 개인 기록 작성 / 파일 업로드 실패",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.04.04.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13478",
+        "name": "02.05.01 개인 기록 상세 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.05.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13601",
+        "name": "02.05.02 개인 기록 상세 / 미입력",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.05.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13703",
+        "name": "02.06.01 크루 방문 등록 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.06.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13821",
+        "name": "02.06.02 크루 방문 등록 / 연결된 방문 수정",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.06.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:13944",
+        "name": "02.06.03 크루 방문 등록 / 참석자 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.06.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:14025",
+        "name": "02.07.01 실제 참석자 검색·추가 / 검색 결과",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.07.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:14094",
+        "name": "02.07.02 실제 참석자 검색·추가 / 선택됨",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.07.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:14174",
+        "name": "02.07.03 실제 참석자 검색·추가 / 검색 결과 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.07.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:14234",
+        "name": "02.08.01 크루 방문 상세 / 내 기록 연결 안 됨",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.08.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:14336",
+        "name": "02.08.02 크루 방문 상세 / 내 기록 연결됨",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.08.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "430:14540",
+        "name": "02.08.03 크루 방문 상세 / 나는 불참",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.08.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "434:17009",
+        "name": "02.03.04 날짜 기록 시트 / 기록 종류 선택",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.03.04.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "450:22709",
+        "name": "02.08.04 크루 방문 상세 / 기록 작성 방법 선택",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/02.08.04.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "455:25612",
+        "name": "03.01.01 암장 지도 / 지점 선택",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/03.01.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "455:26556",
+        "name": "03.02.01 암장 검색·추천·선택 / 참여자 추천",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/03.02.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "455:26667",
+        "name": "03.02.02 암장 검색·추천·선택 / 검색만",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/03.02.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "455:26754",
+        "name": "03.02.03 암장 검색·추천·선택 / 검색 결과 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/03.02.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "455:26779",
+        "name": "03.03.01 암장 상세 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/03.03.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "455:26922",
+        "name": "03.03.02 암장 상세 / 정보 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/03.03.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "471:30692",
+        "name": "04.01.01 개인 통계 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/04.01.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "471:31607",
+        "name": "04.01.02 개인 통계 / 방문 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/04.01.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "473:32360",
+        "name": "05.01.01 내 정보 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/05.01.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "17:3",
+        "name": "05.02.01 프로필 수정 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/05.02.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "109:89",
+        "name": "06.01.01 크루 정보 / 일반 회원",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.01.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "475:33651",
+        "name": "06.01.02 크루 정보 / 관리자",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.01.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "477:34402",
+        "name": "06.02.01 크루원 목록 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.02.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "477:34510",
+        "name": "06.02.02 크루원 목록 / 검색 결과 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.02.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:35317",
+        "name": "06.03.01 내 크루 목록 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.03.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:35423",
+        "name": "06.03.02 내 크루 목록 / 가입 크루 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.03.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:35936",
+        "name": "06.04.01 크루 만들기 / 입력 완료",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.04.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:36581",
+        "name": "06.05.01 초대 코드 입력 / 빈 입력",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.05.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:36995",
+        "name": "06.06.01 QR 스캔 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.06.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:37564",
+        "name": "06.07.01 초대 가입 확인 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.07.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:38215",
+        "name": "06.08.01 초대 공유 / 기본",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.08.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:39499",
+        "name": "06.09.01 관리자 넘기기 / 선택 완료",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.09.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:39721",
+        "name": "06.09.02 관리자 넘기기 / 대상 없음",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.09.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:41934",
+        "name": "06.10.01 크루 선택창 / 일정 위",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.10.01.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:42265",
+        "name": "06.10.02 크루 선택창 / 기록 위",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.10.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "478:42635",
+        "name": "06.10.03 크루 선택창 / 많은 크루",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.10.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "483:43717",
+        "name": "06.06.02 QR 스캔 / 다이얼로그",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.06.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "487:43945",
+        "name": "06.07.02 초대 가입 확인 / 다이얼로그",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.07.02.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      },
+      {
+        "id": "487:44070",
+        "name": "06.09.03 관리자 넘기기 / 다이얼로그",
+        "png": "../../figma/assets/layout-spec-review-2026-10-02/06.09.03.png",
+        "result": "현재 이미지에서 제목·본문·폼·사진·하단·시트·다이얼로그 배치 검토"
+      }
+    ],
+    "unexpectedTextOutsideScreen": 0,
+    "intentionalOverflow": [
+      {
+        "screen": "02.07.02 실제 참석자 검색·추가 / 선택됨",
+        "id": "I430:14102;449:22406;449:22319;430:9442;449:22262",
+        "text": "도윤",
+        "bounds": {
+          "x": 5971,
+          "y": 1542,
+          "width": 26,
+          "height": 20
+        },
+        "reason": "SelectedAttendeeStrip 350×40 가로 스크롤·클리핑 영역의 네 번째 배지. 보이는 경계 오류 아님."
+      }
+    ],
+    "canvasSiblingOverlap": 0,
+    "cardTextOutsideBounds": 0,
+    "cardOriginalConnectionErrors": 0,
+    "temporarySlicesRemaining": 0,
+    "pairedPreviews": [
+      "../../figma/assets/layout-spec-review-2026-10-02/pair-01.01.01.png",
+      "../../figma/assets/layout-spec-review-2026-10-02/pair-02.04.01.png",
+      "../../figma/assets/layout-spec-review-2026-10-02/pair-03.02.01.png",
+      "../../figma/assets/layout-spec-review-2026-10-02/pair-04.01.02.png",
+      "../../figma/assets/layout-spec-review-2026-10-02/pair-05.01.01.png",
+      "../../figma/assets/layout-spec-review-2026-10-02/pair-06.08.01.png"
+    ]
+  },
+  "component": {
+    "componentId": "493:44481",
+    "sectionId": "493:44480",
+    "createdNodeIds": [
+      "493:44480",
+      "493:44481",
+      "493:44482",
+      "493:44484",
+      "493:44486",
+      "493:44488",
+      "493:44490",
+      "493:44492",
+      "493:44494"
+    ],
+    "w": 360,
+    "h": 458,
+    "fields": [
+      {
+        "name": "Title",
+        "w": 318,
+        "h": 28
+      },
+      {
+        "name": "State",
+        "w": 318,
+        "h": 20
+      },
+      {
+        "name": "Entry",
+        "w": 318,
+        "h": 48
+      },
+      {
+        "name": "Display",
+        "w": 318,
+        "h": 48
+      },
+      {
+        "name": "Actions",
+        "w": 318,
+        "h": 48
+      },
+      {
+        "name": "Rules",
+        "w": 318,
+        "h": 48
+      },
+      {
+        "name": "Source",
+        "w": 318,
+        "h": 80
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "id": "493:44496",
+      "screenId": "123:479",
+      "number": "01.01.01",
+      "sectionId": "118:241",
+      "x": 474,
+      "y": 80,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.01.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 달력\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 탭·가입 완료"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루 일정만 표시. 전체 / 내가 참여한 일정, 월 이동, 달력·목록 전환."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n날짜 선택 → 01.03. 크루 이름 → 06.10. 회원 수 → 06.02."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n1개는 도장만, 2개는 점2개, 3개부터 점1개 + 나머지 개수. 암장 미정은 회색."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S03\ndocs/screen-design.md · 01.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44511",
+      "screenId": "123:310",
+      "number": "01.02.01",
+      "sectionId": "118:241",
+      "x": 474,
+      "y": 1024,
+      "w": 360,
+      "h": 526,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.02.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 목록\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정의 목록 보기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장·내 응답·참여/불참/미응답 인원. 인원은 한 줄, 카드 모서리12."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목 → 01.05. 달력 전환 시 현재 월과 필터 유지."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n예정 배지는 생략. 종료·취소와 내 응답을 구분. 가까운 예정 일정부터 표시."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S03\ndocs/screen-design.md · 01.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44526",
+      "screenId": "123:877",
+      "number": "01.03.01",
+      "sectionId": "118:241",
+      "x": 474,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.03.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 일정 시트\n현재 시안 · 일정 있음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n01.01에서 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·요일·일정 건수, 암장·시간·응답·인원. 긴 일정 목록은 시트 안에서 스크롤."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n일정 → 01.05. 이 날짜에 일정 만들기 → 01.04. 닫으면 원래 달력."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n달력에서 미리 받은 데이터 사용. 시트의 별도 로딩·조회 실패·재시도 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S03-D\ndocs/screen-design.md · 01.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44541",
+      "screenId": "123:922",
+      "number": "01.03.02",
+      "sectionId": "118:241",
+      "x": 1324,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.03.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 일정 시트\n현재 시안 · 일정 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n01.01에서 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·요일·일정 건수, 암장·시간·응답·인원. 긴 일정 목록은 시트 안에서 스크롤."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n일정 → 01.05. 이 날짜에 일정 만들기 → 01.04. 닫으면 원래 달력."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n달력에서 미리 받은 데이터 사용. 시트의 별도 로딩·조회 실패·재시도 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S03-D\ndocs/screen-design.md · 01.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44556",
+      "screenId": "414:4578",
+      "number": "01.03.03",
+      "sectionId": "118:241",
+      "x": 2174,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.03.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 일정 시트\n현재 시안 · 미응답 견본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n01.01에서 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·요일·일정 건수, 암장·시간·응답·인원. 긴 일정 목록은 시트 안에서 스크롤."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n일정 → 01.05. 이 날짜에 일정 만들기 → 01.04. 닫으면 원래 달력."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n달력에서 미리 받은 데이터 사용. 시트의 별도 로딩·조회 실패·재시도 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S03-D\ndocs/screen-design.md · 01.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44571",
+      "screenId": "118:160",
+      "number": "01.04.01",
+      "sectionId": "118:241",
+      "x": 474,
+      "y": 2912,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.04.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 작성\n현재 시안 · 만들기"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 만들기 / 일정 상세의 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간 필수. 암장·설명 선택. 암장 미선택은 암장 미정."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n암장 선택 → 03.02. 저장 성공 후 일정 갱신. 작성자를 자동 참여자로 넣지 않음."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n과거 신규 일정은 만들 수 없음. 수정은 작성자·관리자만. 저장 중에는 중복 누르기 차단."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S04\ndocs/screen-design.md · 01.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44586",
+      "screenId": "118:242",
+      "number": "01.04.02",
+      "sectionId": "118:241",
+      "x": 1324,
+      "y": 2912,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.04.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 작성\n현재 시안 · 수정"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 만들기 / 일정 상세의 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간 필수. 암장·설명 선택. 암장 미선택은 암장 미정."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n암장 선택 → 03.02. 저장 성공 후 일정 갱신. 작성자를 자동 참여자로 넣지 않음."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n과거 신규 일정은 만들 수 없음. 수정은 작성자·관리자만. 저장 중에는 중복 누르기 차단."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S04\ndocs/screen-design.md · 01.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44601",
+      "screenId": "123:221",
+      "number": "01.05.01",
+      "sectionId": "118:241",
+      "x": 474,
+      "y": 3856,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.05.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 상세\n현재 시안 · 미응답"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 목록·날짜 시트의 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장·설명·작성자·응답 인원·내 신청 상태."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n참여할게요 / 불참할게요로 내 응답 변경. 작성자·관리자는 더보기에서 수정·취소."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미응답은 선택지 아님. 선택 버튼 재누름으로 해제하지 않음. 종료·취소 후 응답 변경 차단."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S05\ndocs/screen-design.md · 01.05\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44616",
+      "screenId": "123:278",
+      "number": "01.05.02",
+      "sectionId": "118:241",
+      "x": 1324,
+      "y": 3856,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.05.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 상세\n현재 시안 · 참여"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 목록·날짜 시트의 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장·설명·작성자·응답 인원·내 신청 상태."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n참여할게요 / 불참할게요로 내 응답 변경. 작성자·관리자는 더보기에서 수정·취소."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미응답은 선택지 아님. 선택 버튼 재누름으로 해제하지 않음. 종료·취소 후 응답 변경 차단."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S05\ndocs/screen-design.md · 01.05\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44631",
+      "screenId": "123:951",
+      "number": "01.05.03",
+      "sectionId": "118:241",
+      "x": 2174,
+      "y": 3856,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "01.05.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "일정 상세\n현재 시안 · 불참"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 목록·날짜 시트의 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장·설명·작성자·응답 인원·내 신청 상태."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n참여할게요 / 불참할게요로 내 응답 변경. 작성자·관리자는 더보기에서 수정·취소."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미응답은 선택지 아님. 선택 버튼 재누름으로 해제하지 않음. 종료·취소 후 응답 변경 차단."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S05\ndocs/screen-design.md · 01.05\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44646",
+      "screenId": "424:6062",
+      "number": "02.01.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 80,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.01.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "기록 달력\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록 탭"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n전체는 내 기록과 현재 크루 방문을 합치며 연결된 방문은 한 번만 표시. 내 방문은 계정 전체."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n오늘·과거 날짜 → 02.03. 달력·목록 전환과 필터 변경 시 같은 조회 범위 유지."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미래 날짜는 선택 불가. 일정과 같은 달력 크기·축약 규칙. 참석은 채운 도장, 불참은 테두리."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08\ndocs/screen-design.md · 02.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44661",
+      "screenId": "424:7217",
+      "number": "02.01.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 80,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.01.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "기록 달력\n현재 시안 · 기록 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록 탭"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n전체는 내 기록과 현재 크루 방문을 합치며 연결된 방문은 한 번만 표시. 내 방문은 계정 전체."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n오늘·과거 날짜 → 02.03. 달력·목록 전환과 필터 변경 시 같은 조회 범위 유지."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미래 날짜는 선택 불가. 일정과 같은 달력 크기·축약 규칙. 참석은 채운 도장, 불참은 테두리."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08\ndocs/screen-design.md · 02.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44676",
+      "screenId": "424:6398",
+      "number": "02.02.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 1024,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.02.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "기록 목록\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 목록 보기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n월별 방문을 최신 날짜부터 묶음. 내 기록이 있으면 완등·컨디션, 없으면 실제 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목 → 개인 상세02.05 또는 크루 상세02.08. 필터는 보기 전환 오른쪽."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n빈 기간 안내 문구·별도 조회 실패 화면 없음. 신규 작성은 달력 날짜 시트에서 시작."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08\ndocs/screen-design.md · 02.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44691",
+      "screenId": "424:6805",
+      "number": "02.02.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 1024,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.02.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "기록 목록\n현재 시안 · 필터 적용"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 목록 보기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n월별 방문을 최신 날짜부터 묶음. 내 기록이 있으면 완등·컨디션, 없으면 실제 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목 → 개인 상세02.05 또는 크루 상세02.08. 필터는 보기 전환 오른쪽."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n빈 기간 안내 문구·별도 조회 실패 화면 없음. 신규 작성은 달력 날짜 시트에서 시작."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08\ndocs/screen-design.md · 02.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44706",
+      "screenId": "424:7782",
+      "number": "02.02.03",
+      "sectionId": "424:6061",
+      "x": 2174,
+      "y": 1024,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.02.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "기록 목록\n현재 시안 · 기록 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 목록 보기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n월별 방문을 최신 날짜부터 묶음. 내 기록이 있으면 완등·컨디션, 없으면 실제 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목 → 개인 상세02.05 또는 크루 상세02.08. 필터는 보기 전환 오른쪽."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n빈 기간 안내 문구·별도 조회 실패 화면 없음. 신규 작성은 달력 날짜 시트에서 시작."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08\ndocs/screen-design.md · 02.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44721",
+      "screenId": "430:12403",
+      "number": "02.03.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.03.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 기록 시트\n현재 시안 · 방문 있음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록 달력에서 오늘·과거 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 필터의 날짜·건수. 크루 방문에 연결된 내 기록이 있으면 내 요약만, 없으면 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n기록 작성 → 개인 기록 작성 / 크루 방문 등록 선택 다이얼로그. 기존 항목 → 해당 상세."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미래 날짜 시트 없음. 크루 이름·연결 안 됨·나도 참석/나는 불참 문구를 반복하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08-D\ndocs/screen-design.md · 02.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44736",
+      "screenId": "430:12479",
+      "number": "02.03.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.03.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 기록 시트\n현재 시안 · 기록 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록 달력에서 오늘·과거 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 필터의 날짜·건수. 크루 방문에 연결된 내 기록이 있으면 내 요약만, 없으면 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n기록 작성 → 개인 기록 작성 / 크루 방문 등록 선택 다이얼로그. 기존 항목 → 해당 상세."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미래 날짜 시트 없음. 크루 이름·연결 안 됨·나도 참석/나는 불참 문구를 반복하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08-D\ndocs/screen-design.md · 02.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44751",
+      "screenId": "430:12531",
+      "number": "02.03.03",
+      "sectionId": "424:6061",
+      "x": 2174,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.03.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 기록 시트\n현재 시안 · 내 기록 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록 달력에서 오늘·과거 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 필터의 날짜·건수. 크루 방문에 연결된 내 기록이 있으면 내 요약만, 없으면 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n기록 작성 → 개인 기록 작성 / 크루 방문 등록 선택 다이얼로그. 기존 항목 → 해당 상세."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미래 날짜 시트 없음. 크루 이름·연결 안 됨·나도 참석/나는 불참 문구를 반복하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08-D\ndocs/screen-design.md · 02.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44766",
+      "screenId": "434:17009",
+      "number": "02.03.04",
+      "sectionId": "424:6061",
+      "x": 3024,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.03.04 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "날짜 기록 시트\n현재 시안 · 기록 종류 선택"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록 달력에서 오늘·과거 날짜 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 필터의 날짜·건수. 크루 방문에 연결된 내 기록이 있으면 내 요약만, 없으면 참석 인원."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n기록 작성 → 개인 기록 작성 / 크루 방문 등록 선택 다이얼로그. 기존 항목 → 해당 상세."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미래 날짜 시트 없음. 크루 이름·연결 안 됨·나도 참석/나는 불참 문구를 반복하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S08-D\ndocs/screen-design.md · 02.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44781",
+      "screenId": "430:12607",
+      "number": "02.04.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 2912,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.04.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 기록 작성\n현재 시안 · 연결된 방문"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 개인 기록 작성 / 크루 방문에서 새로 작성 / 개인 상세 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장 필수, 완등·컨디션·후기·파일은 선택. 난이도 예시는11색."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n파일 추가는 로컬 미리보기, 저장할 때 업로드. 사진은 눈/자물쇠 아이콘, 후기는 글자 버튼."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n연결 중 날짜·암장 잠금, 시간은 같은 공동 날짜 안에서 변경. 미입력과0 구분. 업로드 실패는 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S12\ndocs/screen-design.md · 02.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44796",
+      "screenId": "430:12831",
+      "number": "02.04.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 2912,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.04.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 기록 작성\n현재 시안 · 독립 작성"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 개인 기록 작성 / 크루 방문에서 새로 작성 / 개인 상세 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장 필수, 완등·컨디션·후기·파일은 선택. 난이도 예시는11색."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n파일 추가는 로컬 미리보기, 저장할 때 업로드. 사진은 눈/자물쇠 아이콘, 후기는 글자 버튼."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n연결 중 날짜·암장 잠금, 시간은 같은 공동 날짜 안에서 변경. 미입력과0 구분. 업로드 실패는 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S12\ndocs/screen-design.md · 02.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44811",
+      "screenId": "430:13026",
+      "number": "02.04.03",
+      "sectionId": "424:6061",
+      "x": 2174,
+      "y": 2912,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.04.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 기록 작성\n현재 시안 · 수정"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 개인 기록 작성 / 크루 방문에서 새로 작성 / 개인 상세 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장 필수, 완등·컨디션·후기·파일은 선택. 난이도 예시는11색."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n파일 추가는 로컬 미리보기, 저장할 때 업로드. 사진은 눈/자물쇠 아이콘, 후기는 글자 버튼."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n연결 중 날짜·암장 잠금, 시간은 같은 공동 날짜 안에서 변경. 미입력과0 구분. 업로드 실패는 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S12\ndocs/screen-design.md · 02.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44826",
+      "screenId": "430:13250",
+      "number": "02.04.04",
+      "sectionId": "424:6061",
+      "x": 3024,
+      "y": 2912,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.04.04 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 기록 작성\n현재 시안 · 파일 업로드 실패"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 개인 기록 작성 / 크루 방문에서 새로 작성 / 개인 상세 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n날짜·시간·암장 필수, 완등·컨디션·후기·파일은 선택. 난이도 예시는11색."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n파일 추가는 로컬 미리보기, 저장할 때 업로드. 사진은 눈/자물쇠 아이콘, 후기는 글자 버튼."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n연결 중 날짜·암장 잠금, 시간은 같은 공동 날짜 안에서 변경. 미입력과0 구분. 업로드 실패는 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S12\ndocs/screen-design.md · 02.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44841",
+      "screenId": "430:13478",
+      "number": "02.05.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 4246,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.05.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 기록 상세\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 기록 목록·날짜 시트 / 크루 방문의 내 이름"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n완등·컨디션·후기·첨부. 상세 파일은169 정사각형, 공개/비공개는 오른쪽 아래 아이콘."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n본인만 수정·삭제. 더보기에서 크루 방문 연결·해제 또는 연결된 방문 보기."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미입력은0으로 바꾸지 않음. 후기 공개는 파일과 별도. 삭제 시 개인 기록과 첨부 삭제, 실제 참석은 유지."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S12\ndocs/screen-design.md · 02.05\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44856",
+      "screenId": "430:13601",
+      "number": "02.05.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 4246,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.05.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 기록 상세\n현재 시안 · 미입력"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 기록 목록·날짜 시트 / 크루 방문의 내 이름"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n완등·컨디션·후기·첨부. 상세 파일은169 정사각형, 공개/비공개는 오른쪽 아래 아이콘."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n본인만 수정·삭제. 더보기에서 크루 방문 연결·해제 또는 연결된 방문 보기."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미입력은0으로 바꾸지 않음. 후기 공개는 파일과 별도. 삭제 시 개인 기록과 첨부 삭제, 실제 참석은 유지."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S12\ndocs/screen-design.md · 02.05\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44871",
+      "screenId": "430:13703",
+      "number": "02.06.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 5326,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.06.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 등록\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 크루 방문 등록 / 일정의 방문 기록 만들기 / 크루 방문 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n실제 날짜·시간·암장·참석자 필수. 사진·메모는 공동 내용. 선택 배지는 한 줄 가로 스크롤."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n+ 추가 → 02.07. 저장하면 공동 방문만 생성. 개인 기록은 상세의 내 이름에서 별도로 작성·연결."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n참석자 최소1명. 개인 기록이 연결된 공동 날짜·암장은 변경 차단. 사진은 크루 공유, 파일별 공개 선택 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S09\ndocs/screen-design.md · 02.06\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44886",
+      "screenId": "430:13821",
+      "number": "02.06.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 5326,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.06.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 등록\n현재 시안 · 연결된 방문 수정"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 크루 방문 등록 / 일정의 방문 기록 만들기 / 크루 방문 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n실제 날짜·시간·암장·참석자 필수. 사진·메모는 공동 내용. 선택 배지는 한 줄 가로 스크롤."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n+ 추가 → 02.07. 저장하면 공동 방문만 생성. 개인 기록은 상세의 내 이름에서 별도로 작성·연결."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n참석자 최소1명. 개인 기록이 연결된 공동 날짜·암장은 변경 차단. 사진은 크루 공유, 파일별 공개 선택 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S09\ndocs/screen-design.md · 02.06\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44901",
+      "screenId": "430:13944",
+      "number": "02.06.03",
+      "sectionId": "424:6061",
+      "x": 2174,
+      "y": 5326,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.06.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 등록\n현재 시안 · 참석자 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n날짜 시트의 크루 방문 등록 / 일정의 방문 기록 만들기 / 크루 방문 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n실제 날짜·시간·암장·참석자 필수. 사진·메모는 공동 내용. 선택 배지는 한 줄 가로 스크롤."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n+ 추가 → 02.07. 저장하면 공동 방문만 생성. 개인 기록은 상세의 내 이름에서 별도로 작성·연결."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n참석자 최소1명. 개인 기록이 연결된 공동 날짜·암장은 변경 차단. 사진은 크루 공유, 파일별 공개 선택 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S09\ndocs/screen-design.md · 02.06\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44916",
+      "screenId": "430:14025",
+      "number": "02.07.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 6276,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.07.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "실제 참석자 검색·추가\n현재 시안 · 검색 결과"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n크루 방문 폼의 함께 간 사람 + 추가"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루 회원을 이름으로 검색. 선택 인원·배지는 한 줄 가로 스크롤. 선택된 행 오른쪽은 체크."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n추가·제거는 임시 선택. 선택 완료 시 폼에 반영, 닫으면 이번 변경 취소."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n같은 회원 중복 추가 불가. 이름 아래 선택됨 문구 없음. 다른 크루 회원은 검색·추가 불가."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S09-A\ndocs/screen-design.md · 02.07\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44931",
+      "screenId": "430:14094",
+      "number": "02.07.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 6276,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.07.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "실제 참석자 검색·추가\n현재 시안 · 선택됨"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n크루 방문 폼의 함께 간 사람 + 추가"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루 회원을 이름으로 검색. 선택 인원·배지는 한 줄 가로 스크롤. 선택된 행 오른쪽은 체크."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n추가·제거는 임시 선택. 선택 완료 시 폼에 반영, 닫으면 이번 변경 취소."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n같은 회원 중복 추가 불가. 이름 아래 선택됨 문구 없음. 다른 크루 회원은 검색·추가 불가."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S09-A\ndocs/screen-design.md · 02.07\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44946",
+      "screenId": "430:14174",
+      "number": "02.07.03",
+      "sectionId": "424:6061",
+      "x": 2174,
+      "y": 6276,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.07.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "실제 참석자 검색·추가\n현재 시안 · 검색 결과 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n크루 방문 폼의 함께 간 사람 + 추가"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루 회원을 이름으로 검색. 선택 인원·배지는 한 줄 가로 스크롤. 선택된 행 오른쪽은 체크."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n추가·제거는 임시 선택. 선택 완료 시 폼에 반영, 닫으면 이번 변경 취소."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n같은 회원 중복 추가 불가. 이름 아래 선택됨 문구 없음. 다른 크루 회원은 검색·추가 불가."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S09-A\ndocs/screen-design.md · 02.07\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44961",
+      "screenId": "430:14234",
+      "number": "02.08.01",
+      "sectionId": "424:6061",
+      "x": 474,
+      "y": 7220,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.08.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 상세\n현재 시안 · 내 기록 연결 안 됨"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 크루 방문 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n공동 암장·날짜·참석자별 공개 가능한 요약·사진·메모. 사진은169 정사각형."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n연결된 내 이름 → 02.05. 연결 안 된 내 이름 → 새로 작성 / 기존 기록 선택 다이얼로그."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n각 행은 같은 오른쪽 화살표. 내 기록 보기·입력 버튼 없음. 조회 사진에는 + 추가·공개/비공개 아이콘 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S10 / S12\ndocs/screen-design.md · 02.08\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44976",
+      "screenId": "430:14336",
+      "number": "02.08.02",
+      "sectionId": "424:6061",
+      "x": 1324,
+      "y": 7220,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.08.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 상세\n현재 시안 · 내 기록 연결됨"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 크루 방문 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n공동 암장·날짜·참석자별 공개 가능한 요약·사진·메모. 사진은169 정사각형."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n연결된 내 이름 → 02.05. 연결 안 된 내 이름 → 새로 작성 / 기존 기록 선택 다이얼로그."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n각 행은 같은 오른쪽 화살표. 내 기록 보기·입력 버튼 없음. 조회 사진에는 + 추가·공개/비공개 아이콘 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S10 / S12\ndocs/screen-design.md · 02.08\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:44991",
+      "screenId": "430:14540",
+      "number": "02.08.03",
+      "sectionId": "424:6061",
+      "x": 2174,
+      "y": 7220,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.08.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 상세\n현재 시안 · 나는 불참"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 크루 방문 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n공동 암장·날짜·참석자별 공개 가능한 요약·사진·메모. 사진은169 정사각형."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n연결된 내 이름 → 02.05. 연결 안 된 내 이름 → 새로 작성 / 기존 기록 선택 다이얼로그."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n각 행은 같은 오른쪽 화살표. 내 기록 보기·입력 버튼 없음. 조회 사진에는 + 추가·공개/비공개 아이콘 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S10 / S12\ndocs/screen-design.md · 02.08\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45006",
+      "screenId": "450:22709",
+      "number": "02.08.04",
+      "sectionId": "424:6061",
+      "x": 3024,
+      "y": 7220,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "02.08.04 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 방문 상세\n현재 시안 · 기록 작성 방법 선택"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n기록의 크루 방문 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n공동 암장·날짜·참석자별 공개 가능한 요약·사진·메모. 사진은169 정사각형."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n연결된 내 이름 → 02.05. 연결 안 된 내 이름 → 새로 작성 / 기존 기록 선택 다이얼로그."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n각 행은 같은 오른쪽 화살표. 내 기록 보기·입력 버튼 없음. 조회 사진에는 + 추가·공개/비공개 아이콘 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S10 / S12\ndocs/screen-design.md · 02.08\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45021",
+      "screenId": "455:25612",
+      "number": "03.01.01",
+      "sectionId": "455:25611",
+      "x": 474,
+      "y": 80,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "03.01.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "암장 지도\n현재 시안 · 지점 선택"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n하단 암장 탭"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n검색·지도·등록 지점 표시·선택 지점 미리보기. 일정 추천과 독립적인 조회."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n지점 표시 → 미리보기. 암장 상세 → 03.03. 현재 위치는 요청할 때만 권한 확인."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n등록 좌표만 사용. 지도 조회로 일정 저장·변경하지 않음. 상세에서 돌아오면 위치·선택 유지."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S23\ndocs/screen-design.md · 03.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45036",
+      "screenId": "455:26556",
+      "number": "03.02.01",
+      "sectionId": "455:25611",
+      "x": 474,
+      "y": 1024,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "03.02.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "암장 검색·추천·선택\n현재 시안 · 참여자 추천"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 또는 개인·크루 방문의 암장 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n검색·선택·암장 정보. 추천은 오늘·미래 일정과 참여 회원이 있을 때만. 기록 작성은 검색만."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목은 임시 선택, 하단 선택 버튼으로 부모 폼에 반환. 암장 정보 → 03.03."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n참여자3명까지 모두,4명부터2명 + 나머지 수. 암장 정보는 항목 아래, 선택 원은 오른쪽 세로 가운데."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S06\ndocs/screen-design.md · 03.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45051",
+      "screenId": "455:26667",
+      "number": "03.02.02",
+      "sectionId": "455:25611",
+      "x": 1324,
+      "y": 1024,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "03.02.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "암장 검색·추천·선택\n현재 시안 · 검색만"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 또는 개인·크루 방문의 암장 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n검색·선택·암장 정보. 추천은 오늘·미래 일정과 참여 회원이 있을 때만. 기록 작성은 검색만."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목은 임시 선택, 하단 선택 버튼으로 부모 폼에 반환. 암장 정보 → 03.03."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n참여자3명까지 모두,4명부터2명 + 나머지 수. 암장 정보는 항목 아래, 선택 원은 오른쪽 세로 가운데."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S06\ndocs/screen-design.md · 03.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45066",
+      "screenId": "455:26754",
+      "number": "03.02.03",
+      "sectionId": "455:25611",
+      "x": 2174,
+      "y": 1024,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "03.02.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "암장 검색·추천·선택\n현재 시안 · 검색 결과 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정 또는 개인·크루 방문의 암장 선택"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n검색·선택·암장 정보. 추천은 오늘·미래 일정과 참여 회원이 있을 때만. 기록 작성은 검색만."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n항목은 임시 선택, 하단 선택 버튼으로 부모 폼에 반환. 암장 정보 → 03.03."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n참여자3명까지 모두,4명부터2명 + 나머지 수. 암장 정보는 항목 아래, 선택 원은 오른쪽 세로 가운데."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S06\ndocs/screen-design.md · 03.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45081",
+      "screenId": "455:26779",
+      "number": "03.03.01",
+      "sectionId": "455:25611",
+      "x": 474,
+      "y": 1968,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "03.03.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "암장 상세\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n지도 미리보기·선택 목록의 암장 정보"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n브랜드·지점·위치·브랜드 난이도·벽별 최근/예정 세팅. 없는 정보는 정보 없음."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n지도 보기 → 03.01. 뒤로 가면 진입 화면의 검색·선택 상태 보존."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n운영 정보 편집 없음. 난이도 예시는11색, 실제값은 브랜드 등록값. 상세 조회는 암장 선택·일정 저장 아님."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S07\ndocs/screen-design.md · 03.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45096",
+      "screenId": "455:26922",
+      "number": "03.03.02",
+      "sectionId": "455:25611",
+      "x": 1324,
+      "y": 1968,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "03.03.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "암장 상세\n현재 시안 · 정보 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n지도 미리보기·선택 목록의 암장 정보"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n브랜드·지점·위치·브랜드 난이도·벽별 최근/예정 세팅. 없는 정보는 정보 없음."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n지도 보기 → 03.01. 뒤로 가면 진입 화면의 검색·선택 상태 보존."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n운영 정보 편집 없음. 난이도 예시는11색, 실제값은 브랜드 등록값. 상세 조회는 암장 선택·일정 저장 아님."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S07\ndocs/screen-design.md · 03.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45111",
+      "screenId": "471:30692",
+      "number": "04.01.01",
+      "sectionId": "471:30691",
+      "x": 474,
+      "y": 80,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "04.01.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 통계\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n하단 통계 탭"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n계정 전체의 저장된 개인 기록 집계. 모든 지표는 같은 방문일 범위. 완등은 브랜드별로 구분."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n기간 변경 → 전체 지표 갱신. 브랜드 변경 → 완등 영역만. 아래 영역 이동은 같은 화면 안에서 스크롤."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미입력은0으로 바꾸지 않음. 숫자·단위는 기준선, 값 묶음은 셀 가운데. 미입력에는 단위 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S15\ndocs/screen-design.md · 04.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45126",
+      "screenId": "471:31607",
+      "number": "04.01.02",
+      "sectionId": "471:30691",
+      "x": 1324,
+      "y": 80,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "04.01.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "개인 통계\n현재 시안 · 방문 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n하단 통계 탭"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n계정 전체의 저장된 개인 기록 집계. 모든 지표는 같은 방문일 범위. 완등은 브랜드별로 구분."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n기간 변경 → 전체 지표 갱신. 브랜드 변경 → 완등 영역만. 아래 영역 이동은 같은 화면 안에서 스크롤."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n미입력은0으로 바꾸지 않음. 숫자·단위는 기준선, 값 묶음은 셀 가운데. 미입력에는 단위 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S15\ndocs/screen-design.md · 04.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45141",
+      "screenId": "473:32360",
+      "number": "05.01.01",
+      "sectionId": "424:9017",
+      "x": 474,
+      "y": 80,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "05.01.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "내 정보\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n하단 내 정보 탭"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n개인 프로필·로그인 계정·가입 크루·보관함·알림 설정·로그아웃."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n프로필 수정 → 05.02. 가입한 크루 → 06.03. 알림은 OS 권한과 앱 종류 설정을 구분."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n크루 관리 메뉴는 여기 두지 않음. 로그아웃은 기록 삭제·크루 탈퇴 아님. 계정 삭제 진입은 프로필 수정에만."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S16\ndocs/screen-design.md · 05.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45156",
+      "screenId": "17:3",
+      "number": "05.02.01",
+      "sectionId": "424:9017",
+      "x": 474,
+      "y": 1024,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "05.02.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "프로필 수정\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 정보의 프로필 수정"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n이름·사진 편집, 연결된 로그인 계정, 계정 삭제 진입."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n사진 변경·이름 수정 후 저장. 계정 삭제는 확인 다이얼로그에서 삭제 범위 안내."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n관리자 역할이 남으면 이관 필요. 별도 저장 중·저장 실패 전체 시안 없음. 크루 탈퇴와 계정 삭제 구분."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S16 / B05\ndocs/screen-design.md · 05.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45171",
+      "screenId": "109:89",
+      "number": "06.01.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 80,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.01.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 정보\n현재 시안 · 일반 회원"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 크루 목록의 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n조회 대상 크루 이름·회원 수·내 역할·크루원·초대·일정 보기. 관리자는 관리자 넘기기."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루원 → 06.02, 초대 → 06.08, 일정 보기 → 해당 크루로 전환. 일반 회원 탈퇴는 확인 후 처리."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n조회만으로 현재 크루 바꾸지 않음. 하단 탭·상시 이관 안내 없음. 권한은 조회한 크루 기준."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S22\ndocs/screen-design.md · 06.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45186",
+      "screenId": "475:33651",
+      "number": "06.01.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 80,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.01.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 정보\n현재 시안 · 관리자"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 크루 목록의 항목"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n조회 대상 크루 이름·회원 수·내 역할·크루원·초대·일정 보기. 관리자는 관리자 넘기기."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루원 → 06.02, 초대 → 06.08, 일정 보기 → 해당 크루로 전환. 일반 회원 탈퇴는 확인 후 처리."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n조회만으로 현재 크루 바꾸지 않음. 하단 탭·상시 이관 안내 없음. 권한은 조회한 크루 기준."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S22\ndocs/screen-design.md · 06.01\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45201",
+      "screenId": "477:34402",
+      "number": "06.02.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 1024,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.02.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루원 목록\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정·기록 회원 수 또는 크루 정보의 크루원"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루의 활성 회원·이름 검색·역할. 검색 결과 없음은 검색칸 아래 남은 공간 가운데."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n내 이름 → 내 기록. 다른 회원 → 해당 크루 공개 기록. 뒤로 → 진입 화면."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n하단 탭 없음. 본인 전용 기록은 다른 회원에게 공개하지 않음. 별도 로딩·조회 실패 시안 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S20\ndocs/screen-design.md · 06.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45216",
+      "screenId": "477:34510",
+      "number": "06.02.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 1024,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.02.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루원 목록\n현재 시안 · 검색 결과 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정·기록 회원 수 또는 크루 정보의 크루원"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루의 활성 회원·이름 검색·역할. 검색 결과 없음은 검색칸 아래 남은 공간 가운데."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n내 이름 → 내 기록. 다른 회원 → 해당 크루 공개 기록. 뒤로 → 진입 화면."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n하단 탭 없음. 본인 전용 기록은 다른 회원에게 공개하지 않음. 별도 로딩·조회 실패 시안 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S20\ndocs/screen-design.md · 06.02\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45231",
+      "screenId": "478:35317",
+      "number": "06.03.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.03.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "내 크루 목록\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 정보의 가입한 크루"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n가입한 크루·회원 수·내 역할. 현재 표식과 각 행의 오른쪽 화살표."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루 → 06.01. 크루 만들기 → 06.04, 초대로 가입 → 06.05."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n상세 조회만으로 선택 크루를 바꾸지 않음. 가입 크루만 표시. 별도 다시 시도 전체 시안 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S19-B\ndocs/screen-design.md · 06.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45246",
+      "screenId": "478:35423",
+      "number": "06.03.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 1968,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.03.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "내 크루 목록\n현재 시안 · 가입 크루 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 정보의 가입한 크루"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n가입한 크루·회원 수·내 역할. 현재 표식과 각 행의 오른쪽 화살표."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루 → 06.01. 크루 만들기 → 06.04, 초대로 가입 → 06.05."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n상세 조회만으로 선택 크루를 바꾸지 않음. 가입 크루만 표시. 별도 다시 시도 전체 시안 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S19-B\ndocs/screen-design.md · 06.03\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45261",
+      "screenId": "478:35936",
+      "number": "06.04.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 2912,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.04.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 만들기\n현재 시안 · 입력 완료"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n내 크루 목록·크루 선택창의 크루 만들기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n크루 이름 필수. 빈 이름은 만들기 비활성, 입력한 상태는 활성."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n만들기 성공 → 새 크루 선택 후01.01. 생성자는 최초 관리자이며 자동 가입."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n동일 요청 중복 생성 차단. 실패는 입력 유지 후 다이얼로그. 저장 중·실패 전체 화면 추가 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S24\ndocs/screen-design.md · 06.04\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45276",
+      "screenId": "478:36581",
+      "number": "06.05.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 3856,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.05.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "초대 코드 입력\n현재 시안 · 빈 입력"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n초대로 가입하기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n초대 코드 입력, QR 스캔 진입. 빈 입력은 초대 확인 비활성."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n코드 확인 → 서버 검증 후06.07. QR 스캔 → 06.06."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n코드 확인만으로 가입하지 않음. 잘못된 초대·가입 문제는 기존 화면 위 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S02\ndocs/screen-design.md · 06.05\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45291",
+      "screenId": "478:36995",
+      "number": "06.06.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 4800,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.06.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "QR 스캔\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n초대 코드 입력의 QR 스캔"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n연속 카메라 스캔. QR은 초대 링크와 같은 서버 검증."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n유효한 QR → 06.07. 사용할 수 없는 QR → 중앙 다이얼로그, 닫으면 스캔 계속."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n다시 스캔 버튼 없음. 카메라 권한이 없어도 코드 입력 가능. QR 인식만으로 자동 가입하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S02\ndocs/screen-design.md · 06.06\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45306",
+      "screenId": "483:43717",
+      "number": "06.06.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 4800,
+      "w": 360,
+      "h": 550,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.06.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "QR 스캔\n현재 시안 · 다이얼로그"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n초대 코드 입력의 QR 스캔"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n연속 카메라 스캔. QR은 초대 링크와 같은 서버 검증."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n유효한 QR → 06.07. 사용할 수 없는 QR → 중앙 다이얼로그, 닫으면 스캔 계속."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n다시 스캔 버튼 없음. 카메라 권한이 없어도 코드 입력 가능. QR 인식만으로 자동 가입하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S02\ndocs/screen-design.md · 06.06\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45321",
+      "screenId": "478:37564",
+      "number": "06.07.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 5752,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.07.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "초대 가입 확인\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n검증된 코드·QR·초대 링크"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n큰 크루 프로필·크루 이름·초대 안내. 가입은 현재 로그인 계정으로 확인 후 진행."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n가입 확인 성공 → 새 크루의01.01. 나중에 → 가입하지 않고 닫기."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n가입 불가·무효 초대·가입 실패는 같은 화면 위 다이얼로그. 이미 가입한 크루는 중복 가입하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S02\ndocs/screen-design.md · 06.07\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45336",
+      "screenId": "487:43945",
+      "number": "06.07.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 5752,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.07.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "초대 가입 확인\n현재 시안 · 다이얼로그"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n검증된 코드·QR·초대 링크"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n큰 크루 프로필·크루 이름·초대 안내. 가입은 현재 로그인 계정으로 확인 후 진행."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n가입 확인 성공 → 새 크루의01.01. 나중에 → 가입하지 않고 닫기."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n가입 불가·무효 초대·가입 실패는 같은 화면 위 다이얼로그. 이미 가입한 크루는 중복 가입하지 않음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S02\ndocs/screen-design.md · 06.07\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45351",
+      "screenId": "478:38215",
+      "number": "06.08.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 6696,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.08.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "초대 공유\n현재 시안 · 기본"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n크루 정보의 초대 코드·QR·링크"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n같은 크루 초대의 코드·QR·링크. 초대는 무기한, 활성 크루원 모두 공유 가능."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n복사한 버튼만 초록색 복사됨. 공유 → 기기 공유 기능."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n시안은 코드 복사됨·링크 복사로 두 상태 비교. 실제 첫 진입은 둘 다 복사. 권한 없으면 진입 차단."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S17\ndocs/screen-design.md · 06.08\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45366",
+      "screenId": "478:39499",
+      "number": "06.09.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 7640,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.09.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "관리자 넘기기\n현재 시안 · 선택 완료"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n관리자의 크루 정보 → 관리자 넘기기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n본인을 제외한 활성 크루원 한 명 선택. 시안 안에 선택·미선택을 함께 표시."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n넘기기 → 확인 다이얼로그. 확인 성공 시 대상은 관리자, 본인은 일반 회원."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n자동 탈퇴하지 않음. 다른 크루 역할은 유지. 대상 없음은 초대 경로, 문제는 기존 화면 위 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S25\ndocs/screen-design.md · 06.09\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45381",
+      "screenId": "478:39721",
+      "number": "06.09.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 7640,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.09.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "관리자 넘기기\n현재 시안 · 대상 없음"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n관리자의 크루 정보 → 관리자 넘기기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n본인을 제외한 활성 크루원 한 명 선택. 시안 안에 선택·미선택을 함께 표시."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n넘기기 → 확인 다이얼로그. 확인 성공 시 대상은 관리자, 본인은 일반 회원."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n자동 탈퇴하지 않음. 다른 크루 역할은 유지. 대상 없음은 초대 경로, 문제는 기존 화면 위 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S25\ndocs/screen-design.md · 06.09\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45396",
+      "screenId": "487:44070",
+      "number": "06.09.03",
+      "sectionId": "424:9018",
+      "x": 2174,
+      "y": 7640,
+      "w": 360,
+      "h": 574,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.09.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "관리자 넘기기\n현재 시안 · 다이얼로그"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n관리자의 크루 정보 → 관리자 넘기기"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n본인을 제외한 활성 크루원 한 명 선택. 시안 안에 선택·미선택을 함께 표시."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n넘기기 → 확인 다이얼로그. 확인 성공 시 대상은 관리자, 본인은 일반 회원."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n자동 탈퇴하지 않음. 다른 크루 역할은 유지. 대상 없음은 초대 경로, 문제는 기존 화면 위 다이얼로그."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S25\ndocs/screen-design.md · 06.09\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45411",
+      "screenId": "478:41934",
+      "number": "06.10.01",
+      "sectionId": "424:9018",
+      "x": 474,
+      "y": 8584,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.10.01 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 선택창\n현재 시안 · 일정 위"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정·기록의 상단 크루 이름"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루만 체크. 다른 행에는 화살표 없음. 회원 수와 역할은 같은 줄 가운데 정렬."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루 선택 → 바로 전환하고 닫기. 같은 크루·바깥·뒤로 → 변경 없이 닫기. 많은 크루는 목록 스크롤."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n현재 탭·보기·월 유지, 참석자 필터는 크루 전환 시 초기화. 아래 만들기·가입 행의 마지막 구분선 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S19-A\ndocs/screen-design.md · 06.10\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45426",
+      "screenId": "478:42265",
+      "number": "06.10.02",
+      "sectionId": "424:9018",
+      "x": 1324,
+      "y": 8584,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.10.02 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 선택창\n현재 시안 · 기록 위"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정·기록의 상단 크루 이름"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루만 체크. 다른 행에는 화살표 없음. 회원 수와 역할은 같은 줄 가운데 정렬."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루 선택 → 바로 전환하고 닫기. 같은 크루·바깥·뒤로 → 변경 없이 닫기. 많은 크루는 목록 스크롤."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n현재 탭·보기·월 유지, 참석자 필터는 크루 전환 시 초기화. 아래 만들기·가입 행의 마지막 구분선 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S19-A\ndocs/screen-design.md · 06.10\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    },
+    {
+      "id": "493:45441",
+      "screenId": "478:42635",
+      "number": "06.10.03",
+      "sectionId": "424:9018",
+      "x": 2174,
+      "y": 8584,
+      "w": 360,
+      "h": 598,
+      "fields": [
+        {
+          "name": "Title",
+          "content": "06.10.03 · 기능 명세"
+        },
+        {
+          "name": "State",
+          "content": "크루 선택창\n현재 시안 · 많은 크루"
+        },
+        {
+          "name": "Entry",
+          "content": "진입\n일정·기록의 상단 크루 이름"
+        },
+        {
+          "name": "Display",
+          "content": "표시\n현재 크루만 체크. 다른 행에는 화살표 없음. 회원 수와 역할은 같은 줄 가운데 정렬."
+        },
+        {
+          "name": "Actions",
+          "content": "동작\n크루 선택 → 바로 전환하고 닫기. 같은 크루·바깥·뒤로 → 변경 없이 닫기. 많은 크루는 목록 스크롤."
+        },
+        {
+          "name": "Rules",
+          "content": "규칙\n현재 탭·보기·월 유지, 참석자 필터는 크루 전환 시 초기화. 아래 만들기·가입 행의 마지막 구분선 없음."
+        },
+        {
+          "name": "Source",
+          "content": "원문 · 2026-10-02\ndocs/functional-spec.md · S19-A\ndocs/screen-design.md · 06.10\n요약 카드 · 원문 문서 우선"
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "118:241",
+      "name": "01 일정",
+      "x": 0,
+      "y": 0,
+      "w": 2594,
+      "h": 4780
+    },
+    {
+      "id": "424:6061",
+      "name": "02 기록",
+      "x": 2894,
+      "y": 0,
+      "w": 3444,
+      "h": 8144
+    },
+    {
+      "id": "455:25611",
+      "name": "03 암장",
+      "x": 6638,
+      "y": 0,
+      "w": 2594,
+      "h": 2998
+    },
+    {
+      "id": "471:30691",
+      "name": "04 통계",
+      "x": 9532,
+      "y": 0,
+      "w": 2210,
+      "h": 2062
+    },
+    {
+      "id": "424:9017",
+      "name": "05 내 정보",
+      "x": 12042,
+      "y": 0,
+      "w": 1360,
+      "h": 1948
+    },
+    {
+      "id": "424:9018",
+      "name": "06 크루",
+      "x": 13702,
+      "y": 0,
+      "w": 2594,
+      "h": 9508
+    }
+  ],
+  "sourceContent": "screen-spec-content-2026-10-02.json",
+  "sourceDocuments": [
+    "../../screen-design.md",
+    "../../functional-spec.md"
+  ],
+  "documentCorrection": "S10의 이전 글자 버튼 설명을 본인 참석자 행의 화살표·작성 방법 다이얼로그로 교정",
+  "limits": [
+    "동작은 문서에서 가져온 설명이며 이번 검증은 배치·정렬 검증이다. 실제 앱·프로토타입 클릭, 스크롤·접근성 동작은 검사하지 않았다.",
+    "명세 카드는 문서 요약본이다. 변경할 때 원문과 카드를 같이 갱신하며 확정하지 않은 기능을 추가하지 않는다."
+  ],
+  "status": "제작·검증 완료 / 사용자 검토 대기"
+}

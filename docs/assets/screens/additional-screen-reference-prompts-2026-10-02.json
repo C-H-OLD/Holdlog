@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-02",
+  "tool": "built-in image_gen.imagegen",
+  "purpose": "추가 화면 제작 참고 시안. Figma 편집 가능한 화면 완료 아님.",
+  "stylePrompt": "Use case: ui-mockup. Create a single polished Korean mobile app UI screenshot, logical size exactly 390px width and tall 844px minimum, white background, no phone shell, no outer margins, no labels outside the UI. Match Holdlog visual style: Noto Sans KR typeface, 20px horizontal padding, bold 32px large black title, muted blue-gray #515B80 body, vivid purple #512AFF active controls, pale #F3F4F7 inputs, thin pale dividers, round 12px surfaces, spare roomy simple functional interface. Header with slim back chevron. No bottom navigation because this is a subpage. No invented errors/loading/empty states, no banners, no instruction text not requested. All Korean text crisp and exact.",
+  "prompts": [
+    {
+      "file": "44-member-records-reference.png",
+      "prompt": "Screen title '지수의 기록'. Small profile summary avatar 지 and name '지수' with subtitle '월요클럽'. Two gray filter chips '날짜 전체' and '암장 전체' with dropdown chevrons. Small right aligned text '최근 방문순'. Three groups: '9월 28일 월요일' then purple PEAK round mountain stamp at left, bold '피크 성수', '19:00 · 완등 12개 · 컨디션 좋음', right chevron; second '9월 24일 목요일' then same stamp, '피크 성수', '18:30 · 완등 9개 · 컨디션 보통'; third '9월 18일 금요일', teal GRIP round G stamp, '그립 연남', '20:00 · 완등 기록 없음 · 컨디션 기록 없음'. Thin row dividers. No edit menu."
+    },
+    {
+      "file": "45-member-record-detail-reference.png",
+      "prompt": "Screen title '지수의 기록'. Subtitle '9월 28일 월요일 · 19:00'. Pale lavender gym row with purple PEAK circular mountain stamp and '피크 성수'. Section '완등' with '총 12개' purple right. Grid of six small colored round dots paired labels and counts: '3 · 4개', '4 · 3개', '5 · 3개', '6 · 2개', '7 · 0개', '8 · 0개'; colors yellow orange green blue red purple respectively. Divider. Row '컨디션' left, smile line icon and purple '좋음' right. Divider. Section '사진·영상', two real indoor bouldering thumbnails side by side; second has play triangle and duration 0:24. Divider. Section '후기' and text '파란 문제 마지막 동작이 풀려서 뿌듯했다.' No lock/private label. No overflow menu or edit or history. Public record in same crew so public media and review are visible."
+    },
+    {
+      "file": "50-notification-settings-reference.png",
+      "prompt": "Screen title '알림 설정'. Section '기기 알림'. Flat row '알림 권한' with purple '허용됨' right, small next row '기기 설정 열기' with right chevron. Divider and vertical gap. Section '받을 알림'. Three generous separated flat rows with right-aligned iOS-style switches: '새 일정' ON purple; '일정 변경·취소' ON purple; '기록 요청' OFF gray. All text 16 logical px; black row names, purple state and light gray rules. White space below. No save button or extra descriptions."
+    },
+    {
+      "file": "51-login-reference.png",
+      "prompt": "Login entry screen. Exception: no back chevron. In upper central zone a simple bold purple wordmark 'Holdlog' 42px. Below at center exactly two lines '함께 오르고,' and '나의 기록을 남겨요'. Smaller muted two lines below: '비공개 크루의 일정과' and '클라이밍 기록을 한곳에서'. Generous blank breathing room. At lower third two 350x52 full-width rounded buttons stacked 12px gap: white with gray border, small multicolor Google G symbol and black '구글로 계속하기'; black fill with white Apple silhouette and white 'Apple로 계속하기'. No email/password fields, no signup, no other elements. White background, tasteful minimal clean."
+    },
+    {
+      "file": "46-change-history-reference.png",
+      "prompt": "Screen title '변경 이력'. Pale gray record summary two lines '피크 성수' and '9월 28일 · 개인 기록'. Timeline three change entries with light dividers. First has small purple badge '수정', name '민수', small '9월 29일 10:30'; item '후기'; before/after stacked with muted labels '변경 전' text '파란 문제를 연습했다.' and '변경 후' text '파란 문제 마지막 동작이 풀려서 뿌듯했다.' Small outline purple button '되돌리기' right below. Second entry badge '연결', '민수 · 9월 28일 21:10'; item '크루 방문'; before '연결 없음', after '월요클럽 · 피크 성수'; no rollback. Third entry badge '생성', '민수 · 9월 28일 21:00', text '개인 기록을 만들었어요'. No extra menus or navigation or dialog."
+    },
+    {
+      "file": "47-media-library-reference.png",
+      "prompt": "Screen title '사진·영상'. Small muted '내가 올린 파일' below. Heading '2026년 9월'. Two-column square media thumbnail grid with 8 files, photos of colorful indoor bouldering climbing walls and adults climbing. Below each thumbnail a one-line muted sharing status, alternate '월요클럽에 공유 중' or '나만 보기'; show small play icon and '0:24' on two video thumbnails. Last row partly allowed only if full tiles visually complete, extend height as needed. No select controls, upload buttons, tabs, filter buttons, or edit. File taps open viewer."
+    },
+    {
+      "file": "48-photo-viewer-reference.png",
+      "prompt": "Photo fullscreen viewer. Exception to white background: black/dark charcoal app canvas. Top slim bar with white left back chevron, centered white '사진', white small trash outline icon right. Under top bar small white text '9월 28일 · 피크 성수'. At center large landscape indoor bouldering wall photograph with colorful holds, framed edge-to-edge inside 390 width, intentional black letterboxing above and below. Bottom metadata row white '월요클럽에 공유 중'. No download/share/external action buttons. No fake OS bar."
+    },
+    {
+      "file": "49-video-player-reference.png",
+      "prompt": "Video fullscreen player. Exception to white background: black/dark charcoal app canvas. Top slim bar white left back chevron, centered white '영상', white small trash outline icon right. Under top bar small white text '9월 28일 · 피크 성수'. Center large landscape frame of adult bouldering at an indoor climbing wall, intentional black letterboxing above and below. Large white play triangle at center in translucent dark round control. Under video simple timeline purple progress quarter across thin gray track and times '0:06' left '0:24' right. Bottom metadata white '나만 보기'. No download/share/external action buttons. No fake OS bar."
+    }
+  ]
+}

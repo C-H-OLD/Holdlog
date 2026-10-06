@@ -1,0 +1,2551 @@
+{
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "phase": "공통 메뉴·선택창 확정 / 달력·목록 표시줄 적용 / 다른 기록 화면 배치 확인 남음 / 시작 방식 추후 결정",
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "00 Foundations"
+    },
+    {
+      "id": "6:2",
+      "name": "01 Components"
+    },
+    {
+      "id": "6:3",
+      "name": "02 Screens"
+    }
+  ],
+  "foundations": {
+    "collections": [
+      {
+        "id": "VariableCollectionId:4:2",
+        "name": "Holdlog Primitives",
+        "modes": [
+          {
+            "name": "Value",
+            "modeId": "4:0"
+          }
+        ]
+      },
+      {
+        "id": "VariableCollectionId:4:3",
+        "name": "Holdlog Semantic",
+        "modes": [
+          {
+            "name": "Light",
+            "modeId": "4:1"
+          }
+        ]
+      }
+    ],
+    "variables": [
+      {
+        "id": "VariableID:4:4",
+        "name": "Palette/White",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:5",
+        "name": "Palette/Ink",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:6",
+        "name": "Palette/Slate",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:7",
+        "name": "Palette/Muted",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:8",
+        "name": "Palette/Purple",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:9",
+        "name": "Palette/PurplePressed",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:10",
+        "name": "Palette/Surface",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:11",
+        "name": "Palette/Lavender",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:12",
+        "name": "Palette/Border",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:13",
+        "name": "Palette/Danger",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:14",
+        "name": "Palette/DangerPressed",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:15",
+        "name": "Palette/Disabled",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:16",
+        "name": "Palette/DisabledText",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:17",
+        "name": "Palette/Focus",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:18",
+        "name": "Palette/GoogleBlue",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:19",
+        "name": "Palette/GoogleGreen",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:20",
+        "name": "Palette/GoogleYellow",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:21",
+        "name": "Palette/GoogleRed",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:22",
+        "name": "Color/Action/Primary",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:23",
+        "name": "Color/Action/Pressed",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:24",
+        "name": "Color/Text/Primary",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:25",
+        "name": "Color/Text/Secondary",
+        "collectionId": "VariableCollectionId:4:3",
+        "scopes": [
+          "TEXT_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ]
+      },
+      {
+        "id": "VariableID:4:26",
+        "name": "Color/Text/Muted",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:27",
+        "name": "Color/Text/OnAction",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:28",
+        "name": "Color/Text/Link",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:29",
+        "name": "Color/Surface/Default",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:30",
+        "name": "Color/Surface/Input",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:31",
+        "name": "Color/Surface/Avatar",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:32",
+        "name": "Color/Border/Default",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:33",
+        "name": "Color/Status/Danger",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:34",
+        "name": "Color/Status/DangerPressed",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:35",
+        "name": "Color/Surface/Disabled",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:36",
+        "name": "Color/Text/Disabled",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:37",
+        "name": "Color/Border/Focus",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:38",
+        "name": "Color/Brand/Google/Blue",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:39",
+        "name": "Color/Brand/Google/Green",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:40",
+        "name": "Color/Brand/Google/Yellow",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:41",
+        "name": "Color/Brand/Google/Red",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:42",
+        "name": "Value/Space/0",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:43",
+        "name": "Space/0",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:44",
+        "name": "Value/Space/4",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:45",
+        "name": "Space/4",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:46",
+        "name": "Value/Space/8",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:47",
+        "name": "Space/8",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:48",
+        "name": "Value/Space/12",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:49",
+        "name": "Space/12",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:50",
+        "name": "Value/Space/16",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:51",
+        "name": "Space/16",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:52",
+        "name": "Value/Space/20",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:53",
+        "name": "Space/20",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:54",
+        "name": "Value/Space/24",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:55",
+        "name": "Space/24",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:56",
+        "name": "Value/Space/32",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:57",
+        "name": "Space/32",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:58",
+        "name": "Value/Space/40",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:59",
+        "name": "Space/40",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:60",
+        "name": "Value/Space/48",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:61",
+        "name": "Space/48",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:62",
+        "name": "Value/Radius/0",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:63",
+        "name": "Radius/0",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:64",
+        "name": "Value/Radius/8",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:65",
+        "name": "Radius/8",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:66",
+        "name": "Value/Radius/12",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:67",
+        "name": "Radius/12",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:68",
+        "name": "Value/Radius/16",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:69",
+        "name": "Radius/16",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:70",
+        "name": "Value/Radius/999",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:71",
+        "name": "Radius/999",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:72",
+        "name": "Value/Size/Touch",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:73",
+        "name": "Size/Touch",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:74",
+        "name": "Value/Size/Button",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:75",
+        "name": "Size/Button",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:76",
+        "name": "Value/Size/Input",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:77",
+        "name": "Size/Input",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:78",
+        "name": "Value/Size/Row",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:79",
+        "name": "Size/Row",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:80",
+        "name": "Value/Size/Avatar",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:81",
+        "name": "Size/Avatar",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:82",
+        "name": "Value/Size/AvatarSmall",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:83",
+        "name": "Size/AvatarSmall",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:84",
+        "name": "Value/Size/Icon",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:85",
+        "name": "Size/Icon",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:86",
+        "name": "Value/Size/ProviderIcon",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:87",
+        "name": "Size/ProviderIcon",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:88",
+        "name": "Value/Size/Screen",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:89",
+        "name": "Size/Screen",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:90",
+        "name": "Value/Stroke/Default",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:91",
+        "name": "Stroke/Default",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:4:92",
+        "name": "Value/Stroke/Focus",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:4:93",
+        "name": "Stroke/Focus",
+        "collectionId": "VariableCollectionId:4:3"
+      }
+    ],
+    "styles": [
+      {
+        "id": "S:10eeb96169e9cd23b45e03480c19cadfa6527e6c,",
+        "name": "Text/Title",
+        "fontSize": 32,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 44
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Bold",
+          "variationSettings": {
+            "wght": 700
+          }
+        }
+      },
+      {
+        "id": "S:9df7400fae14b9cb0c988e0ba0aa2204009f3eee,",
+        "name": "Text/Section",
+        "fontSize": 20,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 28
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Bold",
+          "variationSettings": {
+            "wght": 700
+          }
+        }
+      },
+      {
+        "id": "S:484771f3bac3db3a3dc1be78b5dd5487429133fd,",
+        "name": "Text/Body",
+        "fontSize": 16,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 24
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Regular",
+          "variationSettings": {
+            "wght": 400
+          }
+        }
+      },
+      {
+        "id": "S:767a606a5862d3c456523cd64dc1a3320923750b,",
+        "name": "Text/Label",
+        "fontSize": 14,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 20
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Medium",
+          "variationSettings": {
+            "wght": 500
+          }
+        }
+      },
+      {
+        "id": "S:37f5e5da48ae564c70d165d118c52ccc8f87349d,",
+        "name": "Text/Caption",
+        "fontSize": 14,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 20
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Regular",
+          "variationSettings": {
+            "wght": 400
+          }
+        }
+      },
+      {
+        "id": "S:07feb5d3badbf47a3b6ef235d71538996d20fe27,",
+        "name": "Text/Button",
+        "fontSize": 16,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 24
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Bold",
+          "variationSettings": {
+            "wght": 700
+          }
+        }
+      },
+      {
+        "id": "S:9de5eed1bc778ea2ffdba21f7c9225b3d3acb779,",
+        "name": "Text/Avatar",
+        "fontSize": 48,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 64
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Regular",
+          "variationSettings": {
+            "wght": 400
+          }
+        }
+      },
+      {
+        "id": "S:a0968e07be4775ee6455bbbbb79c3a1fb5afa27a,",
+        "name": "Text/AvatarSmall",
+        "fontSize": 16,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 24
+        },
+        "font": {
+          "family": "Noto Sans KR",
+          "style": "Medium",
+          "variationSettings": {
+            "wght": 500
+          }
+        }
+      }
+    ],
+    "validation": {
+      "count": 90,
+      "invalidScopes": 0,
+      "missingSyntax": 0
+    },
+    "createdNodeIds": []
+  },
+  "atoms": {
+    "createdNodeIds": [
+      "7:2",
+      "7:3",
+      "7:4",
+      "7:5",
+      "7:6",
+      "7:7",
+      "7:10",
+      "7:8",
+      "7:9",
+      "7:13",
+      "7:11",
+      "7:12",
+      "7:22",
+      "7:14",
+      "7:15",
+      "7:16",
+      "7:17",
+      "7:18",
+      "7:19",
+      "7:20",
+      "7:21",
+      "7:27",
+      "7:23",
+      "7:24",
+      "7:25",
+      "7:26",
+      "7:32",
+      "7:28",
+      "7:29",
+      "7:30",
+      "7:31",
+      "7:39",
+      "7:33",
+      "7:34",
+      "7:35",
+      "7:36",
+      "7:37",
+      "7:38",
+      "7:42",
+      "7:40",
+      "7:41",
+      "7:45",
+      "7:43",
+      "7:44",
+      "7:46",
+      "7:47",
+      "7:48",
+      "7:49",
+      "7:57",
+      "7:58",
+      "I7:58;7758:11048",
+      "7:62",
+      "7:63",
+      "I7:63;7758:11234",
+      "7:67",
+      "7:68",
+      "I7:68;7758:12415",
+      "7:70",
+      "7:71",
+      "7:72",
+      "7:73",
+      "7:74",
+      "7:75",
+      "7:76",
+      "7:77",
+      "7:78",
+      "7:79",
+      "7:80",
+      "7:87",
+      "7:81",
+      "7:82",
+      "I7:82;7:44",
+      "7:84",
+      "7:85",
+      "I7:85;7:41"
+    ],
+    "board": {
+      "id": "7:2",
+      "width": 924,
+      "height": 1253
+    },
+    "components": {
+      "Text/Title/Primary": "7:8",
+      "Text/Section/Primary": "7:11",
+      "Text/Body/Primary": "7:14",
+      "Text/Body/Secondary": "7:16",
+      "Text/Body/Link": "7:18",
+      "Text/Body/Danger": "7:20",
+      "Text/Label/Secondary": "7:23",
+      "Text/Label/Danger": "7:25",
+      "Text/Caption/Secondary": "7:28",
+      "Text/Caption/Danger": "7:30",
+      "Text/Button/OnAction": "7:33",
+      "Text/Button/Link": "7:35",
+      "Text/Button/Disabled": "7:37",
+      "Text/Avatar/Secondary": "7:40",
+      "Text/AvatarSmall/Secondary": "7:43",
+      "Icon/ArrowLeft": "7:57",
+      "Icon/ChevronRight": "7:62",
+      "Icon/Trash": "7:67",
+      "Icon/Google": "7:70",
+      "Divider": "7:80",
+      "Avatar/Small": "7:81",
+      "Avatar/Large": "7:84"
+    },
+    "sets": {
+      "Primitive/Text/Title": "7:10",
+      "Primitive/Text/Section": "7:13",
+      "Primitive/Text/Body": "7:22",
+      "Primitive/Text/Label": "7:27",
+      "Primitive/Text/Caption": "7:32",
+      "Primitive/Text/Button": "7:39",
+      "Primitive/Text/Avatar": "7:42",
+      "Primitive/Text/AvatarSmall": "7:45",
+      "Data/Avatar": "7:87"
+    },
+    "imports": [
+      {
+        "name": "ArrowLeft",
+        "key": "ae5f850b1184d211331653bf569a037fa79b3122",
+        "id": "7:55"
+      },
+      {
+        "name": "ChevronRight",
+        "key": "fe0b03d7163766975df53c0a6dbf5d1f7d3491b1",
+        "id": "7:60"
+      },
+      {
+        "name": "Trash",
+        "key": "4061103dec468a50bb1a0a72324e8cb11ce2a77a",
+        "id": "7:65"
+      }
+    ],
+    "validation": {
+      "textVariants": 15,
+      "icons": 4,
+      "avatarVariants": 2
+    }
+  },
+  "controls": {
+    "createdNodeIds": [
+      "10:7",
+      "10:8",
+      "10:9",
+      "10:10",
+      "10:11",
+      "10:12",
+      "10:40",
+      "10:13",
+      "10:14",
+      "I10:14;7:34",
+      "10:16",
+      "10:17",
+      "I10:17;7:34",
+      "10:19",
+      "10:20",
+      "I10:20;7:38",
+      "10:22",
+      "10:23",
+      "I10:23;7:36",
+      "10:25",
+      "10:26",
+      "I10:26;7:36",
+      "10:28",
+      "10:29",
+      "I10:29;7:38",
+      "10:31",
+      "10:32",
+      "I10:32;7:34",
+      "10:34",
+      "10:35",
+      "I10:35;7:34",
+      "10:37",
+      "10:38",
+      "I10:38;7:38",
+      "10:41",
+      "10:42",
+      "10:43",
+      "10:44",
+      "10:45",
+      "I10:45;7:58",
+      "I10:45;7:58;7758:11048",
+      "10:48",
+      "10:49",
+      "10:50",
+      "10:77",
+      "10:51",
+      "10:52",
+      "I10:52;7:24",
+      "10:54",
+      "10:55",
+      "I10:55;7:15",
+      "10:57",
+      "10:58",
+      "I10:58;7:24",
+      "10:60",
+      "10:61",
+      "I10:61;7:15",
+      "10:63",
+      "10:64",
+      "I10:64;7:24",
+      "10:66",
+      "10:67",
+      "I10:67;7:15",
+      "10:69",
+      "I10:69;7:31",
+      "10:71",
+      "10:72",
+      "I10:72;7:24",
+      "10:74",
+      "10:75",
+      "I10:75;7:17",
+      "10:78",
+      "10:79",
+      "10:80",
+      "10:105",
+      "10:81",
+      "10:82",
+      "10:83",
+      "10:84",
+      "I10:84;7:58",
+      "I10:84;7:58;7758:11048",
+      "10:87",
+      "I10:87;7:15",
+      "10:89",
+      "I10:89;7:63",
+      "I10:89;7:63;7758:11234",
+      "10:92",
+      "10:93",
+      "10:94",
+      "10:95",
+      "10:96",
+      "I10:96;7:58",
+      "I10:96;7:58;7758:11048",
+      "10:99",
+      "I10:99;7:21",
+      "10:101",
+      "I10:101;7:63",
+      "I10:101;7:63;7758:11234",
+      "10:104"
+    ],
+    "mutatedNodeIds": [
+      "7:8",
+      "7:9",
+      "7:11",
+      "7:12",
+      "7:14",
+      "7:15",
+      "7:16",
+      "7:17",
+      "7:18",
+      "7:19",
+      "7:20",
+      "7:21",
+      "7:23",
+      "7:24",
+      "7:25",
+      "7:26",
+      "7:28",
+      "7:29",
+      "7:30",
+      "7:31",
+      "7:33",
+      "7:34",
+      "7:35",
+      "7:36",
+      "7:37",
+      "7:38",
+      "7:40",
+      "7:41",
+      "7:43",
+      "7:44",
+      "7:22"
+    ],
+    "board": {
+      "id": "10:7",
+      "width": 1060,
+      "height": 1234
+    },
+    "components": {
+      "Button/Primary/Default": "10:13",
+      "Button/Primary/Pressed": "10:16",
+      "Button/Primary/Disabled": "10:19",
+      "Button/Link/Default": "10:22",
+      "Button/Link/Pressed": "10:25",
+      "Button/Link/Disabled": "10:28",
+      "Button/Danger/Default": "10:31",
+      "Button/Danger/Pressed": "10:34",
+      "Button/Danger/Disabled": "10:37",
+      "IconButton": "10:44",
+      "TextField/Default": "10:51",
+      "TextField/Focused": "10:57",
+      "TextField/Error": "10:63",
+      "TextField/Disabled": "10:71",
+      "MenuRow/Default": "10:81",
+      "MenuRow/Danger": "10:93"
+    },
+    "sets": {
+      "Button": "10:40",
+      "TextField": "10:77",
+      "MenuRow": "10:105"
+    },
+    "validation": {
+      "buttonVariants": 9,
+      "fieldVariants": 4,
+      "rowVariants": 2,
+      "iconButtonTouch": 44
+    }
+  },
+  "compositions": {
+    "createdNodeIds": [
+      "11:37",
+      "11:38",
+      "11:39",
+      "11:40",
+      "11:41",
+      "11:42",
+      "11:43",
+      "11:44",
+      "I11:44;10:45",
+      "I11:44;10:45;7:58",
+      "I11:44;10:45;7:58;7758:11048",
+      "11:48",
+      "I11:48;7:9",
+      "11:50",
+      "11:51",
+      "11:52",
+      "11:53",
+      "11:54",
+      "I11:54;7:85",
+      "I11:54;7:85;7:41",
+      "11:57",
+      "I11:57;10:23",
+      "I11:57;10:23;7:36",
+      "11:60",
+      "11:61",
+      "11:62",
+      "11:63",
+      "11:64",
+      "I11:64;7:24",
+      "11:66",
+      "11:67",
+      "I11:67;7:71",
+      "I11:67;7:72",
+      "I11:67;7:73",
+      "I11:67;7:74",
+      "I11:67;7:75",
+      "I11:67;7:76",
+      "11:74",
+      "11:75",
+      "I11:75;7:17",
+      "11:77",
+      "I11:77;7:29",
+      "11:79",
+      "11:80",
+      "11:81",
+      "11:82",
+      "11:83",
+      "I11:83;10:14",
+      "I11:83;10:14;7:34"
+    ],
+    "board": {
+      "id": "11:37",
+      "width": 497,
+      "height": 1036
+    },
+    "components": {
+      "PageHeader": "11:43",
+      "AvatarEditor": "11:53",
+      "Identity": "11:63",
+      "BottomAction": "11:82"
+    },
+    "validation": {
+      "compositions": 4,
+      "rawTextInsideComponents": 0
+    }
+  },
+  "screens": [
+    {
+      "id": "123:479",
+      "number": "01.01.01",
+      "name": "01.01.01 일정 달력 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-479",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44496",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "529:31675",
+      "number": "01.01.02",
+      "name": "01.01.02 일정 달력 / 가입 크루 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=529-31675",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44496",
+      "canvasPosition": [
+        510,
+        80
+      ]
+    },
+    {
+      "id": "123:310",
+      "number": "01.02.01",
+      "name": "01.02.01 일정 목록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-310",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44511",
+      "canvasPosition": [
+        60,
+        1024
+      ]
+    },
+    {
+      "id": "123:877",
+      "number": "01.03.01",
+      "name": "01.03.01 날짜 일정 시트 / 일정 있음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-877",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44526",
+      "canvasPosition": [
+        60,
+        1968
+      ]
+    },
+    {
+      "id": "123:922",
+      "number": "01.03.02",
+      "name": "01.03.02 날짜 일정 시트 / 일정 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-922",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44526",
+      "canvasPosition": [
+        510,
+        1968
+      ]
+    },
+    {
+      "id": "414:4578",
+      "number": "01.03.03",
+      "name": "01.03.03 날짜 일정 시트 / 미응답 견본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=414-4578",
+      "size": [
+        390,
+        448
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44526",
+      "canvasPosition": [
+        960,
+        1968
+      ]
+    },
+    {
+      "id": "118:160",
+      "number": "01.04.01",
+      "name": "01.04.01 일정 작성 / 만들기",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=118-160",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44571",
+      "canvasPosition": [
+        60,
+        2912
+      ]
+    },
+    {
+      "id": "118:242",
+      "number": "01.04.02",
+      "name": "01.04.02 일정 작성 / 수정",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=118-242",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44571",
+      "canvasPosition": [
+        510,
+        2912
+      ]
+    },
+    {
+      "id": "123:221",
+      "number": "01.05.01",
+      "name": "01.05.01 일정 상세 / 미응답",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-221",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44601",
+      "canvasPosition": [
+        60,
+        3856
+      ]
+    },
+    {
+      "id": "123:278",
+      "number": "01.05.02",
+      "name": "01.05.02 일정 상세 / 참여",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-278",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44601",
+      "canvasPosition": [
+        510,
+        3856
+      ]
+    },
+    {
+      "id": "123:951",
+      "number": "01.05.03",
+      "name": "01.05.03 일정 상세 / 불참",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-951",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44601",
+      "canvasPosition": [
+        960,
+        3856
+      ]
+    },
+    {
+      "id": "499:47911",
+      "number": "01.05.04",
+      "name": "01.05.04 일정 상세 / 취소 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47911",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44601",
+      "canvasPosition": [
+        1410,
+        3856
+      ]
+    },
+    {
+      "id": "424:6062",
+      "number": "02.01.01",
+      "name": "02.01.01 기록 달력 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=424-6062",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44646",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "424:7217",
+      "number": "02.01.02",
+      "name": "02.01.02 기록 달력 / 기록 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=424-7217",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44646",
+      "canvasPosition": [
+        510,
+        80
+      ]
+    },
+    {
+      "id": "424:6398",
+      "number": "02.02.01",
+      "name": "02.02.01 기록 목록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=424-6398",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44676",
+      "canvasPosition": [
+        60,
+        1024
+      ]
+    },
+    {
+      "id": "424:6805",
+      "number": "02.02.02",
+      "name": "02.02.02 기록 목록 / 필터 적용",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=424-6805",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44676",
+      "canvasPosition": [
+        510,
+        1024
+      ]
+    },
+    {
+      "id": "424:7782",
+      "number": "02.02.03",
+      "name": "02.02.03 기록 목록 / 기록 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=424-7782",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44676",
+      "canvasPosition": [
+        960,
+        1024
+      ]
+    },
+    {
+      "id": "430:12403",
+      "number": "02.03.01",
+      "name": "02.03.01 날짜 기록 시트 / 방문 있음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-12403",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44721",
+      "canvasPosition": [
+        60,
+        1968
+      ]
+    },
+    {
+      "id": "430:12479",
+      "number": "02.03.02",
+      "name": "02.03.02 날짜 기록 시트 / 기록 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-12479",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44721",
+      "canvasPosition": [
+        510,
+        1968
+      ]
+    },
+    {
+      "id": "430:12531",
+      "number": "02.03.03",
+      "name": "02.03.03 날짜 기록 시트 / 내 기록 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-12531",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44721",
+      "canvasPosition": [
+        960,
+        1968
+      ]
+    },
+    {
+      "id": "434:17009",
+      "number": "02.03.04",
+      "name": "02.03.04 날짜 기록 시트 / 기록 종류 선택",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=434-17009",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44721",
+      "canvasPosition": [
+        1410,
+        1968
+      ]
+    },
+    {
+      "id": "430:12607",
+      "number": "02.04.01",
+      "name": "02.04.01 개인 기록 작성 / 연결된 방문",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-12607",
+      "size": [
+        390,
+        1234
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44781",
+      "canvasPosition": [
+        60,
+        2912
+      ]
+    },
+    {
+      "id": "430:12831",
+      "number": "02.04.02",
+      "name": "02.04.02 개인 기록 작성 / 독립 작성",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-12831",
+      "size": [
+        390,
+        1234
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44781",
+      "canvasPosition": [
+        510,
+        2912
+      ]
+    },
+    {
+      "id": "430:13026",
+      "number": "02.04.03",
+      "name": "02.04.03 개인 기록 작성 / 수정",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13026",
+      "size": [
+        390,
+        1234
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44781",
+      "canvasPosition": [
+        960,
+        2912
+      ]
+    },
+    {
+      "id": "430:13250",
+      "number": "02.04.04",
+      "name": "02.04.04 개인 기록 작성 / 파일 업로드 실패",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13250",
+      "size": [
+        390,
+        1234
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44781",
+      "canvasPosition": [
+        1410,
+        2912
+      ]
+    },
+    {
+      "id": "516:30898",
+      "number": "02.04.05",
+      "name": "02.04.05 개인 기록 작성 / 나가기 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=516-30898",
+      "size": [
+        390,
+        1234
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44781",
+      "canvasPosition": [
+        1860,
+        2912
+      ]
+    },
+    {
+      "id": "430:13478",
+      "number": "02.05.01",
+      "name": "02.05.01 개인 기록 상세 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13478",
+      "size": [
+        390,
+        980
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44841",
+      "canvasPosition": [
+        60,
+        4246
+      ]
+    },
+    {
+      "id": "430:13601",
+      "number": "02.05.02",
+      "name": "02.05.02 개인 기록 상세 / 미입력",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13601",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44841",
+      "canvasPosition": [
+        510,
+        4246
+      ]
+    },
+    {
+      "id": "499:47947",
+      "number": "02.05.03",
+      "name": "02.05.03 개인 기록 상세 / 삭제 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47947",
+      "size": [
+        390,
+        980
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44841",
+      "canvasPosition": [
+        960,
+        4246
+      ]
+    },
+    {
+      "id": "430:13703",
+      "number": "02.06.01",
+      "name": "02.06.01 크루 방문 등록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13703",
+      "size": [
+        390,
+        850
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44871",
+      "canvasPosition": [
+        60,
+        5326
+      ]
+    },
+    {
+      "id": "430:13821",
+      "number": "02.06.02",
+      "name": "02.06.02 크루 방문 등록 / 연결된 방문 수정",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13821",
+      "size": [
+        390,
+        850
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44871",
+      "canvasPosition": [
+        510,
+        5326
+      ]
+    },
+    {
+      "id": "430:13944",
+      "number": "02.06.03",
+      "name": "02.06.03 크루 방문 등록 / 참석자 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-13944",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44871",
+      "canvasPosition": [
+        960,
+        5326
+      ]
+    },
+    {
+      "id": "430:14025",
+      "number": "02.07.01",
+      "name": "02.07.01 실제 참석자 검색·추가 / 검색 결과",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-14025",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44916",
+      "canvasPosition": [
+        60,
+        6276
+      ]
+    },
+    {
+      "id": "430:14094",
+      "number": "02.07.02",
+      "name": "02.07.02 실제 참석자 검색·추가 / 선택됨",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-14094",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44916",
+      "canvasPosition": [
+        510,
+        6276
+      ]
+    },
+    {
+      "id": "430:14174",
+      "number": "02.07.03",
+      "name": "02.07.03 실제 참석자 검색·추가 / 검색 결과 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-14174",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44916",
+      "canvasPosition": [
+        960,
+        6276
+      ]
+    },
+    {
+      "id": "430:14234",
+      "number": "02.08.01",
+      "name": "02.08.01 크루 방문 상세 / 내 기록 연결 안 됨",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-14234",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44961",
+      "canvasPosition": [
+        60,
+        7220
+      ]
+    },
+    {
+      "id": "430:14336",
+      "number": "02.08.02",
+      "name": "02.08.02 크루 방문 상세 / 내 기록 연결됨",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-14336",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44961",
+      "canvasPosition": [
+        510,
+        7220
+      ]
+    },
+    {
+      "id": "430:14540",
+      "number": "02.08.03",
+      "name": "02.08.03 크루 방문 상세 / 나는 불참",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=430-14540",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44961",
+      "canvasPosition": [
+        960,
+        7220
+      ]
+    },
+    {
+      "id": "450:22709",
+      "number": "02.08.04",
+      "name": "02.08.04 크루 방문 상세 / 기록 작성 방법 선택",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=450-22709",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44961",
+      "canvasPosition": [
+        1410,
+        7220
+      ]
+    },
+    {
+      "id": "499:47966",
+      "number": "02.08.05",
+      "name": "02.08.05 크루 방문 상세 / 삭제 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47966",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:44961",
+      "canvasPosition": [
+        1860,
+        7220
+      ]
+    },
+    {
+      "id": "497:45699",
+      "number": "02.09.01",
+      "name": "02.09.01 기록 필터 / 크루 방문",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=497-45699",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "497:45927",
+      "canvasPosition": [
+        60,
+        8164
+      ]
+    },
+    {
+      "id": "497:45797",
+      "number": "02.10.01",
+      "name": "02.10.01 기존 기록 연결 / 내 기록 선택",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=497-45797",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "497:45934",
+      "canvasPosition": [
+        60,
+        9108
+      ]
+    },
+    {
+      "id": "499:47099",
+      "number": "02.11.01",
+      "name": "02.11.01 회원 기록 상세 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47099",
+      "size": [
+        390,
+        992
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47252",
+      "canvasPosition": [
+        60,
+        10052
+      ]
+    },
+    {
+      "id": "499:47259",
+      "number": "02.12.01",
+      "name": "02.12.01 변경 이력 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47259",
+      "size": [
+        390,
+        870
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47309",
+      "canvasPosition": [
+        60,
+        11144
+      ]
+    },
+    {
+      "id": "499:47985",
+      "number": "02.12.02",
+      "name": "02.12.02 변경 이력 / 되돌리기 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47985",
+      "size": [
+        390,
+        870
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47309",
+      "canvasPosition": [
+        510,
+        11144
+      ]
+    },
+    {
+      "id": "455:25612",
+      "number": "03.01.01",
+      "name": "03.01.01 암장 지도 / 지점 선택",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=455-25612",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45021",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "455:26556",
+      "number": "03.02.01",
+      "name": "03.02.01 암장 검색·추천·선택 / 참여자 추천",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=455-26556",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45036",
+      "canvasPosition": [
+        60,
+        1024
+      ]
+    },
+    {
+      "id": "455:26667",
+      "number": "03.02.02",
+      "name": "03.02.02 암장 검색·추천·선택 / 검색만",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=455-26667",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45036",
+      "canvasPosition": [
+        510,
+        1024
+      ]
+    },
+    {
+      "id": "455:26754",
+      "number": "03.02.03",
+      "name": "03.02.03 암장 검색·추천·선택 / 검색 결과 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=455-26754",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45036",
+      "canvasPosition": [
+        960,
+        1024
+      ]
+    },
+    {
+      "id": "455:26779",
+      "number": "03.03.01",
+      "name": "03.03.01 암장 상세 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=455-26779",
+      "size": [
+        390,
+        950
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45081",
+      "canvasPosition": [
+        60,
+        1968
+      ]
+    },
+    {
+      "id": "455:26922",
+      "number": "03.03.02",
+      "name": "03.03.02 암장 상세 / 정보 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=455-26922",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45081",
+      "canvasPosition": [
+        510,
+        1968
+      ]
+    },
+    {
+      "id": "471:30692",
+      "number": "04.01.01",
+      "name": "04.01.01 개인 통계 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=471-30692",
+      "size": [
+        390,
+        2167
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45111",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "471:31607",
+      "number": "04.01.02",
+      "name": "04.01.02 개인 통계 / 방문 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=471-31607",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45111",
+      "canvasPosition": [
+        510,
+        80
+      ]
+    },
+    {
+      "id": "507:50415",
+      "number": "04.01.03",
+      "name": "04.01.03 개인 통계 / 기간 선택",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=507-50415",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45111",
+      "canvasPosition": [
+        960,
+        80
+      ]
+    },
+    {
+      "id": "473:32360",
+      "number": "05.01.01",
+      "name": "05.01.01 내 정보 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=473-32360",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45141",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "17:3",
+      "number": "05.02.01",
+      "name": "05.02.01 프로필 수정 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=17-3",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45156",
+      "canvasPosition": [
+        60,
+        1024
+      ]
+    },
+    {
+      "id": "499:48004",
+      "number": "05.02.02",
+      "name": "05.02.02 프로필 수정 / 계정 삭제 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48004",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45156",
+      "canvasPosition": [
+        510,
+        1024
+      ]
+    },
+    {
+      "id": "499:47639",
+      "number": "05.03.01",
+      "name": "05.03.01 사진·영상 보관함 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47639",
+      "size": [
+        390,
+        1080
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47768",
+      "canvasPosition": [
+        60,
+        1968
+      ]
+    },
+    {
+      "id": "499:47695",
+      "number": "05.04.01",
+      "name": "05.04.01 사진·영상 보기 / 사진",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47695",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47775",
+      "canvasPosition": [
+        60,
+        3148
+      ]
+    },
+    {
+      "id": "499:47714",
+      "number": "05.04.02",
+      "name": "05.04.02 사진·영상 보기 / 영상",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47714",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47775",
+      "canvasPosition": [
+        510,
+        3148
+      ]
+    },
+    {
+      "id": "499:48027",
+      "number": "05.04.03",
+      "name": "05.04.03 사진·영상 보기 / 파일 삭제 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48027",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47775",
+      "canvasPosition": [
+        960,
+        3148
+      ]
+    },
+    {
+      "id": "499:47316",
+      "number": "05.05.01",
+      "name": "05.05.01 알림 설정 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47316",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47360",
+      "canvasPosition": [
+        60,
+        4092
+      ]
+    },
+    {
+      "id": "109:89",
+      "number": "06.01.01",
+      "name": "06.01.01 크루 정보 / 일반 회원",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=109-89",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45171",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "475:33651",
+      "number": "06.01.02",
+      "name": "06.01.02 크루 정보 / 관리자",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=475-33651",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45171",
+      "canvasPosition": [
+        510,
+        80
+      ]
+    },
+    {
+      "id": "499:48044",
+      "number": "06.01.03",
+      "name": "06.01.03 크루 정보 / 탈퇴 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48044",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45171",
+      "canvasPosition": [
+        960,
+        80
+      ]
+    },
+    {
+      "id": "477:34402",
+      "number": "06.02.01",
+      "name": "06.02.01 크루원 목록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=477-34402",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45201",
+      "canvasPosition": [
+        60,
+        1024
+      ]
+    },
+    {
+      "id": "477:34510",
+      "number": "06.02.02",
+      "name": "06.02.02 크루원 목록 / 검색 결과 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=477-34510",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45201",
+      "canvasPosition": [
+        510,
+        1024
+      ]
+    },
+    {
+      "id": "478:35317",
+      "number": "06.03.01",
+      "name": "06.03.01 내 크루 목록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-35317",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45231",
+      "canvasPosition": [
+        60,
+        1968
+      ]
+    },
+    {
+      "id": "478:35423",
+      "number": "06.03.02",
+      "name": "06.03.02 내 크루 목록 / 가입 크루 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-35423",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45231",
+      "canvasPosition": [
+        510,
+        1968
+      ]
+    },
+    {
+      "id": "478:35936",
+      "number": "06.04.01",
+      "name": "06.04.01 크루 만들기 / 입력 완료",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-35936",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45261",
+      "canvasPosition": [
+        60,
+        2912
+      ]
+    },
+    {
+      "id": "478:36581",
+      "number": "06.05.01",
+      "name": "06.05.01 초대 코드 입력 / 빈 입력",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-36581",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45276",
+      "canvasPosition": [
+        60,
+        3856
+      ]
+    },
+    {
+      "id": "478:36995",
+      "number": "06.06.01",
+      "name": "06.06.01 QR 스캔 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-36995",
+      "size": [
+        390,
+        852
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45291",
+      "canvasPosition": [
+        60,
+        4800
+      ]
+    },
+    {
+      "id": "483:43717",
+      "number": "06.06.02",
+      "name": "06.06.02 QR 스캔 / 다이얼로그",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=483-43717",
+      "size": [
+        390,
+        852
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45291",
+      "canvasPosition": [
+        510,
+        4800
+      ]
+    },
+    {
+      "id": "478:37564",
+      "number": "06.07.01",
+      "name": "06.07.01 초대 가입 확인 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-37564",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45321",
+      "canvasPosition": [
+        60,
+        5752
+      ]
+    },
+    {
+      "id": "487:43945",
+      "number": "06.07.02",
+      "name": "06.07.02 초대 가입 확인 / 다이얼로그",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=487-43945",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45321",
+      "canvasPosition": [
+        510,
+        5752
+      ]
+    },
+    {
+      "id": "478:38215",
+      "number": "06.08.01",
+      "name": "06.08.01 초대 공유 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-38215",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45351",
+      "canvasPosition": [
+        60,
+        6696
+      ]
+    },
+    {
+      "id": "478:39499",
+      "number": "06.09.01",
+      "name": "06.09.01 관리자 넘기기 / 선택 완료",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-39499",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45366",
+      "canvasPosition": [
+        60,
+        7640
+      ]
+    },
+    {
+      "id": "478:39721",
+      "number": "06.09.02",
+      "name": "06.09.02 관리자 넘기기 / 대상 없음",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-39721",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45366",
+      "canvasPosition": [
+        510,
+        7640
+      ]
+    },
+    {
+      "id": "487:44070",
+      "number": "06.09.03",
+      "name": "06.09.03 관리자 넘기기 / 다이얼로그",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=487-44070",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45366",
+      "canvasPosition": [
+        960,
+        7640
+      ]
+    },
+    {
+      "id": "478:41934",
+      "number": "06.10.01",
+      "name": "06.10.01 크루 선택창 / 일정 위",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-41934",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45411",
+      "canvasPosition": [
+        60,
+        8584
+      ]
+    },
+    {
+      "id": "478:42265",
+      "number": "06.10.02",
+      "name": "06.10.02 크루 선택창 / 기록 위",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-42265",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45411",
+      "canvasPosition": [
+        510,
+        8584
+      ]
+    },
+    {
+      "id": "478:42635",
+      "number": "06.10.03",
+      "name": "06.10.03 크루 선택창 / 많은 크루",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-42635",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "493:45411",
+      "canvasPosition": [
+        960,
+        8584
+      ]
+    },
+    {
+      "id": "499:47001",
+      "number": "06.11.01",
+      "name": "06.11.01 회원 기록·통계 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47001",
+      "size": [
+        390,
+        2731
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47092",
+      "canvasPosition": [
+        60,
+        9528
+      ]
+    },
+    {
+      "id": "507:50879",
+      "number": "06.11.02",
+      "name": "06.11.02 회원 기록·통계 / 기간 선택",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=507-50879",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47092",
+      "canvasPosition": [
+        510,
+        9528
+      ]
+    },
+    {
+      "id": "499:47741",
+      "number": "07.01.01",
+      "name": "07.01.01 로그인 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47741",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "499:47782",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "510:57505",
+      "number": "A02.01",
+      "name": "A02.01 암장·브랜드 등록 / 웹",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-57505",
+      "size": [
+        1440,
+        1344
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "511:59151",
+      "canvasPosition": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "510:58616",
+      "number": "A03.01",
+      "name": "A03.01 벽 세팅 등록 / 웹",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-58616",
+      "size": [
+        1440,
+        1124
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "511:59158",
+      "canvasPosition": [
+        2150,
+        80
+      ]
+    },
+    {
+      "id": "511:59027",
+      "number": "A03.02",
+      "name": "A03.02 벽 세팅 등록 / 취소 확인",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=511-59027",
+      "size": [
+        1440,
+        1124
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "511:59158",
+      "canvasPosition": [
+        3670,
+        80
+      ]
+    },
+    {
+      "id": "562:32587",
+      "number": "02.13.01",
+      "name": "02.13.01 운동 중 기록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=562-32587",
+      "size": [
+        390,
+        924
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "562:32827",
+      "canvasPosition": [
+        60,
+        12500
+      ]
+    }
+  ],
+  "currentScreenRegistry": "screens",
+  "currentValidation": {
+    "scope": "현재89개 시안 목록. 이번 운동 화면·알림 견본·표시줄·옆 명세만 사진 및 구조 검증",
+    "mobileGroups": 39,
+    "mobileStates": 86,
+    "webGroups": 2,
+    "webStates": 3,
+    "specifications": 41,
+    "brokenChangedInstances": 0,
+    "pending": [
+      "운동 시작 A·B 선택은 추후 결정",
+      "달력·목록 외 기록 화면의 표시줄 적용·배치 확인",
+      "실제 앱 구현 후 동작 검증"
+    ]
+  },
+  "pendingValidations": [
+    "사용자 시안 검토",
+    "실제 앱 구현 후 저장·권한·알림 동작 검증"
+  ],
+  "updatedAt": "2026-10-06",
+  "history": "../history/figma/",
+  "worklist": "../screen-worklist.md"
+}

@@ -1,0 +1,518 @@
+{
+  "date": "2026-10-01",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "scope": "PEAK·GRIP 예시 도장 4종의 SVG 글자를 Figma 텍스트로 교체",
+  "componentSet": "407:4284",
+  "container": "407:4182",
+  "properties": {
+    "Content#407:2": {
+      "type": "TEXT",
+      "defaultValue": "PEAK"
+    },
+    "Size": {
+      "type": "VARIANT",
+      "defaultValue": "44",
+      "variantOptions": [
+        "44",
+        "38",
+        "48",
+        "60"
+      ]
+    }
+  },
+  "variants": [
+    {
+      "id": "407:4183",
+      "name": "Size=44",
+      "width": 32,
+      "height": 10,
+      "text": [
+        {
+          "id": "407:4184",
+          "characters": "PEAK",
+          "font": {
+            "family": "Noto Sans KR",
+            "style": "Bold",
+            "variationSettings": {
+              "wght": 700
+            }
+          },
+          "fontSize": 8.5,
+          "style": "S:2e2c32772a9723af275e13ce54c0147290337bde,",
+          "color": [
+            {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:4:27"
+            }
+          ],
+          "property": {
+            "characters": "Content#407:2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "407:4275",
+      "name": "Size=38",
+      "width": 27.636363983154297,
+      "height": 8.636363983154297,
+      "text": [
+        {
+          "id": "407:4276",
+          "characters": "PEAK",
+          "font": {
+            "family": "Noto Sans KR",
+            "style": "Bold",
+            "variationSettings": {
+              "wght": 700
+            }
+          },
+          "fontSize": 7.340909004211426,
+          "style": "S:8916f5ab401d6c730f42eb3d91ce53c45692286a,",
+          "color": [
+            {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:4:27"
+            }
+          ],
+          "property": {
+            "characters": "Content#407:2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "407:4278",
+      "name": "Size=48",
+      "width": 34.90909194946289,
+      "height": 10.909090995788574,
+      "text": [
+        {
+          "id": "407:4279",
+          "characters": "PEAK",
+          "font": {
+            "family": "Noto Sans KR",
+            "style": "Bold",
+            "variationSettings": {
+              "wght": 700
+            }
+          },
+          "fontSize": 9.272727012634277,
+          "style": "S:3f648736af6ede9ddcca114f52f43646092283ae,",
+          "color": [
+            {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:4:27"
+            }
+          ],
+          "property": {
+            "characters": "Content#407:2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "407:4281",
+      "name": "Size=60",
+      "width": 43.6363639831543,
+      "height": 13.636363983154297,
+      "text": [
+        {
+          "id": "407:4282",
+          "characters": "PEAK",
+          "font": {
+            "family": "Noto Sans KR",
+            "style": "Bold",
+            "variationSettings": {
+              "wght": 700
+            }
+          },
+          "fontSize": 11.590909004211426,
+          "style": "S:67965c80ce9f76851d3ecc04066cd83df5a681f2,",
+          "color": [
+            {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:4:27"
+            }
+          ],
+          "property": {
+            "characters": "Content#407:2"
+          }
+        }
+      ]
+    }
+  ],
+  "stamps": [
+    {
+      "id": "147:223",
+      "name": "Data/PlaceStamp/PeakExample",
+      "width": 44,
+      "height": 44,
+      "label": "407:4185",
+      "main": "407:4183",
+      "properties": {
+        "Content#407:2": {
+          "type": "TEXT",
+          "value": "PEAK"
+        },
+        "Size": {
+          "value": "44",
+          "type": "VARIANT",
+          "boundVariables": {}
+        }
+      },
+      "characters": "PEAK",
+      "svgLetterGroups": 0
+    },
+    {
+      "id": "147:230",
+      "name": "Data/PlaceStamp/GripExample",
+      "width": 44,
+      "height": 44,
+      "label": "407:4187",
+      "main": "407:4183",
+      "properties": {
+        "Content#407:2": {
+          "type": "TEXT",
+          "value": "GRIP"
+        },
+        "Size": {
+          "value": "44",
+          "type": "VARIANT",
+          "boundVariables": {}
+        }
+      },
+      "characters": "GRIP",
+      "svgLetterGroups": 0
+    },
+    {
+      "id": "202:725",
+      "name": "Data/PlaceStamp/PeakCoralExample",
+      "width": 44,
+      "height": 44,
+      "label": "407:4189",
+      "main": "407:4183",
+      "properties": {
+        "Content#407:2": {
+          "type": "TEXT",
+          "value": "PEAK"
+        },
+        "Size": {
+          "value": "44",
+          "type": "VARIANT",
+          "boundVariables": {}
+        }
+      },
+      "characters": "PEAK",
+      "svgLetterGroups": 0
+    },
+    {
+      "id": "224:899",
+      "name": "Data/PlaceStamp/GripMountainExample",
+      "width": 44,
+      "height": 44,
+      "label": "407:4191",
+      "main": "407:4183",
+      "properties": {
+        "Content#407:2": {
+          "type": "TEXT",
+          "value": "GRIP"
+        },
+        "Size": {
+          "value": "44",
+          "type": "VARIANT",
+          "boundVariables": {}
+        }
+      },
+      "characters": "GRIP",
+      "svgLetterGroups": 0
+    }
+  ],
+  "removedVectorGroups": [
+    "147:220",
+    "147:227",
+    "202:722",
+    "224:896"
+  ],
+  "sizeApplications": [
+    {
+      "stamp": "206:292",
+      "size": 38,
+      "label": "I206:292;407:4185",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "206:710",
+      "size": 38,
+      "label": "I206:710;407:4185",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "256:457",
+      "size": 60,
+      "label": "I256:457;407:4185",
+      "master": "407:4281"
+    },
+    {
+      "stamp": "323:624",
+      "size": 60,
+      "label": "I323:624;407:4185",
+      "master": "407:4281"
+    },
+    {
+      "stamp": "I209:338;206:292",
+      "size": 38,
+      "label": "I209:338;206:292;407:4185",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "I209:339;206:710",
+      "size": 38,
+      "label": "I209:339;206:710;407:4185",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "I209:340;206:292",
+      "size": 38,
+      "label": "I209:340;206:292;407:4191",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "I209:346;206:292",
+      "size": 38,
+      "label": "I209:346;206:292;407:4189",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "I209:347;206:292",
+      "size": 38,
+      "label": "I209:347;206:292;407:4185",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "I209:348;206:292",
+      "size": 38,
+      "label": "I209:348;206:292;407:4191",
+      "master": "407:4275"
+    },
+    {
+      "stamp": "260:499",
+      "size": 48,
+      "label": "I260:499;407:4185",
+      "master": "407:4278"
+    },
+    {
+      "stamp": "I287:1554;260:499",
+      "size": 48,
+      "label": "I287:1554;260:499;407:4185",
+      "master": "407:4278"
+    },
+    {
+      "stamp": "I311:618;256:457",
+      "size": 60,
+      "label": "I311:618;256:457;407:4187",
+      "master": "407:4281"
+    },
+    {
+      "stamp": "I334:652;256:457",
+      "size": 60,
+      "label": "I334:652;256:457;407:4187",
+      "master": "407:4281"
+    }
+  ],
+  "verification": {
+    "nativeText": true,
+    "sharedTextStyles": true,
+    "colorVariable": "VariableID:4:27 (Color/Text/OnAction)",
+    "charactersEditable": "Content#407:2",
+    "screenWidth": 390,
+    "screens": [
+      {
+        "id": "123:310",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "123:479",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "123:877",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "123:922",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "118:160",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "118:242",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "123:221",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "123:278",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "123:951",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "109:89",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "id": "17:3",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "sourceGraphic": "원형 배경·산/G 심볼 원본 유지. 글꼴은 Noto Sans KR Bold 근사로 벡터 레터링과 작은 모양 차이 허용.",
+    "exceptionsRemoved": [
+      "PEAK/GRIP 글자 벡터 경로",
+      "도장 글자 고유 SVG 렌더링을 이유로 한 텍스트 스타일·색 변수 관리 예외"
+    ],
+    "exceptionsRetained": [
+      "SVG 그림의 고유 경로·배경 그라데이션 및 고정 기하 규격"
+    ],
+    "prototypes": "변경 없음"
+  },
+  "comparison": "../../figma/assets/stamp-text/comparison.json",
+  "graphicAssets": "docs/figma/assets/stamp-text/manifest.json",
+  "comparisonResults": [
+    {
+      "id": "109:89",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": true,
+      "differenceBox": null,
+      "changedPixels": 0
+    },
+    {
+      "id": "118:160",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": true,
+      "differenceBox": null,
+      "changedPixels": 0
+    },
+    {
+      "id": "118:242",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": true,
+      "differenceBox": null,
+      "changedPixels": 0
+    },
+    {
+      "id": "123:221",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": false,
+      "differenceBox": [
+        43,
+        275,
+        71,
+        284
+      ],
+      "changedPixels": 171
+    },
+    {
+      "id": "123:278",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": false,
+      "differenceBox": [
+        43,
+        275,
+        71,
+        284
+      ],
+      "changedPixels": 171
+    },
+    {
+      "id": "123:310",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": false,
+      "differenceBox": [
+        40,
+        310,
+        68,
+        562
+      ],
+      "changedPixels": 288
+    },
+    {
+      "id": "123:479",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": false,
+      "differenceBox": [
+        84,
+        520,
+        205,
+        630
+      ],
+      "changedPixels": 737
+    },
+    {
+      "id": "123:877",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": false,
+      "differenceBox": [
+        31,
+        708,
+        65,
+        718
+      ],
+      "changedPixels": 253
+    },
+    {
+      "id": "123:922",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": true,
+      "differenceBox": null,
+      "changedPixels": 0
+    },
+    {
+      "id": "123:951",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": false,
+      "differenceBox": [
+        43,
+        275,
+        71,
+        284
+      ],
+      "changedPixels": 171
+    },
+    {
+      "id": "17:3",
+      "width": 390,
+      "height": 844,
+      "pixelsIdentical": true,
+      "differenceBox": null,
+      "changedPixels": 0
+    }
+  ]
+}

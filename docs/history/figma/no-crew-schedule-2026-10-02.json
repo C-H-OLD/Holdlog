@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-02",
+  "screen": {
+    "id": "529:31675",
+    "number": "01.01.02",
+    "name": "01.01.02 일정 달력 / 가입 크루 없음",
+    "size": [
+      390,
+      844
+    ]
+  },
+  "component": "529:31658",
+  "sideSpecification": "493:44496",
+  "navigation": {
+    "join": "06.05",
+    "create": "06.04",
+    "forcedJoin": false,
+    "bottomTabs": true
+  },
+  "photo": "../../figma/assets/no-crew-schedule-2026-10-02/no-crew.png",
+  "validation": {
+    "brokenInstances": [],
+    "overlaps": [],
+    "screenshotVerified": true,
+    "specificationHeight": 804
+  },
+  "inventory": {
+    "mobileIndependentScreens": 38,
+    "mobileStateExamples": 85,
+    "webStateExamples": 3,
+    "totalStateExamples": 88,
+    "specifications": 40
+  },
+  "implementationVerified": false,
+  "status": "사용자 검토 대기",
+  "layout": {
+    "base": [
+      60,
+      80
+    ],
+    "noCrew": [
+      510,
+      80
+    ],
+    "specification": [
+      964,
+      80
+    ],
+    "overlaps": []
+  }
+}

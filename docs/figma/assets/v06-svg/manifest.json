@@ -1,0 +1,15 @@
+{
+  "source": "docs/assets/screens/14-multiple-dots.png",
+  "authorization": "2026-09-30 사용자: 시안과 다르거나 없는 아이콘·도장은 직접 SVG로 제작",
+  "officialBrandAssets": false,
+  "purpose": "V06 22일의 코랄색 PEAK 예시 지점 도장. 기존 PEAK 벡터를 재사용한 공통 색상 변형",
+  "files": [
+    "stamp-peak-coral-example.svg",
+    "stamp-grip-mountain-example.svg"
+  ],
+  "notes": [
+    "공식 브랜드 원본이 아닌 생성 시안 속 예시 도장",
+    "SVG 파일 준비는 Figma 원본 등록 완료를 뜻하지 않음",
+    "V06 GRIP은 기존 V05의 G 모양과 다른 산 모양 예시이므로 별도 의미 있는 도장 변형으로 제작. 기존 원본 보존"
+  ]
+}

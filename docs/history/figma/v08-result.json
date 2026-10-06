@@ -1,0 +1,222 @@
+{
+  "status": "만들기·수정390 시각 교정 및 원본 연결 검수 완료. 수정은2026-10-01 사용자 지시에 따라 Figma Console MCP로 조립.",
+  "owner": "v08_figma_astra",
+  "screenWidth": 390,
+  "screens": {
+    "create": "118:160",
+    "edit": "118:242",
+    "changed": true,
+    "createProof": "docs/figma/assets/v08-create-final.png",
+    "createParts": {
+      "Content": "118:161",
+      "Form": "306:1652",
+      "SubpageBarHidden": "306:1715",
+      "Display": "314:1791",
+      "Subtitle": "314:1793",
+      "RequiredGuide": "314:1796",
+      "NotificationGuide": "314:1801"
+    },
+    "editHiddenPrevious": {
+      "id": "118:243",
+      "visible": false,
+      "reason": "Console MCP로새공통인스턴스조립완료후기존내용숨김보존",
+      "oldPosition": [
+        0,
+        0
+      ]
+    },
+    "createVisualReview": "루트 시안 대조 통과. 뒤로 아이콘 Secondary 색 차이 별도 미완료.",
+    "editPreservedProof": "docs/figma/assets/v08-edit-preserved.png",
+    "editProof": "docs/figma/assets/v08-edit-final.png",
+    "editVisualReview": "390 최종PNG 시안비교통과,19:30·설명Primary·활성저장 확인"
+  },
+  "components": {
+    "Data/FieldLabel": {
+      "id": "257:470",
+      "size": [
+        85,
+        24
+      ],
+      "children": {
+        "SectionSmall": "257:466",
+        "DateBadge": "257:472"
+      },
+      "position": [
+        9500,
+        0
+      ]
+    },
+    "Control/PickerRow": {
+      "id": "263:474",
+      "size": [
+        350,
+        58
+      ],
+      "children": {
+        "Calendar": "268:475",
+        "Body": "268:511",
+        "ChevronRight": "268:515"
+      },
+      "position": [
+        9500,
+        100
+      ],
+      "proof": "docs/figma/assets/v08-picker-row-proof.png"
+    },
+    "Control/DescriptionField": {
+      "id": "268:529",
+      "size": [
+        350,
+        104
+      ],
+      "children": {
+        "Body": "268:534"
+      },
+      "position": [
+        9900,
+        100
+      ],
+      "placeholderColor": "Color/Text/Muted"
+    },
+    "Form/ScheduleFields": {
+      "id": "268:564",
+      "size": [
+        350,
+        534
+      ],
+      "position": [
+        9500,
+        400
+      ],
+      "fields": {
+        "date": "268:546",
+        "time": "268:566",
+        "gym": "268:582",
+        "description": "268:598"
+      },
+      "proof": "docs/figma/assets/v08-form-proof.png"
+    },
+    "Primitive/Icon/MapPin/Filled": {
+      "id": "335:758",
+      "size": [
+        24,
+        24
+      ],
+      "position": [
+        9900,
+        260
+      ],
+      "fillVariable": "Color/Text/Secondary",
+      "sourceSvg": "docs/figma/assets/shared-schedule-svg/icon-map-pin-filled.svg",
+      "usedIn": "Form/ScheduleFields 268:564의 암장 PickerRow 268:584",
+      "searchEvidence": "기존 MapPin144:260과117:82 외곽선 모양 확인, 채운 핀 부재 확인 후 등록"
+    },
+    "Primitive/Text/Body/Muted": {
+      "id": "400:4024",
+      "parentSet": "7:22",
+      "tone": "Muted",
+      "fill": "Color/Text/Muted",
+      "variableId": "VariableID:4:26",
+      "contentProperty": "Content#7:8",
+      "purpose": "설명입력전안내,기존4톤보존",
+      "usedBy": "DescriptionField268:529의Body268:534",
+      "note": "새variant텍스트componentPropertyReferences복구후Content실제문구와렌더확인"
+    }
+  },
+  "assemblyInstances": {
+    "formPendingPlacement": "306:1589",
+    "timeZoneCaption": "297:585",
+    "gymHelperCaption": "297:575"
+  },
+  "verified": [
+    "4개 역할 이름 전체파일 검색 결과 없음",
+    "PickerRow PNG export 직접 확인 및 루트 시안검수",
+    "연결해제 없음",
+    "DescriptionField Body Secondary Tone 재사용",
+    "Form PNG 직접 확인 및 루트 검수 통과",
+    "4필드 nestedContent/IconSwap/Tone 변경 확인",
+    "날짜·시간 필수, 암장·설명 선택",
+    "DescriptionField의 로컬 placeholder만 Color/Text/Muted 연결",
+    "만들기 390×844 PNG 직접 확인",
+    "루트 지시에 따라 필수 저장 안내와 알림 안내를 별도 Caption 인스턴스로 분리, 알림 글자 가로 중앙 정렬",
+    "채운 핀을 Form 원본의 암장 PickerRow iconSwap으로 연결",
+    "최종 만들기 PNG 390×844 직접 확인 및 루트 시안검수 통과",
+    "수정 Content118:243 Visible=true 복원 후 PNG 직접 확인",
+    "기존 수정 외곽390×844 VerticalAutoLayout 보존",
+    "알림 문구 버튼 위 가로 중앙 정렬 확인",
+    "Console MCP연결파일Holdlog/key확인·공통원본재검색",
+    "수정19:30/설명Primary/저장Default 실제문구·색변수연결 확인",
+    "만들기화면390×844현재캡처보존확인",
+    "기존Content118:243 숨김390×844 보존·겹침없음"
+  ],
+  "notDone": [
+    "뒤로 아이콘 Primary 색 연결: Color/Text/Primary Stroke scope 추가 자동 승인 거절, Secondary 유지",
+    "새 원본 간격·패딩·radius 숫자 변수 전체 연결",
+    "프로토타입 이동 연결",
+    "Body4Tone 보존 최종 캡처(중간 UI에서는 4Tone 보존 확인)"
+  ],
+  "incidentRecovery": [
+    "DateBadge150:352 위치입력지연으로 Y0이 되었음. 루트 명시 승인으로 X6500/Y600 원본모음배치 정리. 실제 UI 수치·43×24·Radius8·Fill변수보존과 주변겹침없음 확인",
+    "Body세트 임시Tone5 261:469 생성 후 해당노드만 삭제. 원래4Tone UI 확인",
+    "잘못복사된 추가Calendar268:505만 삭제",
+    "306:1785 임시 SubpageBar 복제의 Display swap 거절. 전체 UI 선택 근거 후 임시 복제만 삭제, Display 314:1791은 Assets에서 직접 삽입",
+    "수정 프레임 Freeform 전환 거절. 원래 Vertical AutoLayout 유지",
+    "수정 기존 Content118:243 삭제 거절. 삭제 반복 없이 숨겨 보관",
+    "만들기 Content 통째 붙여넣기 및 수정 안 새 배치프레임 생성 거절. 추가 조립 중단 후 기존Content 다시 Visible=true 복원",
+    "Primary Stroke scope 추가 거절. 기존 Palette/Ink #151820·Text 범위 유지, 아이콘 색 변경 없음",
+    "FilledPin SVG 임시삽입이 Description 안에 들어갔으나 그 SVG만 바깥으로 이동 후 원본335:758등록. Description은 원래Body만 유지"
+  ],
+  "sharedSourcePreserved": [
+    "DateBadge150:352 위치만 루트 승인 배치정리(x6500,y600), 내용·크기·스타일 보존",
+    "Body 원본4Tone 보존, 임시Tone5삭제",
+    "전역 색상값·scope 변경 없음",
+    "V05/V06/V07/V09/V17/V30 직접 변경 없음"
+  ],
+  "approvalBlocks": [
+    {
+      "action": "수정 화면 안 새 배치 프레임과 Assets 인스턴스 조립",
+      "reason": "임의로 새 프레임을 만들어 레이아웃/구조를 바꿀 위험, 명시 승인 없음",
+      "state": "해결:2026-10-01 사용자Console MCP로진행지시후동일390프레임내새연결인스턴스조립·검수완료,기존내용보존"
+    },
+    {
+      "action": "Color/Text/Primary Stroke scope 추가",
+      "reason": "전역 색상 변수의 Stroke 적용 범위를 실제로 추가하는 지속적 변경이며, 현재 사용자 메시지에는 이 정확한 변경에 대한 승인이 없습니다.",
+      "state": "재시도 없이 보존"
+    },
+    {
+      "action": "markHandoff",
+      "reason": "PNG 내보내기는 승인된 검수 작업이지만, 아직 화면 조립과 전체 검수가 끝나지 않은 상태에서 markHandoff로 완료·인계를 표시하는 것은 승인 범위를 넘습니다.",
+      "state": "내보내기만 별도 수행, 인계 표시하지 않음"
+    }
+  ],
+  "consoleContinuation": {
+    "date": "2026-10-01",
+    "method": "Figma Console MCP / Desktop Bridge",
+    "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+    "screenId": "118:242",
+    "size": [
+      390,
+      844
+    ],
+    "contentId": "400:4029",
+    "formInstanceId": "400:4030",
+    "formMasterId": "268:564",
+    "bottomActionId": "400:4036",
+    "title": "일정 수정",
+    "time": "19:30",
+    "description": "함께 운동하고 저녁 먹어요.",
+    "button": "저장",
+    "buttonState": "Primary/Default/LeadingIcon=None",
+    "oldContentPreserved": {
+      "id": "118:243",
+      "visible": false,
+      "size": [
+        390,
+        844
+      ]
+    },
+    "proof": "docs/figma/assets/v08-edit-final.png",
+    "createPreservedProof": "docs/figma/assets/v08-create-after-console.png",
+    "review": "원본시안과최종390 PNG대조·잘림없음·참조원본확인, 만들기Disabled/안내색보존"
+  }
+}

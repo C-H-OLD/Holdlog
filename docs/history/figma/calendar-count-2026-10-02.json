@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-02",
+  "commentId": "1950390088",
+  "component": "418:4720",
+  "plusInstance": "529:31589",
+  "usedScreens": [
+    "01.01",
+    "02.01"
+  ],
+  "rule": {
+    "format": "● + 99",
+    "equalGaps": [
+      4,
+      4
+    ],
+    "maximumDisplayNumber": 99,
+    "displayNumber": "min(total-1,99)",
+    "meaningAt99": "99개 이상 더 있음",
+    "exactCount": "날짜 시트 및 화면 읽기 안내"
+  },
+  "validation": {
+    "maxDisplaySize": [
+      34,
+      14
+    ],
+    "availableWidth": 38,
+    "fits": true,
+    "specificationHeights": [
+      732,
+      588
+    ],
+    "specificationOverlaps": [],
+    "screenshotsInspected": true,
+    "temporaryBoundaryInstanceRemoved": true
+  },
+  "newScreens": 0,
+  "newComponents": 0,
+  "implementationVerified": false,
+  "status": "사용자 검토 대기",
+  "twoDigitRecheck": {
+    "valuesChecked": "10~99",
+    "maxWidth": 34,
+    "availableWidth": 38,
+    "remainingPerSide": 2,
+    "exceedsAvailableWidth": [],
+    "scheduleExample": "418:4914",
+    "recordExample": "427:9103",
+    "bothTwelveScreenshotsInspected": true,
+    "temporaryInstanceRemoved": true
+  },
+  "inCalendar99Example": {
+    "screen": "123:479",
+    "date": 15,
+    "dayInstance": "I223:1208;209:338",
+    "was": "StampBelowSingle",
+    "now": "StampBelowOverflow",
+    "displayNumber": 99,
+    "existingDate16Display": 3,
+    "photo": "../../figma/assets/calendar-count-2026-10-02/schedule.png",
+    "screenshotVerified": true
+  }
+}

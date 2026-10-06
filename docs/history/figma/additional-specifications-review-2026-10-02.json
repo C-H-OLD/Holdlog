@@ -1,0 +1,63 @@
+{
+  "createdNodeIds": [
+    "511:59027",
+    "511:59028",
+    "511:59136",
+    "511:59139",
+    "511:59151",
+    "511:59158"
+  ],
+  "mutatedNodeIds": [
+    "510:57504",
+    "510:58616",
+    "493:45111",
+    "499:47092",
+    "499:47782"
+  ],
+  "confirmation": {
+    "id": "511:59027",
+    "w": 1440,
+    "h": 1124,
+    "dialog": "511:59139",
+    "dialogBounds": {
+      "x": 500,
+      "y": 458,
+      "w": 440,
+      "h": 208
+    }
+  },
+  "webSpecifications": [
+    {
+      "id": "511:59151",
+      "name": "기능 명세 | A02",
+      "w": 420,
+      "h": 684
+    },
+    {
+      "id": "511:59158",
+      "name": "기능 명세 | A03",
+      "w": 420,
+      "h": 636
+    }
+  ],
+  "auditedAdditionalSpecifications": [
+    "02.09",
+    "02.10",
+    "02.11",
+    "02.12",
+    "05.03",
+    "05.04",
+    "05.05",
+    "06.11",
+    "07.01"
+  ],
+  "date": "2026-10-02",
+  "validation": {
+    "mobileSpecifications": 38,
+    "webSpecifications": 2,
+    "staleScreenReferences": 0,
+    "brokenDialogInstances": 0,
+    "webSectionOverlap": 0,
+    "visualReview": "취소 확인 중앙 위치·대상·버튼·어둡기·명세 정렬 PNG 검수"
+  }
+}

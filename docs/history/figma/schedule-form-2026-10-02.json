@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-02",
+  "screens": [
+    "118:160",
+    "118:242"
+  ],
+  "form": "268:564",
+  "reusedVisitInputSource": "438:19859",
+  "component": "533:31774",
+  "groupSize": [
+    350,
+    178
+  ],
+  "formSize": [
+    350,
+    338
+  ],
+  "requiredBadges": [
+    "날짜",
+    "시간"
+  ],
+  "optionalFieldsWithoutBadges": [
+    "암장",
+    "설명"
+  ],
+  "gymOptionalConfirmedByUser": true,
+  "removedSaveHint": "날짜와 시간을 입력하면 저장할 수 있어요.",
+  "sideSpecification": "493:44571",
+  "validation": {
+    "brokenInstances": [],
+    "specificationOverlaps": [],
+    "width": 390,
+    "screenshotVerified": true
+  },
+  "photos": [
+    "../../figma/assets/schedule-form-2026-10-02/create.png",
+    "../../figma/assets/schedule-form-2026-10-02/edit.png"
+  ],
+  "status": "사용자 검토 대기",
+  "removedEditHint": "변경한 내용은 저장 후에 반영돼요.",
+  "editNoticeY": 518
+}

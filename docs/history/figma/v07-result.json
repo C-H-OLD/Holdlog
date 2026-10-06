@@ -1,0 +1,263 @@
+{
+  "status": "기본·빈 날짜 390 화면 교정 완료, 실제 PNG 검증 완료",
+  "owner": "schedule_figma_astra",
+  "screenWidth": 390,
+  "screenIds": [
+    "123:877",
+    "123:922"
+  ],
+  "createdComponents": [
+    {
+      "id": "256:456",
+      "name": "Data/ScheduleListItem",
+      "parentSetId": "150:312",
+      "variant": "Property 1=Sheet",
+      "size": [
+        350,
+        100
+      ],
+      "padding": [
+        0,
+        16
+      ],
+      "gap": 24,
+      "stampInstance": "256:457",
+      "stampSize": 60,
+      "infoInstance": "256:458",
+      "titleInstance": "256:460",
+      "titleSource": "157:294 SectionSmall18/24Bold",
+      "time": "14/20",
+      "counts": "Caption7:28 14/20 Secondary",
+      "infoGap": "Space/4",
+      "badgeInstance": "256:464",
+      "chevronInstance": "256:465",
+      "alignment": "배지 X268, 화살표 X334. 둘 다 Ignore auto layout/Right/Center",
+      "fill": "Color/Surface/Default #FFFFFF",
+      "verified": "기존 Default/Attending 보존, Scheduled 시트 두번째행 Sheet 상태 연결·최종390 PNG확인"
+    },
+    {
+      "id": "323:623",
+      "name": "Data/ScheduleListItem",
+      "parentSetId": "150:312",
+      "variant": "Property 1=SheetAttending",
+      "size": [
+        350,
+        100
+      ],
+      "fill": "Color/Surface/Highlight #F7F5FF",
+      "purpose": "내 참석 응답 일정, Sheet 규격 동일"
+    },
+    {
+      "id": "265:474",
+      "name": "Control/Button",
+      "parentSetId": "10:40",
+      "variant": "Style=Primary, State=Default, LeadingIcon=Plus",
+      "size": [
+        300,
+        52
+      ],
+      "plusInstance": "289:535",
+      "plusSource": "234:458",
+      "stroke": "Color/Text/OnAction",
+      "label": "이 날짜에 일정 만들기",
+      "preserved": "기존9상태는 LeadingIcon=None, 기존 Style/State/시각 유지",
+      "variableScope": "OnAction 값 Palette/White 유지, Stroke scope만 추가 확인"
+    },
+    {
+      "id": "321:624",
+      "name": "Primitive/SheetHandle",
+      "size": [
+        36,
+        4
+      ],
+      "radius": 2,
+      "fill": "Color/Surface/Disabled #E4E6ED"
+    },
+    {
+      "id": "299:554",
+      "name": "Overlay/ScheduleDaySheet",
+      "size": [
+        390,
+        400
+      ],
+      "position": [
+        8500,
+        0
+      ],
+      "corners": [
+        24,
+        24,
+        0,
+        0
+      ],
+      "fill": "Color/Surface/Default",
+      "children": {
+        "date": "303:555",
+        "count": "303:558",
+        "close": "303:562",
+        "firstItem": "327:633",
+        "secondItem": "311:618",
+        "button": "318:617"
+      },
+      "status": "날짜·개수·닫기·2행·Plus 버튼·손잡이·구분선 완료, Scheduled 상태로 같은세트334:646에 등록"
+    },
+    {
+      "id": "334:646",
+      "name": "Overlay/ScheduleDaySheet",
+      "type": "componentSet",
+      "variants": {
+        "Scheduled": "299:554",
+        "Empty": "334:647"
+      }
+    },
+    {
+      "id": "341:655",
+      "name": "Overlay/Dim",
+      "size": [
+        390,
+        844
+      ],
+      "fill": "#151820 at 36%",
+      "binding": "색/불투명도는 아직 숫자 직접값, 공통 원본 한 곳에서 관리"
+    }
+  ],
+  "proofs": [
+    "docs/figma/assets/v07-sheet-row-proof.png",
+    "docs/figma/assets/v07-sheet-row-type-proof.png",
+    "docs/figma/assets/v07-primaryplus-state-proof.png",
+    "docs/figma/assets/v07-button-plus-proof.png",
+    "docs/figma/assets/v07-sheet-assembly-progress.png",
+    "docs/figma/assets/v07-sheet-component-export.png",
+    "docs/figma/assets/v07-scheduled-390-export.png",
+    "docs/figma/assets/v07-empty-390-export.png",
+    "docs/figma/assets/v07-empty-title-proof.png"
+  ],
+  "approvalBlocks": [
+    {
+      "action": "새265:474만 PrimaryPlus 고유 상태 이름 지정",
+      "reason": "속성 충돌이 표시되는데 값을 적용하면 버튼 세트가 잘못될 위험",
+      "status": "해결: 사용자 답변 아이콘 있는 버튼 상태에 따라 LeadingIcon=None/Plus 속성 추가. 새스타일 PrimaryPlus 만들지 않음."
+    },
+    {
+      "action": "01 Components에 Overlay/ScheduleDaySheet 원본용 기본 Frame 생성",
+      "reason": "기존 두 프레임만 수정인데 새 프레임 생성은 범위 밖",
+      "status": "해결: Components의 승인된 원본 Frame 역할을 읽기로 확인 후 생성"
+    },
+    {
+      "action": "V07 기존직계3묶음 삭제",
+      "reason": "자동 검토: 여러 레이어 삭제 범위/구체승인 불명확",
+      "status": "삭제 미실행. 실제선택트리확인 후 부모승인 보존방식(숨김)으로 해결"
+    },
+    {
+      "action": "markDeliverable",
+      "reason": "자동 검토: 외부상태변경 명시승인 없음",
+      "status": "재시도 안 함. 부모가 생략 확정. 실제 Figma 저장 및 PNG는 완료"
+    }
+  ],
+  "notDone": [
+    "시트 로딩/오류 추가 변형",
+    "닫기·생성·행 이동 프로토타입 연결",
+    "모든 수치의 변수 바인딩 전체 감사"
+  ],
+  "preserved": [
+    "V05",
+    "V06",
+    "ListItem142:269 Default",
+    "ListItem150:313 Attending",
+    "Primary10:13"
+  ],
+  "screens": [
+    {
+      "id": "123:877",
+      "name": "V07 / 날짜 일정 시트",
+      "size": [
+        390,
+        844
+      ],
+      "background": "345:1338",
+      "sheetInstance": "349:1584",
+      "sheetSource": "299:554",
+      "sheetPosition": [
+        0,
+        444
+      ],
+      "proof": "docs/figma/assets/v07-scheduled-390-export.png"
+    },
+    {
+      "id": "123:922",
+      "name": "V07 / 날짜 일정 시트 / 빈 날짜",
+      "size": [
+        390,
+        844
+      ],
+      "background": "355:1388",
+      "dimInstance": "358:1633",
+      "sheetInstance": "360:1634",
+      "sheetSource": "334:647",
+      "sheetPosition": [
+        0,
+        444
+      ],
+      "proof": "docs/figma/assets/v07-empty-390-export.png"
+    }
+  ],
+  "data": {
+    "scheduledDate": "9월 30일 수요일",
+    "first": {
+      "place": "암장 미정",
+      "time": "19:30",
+      "response": "참석",
+      "counts": [
+        3,
+        1,
+        0
+      ],
+      "stamp": "147:235",
+      "surface": "Color/Surface/Highlight"
+    },
+    "second": {
+      "place": "그립 연남",
+      "time": "20:00",
+      "response": "불참",
+      "counts": [
+        2,
+        1,
+        1
+      ],
+      "stamp": "147:230 Grip G"
+    },
+    "emptyDate": "9월 28일 월요일",
+    "emptyMessage": "이 날짜에 일정이 없어요"
+  },
+  "validation": [
+    "390×844 두 화면 실제 PNG 내보내기 완료",
+    "원본 연결된 시트/버튼/행/도장/글자/아이콘/구분선 재사용, Detach 없음",
+    "원본과 화면 두 날짜 Content 정확히 확인",
+    "Empty 제목300×28 Hug, Section20/28Bold. 확대캡처에서9월28일월요일 전체표시",
+    "인원 한줄 및 도장/배지/화살표/버튼 잘림 없음",
+    "기존V07 세묶음은 삭제 대신 숨김보존, Freeform 390×844에서 export영향 없음",
+    "V05/V06 및 기존ListItem Default/Attending, 기존9버튼스타일상태 보존",
+    "320/6주 검사 미실행: 최신 사용자390고정 지시 준수"
+  ],
+  "tokenBindings": {
+    "confirmed": [
+      "Sheet fill Surface/Default",
+      "SheetAttending fill Surface/Highlight",
+      "handle Surface/Disabled",
+      "텍스트 기존스타일 및 Primary/Secondary 역할",
+      "버튼 Size/Button52 Radius12 Space8/12 ActionPrimary OnAction",
+      "Plus nested stroke OnAction, 해당변수 Stroke scope만추가"
+    ],
+    "notFullyBound": [
+      "Overlay/Dim #151820·36% 직접값",
+      "Sheet 390×400, topCorner24 및 좌표 일부 직접값",
+      "SheetHandle36×4 radius2 직접값",
+      "Sheet 행60도장/gap24/padding16 일부 수치변수연결 미감사"
+    ]
+  },
+  "rootVisualReview": {
+    "status": "기본·빈날짜 최종390PNG 시안대조통과",
+    "emptyExportRefresh": "초기export글자누락처럼보임→실제Content/Hug폭확인→새export전체문구확인",
+    "date": "2026-09-30"
+  }
+}

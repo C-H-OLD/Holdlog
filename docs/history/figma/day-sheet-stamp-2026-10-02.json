@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-02",
+  "screen": "123:877",
+  "sourceInstance": "I327:633;323:624",
+  "previousComponent": "147:235",
+  "component": "533:31767",
+  "beforeSize": [
+    44,
+    44
+  ],
+  "afterSize": [
+    60,
+    60
+  ],
+  "sizeVariable": "VariableID:455:22934",
+  "photo": "../../figma/assets/day-sheet-stamp-2026-10-02/schedule-sheet.png",
+  "screenshotVerified": true,
+  "original44Preserved": true,
+  "status": "사용자 검토 대기"
+}

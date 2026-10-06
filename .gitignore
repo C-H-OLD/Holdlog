@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.tools/
+.env
+.env.*
+!.env.example
+node_modules/
+.expo/
+dist/
+coverage/

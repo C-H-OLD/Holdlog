@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-02",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "completed": [
+    "통계 기간 선택",
+    "날짜별 컨디션 추이"
+  ],
+  "screens": [
+    {
+      "id": "507:50415",
+      "name": "04.01.03 개인 통계 / 기간 선택",
+      "width": 390,
+      "height": 844,
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=507-50415",
+      "preview": "../../figma/assets/remaining-screens-2026-10-02/04.01.03.png"
+    },
+    {
+      "id": "471:30692",
+      "name": "04.01.01 개인 통계 / 기본",
+      "width": 390,
+      "height": 2167,
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=471-30692",
+      "preview": "../../figma/assets/remaining-screens-2026-10-02/04.01.01.png"
+    },
+    {
+      "id": "499:47001",
+      "name": "06.11.01 회원 기록·통계 / 기본",
+      "width": 390,
+      "height": 2731,
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47001",
+      "preview": "../../figma/assets/remaining-screens-2026-10-02/06.11.01.png"
+    },
+    {
+      "id": "507:50879",
+      "name": "06.11.02 회원 기록·통계 / 기간 선택",
+      "width": 390,
+      "height": 844,
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=507-50879",
+      "preview": "../../figma/assets/remaining-screens-2026-10-02/06.11.02.png"
+    }
+  ],
+  "components": [
+    {
+      "id": "506:49969",
+      "name": "Control/StatisticsPeriodOption",
+      "w": 390,
+      "h": 164
+    },
+    {
+      "id": "506:49970",
+      "name": "Overlay/StatisticsPeriodPanel",
+      "w": 390,
+      "h": 496
+    },
+    {
+      "id": "507:50036",
+      "name": "Data/StatisticsConditionTimelinePlot",
+      "w": 350,
+      "h": 176
+    },
+    {
+      "id": "507:50080",
+      "name": "Data/StatisticsConditionTimeline",
+      "w": 350,
+      "h": 216
+    },
+    {
+      "id": "507:53237",
+      "name": "Primitive/Text/Flow/CaptionSmall/LEFT",
+      "w": 350,
+      "h": 16
+    }
+  ],
+  "validation": {
+    "mobileWidth": 390,
+    "font": "Noto Sans KR",
+    "brokenInstances": 0,
+    "fullUiRasterNodes": 0,
+    "visualReview": "개인·회원 기간 선택창 390 PNG 확인. 항목별 값 나열 제거, 직접 지정 입력만 표시. 컨디션 추이 유지.",
+    "mobileIndependentScreens": 38,
+    "mobileStates": 83,
+    "adminScreens": 0,
+    "adminStates": 0,
+    "specifications": 38
+  },
+  "rules": {
+    "noForcedCrewJoin": true,
+    "logo": "화면 시안은 기존 Holdlog 글자, 실제 앱 아이콘은 별도",
+    "condition": "개인 통계·회원 통계 공통 부품. 방문일 기준·미입력 제외·건강 점수/평균 아님",
+    "admin": "관리자 등록은 별도 웹으로 제작. 모바일 시안·공통 원본 삭제. 웹 시안 미제작.",
+    "noCrew": "가입 크루 없음은 일정 안의 상태. 별도 전체 시안·화면 없음. 가입 강제 없음.",
+    "period": "항목 이름과 선택 표시만 목록에 표시. 고른 항목의 입력만 아래에 표시. 최근 N일: 일수 / 월간: 연·월 / 연간: 연도 / 전체: 입력 없음 / 직접 지정: 시작일·종료일."
+  }
+}

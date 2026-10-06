@@ -1,0 +1,27 @@
+{
+  "source": "docs/assets/screens/10-schedule-list-v3.png",
+  "authorization": "2026-09-30 사용자: 도장과 시안에 맞지 않거나 없는 아이콘은 직접 SVG로 제작",
+  "purpose": "시안의 전체 디자인을 유지하는 재사용 가능한 작은 벡터 부품",
+  "officialBrandAssets": false,
+  "notes": [
+    "PEAK·GRIP은 시안 속 예시 도장을 직접 만든 벡터이며 공식 로고 원본이 아님",
+    "아이콘은 24×24, stroke 1.8, 기본 보조색 #515B80. Figma 원본에서 용도별 색상 변수에 연결",
+    "도장은 96×96 벡터, 화면에서 약44×44로 사용",
+    "Figma 원본을 먼저 생성하고 인스턴스로 사용. SVG 파일 생성은 Figma 등록 완료를 뜻하지 않음"
+  ],
+  "files": [
+    "icon-bar-chart.svg",
+    "icon-calendar.svg",
+    "icon-chevron-down.svg",
+    "icon-chevron-left.svg",
+    "icon-chevron-right.svg",
+    "icon-file-text.svg",
+    "icon-list.svg",
+    "icon-map-pin.svg",
+    "icon-user.svg",
+    "icon-users.svg",
+    "stamp-grip-example.svg",
+    "stamp-peak-example.svg",
+    "stamp-unspecified.svg"
+  ]
+}

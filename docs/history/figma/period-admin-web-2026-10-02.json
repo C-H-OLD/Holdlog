@@ -1,0 +1,242 @@
+{
+  "screens": [
+    {
+      "id": "507:50415",
+      "name": "04.01.03 개인 통계 / 기간 선택",
+      "width": 390,
+      "height": 844,
+      "fonts": [
+        "Noto Sans KR"
+      ],
+      "broken": 0,
+      "preview": "../../figma/assets/period-admin-web-2026-10-02/04.01.03.png",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=507-50415"
+    },
+    {
+      "id": "507:50879",
+      "name": "06.11.02 회원 기록·통계 / 기간 선택",
+      "width": 390,
+      "height": 844,
+      "fonts": [
+        "Noto Sans KR"
+      ],
+      "broken": 0,
+      "preview": "../../figma/assets/period-admin-web-2026-10-02/06.11.02.png",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=507-50879"
+    },
+    {
+      "id": "510:57505",
+      "name": "A02.01 암장·브랜드 등록 / 웹",
+      "width": 1440,
+      "height": 1344,
+      "fonts": [
+        "Noto Sans KR"
+      ],
+      "broken": 0,
+      "preview": "../../figma/assets/period-admin-web-2026-10-02/A02.01.png",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-57505"
+    },
+    {
+      "id": "510:58616",
+      "name": "A03.01 벽 세팅 등록 / 웹",
+      "width": 1440,
+      "height": 1124,
+      "fonts": [
+        "Noto Sans KR"
+      ],
+      "broken": 0,
+      "preview": "../../figma/assets/period-admin-web-2026-10-02/A03.01.png",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-58616"
+    },
+    {
+      "id": "511:59027",
+      "name": "A03.02 벽 세팅 등록 / 취소 확인",
+      "width": 1440,
+      "height": 1124,
+      "preview": "../../figma/assets/period-admin-web-2026-10-02/A03.02.png",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=511-59027"
+    }
+  ],
+  "components": [
+    {
+      "id": "510:55294",
+      "name": "Control/WebValueInput",
+      "w": 320,
+      "h": 44
+    },
+    {
+      "id": "510:55295",
+      "name": "Primitive/Text/Flow/Body/Tone=Primary/LEFT",
+      "w": 350,
+      "h": 24
+    },
+    {
+      "id": "510:55323",
+      "name": "Form/WebField",
+      "w": 320,
+      "h": 76
+    },
+    {
+      "id": "510:55325",
+      "name": "Primitive/Text/Flow/SectionSmall/LEFT",
+      "w": 350,
+      "h": 24
+    },
+    {
+      "id": "510:55336",
+      "name": "Primitive/Text/Flow/Caption/Tone=Secondary/LEFT",
+      "w": 350,
+      "h": 20
+    },
+    {
+      "id": "510:55341",
+      "name": "Primitive/Text/Flow/Caption/Tone=Link/LEFT",
+      "w": 350,
+      "h": 20
+    },
+    {
+      "id": "510:55345",
+      "name": "Navigation/WebAdminMenuItem",
+      "w": 208,
+      "h": 144
+    },
+    {
+      "id": "510:55346",
+      "name": "Navigation/WebAdminSidebar",
+      "w": 216,
+      "h": 1060
+    },
+    {
+      "id": "510:55347",
+      "name": "Primitive/Text/Flow/Section/Tone=Primary/LEFT",
+      "w": 350,
+      "h": 28
+    },
+    {
+      "id": "510:55360",
+      "name": "Data/WebLocationPreview",
+      "w": 696,
+      "h": 160
+    },
+    {
+      "id": "510:56214",
+      "name": "Data/WebDifficultyMappingRow",
+      "w": 312,
+      "h": 44
+    },
+    {
+      "id": "510:56215",
+      "name": "Primitive/Text/Flow/Caption/Tone=Secondary/CENTER",
+      "w": 350,
+      "h": 20
+    },
+    {
+      "id": "510:56225",
+      "name": "Data/WebSettingRow",
+      "w": 696,
+      "h": 64
+    },
+    {
+      "id": "510:56230",
+      "name": "Primitive/Text/Flow/Caption/Tone=Link/RIGHT",
+      "w": 350,
+      "h": 20
+    },
+    {
+      "id": "510:56234",
+      "name": "Primitive/Text/Flow/Caption/Tone=Secondary/RIGHT",
+      "w": 350,
+      "h": 20
+    },
+    {
+      "id": "510:56238",
+      "name": "Admin/WebGymRegistrationScreen",
+      "w": 1440,
+      "h": 1244
+    },
+    {
+      "id": "510:56255",
+      "name": "Primitive/Text/Flow/Title/Tone=Primary/LEFT",
+      "w": 350,
+      "h": 44
+    },
+    {
+      "id": "510:57241",
+      "name": "Primitive/Text/Flow/CaptionSmall/CENTER",
+      "w": 350,
+      "h": 16
+    },
+    {
+      "id": "510:57245",
+      "name": "Primitive/Text/Flow/CaptionSmall/LEFT",
+      "w": 350,
+      "h": 16
+    },
+    {
+      "id": "510:57356",
+      "name": "Admin/WebSettingRegistrationScreen",
+      "w": 1440,
+      "h": 1124
+    },
+    {
+      "id": "511:58853",
+      "name": "Control/WebRemoveDifficultyButton",
+      "w": 32,
+      "h": 36
+    }
+  ],
+  "date": "2026-10-02",
+  "status": "사용자 검토 시안",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "period": {
+    "component": "506:49970",
+    "chip": "509:55217",
+    "layout": "두 줄 선택 버튼과 선택한 항목의 입력만 표시",
+    "status": "검토 시안"
+  },
+  "inputSamples": {
+    "node": "510:58769",
+    "preview": "../../figma/assets/period-admin-web-2026-10-02/period-inputs.png",
+    "components": [
+      "510:58725",
+      "510:58732",
+      "510:58741",
+      "510:58759"
+    ],
+    "wholeScreenDuplicates": 0
+  },
+  "webRefinement": {
+    "fileField": "510:58823",
+    "wallTitle": "벽 목록",
+    "logo": "파일명 오른쪽 같은 줄, 높이44",
+    "brandGymSaveSeparation": true
+  },
+  "difficultyPolicy": {
+    "count": "브랜드별 가변",
+    "addButton": "511:58861",
+    "removeButtonComponent": "511:58853",
+    "exampleCount": 11,
+    "fixedCount": false,
+    "preserveHistoricalRecordKeys": true,
+    "editableName": true,
+    "nameInputWidth": 92,
+    "colorInputWidth": 112,
+    "verifiedNameInputs": 11,
+    "ownership": "브랜드 추가·수정 폼에서 저장. 암장 폼에서는 등록된 브랜드 참조만 저장."
+  },
+  "webSpecifications": [
+    {
+      "id": "511:59151",
+      "name": "기능 명세 | A02",
+      "w": 420,
+      "h": 684
+    },
+    {
+      "id": "511:59158",
+      "name": "기능 명세 | A03",
+      "w": 420,
+      "h": 636
+    }
+  ],
+  "brandGymCorrectionReport": "brand-gym-correction-2026-10-02.json"
+}

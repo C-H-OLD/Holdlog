@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-02",
+  "screen": "499:47911",
+  "dialogInstance": "499:47935",
+  "labelInstance": "I499:47935;499:47632;478:37091",
+  "component": "499:47625",
+  "left": "일정 유지",
+  "right": "일정 취소",
+  "sideSpecification": "493:44601",
+  "photo": "../../figma/assets/schedule-cancel-wording-2026-10-02/dialog.png",
+  "validation": "390 PNG에서 문구·중앙 정렬·버튼 크기 확인. 기존 연결된 인스턴스의 글자만 수정.",
+  "status": "제작·검증 완료 / 사용자 검토 대기"
+}

@@ -1,0 +1,415 @@
+{
+  "date": "2026-10-01",
+  "tool": "figma-console MCP",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "screenWidth": 390,
+  "calendar": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"_mcp\":\"figma-console-mcp\",\"success\":true,\"result\":{\"section\":\"418:4709\",\"created\":[\"418:4709\",\"418:4710\",\"418:4712\",\"418:4713\",\"418:4715\",\"418:4720\",\"418:4725\",\"418:4746\"],\"changed\":[\"123:1039\",\"203:294\",\"209:339\",\"209:347\",\"209:348\"],\"components\":{\"gray\":\"418:4710\",\"count\":\"418:4712\",\"two\":\"418:4715\",\"overflow\":\"418:4720\",\"twoDay\":\"418:4725\",\"overflowDay\":\"418:4746\"},\"calendar\":{\"d16\":\"209:339\",\"d23\":\"209:347\",\"d24\":\"209:348\"},\"sizes\":{\"day\":[50,100],\"area\":52}},\"resultAnalysis\":{\"type\":\"object\",\"isNull\":false,\"isUndefined\":false,\"isEmpty\":false,\"warning\":null},\"fileContext\":{\"fileName\":\"Holdlog\",\"fileKey\":\"vla4pXPo8FaCWFXfpIbYzx\"},\"timestamp\":1790821783168}"
+      }
+    ]
+  },
+  "variableAudit": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"_mcp\":\"figma-console-mcp\",\"success\":true,\"result\":{\"visited\":731,\"createdVariables\":[{\"name\":\"Size/ScheduleListItemHeight\",\"id\":\"VariableID:418:4880\",\"value\":80},{\"name\":\"Size/ScreenHeight\",\"id\":\"VariableID:418:4882\",\"value\":844},{\"name\":\"Size/PlaceStamp44\",\"id\":\"VariableID:418:4884\",\"value\":44}],\"changed\":[{\"id\":\"123:310\",\"name\":\"V05 / 일정 목록\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\",\"height\"]},{\"id\":\"123:311\",\"name\":\"Content / Scroll\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"144:226\",\"name\":\"Primitive/Icon/ChevronDown/Regular\",\"fields\":[\"fills\"]},{\"id\":\"144:243\",\"name\":\"Primitive/Icon/Users/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"149:242\",\"name\":\"Frame\",\"fields\":[\"fills\"]},{\"id\":\"152:1140\",\"name\":\"Layout/MonthAndView\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"144:221\",\"name\":\"Primitive/Icon/ChevronLeft/Regular\",\"fields\":[\"fills\"]},{\"id\":\"143:223\",\"name\":\"Primitive/Icon/ChevronRight/Regular\",\"fields\":[\"fills\"]},{\"id\":\"148:265\",\"name\":\"Property 1=ViewToggle\",\"fields\":[\"itemSpacing\"]},{\"id\":\"144:237\",\"name\":\"Primitive/Icon/Calendar/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"148:244\",\"name\":\"Property 1=Selected\",\"fields\":[\"strokeWeight\"]},{\"id\":\"144:231\",\"name\":\"Primitive/Icon/List/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"166:1204\",\"name\":\"Layout/DateGroups\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"166:1202\",\"name\":\"Layout/DateGroup29\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"152:1280\",\"name\":\"Layout/DateHeader29\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"142:269\",\"name\":\"Property 1=Default\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingRight\",\"width\"]},{\"id\":\"147:223\",\"name\":\"Data/PlaceStamp/PeakExample\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"147:219\",\"name\":\"Vector\",\"fields\":[\"fills\"]},{\"id\":\"407:4183\",\"name\":\"Size=44\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"142:255\",\"name\":\"Layout/ItemContent\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"142:240\",\"name\":\"Layout/ItemSummary\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"142:234\",\"name\":\"Layout/PlaceAndTime\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"166:1203\",\"name\":\"Layout/DateGroup30\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"152:1368\",\"name\":\"Layout/DateHeader30\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"150:313\",\"name\":\"Property 1=Attending\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingRight\",\"width\"]},{\"id\":\"150:315\",\"name\":\"Layout/ItemContent\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"150:316\",\"name\":\"Layout/ItemSummary\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"150:317\",\"name\":\"Layout/PlaceAndTime\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"147:235\",\"name\":\"Data/PlaceStamp/Unspecified\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"147:233\",\"name\":\"Vector\",\"fields\":[\"fills\"]},{\"id\":\"147:230\",\"name\":\"Data/PlaceStamp/GripExample\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"147:226\",\"name\":\"Vector\",\"fields\":[\"fills\"]},{\"id\":\"150:311\",\"name\":\"Navigation/BottomTabsCompact\",\"fields\":[\"width\"]},{\"id\":\"144:254\",\"name\":\"Primitive/Icon/FileText/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"150:334\",\"name\":\"Frame\",\"fields\":[\"fills\"]},{\"id\":\"144:260\",\"name\":\"Primitive/Icon/MapPin/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"144:265\",\"name\":\"Primitive/Icon/BarChart/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"150:344\",\"name\":\"Frame\",\"fields\":[\"fills\"]},{\"id\":\"144:249\",\"name\":\"Primitive/Icon/User/Regular\",\"fields\":[\"fills\",\"width\",\"height\"]},{\"id\":\"109:89\",\"name\":\"V17 / 크루 정보 / 일반 회원\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\",\"height\"]},{\"id\":\"11:43\",\"name\":\"Navigation/PageHeader\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\"]},{\"id\":\"7:57\",\"name\":\"Primitive/Icon/ArrowLeft\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"7:8\",\"name\":\"Tone=Primary\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"107:70\",\"name\":\"Data/CrewSummary\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\"]},{\"id\":\"105:97\",\"name\":\"Data/CrewAvatar\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"104:61\",\"name\":\"Primitive/Icon/Users\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"105:85\",\"name\":\"Frame 1\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"109:147\",\"name\":\"Menu / Crew\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"10:81\",\"name\":\"Tone=Default\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\"]},{\"id\":\"10:83\",\"name\":\"Row content\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"7:62\",\"name\":\"Primitive/Icon/ChevronRight\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"105:82\",\"name\":\"Primitive/Icon/Link\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"104:70\",\"name\":\"Primitive/Icon/Calendar\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"10:93\",\"name\":\"Tone=Danger\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\"]},{\"id\":\"10:95\",\"name\":\"Row content\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"7:20\",\"name\":\"Tone=Danger\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"104:76\",\"name\":\"Primitive/Icon/LogOut\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"17:3\",\"name\":\"V30 / 프로필 수정\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\",\"height\"]},{\"id\":\"60:82\",\"name\":\"Content / Scroll\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"11:53\",\"name\":\"Profile/AvatarEditor\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\"]},{\"id\":\"7:40\",\"name\":\"Tone=Secondary\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"10:51\",\"name\":\"State=Default\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"11:63\",\"name\":\"Account/Identity\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"width\"]},{\"id\":\"11:66\",\"name\":\"Identity row\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"7:70\",\"name\":\"Primitive/Icon/Google\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"7:71\",\"name\":\"Google official G\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\",\"fills\"]},{\"id\":\"11:74\",\"name\":\"Identity text\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"7:67\",\"name\":\"Primitive/Icon/Trash\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"11:82\",\"name\":\"Navigation/BottomAction\",\"fields\":[\"width\"]},{\"id\":\"117:76\",\"name\":\"Property 1=Empty\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"407:4275\",\"name\":\"Size=38\",\"fields\":[\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"203:293\",\"name\":\"Property 1=PeakPurple\",\"fields\":[\"fills\"]},{\"id\":\"203:295\",\"name\":\"Property 1=PeakCoral\",\"fields\":[\"fills\"]},{\"id\":\"203:297\",\"name\":\"Property 1=GripTeal\",\"fields\":[\"fills\"]},{\"id\":\"123:1040\",\"name\":\"Property 1=Scheduled\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"117:87\",\"name\":\"Data/PlaceStamp\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"117:82\",\"name\":\"Primitive/Icon/MapPin\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"418:4715\",\"name\":\"Calendar/EventDots/Two\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"418:4720\",\"name\":\"Calendar/EventOverflow\",\"fields\":[\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"418:4712\",\"name\":\"Primitive/Text/EventOverflowCount\",\"fields\":[\"itemSpacing\",\"paddingLeft\",\"paddingTop\",\"paddingRight\",\"paddingBottom\",\"topLeftRadius\",\"topRightRadius\",\"bottomLeftRadius\",\"bottomRightRadius\"]},{\"id\":\"418:4710\",\"name\":\"Property 1=Unspecified\",\"fields\":[\"fills\"]}],\"exceptions\":[{\"id\":\"142:209\",\"name\":\"Tone=Primary\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:226\",\"name\":\"Primitive/Icon/ChevronDown/Regular\",\"field\":\"width\",\"value\":16,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:226\",\"name\":\"Primitive/Icon/ChevronDown/Regular\",\"field\":\"height\",\"value\":16,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:224\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"149:242\",\"name\":\"Frame\",\"field\":\"width\",\"value\":24,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"149:242\",\"name\":\"Frame\",\"field\":\"height\",\"value\":24,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"149:243\",\"field\":\"strokeWeight\",\"value\":1.7999999523162842,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"149:244\",\"field\":\"strokeWeight\",\"value\":1.7999999523162842,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"7:23\",\"name\":\"Tone=Secondary\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"140:205\",\"name\":\"Property 1=Selected\",\"field\":\"width\",\"value\":174,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"140:207\",\"name\":\"Property 1=Default\",\"field\":\"width\",\"value\":174,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"148:236\",\"name\":\"Control/MonthNavigation\",\"field\":\"width\",\"value\":178,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:221\",\"name\":\"Primitive/Icon/ChevronLeft/Regular\",\"field\":\"width\",\"value\":16,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:221\",\"name\":\"Primitive/Icon/ChevronLeft/Regular\",\"field\":\"height\",\"value\":16,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:219\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"143:223\",\"name\":\"Primitive/Icon/ChevronRight/Regular\",\"field\":\"width\",\"value\":16,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"143:223\",\"name\":\"Primitive/Icon/ChevronRight/Regular\",\"field\":\"height\",\"value\":16,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"143:221\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"148:265\",\"name\":\"Property 1=ViewToggle\",\"field\":\"width\",\"value\":84,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"148:242\",\"name\":\"Property 1=Default\",\"field\":\"width\",\"value\":38,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"148:242\",\"name\":\"Property 1=Default\",\"field\":\"height\",\"value\":34,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:234\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"144:235\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"148:244\",\"name\":\"Property 1=Selected\",\"field\":\"width\",\"value\":38,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"148:244\",\"name\":\"Property 1=Selected\",\"field\":\"height\",\"value\":34,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"144:229\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"150:352\",\"name\":\"Size=Default\",\"field\":\"width\",\"value\":43,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"407:4183\",\"name\":\"Size=44\",\"field\":\"width\",\"value\":32,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"407:4183\",\"name\":\"Size=44\",\"field\":\"height\",\"value\":10,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:28\",\"name\":\"Tone=Secondary\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"140:230\",\"name\":\"State=Default\",\"field\":\"width\",\"value\":54,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:254\",\"name\":\"Property 1=Selected\",\"field\":\"width\",\"value\":78,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:252\",\"name\":\"Property 1=Default\",\"field\":\"width\",\"value\":78,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:334\",\"name\":\"Frame\",\"field\":\"width\",\"value\":24,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:334\",\"name\":\"Frame\",\"field\":\"height\",\"value\":24,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:335\",\"field\":\"strokeWeight\",\"value\":1.7999999523162842,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"150:336\",\"field\":\"strokeWeight\",\"value\":1.7999999523162842,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"144:257\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"144:258\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"150:344\",\"name\":\"Frame\",\"field\":\"width\",\"value\":24,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:344\",\"name\":\"Frame\",\"field\":\"height\",\"value\":24,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"150:345\",\"field\":\"strokeWeight\",\"value\":1.7999999523162842,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"144:246\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"144:247\",\"field\":\"strokeWeight\",\"value\":1.5,\"reason\":\"SVG 그림 원본 선 굵기\"},{\"id\":\"7:8\",\"name\":\"Tone=Primary\",\"field\":\"width\",\"value\":300,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:11\",\"name\":\"Tone=Primary\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:16\",\"name\":\"Tone=Secondary\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:80\",\"name\":\"Primitive/Divider\",\"field\":\"height\",\"value\":1,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:14\",\"name\":\"Tone=Primary\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:20\",\"name\":\"Tone=Danger\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:40\",\"name\":\"Tone=Secondary\",\"field\":\"width\",\"value\":112,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"10:22\",\"name\":\"Style=Link, State=Default, LeadingIcon=None\",\"field\":\"width\",\"value\":300,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:35\",\"name\":\"Tone=Link\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"10:51\",\"name\":\"State=Default\",\"field\":\"width\",\"value\":300,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"11:66\",\"name\":\"Identity row\",\"field\":\"height\",\"value\":52,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:71\",\"name\":\"Google official G\",\"field\":\"width\",\"value\":32,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:71\",\"name\":\"Google official G\",\"field\":\"height\",\"value\":32,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"10:13\",\"name\":\"Style=Primary, State=Default, LeadingIcon=None\",\"field\":\"width\",\"value\":300,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"7:33\",\"name\":\"Tone=OnAction\",\"field\":\"width\",\"value\":200,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"117:76\",\"name\":\"Property 1=Empty\",\"field\":\"width\",\"value\":50,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"117:76\",\"name\":\"Property 1=Empty\",\"field\":\"height\",\"value\":72,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"206:706\",\"name\":\"Layout/StampAndDots\",\"field\":\"height\",\"value\":52,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"407:4275\",\"name\":\"Size=38\",\"field\":\"width\",\"value\":27.636363983154297,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"407:4275\",\"name\":\"Size=38\",\"field\":\"height\",\"value\":8.636363983154297,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"206:709\",\"name\":\"Layout/StampAndDots\",\"field\":\"height\",\"value\":52,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"123:1040\",\"name\":\"Property 1=Scheduled\",\"field\":\"width\",\"value\":50,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"123:1040\",\"name\":\"Property 1=Scheduled\",\"field\":\"height\",\"value\":88,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"418:4727\",\"name\":\"Layout/StampAndDots\",\"field\":\"height\",\"value\":52,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"},{\"id\":\"418:4748\",\"name\":\"Layout/StampAndDots\",\"field\":\"height\",\"value\":52,\"reason\":\"내용 자동 크기 또는 원본 그림·배치 크기; 역할별 규격 여부 검토 기록\"}],\"unresolved\":[],\"counts\":{\"changes\":81,\"exceptions\":69,\"unresolved\":0}},\"resultAnalysis\":{\"type\":\"object\",\"isNull\":false,\"isUndefined\":false,\"isEmpty\":false,\"warning\":null},\"fileContext\":{\"fileName\":\"Holdlog\",\"fileKey\":\"vla4pXPo8FaCWFXfpIbYzx\"},\"timestamp\":1790821902102}"
+      }
+    ]
+  },
+  "backIcon": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"_mcp\":\"figma-console-mcp\",\"success\":true,\"result\":{\"componentSet\":\"418:4950\",\"primary\":\"418:4947\",\"secondary\":\"144:221\",\"swapped\":[\"239:446\",\"241:454\"]},\"resultAnalysis\":{\"type\":\"object\",\"isNull\":false,\"isUndefined\":false,\"isEmpty\":false,\"warning\":null},\"fileContext\":{\"fileName\":\"Holdlog\",\"fileKey\":\"vla4pXPo8FaCWFXfpIbYzx\"},\"timestamp\":1790822020101}"
+      }
+    ]
+  },
+  "verification": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"_mcp\":\"figma-console-mcp\",\"success\":true,\"result\":{\"screens\":[{\"id\":\"123:310\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I152:1141;148:228\",\"w\":16,\"h\":16,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[{\"id\":\"I152:1347;142:258;140:220\",\"text\":\"참여 2명 · 불참 0명 · 미응답 2명\",\"w\":270,\"h\":16},{\"id\":\"I152:1374;150:322;140:220\",\"text\":\"참여 3명 · 불참 1명 · 미응답 0명\",\"w\":270,\"h\":16},{\"id\":\"I152:1415;142:258;140:220\",\"text\":\"참여 2명 · 불참 1명 · 미응답 1명\",\"w\":270,\"h\":16}]},{\"id\":\"123:479\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I222:1337;148:228\",\"w\":16,\"h\":16,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[]},{\"id\":\"118:160\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I306:1715;239:446\",\"w\":24,\"h\":24,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[]},{\"id\":\"118:242\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I400:4031;239:446\",\"w\":24,\"h\":24,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[]},{\"id\":\"123:221\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I390:1568;287:1552;241:454\",\"w\":24,\"h\":24,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[{\"id\":\"I123:225;119:79;7:29\",\"text\":\"참여 2명 · 불참 0명 · 미응답 2명\",\"w\":318,\"h\":20},{\"id\":\"I287:1422;119:79;7:29\",\"text\":\"참여 2명 · 불참 0명 · 미응답 2명\",\"w\":318,\"h\":20},{\"id\":\"I390:1568;340:695;157:292\",\"text\":\"참여 2명 · 불참 0명 · 미응답 2명\",\"w\":248,\"h\":24}]},{\"id\":\"123:278\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I391:1777;287:1552;241:454\",\"w\":24,\"h\":24,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[{\"id\":\"I123:282;119:79;7:29\",\"text\":\"참여 3명 · 불참 0명 · 미응답 1명\",\"w\":318,\"h\":20},{\"id\":\"I391:1777;340:695;157:292\",\"text\":\"참여 3명 · 불참 0명 · 미응답 1명\",\"w\":248,\"h\":24}]},{\"id\":\"123:951\",\"width\":390,\"height\":844,\"icons\":[{\"id\":\"I392:1877;287:1552;241:454\",\"w\":24,\"h\":24,\"strokes\":[[{\"type\":\"SOLID\",\"visible\":true,\"opacity\":1,\"blendMode\":\"NORMAL\",\"color\":{\"r\":0.08235294371843338,\"g\":0.0941176488995552,\"b\":0.125490203499794},\"boundVariables\":{\"color\":{\"type\":\"VARIABLE_ALIAS\",\"id\":\"VariableID:4:24\"}}}]]}],\"people\":[{\"id\":\"I123:955;119:79;7:29\",\"text\":\"참여 2명 · 불참 1명 · 미응답 1명\",\"w\":318,\"h\":20},{\"id\":\"I392:1877;340:695;157:292\",\"text\":\"참여 2명 · 불참 1명 · 미응답 1명\",\"w\":248,\"h\":24}]},{\"id\":\"109:89\",\"width\":390,\"height\":844,\"icons\":[],\"people\":[]},{\"id\":\"17:3\",\"width\":390,\"height\":844,\"icons\":[],\"people\":[]}]},\"resultAnalysis\":{\"type\":\"object\",\"isNull\":false,\"isUndefined\":false,\"isEmpty\":false,\"warning\":null},\"fileContext\":{\"fileName\":\"Holdlog\",\"fileKey\":\"vla4pXPo8FaCWFXfpIbYzx\"},\"timestamp\":1790821984144}"
+      }
+    ]
+  },
+  "visualReview": {
+    "v05": "인원 문구 3항목 한 줄, 제목→시간 4·시간→인원 4, 기본/참석 Radius12, 원본 행 높이80 유지",
+    "v06": "16일 일정4개 ● +3,23일 일정2개 점2개,24일 암장미정 회색 도장, 날짜칸50×100·표시공간38×52 유지",
+    "v08v09": "만들기/수정/세 응답 상태의 뒤로 아이콘 Primary, 월 이동은 기존 Secondary 유지",
+    "v17v30": "390 PNG 비교 기존 시각 배치 유지",
+    "samples": "일정2개,4개,+12(전체13개),암장미정4개 회색점 +3. 별도 공통 견본으로 검증",
+    "scope": "일정 달력 예시 데이터만 변경, 기록 달력 표시는 변경하지 않음"
+  },
+  "status": "visual-and-binding-verification-completed",
+  "finalVariableAudit": {
+    "createdVariables": [
+      {
+        "id": "VariableID:418:4968",
+        "name": "Size/ScheduleFilterTabWidth",
+        "value": 174
+      },
+      {
+        "id": "VariableID:418:4970",
+        "name": "Size/MonthNavigationWidth",
+        "value": 178
+      },
+      {
+        "id": "VariableID:418:4972",
+        "name": "Size/ViewToggleWidth",
+        "value": 84
+      },
+      {
+        "id": "VariableID:418:4974",
+        "name": "Size/ViewOptionWidth",
+        "value": 38
+      },
+      {
+        "id": "VariableID:418:4976",
+        "name": "Size/ViewOptionHeight",
+        "value": 34
+      },
+      {
+        "id": "VariableID:418:4978",
+        "name": "Size/DateBadgeDefaultWidth",
+        "value": 43
+      },
+      {
+        "id": "VariableID:418:4980",
+        "name": "Size/ResponseBadgeWidth",
+        "value": 54
+      },
+      {
+        "id": "VariableID:418:4982",
+        "name": "Size/BottomTabWidth",
+        "value": 78
+      },
+      {
+        "id": "VariableID:418:4984",
+        "name": "Size/IdentityRowHeight",
+        "value": 52
+      },
+      {
+        "id": "VariableID:418:4986",
+        "name": "Size/CalendarStampAreaHeight",
+        "value": 52
+      }
+    ],
+    "changed": [
+      {
+        "id": "140:205",
+        "field": "width",
+        "variable": "VariableID:418:4968",
+        "value": 174
+      },
+      {
+        "id": "140:207",
+        "field": "width",
+        "variable": "VariableID:418:4968",
+        "value": 174
+      },
+      {
+        "id": "148:236",
+        "field": "width",
+        "variable": "VariableID:418:4970",
+        "value": 178
+      },
+      {
+        "id": "148:265",
+        "field": "width",
+        "variable": "VariableID:418:4972",
+        "value": 84
+      },
+      {
+        "id": "148:242",
+        "field": "width",
+        "variable": "VariableID:418:4974",
+        "value": 38
+      },
+      {
+        "id": "148:244",
+        "field": "width",
+        "variable": "VariableID:418:4974",
+        "value": 38
+      },
+      {
+        "id": "148:242",
+        "field": "height",
+        "variable": "VariableID:418:4976",
+        "value": 34
+      },
+      {
+        "id": "148:244",
+        "field": "height",
+        "variable": "VariableID:418:4976",
+        "value": 34
+      },
+      {
+        "id": "150:352",
+        "field": "width",
+        "variable": "VariableID:418:4978",
+        "value": 43
+      },
+      {
+        "id": "140:230",
+        "field": "width",
+        "variable": "VariableID:418:4980",
+        "value": 54
+      },
+      {
+        "id": "150:254",
+        "field": "width",
+        "variable": "VariableID:418:4982",
+        "value": 78
+      },
+      {
+        "id": "150:252",
+        "field": "width",
+        "variable": "VariableID:418:4982",
+        "value": 78
+      },
+      {
+        "id": "11:66",
+        "field": "height",
+        "variable": "VariableID:418:4984",
+        "value": 52
+      },
+      {
+        "id": "206:706",
+        "field": "height",
+        "variable": "VariableID:418:4986",
+        "value": 52
+      },
+      {
+        "id": "206:709",
+        "field": "height",
+        "variable": "VariableID:418:4986",
+        "value": 52
+      },
+      {
+        "id": "418:4727",
+        "field": "height",
+        "variable": "VariableID:418:4986",
+        "value": 52
+      },
+      {
+        "id": "418:4748",
+        "field": "height",
+        "variable": "VariableID:418:4986",
+        "value": 52
+      }
+    ],
+    "reviewedNodes": 790,
+    "missing": [],
+    "exceptions": {
+      "remoteGlyphs": [
+        {
+          "id": "I39:2;11:44;10:45;7:58",
+          "name": "Library glyph",
+          "main": "7:55"
+        },
+        {
+          "id": "I109:117;10:84;104:58",
+          "name": "Users",
+          "main": "104:56"
+        },
+        {
+          "id": "I39:83;10:101;7:63",
+          "name": "Library glyph",
+          "main": "7:60"
+        },
+        {
+          "id": "I109:148;10:84;105:79",
+          "name": "Link",
+          "main": "105:77"
+        },
+        {
+          "id": "I109:165;10:84;104:67",
+          "name": "Calendar",
+          "main": "104:65"
+        },
+        {
+          "id": "I109:179;10:96;104:73",
+          "name": "Log out",
+          "main": "104:71"
+        },
+        {
+          "id": "I39:83;10:96;7:68",
+          "name": "Library glyph",
+          "main": "7:65"
+        },
+        {
+          "id": "I123:1099;117:83;117:79",
+          "name": "Map pin",
+          "main": "117:77"
+        }
+      ],
+      "nativeTextReferenceWidths": "공통 텍스트 원본의 견본 폭200/300·입력/버튼 원본 견본 폭300은 화면에서 FILL/HUG로 조정",
+      "stampTextGeometry": "도장 글자 프레임은38/44/48/60 비율을 따른다. 글꼴·색상·텍스트 스타일은 연결됨",
+      "svgGeometry": "SVG 고유 경로·선 굵기1.5/1.8 및 그림 내부 좌표",
+      "unusedLegacyDayStates": "기존 Empty/Scheduled 날짜 칸72/88 높이는 이전 상태 보존. 현재 V06은100 사용",
+      "editorDecoration": "컴포넌트 세트·Section의 편집기 견본 테두리와 배경은 제품 화면 아님"
+    }
+  },
+  "finalState": {
+    "broken": [],
+    "variableCounts": {
+      "semantic": 95,
+      "total": 186
+    },
+    "list": [
+      {
+        "id": "142:269",
+        "width": 350,
+        "height": 80,
+        "radius": 12,
+        "bound": {
+          "itemSpacing": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:49"
+          },
+          "paddingLeft": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:49"
+          },
+          "paddingTop": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:45"
+          },
+          "paddingRight": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:49"
+          },
+          "paddingBottom": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:45"
+          },
+          "width": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4163"
+          },
+          "height": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:418:4880"
+          },
+          "topLeftRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "topRightRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "bottomLeftRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "bottomRightRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "fills": [
+            {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:4:30"
+            }
+          ]
+        }
+      },
+      {
+        "id": "150:313",
+        "width": 350,
+        "height": 80,
+        "radius": 12,
+        "bound": {
+          "itemSpacing": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:49"
+          },
+          "paddingLeft": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:49"
+          },
+          "paddingTop": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:45"
+          },
+          "paddingRight": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:49"
+          },
+          "paddingBottom": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:45"
+          },
+          "width": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4163"
+          },
+          "height": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:418:4880"
+          },
+          "topLeftRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "topRightRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "bottomLeftRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "bottomRightRadius": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:4:67"
+          },
+          "fills": [
+            {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:150:333"
+            }
+          ]
+        }
+      }
+    ],
+    "derivedWidths": [
+      {
+        "id": "152:1141",
+        "width": 242,
+        "sizing": "FILL"
+      },
+      {
+        "id": "222:1337",
+        "width": 242,
+        "sizing": "FILL"
+      },
+      {
+        "id": "140:210",
+        "width": 172,
+        "sizing": "FILL"
+      },
+      {
+        "id": "140:214",
+        "width": 172,
+        "sizing": "FILL"
+      }
+    ]
+  },
+  "derivedWidthCorrections": {
+    "removedVariables": [
+      "Size/MonthNavigationWidth",
+      "Size/ScheduleFilterTabWidth"
+    ],
+    "reason": "원본 견본 폭을 화면 폭 변수로 적용하면 배치가 달라져 제거. 월 이동242·필터172 폭은 FILL로 계산됨"
+  },
+  "pixelComparison": {
+    "V17": "변경 전과 픽셀 동일",
+    "V30": "변경 전과 픽셀 동일"
+  },
+  "verificationStatus": "모든 시각 수정 및 변수 보완 후 검수 완료"
+}

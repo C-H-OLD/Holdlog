@@ -1,0 +1,799 @@
+{
+  "date": "2026-10-01",
+  "tool": "figma-console MCP",
+  "section": "424:6061",
+  "screens": [
+    {
+      "number": "02.01.01",
+      "name": "02.01.01 기록 달력 / 기본",
+      "nodeId": "424:6062",
+      "mode": "default",
+      "view": "calendar"
+    },
+    {
+      "number": "02.02.01",
+      "name": "02.02.01 기록 목록 / 기본",
+      "nodeId": "424:6398",
+      "mode": "default",
+      "view": "list"
+    },
+    {
+      "number": "02.02.02",
+      "name": "02.02.02 기록 목록 / 필터 적용",
+      "nodeId": "424:6805",
+      "mode": "applied",
+      "view": "list"
+    },
+    {
+      "number": "02.01.02",
+      "name": "02.01.02 기록 달력 / 기록 없음",
+      "nodeId": "424:7217",
+      "mode": "empty",
+      "view": "calendar"
+    },
+    {
+      "number": "02.02.03",
+      "name": "02.02.03 기록 목록 / 기록 없음",
+      "nodeId": "424:7782",
+      "mode": "empty",
+      "view": "list"
+    }
+  ],
+  "atoms": {
+    "section": "424:5015",
+    "outlineLabel": {
+      "38PeakCoral": "424:5016",
+      "38GripTeal": "424:5018",
+      "48PeakCoral": "424:5020",
+      "48GripTeal": "424:5022"
+    },
+    "outlineStamps": {
+      "PeakOutline": "424:5024",
+      "GripOutline": "424:5030"
+    },
+    "usersSet": "424:5040",
+    "badges": {
+      "Attending": "424:5041",
+      "NotAttending": "424:5046"
+    },
+    "visitStamp": {
+      "38Personal": "424:5052",
+      "38CrewAttending": "424:5059",
+      "38CrewNotAttendingPeak": "424:5071",
+      "38CrewNotAttendingGrip": "424:5083",
+      "38CrewAttendingCoral": "424:5095",
+      "38PersonalGrip": "424:5107",
+      "48Personal": "424:5115",
+      "48CrewAttending": "424:5126",
+      "48CrewNotAttendingPeak": "424:5138",
+      "48CrewNotAttendingGrip": "424:5149",
+      "48CrewAttendingCoral": "424:5160",
+      "48PersonalGrip": "424:5172"
+    },
+    "visitSet38": "424:5114",
+    "visitSet48": "424:5179",
+    "filterVariants": {
+      "Selected": "424:5180",
+      "Default": "424:5183"
+    },
+    "recordFilter": "424:5186",
+    "filterIcon": "424:5196",
+    "summary": "424:5199",
+    "bottomRecord": "424:5205"
+  },
+  "compositions": {
+    "month": "424:5505",
+    "recordDayVariants": {
+      "RecordPersonal": "424:5370",
+      "RecordPersonalGrip": "424:5385",
+      "RecordCrewAttending": "424:5400",
+      "RecordCrewAttendingCoral": "424:5420",
+      "RecordCrewNotAttendingPeak": "424:5440",
+      "RecordCrewNotAttendingGrip": "424:5460",
+      "RecordCrewTwo": "424:5480"
+    },
+    "row": "424:5797",
+    "divider": "424:5816",
+    "dateHeading": "424:5817",
+    "monthList": "424:5820",
+    "summaryCases": "424:5982"
+  },
+  "initialAudit": {
+    "screenCount": 7,
+    "nodes": 2157,
+    "mainMissing": [],
+    "broken": [],
+    "unstylized": [
+      {
+        "id": "I424:5284;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5379;424:5284;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5518;424:5379;424:5284;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5314;407:4187;407:4276",
+        "text": "GRIP"
+      },
+      {
+        "id": "I424:5394;424:5314;407:4187;407:4276",
+        "text": "GRIP"
+      },
+      {
+        "id": "I424:5524;424:5394;424:5314;407:4187;407:4276",
+        "text": "GRIP"
+      },
+      {
+        "id": "I424:5308;407:4189;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5429;424:5308;407:4189;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5528;424:5429;424:5308;407:4189;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5296;424:5027;424:5017",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5449;424:5296;424:5027;424:5017",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5534;424:5449;424:5296;424:5027;424:5017",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5302;424:5033;424:5019",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5469;424:5302;424:5033;424:5019",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5535;424:5469;424:5302;424:5033;424:5019",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5542;424:5379;424:5284;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5290;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5494;424:5290;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5547;424:5494;424:5290;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6114;424:5518;424:5379;424:5284;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6114;424:5524;424:5394;424:5314;407:4187;407:4276",
+        "text": "GRIP"
+      },
+      {
+        "id": "I424:6114;424:5528;424:5429;424:5308;407:4189;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6114;424:5534;424:5449;424:5296;424:5027;424:5017",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6114;424:5535;424:5469;424:5302;424:5033;424:5019",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6114;424:5542;424:5379;424:5284;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6114;424:5547;424:5494;424:5290;407:4185;407:4276",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5342;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5798;424:5342;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5825;424:5798;424:5342;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5855;424:5798;424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5336;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5889;424:5798;424:5336;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5918;424:5798;424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5348;424:5027;424:5021",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:5952;424:5798;424:5348;424:5027;424:5021",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6693;424:5825;424:5798;424:5342;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6693;424:5855;424:5798;424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6693;424:5889;424:5798;424:5336;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6693;424:5918;424:5798;424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:6693;424:5952;424:5798;424:5348;424:5027;424:5021",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:7105;424:5825;424:5798;424:5342;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:7105;424:5855;424:5798;424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:7105;424:5889;424:5798;424:5336;407:4185;407:4279",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:7105;424:5918;424:5798;424:5353;424:5033;424:5023",
+        "text": "PEAK"
+      },
+      {
+        "id": "I424:7105;424:5952;424:5798;424:5348;424:5027;424:5021",
+        "text": "PEAK"
+      }
+    ],
+    "foreign": [],
+    "widths": [
+      {
+        "id": "424:6062",
+        "w": 390,
+        "h": 844
+      },
+      {
+        "id": "424:6398",
+        "w": 390,
+        "h": 844
+      },
+      {
+        "id": "424:6805",
+        "w": 390,
+        "h": 844
+      },
+      {
+        "id": "424:7217",
+        "w": 390,
+        "h": 844
+      },
+      {
+        "id": "424:7498",
+        "w": 390,
+        "h": 844
+      },
+      {
+        "id": "424:7782",
+        "w": 390,
+        "h": 844
+      },
+      {
+        "id": "424:8079",
+        "w": 390,
+        "h": 844
+      }
+    ],
+    "sourceComponents": [
+      {
+        "id": "148:296",
+        "name": "Navigation/CrewHeader",
+        "parent": "01 Components"
+      },
+      {
+        "id": "142:209",
+        "name": "Tone=Primary",
+        "parent": "Primitive/Text/Button"
+      },
+      {
+        "id": "144:226",
+        "name": "Primitive/Icon/ChevronDown/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "144:243",
+        "name": "Tone=Secondary",
+        "parent": "Primitive/Icon/Users/Regular"
+      },
+      {
+        "id": "7:23",
+        "name": "Tone=Secondary",
+        "parent": "Primitive/Text/Label"
+      },
+      {
+        "id": "153:294",
+        "name": "Primitive/Text/Display",
+        "parent": "01 Components"
+      },
+      {
+        "id": "424:5186",
+        "name": "Control/RecordFilter",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5180",
+        "name": "Property 1=RecordSelected",
+        "parent": "Control/FilterTab"
+      },
+      {
+        "id": "424:5183",
+        "name": "Property 1=RecordDefault",
+        "parent": "Control/FilterTab"
+      },
+      {
+        "id": "424:5199",
+        "name": "State=Default",
+        "parent": "Control/RecordFilterSummary"
+      },
+      {
+        "id": "424:5196",
+        "name": "Primitive/Icon/Filter/Regular",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "148:236",
+        "name": "Control/MonthNavigation",
+        "parent": "01 Components"
+      },
+      {
+        "id": "144:221",
+        "name": "Tone=Secondary",
+        "parent": "Primitive/Icon/ChevronLeft/Regular"
+      },
+      {
+        "id": "143:223",
+        "name": "Primitive/Icon/ChevronRight/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "219:440",
+        "name": "Property 1=Calendar",
+        "parent": "Control/ViewToggle"
+      },
+      {
+        "id": "148:244",
+        "name": "Property 1=Selected",
+        "parent": "Control/ViewOption"
+      },
+      {
+        "id": "144:231",
+        "name": "Primitive/Icon/List/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "144:237",
+        "name": "Primitive/Icon/Calendar/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "148:242",
+        "name": "Property 1=Default",
+        "parent": "Control/ViewOption"
+      },
+      {
+        "id": "424:5505",
+        "name": "Property 1=RecordMondayStamps",
+        "parent": "Calendar/Month"
+      },
+      {
+        "id": "210:437",
+        "name": "Property 1=Weekday",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "7:16",
+        "name": "Tone=Secondary",
+        "parent": "Primitive/Text/Body"
+      },
+      {
+        "id": "215:438",
+        "name": "Property 1=OutsideMonth",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "7:14",
+        "name": "Tone=Primary",
+        "parent": "Primitive/Text/Body"
+      },
+      {
+        "id": "204:290",
+        "name": "Property 1=StampBelowEmpty",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5370",
+        "name": "Property 1=RecordPersonal",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5052",
+        "name": "Kind=Personal",
+        "parent": "Data/VisitStamp/38"
+      },
+      {
+        "id": "147:223",
+        "name": "Data/PlaceStamp/PeakExample",
+        "parent": "01 Components"
+      },
+      {
+        "id": "407:4183",
+        "name": "Size=44, Tone=Filled",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "407:4275",
+        "name": "Size=38, Tone=Filled",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "424:5385",
+        "name": "Property 1=RecordPersonalGrip",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5107",
+        "name": "Kind=PersonalGrip",
+        "parent": "Data/VisitStamp/38"
+      },
+      {
+        "id": "147:230",
+        "name": "Data/PlaceStamp/GripExample",
+        "parent": "01 Components"
+      },
+      {
+        "id": "424:5420",
+        "name": "Property 1=RecordCrewAttendingCoral",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5095",
+        "name": "Kind=CrewAttendingCoral",
+        "parent": "Data/VisitStamp/38"
+      },
+      {
+        "id": "202:725",
+        "name": "Data/PlaceStamp/PeakCoralExample",
+        "parent": "01 Components"
+      },
+      {
+        "id": "424:5041",
+        "name": "Attendance=Attending",
+        "parent": "Data/CrewVisitBadge"
+      },
+      {
+        "id": "424:8447",
+        "name": "Tone=Primary",
+        "parent": "Primitive/Icon/Users/Filled"
+      },
+      {
+        "id": "424:5440",
+        "name": "Property 1=RecordCrewNotAttendingPeak",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5071",
+        "name": "Kind=CrewNotAttendingPeak",
+        "parent": "Data/VisitStamp/38"
+      },
+      {
+        "id": "424:5024",
+        "name": "Data/PlaceStamp/PeakOutlineExample",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5020",
+        "name": "Size=48, Tone=PeakCoral",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "424:5016",
+        "name": "Size=38, Tone=PeakCoral",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "424:5046",
+        "name": "Attendance=NotAttending",
+        "parent": "Data/CrewVisitBadge"
+      },
+      {
+        "id": "424:8452",
+        "name": "Tone=Secondary",
+        "parent": "Primitive/Icon/Users/Filled"
+      },
+      {
+        "id": "424:5460",
+        "name": "Property 1=RecordCrewNotAttendingGrip",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5083",
+        "name": "Kind=CrewNotAttendingGrip",
+        "parent": "Data/VisitStamp/38"
+      },
+      {
+        "id": "424:5030",
+        "name": "Data/PlaceStamp/GripOutlineExample",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5022",
+        "name": "Size=48, Tone=GripTeal",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "424:5018",
+        "name": "Size=38, Tone=GripTeal",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "424:5480",
+        "name": "Property 1=RecordCrewTwo",
+        "parent": "Calendar/DayCell"
+      },
+      {
+        "id": "424:5059",
+        "name": "Kind=CrewAttending",
+        "parent": "Data/VisitStamp/38"
+      },
+      {
+        "id": "418:4715",
+        "name": "Calendar/EventDots/Two",
+        "parent": "05 / Calendar indicators"
+      },
+      {
+        "id": "203:293",
+        "name": "Property 1=PeakPurple",
+        "parent": "Calendar/EventDot"
+      },
+      {
+        "id": "203:295",
+        "name": "Property 1=PeakCoral",
+        "parent": "Calendar/EventDot"
+      },
+      {
+        "id": "203:297",
+        "name": "Property 1=GripTeal",
+        "parent": "Calendar/EventDot"
+      },
+      {
+        "id": "424:5205",
+        "name": "Tab=Record",
+        "parent": "Navigation/BottomTabsCompact"
+      },
+      {
+        "id": "150:252",
+        "name": "Property 1=Default",
+        "parent": "Navigation/TabItemCompact"
+      },
+      {
+        "id": "140:223",
+        "name": "Primitive/Text/CaptionSmall",
+        "parent": "01 Components"
+      },
+      {
+        "id": "150:254",
+        "name": "Property 1=Selected",
+        "parent": "Navigation/TabItemCompact"
+      },
+      {
+        "id": "424:6036",
+        "name": "Tone=Primary",
+        "parent": "Primitive/Icon/FileText/Regular"
+      },
+      {
+        "id": "144:260",
+        "name": "Primitive/Icon/MapPin/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "144:265",
+        "name": "Primitive/Icon/BarChart/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "144:249",
+        "name": "Primitive/Icon/User/Regular",
+        "parent": "01 Components"
+      },
+      {
+        "id": "148:265",
+        "name": "Property 1=ViewToggle",
+        "parent": "Control/ViewToggle"
+      },
+      {
+        "id": "424:5820",
+        "name": "Data/RecordMonthList",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5817",
+        "name": "Data/RecordDateHeading",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5797",
+        "name": "Data/RecordListItem",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5126",
+        "name": "Kind=CrewAttending",
+        "parent": "Data/VisitStamp/48"
+      },
+      {
+        "id": "407:4278",
+        "name": "Size=48, Tone=Filled",
+        "parent": "Primitive/Text/PlaceStampLabel"
+      },
+      {
+        "id": "157:294",
+        "name": "Primitive/Text/SectionSmall",
+        "parent": "01 Components"
+      },
+      {
+        "id": "424:5816",
+        "name": "Primitive/Divider",
+        "parent": "06 / Record views"
+      },
+      {
+        "id": "424:5149",
+        "name": "Kind=CrewNotAttendingGrip",
+        "parent": "Data/VisitStamp/48"
+      },
+      {
+        "id": "424:5115",
+        "name": "Kind=Personal",
+        "parent": "Data/VisitStamp/48"
+      },
+      {
+        "id": "424:5138",
+        "name": "Kind=CrewNotAttendingPeak",
+        "parent": "Data/VisitStamp/48"
+      },
+      {
+        "id": "424:6041",
+        "name": "State=Applied",
+        "parent": "Control/RecordFilterSummary"
+      },
+      {
+        "id": "424:8866",
+        "name": "State=Empty",
+        "parent": "Control/RecordFilterSummary"
+      },
+      {
+        "id": "424:8468",
+        "name": "Property 1=RecordEmpty",
+        "parent": "Calendar/Month"
+      },
+      {
+        "id": "424:6049",
+        "name": "State=Failure",
+        "parent": "Data/RecordLoadState"
+      },
+      {
+        "id": "10:13",
+        "name": "Style=Primary, State=Default, LeadingIcon=None",
+        "parent": "Control/Button"
+      },
+      {
+        "id": "7:33",
+        "name": "Tone=OnAction",
+        "parent": "Primitive/Text/Button"
+      },
+      {
+        "id": "424:6046",
+        "name": "State=Empty",
+        "parent": "Data/RecordLoadState"
+      }
+    ],
+    "exceptions": "도장 그림 경로·아이콘 SVG 선 위치는 원본 관리. 화면 최상위 좌표와 Section 편집기 크기는 변수 연결 대상에서 제외."
+  },
+  "finalChecks": {
+    "width": 390,
+    "height": 844,
+    "screenStates": 7,
+    "missingMainComponents": 0,
+    "brokenVariableReferences": 0,
+    "missingScreenTextStyles": 0,
+    "stampLabelMismatch": 0,
+    "visualReview": "기존 시안 비교, 필터 적용은 피크 성수2건만 표시, 빈 달력은 날짜 칸 유지, V05/V06 영향 PNG 확인",
+    "remaining": "사용자 화면 검토 대기"
+  },
+  "corrections": [
+    "사람 배지 아이콘을 채운 SVG로 교정",
+    "외곽 도장 글자 Content 연결 복구 및 텍스트 스타일 재연결",
+    "FILL 영역의 부모 폭 고정으로 월 이동·필터 요약 너비 유지",
+    "편집기 공통 세트를 이름 있는 Section 안에 정리"
+  ],
+  "calendarOverflowRule": {
+    "one": "점 없음",
+    "two": "점2개",
+    "threeOrMore": "점1개 + (전체 건수-1)",
+    "variants": [
+      "427:9019",
+      "427:9045"
+    ],
+    "sampleNodeId": "427:9060"
+  },
+  "crewBadgeCorrection": {
+    "size": [
+      20,
+      20
+    ],
+    "stamp38Position": [
+      24,
+      24
+    ],
+    "stamp48Position": [
+      30,
+      34
+    ],
+    "variable": "VariableID:423:5011",
+    "overflowAreaHeightVariable": "VariableID:429:9124",
+    "status": "시안 비교·390 검수 완료, 사용자 검토 대기"
+  },
+  "recordHeaderCorrection": {
+    "titleToTabs": 12,
+    "filterTabs": "일정 Selected·Default 재사용, 높이36·모서리12·동일 폭3개",
+    "monthAndViewComponent": "429:9134",
+    "filterPosition": "보기 전환 오른쪽",
+    "calendarY": 228,
+    "removedSummary": true,
+    "failureStates": false,
+    "currentRecordStates": 5
+  },
+  "latestRecordReport": "record-details-2026-10-01.json"
+}

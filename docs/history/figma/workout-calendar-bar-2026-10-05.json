@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-05",
+  "screen": "424:6062",
+  "size": [
+    390,
+    844
+  ],
+  "component": "562:32337",
+  "instance": "573:33839",
+  "barBounds": [
+    20,
+    709,
+    350,
+    52
+  ],
+  "calendarBounds": [
+    20,
+    228,
+    350,
+    532
+  ],
+  "bottomNavBounds": [
+    0,
+    785,
+    390,
+    59
+  ],
+  "newScreenCount": 0,
+  "status": "사용자 겹침 허용 확정·현재 사진 검수 완료",
+  "updated": "2026-10-06",
+  "calendarOverlapAllowed": true
+}

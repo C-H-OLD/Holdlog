@@ -1,0 +1,31 @@
+{
+  "source": [
+    "docs/assets/screens/12-schedule-day-sheet-v2.png",
+    "docs/assets/screens/16-schedule-create.png",
+    "docs/assets/screens/17-schedule-detail-v3.png"
+  ],
+  "authorization": "사용자: 모양이 다르거나 없는 아이콘은 직접 SVG 제작",
+  "purpose": "V07~V09 공통 최소 아이콘 후보. 실제 기존 원본 조회 후 없는 역할만 등록",
+  "files": [
+    "icon-clock.svg",
+    "icon-plus.svg",
+    "icon-check.svg",
+    "icon-close.svg",
+    "icon-more-horizontal.svg",
+    "icon-map-pin-filled.svg"
+  ],
+  "notes": [
+    "24×24·stroke1.8, 색상은Figma 공통변수연결",
+    "동일역할 기존원본이맞으면 재사용하고 후보 SVG는 중복등록하지않음",
+    "체크는선택응답,플러스는날짜시트생성버튼용",
+    "FilledMapPin은24×24단색실루엣, V08원본시안의채운물방울핀을작은SVG로재현. 기존MapPin144:260/117:82외곽선모양과달라추가. Secondary변수연결·Form암장아이콘사용."
+  ],
+  "registered": {
+    "icon-clock.svg": "234:454",
+    "icon-plus.svg": "234:458",
+    "icon-check.svg": "234:462",
+    "icon-close.svg": "234:449",
+    "icon-more-horizontal.svg": "234:468",
+    "icon-map-pin-filled.svg": "335:758"
+  }
+}

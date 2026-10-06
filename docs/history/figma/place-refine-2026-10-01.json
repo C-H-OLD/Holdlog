@@ -1,0 +1,1102 @@
+{
+  "date": "2026-10-01",
+  "tool": "figma-console MCP",
+  "scope": [
+    "03.02",
+    "03.03"
+  ],
+  "status": "표시 규칙·정렬 수정 및 390 검증 완료",
+  "rules": {
+    "participants": "3명까지 모두 표시, 4명부터 2명과 +나머지 인원(전체−2). 4명→+2, 13명→+11",
+    "cards": "추천 카드 350×124, 암장 정보는 같은 아래 위치, 선택 원은 오른쪽 수직 가운데",
+    "removed": [
+      "info 아이콘",
+      "방문일까지 세팅 예정 1개 벽 포함",
+      "고정 벽 4개",
+      "PEAK 브랜드 공통."
+    ],
+    "empty": "검색 그림, 제목, 검색어 변경 안내",
+    "settingBadge": "예정 날짜를 가로·세로 가운데 정렬",
+    "detail": "390×950",
+    "searchRows": "이름·주소·암장 정보를 세 줄로 배치. 링크는 주소 아래 왼쪽, 선택 원은 오른쪽 세로 가운데. 350×96 유지"
+  },
+  "newComponents": {
+    "contextSet": "459:27349",
+    "overflow": "459:27303",
+    "illustration": "459:27392",
+    "participantVariants": [
+      {
+        "id": "455:22896",
+        "name": "Count=3"
+      },
+      {
+        "id": "459:27308",
+        "name": "Count=1"
+      },
+      {
+        "id": "459:27321",
+        "name": "Count=2"
+      },
+      {
+        "id": "459:27334",
+        "name": "Count=Many"
+      }
+    ],
+    "detailHeight": 950,
+    "captionCenteredLink": "459:27460"
+  },
+  "proofDirectory": "./assets/place-refine-2026-10-01",
+  "verification": {
+    "audits": [
+      {
+        "id": "455:22834",
+        "nodes": 2784,
+        "instances": 492,
+        "broken": [],
+        "textMismatch": [],
+        "missingStyle": [],
+        "brokenVars": [],
+        "textBounds": []
+      },
+      {
+        "id": "455:25611",
+        "nodes": 1347,
+        "instances": 252,
+        "broken": [],
+        "textMismatch": [],
+        "missingStyle": [],
+        "brokenVars": [],
+        "textBounds": []
+      }
+    ],
+    "placeScreenCount": 6,
+    "allWidths390": true,
+    "screenOverlap": [],
+    "sectionOverlap": [],
+    "componentOverlap": [],
+    "screens": [
+      {
+        "number": "03.01.01",
+        "name": "03.01.01 암장 지도 / 지점 선택",
+        "nodeId": "455:25612",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "03.02.01",
+        "name": "03.02.01 암장 검색·추천·선택 / 참여자 추천",
+        "nodeId": "455:26556",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "03.02.02",
+        "name": "03.02.02 암장 검색·추천·선택 / 검색만",
+        "nodeId": "455:26667",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "03.02.03",
+        "name": "03.02.03 암장 검색·추천·선택 / 검색 결과 없음",
+        "nodeId": "455:26754",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "number": "03.03.01",
+        "name": "03.03.01 암장 상세 / 기본",
+        "nodeId": "455:26779",
+        "width": 390,
+        "height": 950
+      },
+      {
+        "number": "03.03.02",
+        "name": "03.03.02 암장 상세 / 정보 없음",
+        "nodeId": "455:26922",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "components": [
+      {
+        "id": "455:22842",
+        "name": "Primitive/Icon/Locate/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:22847",
+        "name": "Primitive/Icon/ArrowRight/Regular",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:22850",
+        "name": "Primitive/Text/Emphasis/Link",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:22864",
+        "name": "Control/InlineChevronLink",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:22853",
+            "name": "Tone=Link"
+          },
+          {
+            "id": "455:22859",
+            "name": "Tone=Secondary"
+          }
+        ]
+      },
+      {
+        "id": "455:22871",
+        "name": "Control/ChoiceCircle",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:22865",
+            "name": "State=Selected"
+          },
+          {
+            "id": "455:22869",
+            "name": "State=Default"
+          }
+        ]
+      },
+      {
+        "id": "455:22890",
+        "name": "Control/PlaceSearchField",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:22872",
+            "name": "State=Empty"
+          },
+          {
+            "id": "455:22881",
+            "name": "State=Filled"
+          }
+        ]
+      },
+      {
+        "id": "455:22891",
+        "name": "Data/ParticipantInitial/Recommendation",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:22990",
+        "name": "Data/PlaceMapMarker",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:22971",
+            "name": "State=Default"
+          },
+          {
+            "id": "455:22981",
+            "name": "State=Selected"
+          }
+        ]
+      },
+      {
+        "id": "455:22991",
+        "name": "Data/PlaceMapArtwork/SeongsuExample",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:23839",
+        "name": "Data/PlaceMapPreview",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:23859",
+        "name": "Control/CurrentLocation",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:23986",
+        "name": "Data/PlaceRecommendationCard",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:23913",
+            "name": "Place=성수, State=Selected"
+          },
+          {
+            "id": "455:23941",
+            "name": "Place=연남, State=Default"
+          },
+          {
+            "id": "455:23964",
+            "name": "Place=강남, State=Default"
+          },
+          {
+            "id": "457:27157",
+            "name": "Place=성수, State=Default"
+          },
+          {
+            "id": "457:27176",
+            "name": "Place=연남, State=Selected"
+          },
+          {
+            "id": "457:27194",
+            "name": "Place=강남, State=Selected"
+          }
+        ]
+      },
+      {
+        "id": "455:24058",
+        "name": "Data/PlaceSearchResultRow",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:23987",
+            "name": "Place=성수, State=Selected"
+          },
+          {
+            "id": "455:24014",
+            "name": "Place=강남, State=Default"
+          },
+          {
+            "id": "455:24036",
+            "name": "Place=연남, State=Default"
+          },
+          {
+            "id": "457:27212",
+            "name": "Place=성수, State=Default"
+          },
+          {
+            "id": "457:27231",
+            "name": "Place=강남, State=Selected"
+          },
+          {
+            "id": "457:27250",
+            "name": "Place=연남, State=Selected"
+          }
+        ]
+      },
+      {
+        "id": "455:24071",
+        "name": "Data/PlaceQueryNotice",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:24059",
+            "name": "State=NoResults"
+          },
+          {
+            "id": "455:24062",
+            "name": "State=NoParticipants"
+          },
+          {
+            "id": "455:24065",
+            "name": "State=SearchFailure"
+          },
+          {
+            "id": "455:24068",
+            "name": "State=RecommendationFailure"
+          }
+        ]
+      },
+      {
+        "id": "455:24131",
+        "name": "Data/PlaceDifficultyGrade",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:24072",
+            "name": "Grade=1"
+          },
+          {
+            "id": "455:24080",
+            "name": "Grade=2"
+          },
+          {
+            "id": "455:24085",
+            "name": "Grade=3"
+          },
+          {
+            "id": "455:24090",
+            "name": "Grade=4"
+          },
+          {
+            "id": "455:24095",
+            "name": "Grade=5"
+          },
+          {
+            "id": "455:24100",
+            "name": "Grade=6"
+          },
+          {
+            "id": "455:24105",
+            "name": "Grade=7"
+          },
+          {
+            "id": "455:24110",
+            "name": "Grade=8"
+          },
+          {
+            "id": "455:24115",
+            "name": "Grade=9"
+          },
+          {
+            "id": "455:24120",
+            "name": "Grade=10"
+          },
+          {
+            "id": "455:24125",
+            "name": "Grade=11"
+          }
+        ]
+      },
+      {
+        "id": "455:24132",
+        "name": "Data/PlaceDifficultyScale/Example",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:24190",
+        "name": "Data/SettingDateBadge",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:24231",
+        "name": "Data/PlaceWallSettingRow",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:24194",
+            "name": "Wall=A"
+          },
+          {
+            "id": "455:24207",
+            "name": "Wall=B"
+          },
+          {
+            "id": "455:24215",
+            "name": "Wall=C"
+          },
+          {
+            "id": "455:24223",
+            "name": "Wall=D"
+          }
+        ]
+      },
+      {
+        "id": "455:24232",
+        "name": "Data/NextWallSetting",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:24239",
+        "name": "Data/PlaceDetailIdentity",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "455:24446",
+        "name": "Place/DetailBody",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:24267",
+            "name": "State=Default"
+          },
+          {
+            "id": "455:24405",
+            "name": "State=MissingInformation"
+          }
+        ]
+      },
+      {
+        "id": "455:24668",
+        "name": "Place/Selection",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:24447",
+            "name": "State=Recommendation"
+          },
+          {
+            "id": "455:24558",
+            "name": "State=SearchOnly"
+          },
+          {
+            "id": "455:24644",
+            "name": "State=NoResults"
+          }
+        ]
+      },
+      {
+        "id": "455:24669",
+        "name": "Place/Map",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "457:27125",
+        "name": "Primitive/Text/CaptionSmall/Left",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "459:27303",
+        "name": "Data/ParticipantOverflow",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "459:27349",
+        "name": "Data/PlaceRecommendationContext",
+        "type": "COMPONENT_SET",
+        "variants": [
+          {
+            "id": "455:22896",
+            "name": "Count=3"
+          },
+          {
+            "id": "459:27308",
+            "name": "Count=1"
+          },
+          {
+            "id": "459:27321",
+            "name": "Count=2"
+          },
+          {
+            "id": "459:27334",
+            "name": "Count=Many"
+          }
+        ]
+      },
+      {
+        "id": "459:27392",
+        "name": "Primitive/Illustration/SearchEmpty",
+        "type": "COMPONENT"
+      },
+      {
+        "id": "459:27460",
+        "name": "Primitive/Text/CaptionCentered/Tone=Link",
+        "type": "COMPONENT"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VariableID:400:4156",
+        "name": "Value/Size/SchedulePlaceRowHeight",
+        "values": {
+          "4:0": 74
+        }
+      },
+      {
+        "id": "VariableID:400:4157",
+        "name": "Size/SchedulePlaceRowHeight",
+        "values": {
+          "4:1": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4156"
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4170",
+        "name": "Value/Color/Place/PeakPurple",
+        "values": {
+          "4:0": {
+            "r": 0.43921568989753723,
+            "g": 0.27843138575553894,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4171",
+        "name": "Color/Place/PeakPurple",
+        "values": {
+          "4:1": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4170"
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4172",
+        "name": "Value/Color/Place/PeakCoral",
+        "values": {
+          "4:0": {
+            "r": 1,
+            "g": 0.3843137323856354,
+            "b": 0.3450980484485626,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4173",
+        "name": "Color/Place/PeakCoral",
+        "values": {
+          "4:1": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4172"
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4174",
+        "name": "Value/Color/Place/GripTeal",
+        "values": {
+          "4:0": {
+            "r": 0.09019608050584793,
+            "g": 0.7176470756530762,
+            "b": 0.7490196228027344,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4175",
+        "name": "Color/Place/GripTeal",
+        "values": {
+          "4:1": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4174"
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4176",
+        "name": "Value/Color/Place/Unspecified",
+        "values": {
+          "4:0": {
+            "r": 0.47843137383461,
+            "g": 0.5215686559677124,
+            "b": 0.5764706134796143,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:400:4177",
+        "name": "Color/Place/Unspecified",
+        "values": {
+          "4:1": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:400:4176"
+          }
+        }
+      },
+      {
+        "id": "VariableID:418:4883",
+        "name": "Value/Size/PlaceStamp44",
+        "values": {
+          "4:0": 44
+        }
+      },
+      {
+        "id": "VariableID:418:4884",
+        "name": "Size/PlaceStamp44",
+        "values": {
+          "4:1": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:418:4883"
+          }
+        }
+      },
+      {
+        "id": "VariableID:420:4989",
+        "name": "Section/Components",
+        "values": {
+          "420:0": {
+            "r": 0.9411764740943909,
+            "g": 0.9215686321258545,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:420:4992",
+        "name": "Section/Place",
+        "values": {
+          "420:0": {
+            "r": 1,
+            "g": 0.9411764740943909,
+            "b": 0.8980392217636108,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:423:5009",
+        "name": "Size/PlaceStamp48",
+        "values": {
+          "4:1": 48
+        }
+      },
+      {
+        "id": "VariableID:423:5010",
+        "name": "Size/PlaceStamp38",
+        "values": {
+          "4:1": 38
+        }
+      },
+      {
+        "id": "VariableID:455:22836",
+        "name": "Size/Place/width/24",
+        "values": {
+          "4:1": 24
+        }
+      },
+      {
+        "id": "VariableID:455:22837",
+        "name": "Size/Place/height/24",
+        "values": {
+          "4:1": 24
+        }
+      },
+      {
+        "id": "VariableID:455:22851",
+        "name": "Size/Place/width/200",
+        "values": {
+          "4:1": 200
+        }
+      },
+      {
+        "id": "VariableID:455:22854",
+        "name": "Size/Place/width/82",
+        "values": {
+          "4:1": 82
+        }
+      },
+      {
+        "id": "VariableID:455:22867",
+        "name": "Stroke/SelectionRing",
+        "values": {
+          "4:1": 1.5
+        }
+      },
+      {
+        "id": "VariableID:455:22873",
+        "name": "Size/Place/width/350",
+        "values": {
+          "4:1": 350
+        }
+      },
+      {
+        "id": "VariableID:455:22874",
+        "name": "Size/Place/height/44",
+        "values": {
+          "4:1": 44
+        }
+      },
+      {
+        "id": "VariableID:455:22892",
+        "name": "Size/Place/width/28",
+        "values": {
+          "4:1": 28
+        }
+      },
+      {
+        "id": "VariableID:455:22893",
+        "name": "Size/Place/height/28",
+        "values": {
+          "4:1": 28
+        }
+      },
+      {
+        "id": "VariableID:455:22915",
+        "name": "Size/PlaceStamp/28",
+        "values": {
+          "4:1": 28
+        }
+      },
+      {
+        "id": "VariableID:455:22934",
+        "name": "Size/PlaceStamp/60",
+        "values": {
+          "4:1": 60
+        }
+      },
+      {
+        "id": "VariableID:455:22956",
+        "name": "Size/PlaceStamp/84",
+        "values": {
+          "4:1": 84
+        }
+      },
+      {
+        "id": "VariableID:455:22972",
+        "name": "Size/Place/width/32",
+        "values": {
+          "4:1": 32
+        }
+      },
+      {
+        "id": "VariableID:455:22973",
+        "name": "Size/Place/height/46",
+        "values": {
+          "4:1": 46
+        }
+      },
+      {
+        "id": "VariableID:455:22980",
+        "name": "Stroke/MapPositionDot",
+        "values": {
+          "4:1": 2
+        }
+      },
+      {
+        "id": "VariableID:455:22982",
+        "name": "Size/Place/width/52",
+        "values": {
+          "4:1": 52
+        }
+      },
+      {
+        "id": "VariableID:455:22983",
+        "name": "Size/Place/height/66",
+        "values": {
+          "4:1": 66
+        }
+      },
+      {
+        "id": "VariableID:455:22992",
+        "name": "Size/Place/width/390",
+        "values": {
+          "4:1": 390
+        }
+      },
+      {
+        "id": "VariableID:455:22993",
+        "name": "Size/Place/height/631",
+        "values": {
+          "4:1": 631
+        }
+      },
+      {
+        "id": "VariableID:455:23840",
+        "name": "Size/Place/width/362",
+        "values": {
+          "4:1": 362
+        }
+      },
+      {
+        "id": "VariableID:455:23841",
+        "name": "Size/Place/height/80",
+        "values": {
+          "4:1": 80
+        }
+      },
+      {
+        "id": "VariableID:455:23848",
+        "name": "Size/Place/width/188",
+        "values": {
+          "4:1": 188
+        }
+      },
+      {
+        "id": "VariableID:455:23849",
+        "name": "Size/Place/height/48",
+        "values": {
+          "4:1": 48
+        }
+      },
+      {
+        "id": "VariableID:455:23860",
+        "name": "Size/Place/width/48",
+        "values": {
+          "4:1": 48
+        }
+      },
+      {
+        "id": "VariableID:455:23914",
+        "name": "Size/Place/height/124",
+        "values": {
+          "4:1": 124
+        }
+      },
+      {
+        "id": "VariableID:455:23921",
+        "name": "Size/Place/width/254",
+        "values": {
+          "4:1": 254
+        }
+      },
+      {
+        "id": "VariableID:455:23922",
+        "name": "Size/Place/height/100",
+        "values": {
+          "4:1": 100
+        }
+      },
+      {
+        "id": "VariableID:455:23942",
+        "name": "Size/Place/height/104",
+        "values": {
+          "4:1": 104
+        }
+      },
+      {
+        "id": "VariableID:455:23988",
+        "name": "Size/Place/height/96",
+        "values": {
+          "4:1": 96
+        }
+      },
+      {
+        "id": "VariableID:455:23990",
+        "name": "Size/Place/height/95",
+        "values": {
+          "4:1": 95
+        }
+      },
+      {
+        "id": "VariableID:455:23997",
+        "name": "Size/Place/width/242",
+        "values": {
+          "4:1": 242
+        }
+      },
+      {
+        "id": "VariableID:455:23998",
+        "name": "Size/Place/height/52",
+        "values": {
+          "4:1": 52
+        }
+      },
+      {
+        "id": "VariableID:455:24073",
+        "name": "Size/Place/width/50",
+        "values": {
+          "4:1": 50
+        }
+      },
+      {
+        "id": "VariableID:455:24074",
+        "name": "Size/Place/height/64",
+        "values": {
+          "4:1": 64
+        }
+      },
+      {
+        "id": "VariableID:455:24077",
+        "name": "Size/PlaceDifficultyCircle",
+        "values": {
+          "4:1": 40
+        }
+      },
+      {
+        "id": "VariableID:455:24133",
+        "name": "Size/Place/height/184",
+        "values": {
+          "4:1": 184
+        }
+      },
+      {
+        "id": "VariableID:455:24181",
+        "name": "Size/Place/height/20",
+        "values": {
+          "4:1": 20
+        }
+      },
+      {
+        "id": "VariableID:455:24191",
+        "name": "Size/Place/width/88",
+        "values": {
+          "4:1": 88
+        }
+      },
+      {
+        "id": "VariableID:455:24195",
+        "name": "Size/Place/height/56",
+        "values": {
+          "4:1": 56
+        }
+      },
+      {
+        "id": "VariableID:455:24197",
+        "name": "Size/Place/height/55",
+        "values": {
+          "4:1": 55
+        }
+      },
+      {
+        "id": "VariableID:455:24240",
+        "name": "Size/Place/height/120",
+        "values": {
+          "4:1": 120
+        }
+      },
+      {
+        "id": "VariableID:455:24242",
+        "name": "Size/Place/height/84",
+        "values": {
+          "4:1": 84
+        }
+      },
+      {
+        "id": "VariableID:455:24249",
+        "name": "Size/Place/width/250",
+        "values": {
+          "4:1": 250
+        }
+      },
+      {
+        "id": "VariableID:455:24250",
+        "name": "Size/Place/height/76",
+        "values": {
+          "4:1": 76
+        }
+      },
+      {
+        "id": "VariableID:455:24268",
+        "name": "Size/Place/height/894",
+        "values": {
+          "4:1": 894
+        }
+      },
+      {
+        "id": "VariableID:455:24295",
+        "name": "Size/Place/height/272",
+        "values": {
+          "4:1": 272
+        }
+      },
+      {
+        "id": "VariableID:455:24358",
+        "name": "Size/Place/height/404",
+        "values": {
+          "4:1": 404
+        }
+      },
+      {
+        "id": "VariableID:455:24406",
+        "name": "Size/Place/height/500",
+        "values": {
+          "4:1": 500
+        }
+      },
+      {
+        "id": "VariableID:455:24441",
+        "name": "Size/Place/height/150",
+        "values": {
+          "4:1": 150
+        }
+      },
+      {
+        "id": "VariableID:455:24448",
+        "name": "Size/Place/height/844",
+        "values": {
+          "4:1": 844
+        }
+      },
+      {
+        "id": "VariableID:455:26780",
+        "name": "Size/Place/height/1014",
+        "values": {
+          "4:1": 1014
+        }
+      },
+      {
+        "id": "VariableID:459:27304",
+        "name": "Size/PlaceRefine/width/36",
+        "values": {
+          "4:1": 36
+        }
+      },
+      {
+        "id": "VariableID:459:27305",
+        "name": "Size/PlaceRefine/height/28",
+        "values": {
+          "4:1": 28
+        }
+      },
+      {
+        "id": "VariableID:459:27350",
+        "name": "Size/PlaceRecommendationCardHeight",
+        "values": {
+          "4:1": 124
+        }
+      },
+      {
+        "id": "VariableID:459:27386",
+        "name": "Size/PlaceRefine/height/240",
+        "values": {
+          "4:1": 240
+        }
+      },
+      {
+        "id": "VariableID:459:27387",
+        "name": "Size/PlaceRefine/height/372",
+        "values": {
+          "4:1": 372
+        }
+      },
+      {
+        "id": "VariableID:459:27388",
+        "name": "Size/PlaceDetailBody/Default",
+        "values": {
+          "4:1": 830
+        }
+      },
+      {
+        "id": "VariableID:459:27389",
+        "name": "Size/PlaceRefine/height/76",
+        "values": {
+          "4:1": 76
+        }
+      },
+      {
+        "id": "VariableID:459:27390",
+        "name": "Size/PlaceDetailBody/Missing",
+        "values": {
+          "4:1": 370
+        }
+      },
+      {
+        "id": "VariableID:459:27391",
+        "name": "Size/PlaceDetailPreviewHeight",
+        "values": {
+          "4:1": 950
+        }
+      },
+      {
+        "id": "VariableID:459:27393",
+        "name": "Size/PlaceRefine/width/72",
+        "values": {
+          "4:1": 72
+        }
+      },
+      {
+        "id": "VariableID:459:27394",
+        "name": "Size/PlaceRefine/height/72",
+        "values": {
+          "4:1": 72
+        }
+      },
+      {
+        "id": "VariableID:459:27399",
+        "name": "Size/PlaceSearchEmptyHeight",
+        "values": {
+          "4:1": 172
+        }
+      }
+    ],
+    "references": [
+      "28-gym-map.png",
+      "27-gym-recommendations-v2.png",
+      "29-gym-detail.png"
+    ]
+  },
+  "additionalVerification": {
+    "variants": 6,
+    "width": 390,
+    "screenshots": [
+      "search-only.png",
+      "participant-overflow.png"
+    ]
+  },
+  "visibleRecommendationExample": {
+    "nodeId": "455:26556",
+    "participants": 4,
+    "display": "민 · 지 · +2",
+    "cardCount": 4
+  }
+}
