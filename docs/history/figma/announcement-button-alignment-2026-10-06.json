@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-06",
+  "scope": "공지 하단 닫기 버튼 영역 가운데 정렬 교정",
+  "screenId": "577:34181",
+  "componentId": "575:33857",
+  "footerId": "575:33864",
+  "buttonIds": [
+    "575:33865",
+    "575:33868"
+  ],
+  "validation": {
+    "popupSize": [
+      350,
+      406
+    ],
+    "footerSize": [
+      350,
+      56
+    ],
+    "buttonWidths": [
+      175,
+      175
+    ],
+    "buttonCenters": [
+      87.5,
+      262.5
+    ],
+    "alignment": "각 절반 영역 가로·세로 CENTER",
+    "sharedComponentLinkPreserved": true,
+    "visualScreenshotChecked": true
+  },
+  "screenshot": "../../figma/assets/announcements-licenses-2026-10-06/00.01.01-announcement.png"
+}

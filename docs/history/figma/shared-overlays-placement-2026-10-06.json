@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-06",
+  "status": "확정 시안을 담당 섹션으로 이동·구조와 화면 사진 확인",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "pageId": "6:3",
+  "removedStandaloneSectionId": "570:33288",
+  "scheduleSectionId": "118:241",
+  "recordSectionId": "424:6061",
+  "nodes": [
+    {
+      "id": "570:33328",
+      "owner": "01.04",
+      "sectionId": "118:241",
+      "position": [
+        1414,
+        2912
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "purpose": "날짜 선택 적용 시안"
+    },
+    {
+      "id": "570:33473",
+      "owner": "01.04",
+      "sectionId": "118:241",
+      "position": [
+        1864,
+        2912
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "purpose": "시간 선택 적용 시안"
+    },
+    {
+      "id": "570:33299",
+      "owner": "01.05",
+      "sectionId": "118:241",
+      "position": [
+        60,
+        4800
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "purpose": "일정 상세 메뉴 적용 시안"
+    },
+    {
+      "id": "570:33516",
+      "owner": "02.05",
+      "sectionId": "424:6061",
+      "position": [
+        2314,
+        4246
+      ],
+      "size": [
+        280,
+        208
+      ],
+      "purpose": "연결된 개인 기록 메뉴 부품 견본"
+    },
+    {
+      "id": "570:33530",
+      "owner": "02.08",
+      "sectionId": "424:6061",
+      "position": [
+        2314,
+        8068
+      ],
+      "size": [
+        280,
+        160
+      ],
+      "purpose": "크루 방문 메뉴 부품 견본"
+    },
+    {
+      "id": "570:33539",
+      "owner": "공통",
+      "sectionId": "118:241",
+      "position": [
+        514,
+        4800
+      ],
+      "size": [
+        420,
+        352
+      ],
+      "purpose": "공통 선택창·메뉴 명세"
+    }
+  ],
+  "validation": {
+    "movedNodesIncludingLabels": 11,
+    "instances": 308,
+    "missingMainComponents": 0,
+    "overlappingMovedSiblings": 0,
+    "outsideParentSection": 0,
+    "standaloneSectionRemoved": true,
+    "representativeWidths": [
+      390,
+      390,
+      390
+    ],
+    "scheduleSectionSize": [
+      2344,
+      5724
+    ],
+    "screenshotsChecked": [
+      "일정 섹션 전체 배치",
+      "날짜 선택",
+      "시간 선택",
+      "일정 상세 메뉴",
+      "개인 기록 메뉴 부품",
+      "크루 방문 메뉴 부품"
+    ],
+    "officialScreenCountsUnchanged": true
+  },
+  "scope": "기존 노드의 부모·캔버스 위치·작업 제목만 변경. 내부 UI·제품 동작·화면/상태 번호·공통 원본은 유지. 앱 구현 검증은 하지 않음"
+}

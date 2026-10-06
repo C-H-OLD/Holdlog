@@ -1,6 +1,6 @@
 {
   "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
-  "phase": "공지 팝업 개선·관리자 삭제 추가 / 사용자 검토 대기",
+  "phase": "확정 상세 메뉴·날짜·시간 선택 담당 섹션 배치 완료 / 실제 앱 구현 전",
   "pages": [
     {
       "id": "0:1",
@@ -492,6 +492,16 @@
       {
         "id": "VariableID:4:93",
         "name": "Stroke/Focus",
+        "collectionId": "VariableCollectionId:4:3"
+      },
+      {
+        "id": "VariableID:578:35014",
+        "name": "Value/Color/Action/Soft",
+        "collectionId": "VariableCollectionId:4:2"
+      },
+      {
+        "id": "VariableID:578:35015",
+        "name": "Color/Action/Soft",
         "collectionId": "VariableCollectionId:4:3"
       }
     ],
@@ -1026,7 +1036,7 @@
         80
       ],
       "pageId": "6:3",
-      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "status": "사용자 승인·제작·사진·구조 확인 / 실제 구현 전",
       "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34181"
     },
     {
@@ -2573,7 +2583,7 @@
         1584
       ],
       "pageId": "6:3",
-      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "status": "사용자 승인·제작·사진·구조 확인 / 실제 구현 전",
       "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34245"
     },
     {
@@ -2590,7 +2600,7 @@
         1584
       ],
       "pageId": "6:3",
-      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "status": "사용자 승인·제작·사진·구조 확인 / 실제 구현 전",
       "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34883"
     }
   ],
@@ -2604,9 +2614,8 @@
     "specifications": 44,
     "brokenChangedInstances": 0,
     "pending": [
-      "공지 팝업 개선·관리자 삭제 사용자 검토",
       "운동 시작 A·B 선택은 추후 결정",
-      "달력·목록 외 기록 화면의 표시줄 적용·배치 확인",
+      "확정 표시줄의 실제 기록 탭 구현 적용·동작 검증",
       "실제 앱 구현 후 동작 검증"
     ],
     "report": "../history/figma/announcements-refinement-2026-10-06.json"
@@ -2617,5 +2626,104 @@
   ],
   "updatedAt": "2026-10-06",
   "history": "../history/figma/",
-  "worklist": "../screen-worklist.md"
+  "worklist": "../screen-worklist.md",
+  "sharedOverlayPlacement": {
+    "report": "../history/figma/shared-overlays-placement-2026-10-06.json",
+    "nodes": [
+      {
+        "id": "570:33328",
+        "owner": "01.04",
+        "sectionId": "118:241",
+        "position": [
+          1414,
+          2912
+        ],
+        "size": [
+          390,
+          844
+        ],
+        "purpose": "날짜 선택 적용 시안"
+      },
+      {
+        "id": "570:33473",
+        "owner": "01.04",
+        "sectionId": "118:241",
+        "position": [
+          1864,
+          2912
+        ],
+        "size": [
+          390,
+          844
+        ],
+        "purpose": "시간 선택 적용 시안"
+      },
+      {
+        "id": "570:33299",
+        "owner": "01.05",
+        "sectionId": "118:241",
+        "position": [
+          60,
+          4800
+        ],
+        "size": [
+          390,
+          844
+        ],
+        "purpose": "일정 상세 메뉴 적용 시안"
+      },
+      {
+        "id": "570:33516",
+        "owner": "02.05",
+        "sectionId": "424:6061",
+        "position": [
+          2314,
+          4246
+        ],
+        "size": [
+          280,
+          208
+        ],
+        "purpose": "연결된 개인 기록 메뉴 부품 견본"
+      },
+      {
+        "id": "570:33530",
+        "owner": "02.08",
+        "sectionId": "424:6061",
+        "position": [
+          2314,
+          8068
+        ],
+        "size": [
+          280,
+          160
+        ],
+        "purpose": "크루 방문 메뉴 부품 견본"
+      },
+      {
+        "id": "570:33539",
+        "owner": "공통",
+        "sectionId": "118:241",
+        "position": [
+          514,
+          4800
+        ],
+        "size": [
+          420,
+          352
+        ],
+        "purpose": "공통 선택창·메뉴 명세"
+      }
+    ],
+    "standaloneSectionRemoved": true
+  },
+  "choiceButtonColors": {
+    "report": "docs/history/figma/choice-button-colors-2026-10-06.json",
+    "softButtonVariant": "578:35016",
+    "screens": [
+      "434:17009",
+      "450:22709"
+    ],
+    "verified": true
+  }
 }

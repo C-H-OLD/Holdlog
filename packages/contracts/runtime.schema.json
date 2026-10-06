@@ -1,0 +1,1067 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Holdlog 비HTTP 계약 원본",
+  "description": "기기 로컬/worker/저장소 adapter. 제품 상세정책은 docs 원본. workout start UI는 미정. streamHandle은 프로세스 내부 스트림의 설계 표현이며 네트워크 URL/byte 내용이 아님.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/WorkoutDraft"
+    },
+    {
+      "$ref": "#/$defs/WorkoutLifecycle"
+    },
+    {
+      "$ref": "#/$defs/WorkoutDisplay"
+    },
+    {
+      "$ref": "#/$defs/AnnouncementSuppression"
+    },
+    {
+      "$ref": "#/$defs/PendingInvite"
+    },
+    {
+      "$ref": "#/$defs/Route"
+    },
+    {
+      "$ref": "#/$defs/PushPayload"
+    },
+    {
+      "$ref": "#/$defs/OpenSourceManifest"
+    },
+    {
+      "$ref": "#/$defs/MediaJob"
+    },
+    {
+      "$ref": "#/$defs/NotificationJob"
+    },
+    {
+      "$ref": "#/$defs/DomainEvent"
+    },
+    {
+      "$ref": "#/$defs/StorageStart"
+    },
+    {
+      "$ref": "#/$defs/StorageAppend"
+    },
+    {
+      "$ref": "#/$defs/StorageComplete"
+    },
+    {
+      "$ref": "#/$defs/StorageCancel"
+    },
+    {
+      "$ref": "#/$defs/StorageRead"
+    },
+    {
+      "$ref": "#/$defs/StorageStat"
+    },
+    {
+      "$ref": "#/$defs/StorageDelete"
+    },
+    {
+      "$ref": "#/$defs/StorageResult"
+    }
+  ],
+  "$defs": {
+    "ClimbCount": {
+      "$ref": "openapi.json#/components/schemas/ClimbCount"
+    },
+    "WorkoutDraft": {
+      "type": "object",
+      "properties": {
+        "clientWorkoutId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "ownerAccountId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "ownerInstallationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "gymId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "gymName": {
+          "type": "string"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "timeZone": {
+          "type": "string",
+          "format": "iana-time-zone"
+        },
+        "climbs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClimbCount"
+          }
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "active",
+            "finishing",
+            "saved",
+            "cancelled"
+          ]
+        },
+        "savedPersonalRecordId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientWorkoutId",
+        "ownerAccountId",
+        "ownerInstallationId",
+        "gymId",
+        "gymName",
+        "startedAt",
+        "timeZone",
+        "climbs",
+        "state",
+        "savedPersonalRecordId"
+      ],
+      "additionalProperties": false
+    },
+    "WorkoutLifecycle": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "view_changed",
+            "backgrounded",
+            "os_process_reclaimed",
+            "user_force_quit",
+            "finish_requested",
+            "finish_succeeded",
+            "finish_failed",
+            "account_changed"
+          ]
+        },
+        "clientWorkoutId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "personalRecordId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "clientWorkoutId",
+        "occurredAt",
+        "personalRecordId"
+      ],
+      "additionalProperties": false
+    },
+    "WorkoutDisplay": {
+      "type": "object",
+      "properties": {
+        "appName": {
+          "const": "Holdlog"
+        },
+        "gymName": {
+          "type": "string"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "elapsedSeconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "climbTotal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tabContext": {
+          "type": "string",
+          "enum": [
+            "records",
+            "schedules",
+            "gyms",
+            "statistics",
+            "me"
+          ]
+        },
+        "barVisible": {
+          "type": "boolean"
+        },
+        "overlapAllowed": {
+          "const": true
+        }
+      },
+      "required": [
+        "appName",
+        "gymName",
+        "startedAt",
+        "elapsedSeconds",
+        "climbTotal",
+        "tabContext",
+        "barVisible",
+        "overlapAllowed"
+      ],
+      "additionalProperties": false
+    },
+    "AnnouncementSuppression": {
+      "type": "object",
+      "properties": {
+        "localDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "timeZoneAtSelection": {
+          "type": "string",
+          "format": "iana-time-zone"
+        }
+      },
+      "required": [
+        "localDate",
+        "timeZoneAtSelection"
+      ],
+      "additionalProperties": false
+    },
+    "PendingInvite": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "receivedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "code",
+        "receivedAt"
+      ],
+      "additionalProperties": false
+    },
+    "Route": {
+      "type": "object",
+      "properties": {
+        "screenId": {
+          "type": "string",
+          "enum": [
+            "00.01",
+            "01.01",
+            "01.02",
+            "01.03",
+            "01.04",
+            "01.05",
+            "02.01",
+            "02.02",
+            "02.03",
+            "02.04",
+            "02.05",
+            "02.06",
+            "02.07",
+            "02.08",
+            "02.09",
+            "02.10",
+            "02.11",
+            "02.12",
+            "02.13",
+            "03.01",
+            "03.02",
+            "03.03",
+            "04.01",
+            "05.01",
+            "05.02",
+            "05.03",
+            "05.04",
+            "05.05",
+            "05.06",
+            "06.01",
+            "06.02",
+            "06.03",
+            "06.04",
+            "06.05",
+            "06.06",
+            "06.07",
+            "06.08",
+            "06.09",
+            "06.10",
+            "06.11",
+            "07.01",
+            "A02",
+            "A03",
+            "A04"
+          ]
+        },
+        "tabContext": {
+          "type": "string",
+          "enum": [
+            "records",
+            "schedules",
+            "gyms",
+            "statistics",
+            "me",
+            "admin",
+            "login"
+          ]
+        },
+        "crewId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scheduleId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "visitId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "personalRecordId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "memberAccountId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gymId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inviteId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "selectedDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "fileId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "screenId",
+        "tabContext",
+        "crewId",
+        "scheduleId",
+        "visitId",
+        "personalRecordId",
+        "memberAccountId",
+        "gymId",
+        "inviteId",
+        "selectedDate",
+        "fileId"
+      ],
+      "additionalProperties": false
+    },
+    "PushPayload": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": "1"
+        },
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "new_schedule",
+            "schedule_changed",
+            "schedule_cancelled",
+            "record_reminder"
+          ]
+        },
+        "crewId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "scheduleId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "destination": {
+          "type": "string",
+          "enum": [
+            "schedule_detail",
+            "crew_visit_create"
+          ]
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "kind",
+        "crewId",
+        "scheduleId",
+        "destination"
+      ],
+      "additionalProperties": false
+    },
+    "NoticeEntry": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "licenseText": {
+          "type": "string"
+        },
+        "notices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "homepage": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "license",
+        "licenseText",
+        "notices",
+        "homepage"
+      ],
+      "additionalProperties": false
+    },
+    "OpenSourceManifest": {
+      "type": "object",
+      "properties": {
+        "buildId": {
+          "type": "string"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NoticeEntry"
+          }
+        }
+      },
+      "required": [
+        "buildId",
+        "generatedAt",
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "MediaJob": {
+      "type": "object",
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobKey": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "media_transform",
+            "media_delete",
+            "storage_move"
+          ]
+        },
+        "fileId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "generation": {
+          "type": "integer"
+        },
+        "moveId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "deletionTaskId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "jobId",
+        "jobKey",
+        "kind",
+        "fileId",
+        "generation",
+        "moveId",
+        "deletionTaskId"
+      ],
+      "additionalProperties": false
+    },
+    "NotificationJob": {
+      "type": "object",
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobKey": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "notification_send",
+            "schedule_reminder"
+          ]
+        },
+        "eventId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "recipientId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scheduleId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "expectedScheduleVersion": {
+          "type": "integer"
+        },
+        "basisLocalDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "jobId",
+        "jobKey",
+        "kind",
+        "eventId",
+        "recipientId",
+        "scheduleId",
+        "expectedScheduleVersion",
+        "basisLocalDate"
+      ],
+      "additionalProperties": false
+    },
+    "DomainEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "schedule_created",
+            "schedule_changed",
+            "schedule_cancelled",
+            "visit_created",
+            "visit_changed",
+            "visit_deleted",
+            "record_linked",
+            "record_unlinked",
+            "file_access_revoked",
+            "catalog_changed",
+            "announcement_changed",
+            "media_transform_requested",
+            "storage_move_requested",
+            "record_relinked"
+          ]
+        },
+        "aggregateId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "aggregateVersion": {
+          "type": "integer"
+        },
+        "crewId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "aggregateId",
+        "aggregateVersion",
+        "crewId",
+        "occurredAt"
+      ],
+      "additionalProperties": false
+    },
+    "StorageObjectRef": {
+      "type": "object",
+      "properties": {
+        "storageBackendId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "storageKey": {
+          "type": "string"
+        },
+        "generation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "storageBackendId",
+        "storageKey",
+        "generation"
+      ],
+      "additionalProperties": false
+    },
+    "StorageStart": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "start"
+        },
+        "fileId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "generation": {
+          "type": "integer"
+        },
+        "expectedBytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "fileId",
+        "generation",
+        "expectedBytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "StorageAppend": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "append"
+        },
+        "uploadId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "length": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "chunkSha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "streamHandle": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "uploadId",
+        "offset",
+        "length",
+        "chunkSha256",
+        "streamHandle"
+      ],
+      "additionalProperties": false
+    },
+    "StorageComplete": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "complete"
+        },
+        "uploadId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "expectedBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "uploadId",
+        "expectedBytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "StorageCancel": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "cancel"
+        },
+        "uploadId": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "operation",
+        "uploadId"
+      ],
+      "additionalProperties": false
+    },
+    "StorageRead": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "read"
+        },
+        "object": {
+          "$ref": "#/$defs/StorageObjectRef"
+        },
+        "rangeStart": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rangeEndInclusive": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "object",
+        "rangeStart",
+        "rangeEndInclusive"
+      ],
+      "additionalProperties": false
+    },
+    "StorageStat": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "stat"
+        },
+        "object": {
+          "$ref": "#/$defs/StorageObjectRef"
+        }
+      },
+      "required": [
+        "operation",
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "StorageDelete": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "delete"
+        },
+        "object": {
+          "$ref": "#/$defs/StorageObjectRef"
+        }
+      },
+      "required": [
+        "operation",
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "StorageResult": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "type": "string",
+          "enum": [
+            "start",
+            "append",
+            "complete",
+            "cancel",
+            "read",
+            "stat",
+            "delete"
+          ]
+        },
+        "uploadId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "object": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StorageObjectRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "acceptedOffset": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bytes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "streamHandle": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mimeType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "not_found",
+            "offset_conflict",
+            "checksum_mismatch",
+            "retryable_failure",
+            "permanent_failure"
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "uploadId",
+        "object",
+        "acceptedOffset",
+        "bytes",
+        "sha256",
+        "streamHandle",
+        "mimeType",
+        "outcome"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
