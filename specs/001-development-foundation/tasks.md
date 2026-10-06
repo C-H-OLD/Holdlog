@@ -164,7 +164,7 @@ flowchart TD
 
 첫 결과(MVP)는 공통 준비·계약 생성·US1의 로컬 실행이다. 이어서 US2 로컬 연결·US3 재현 검사와 T033 후속 전달까지 로컬에서 진행한다. 실물 서버·휴대폰 미정으로 코드 개발을 기다리지 않는다. 실기기 확인 T031은 준비 뒤 별도로 진행하고 최종 T032에서 로컬 완료/외부 미수행을 구분한다. 실제 기기에서 수행하지 않은 검사를 통과로 바꾸지 않는다.
 
-역할별 이슈/PR로 묶을 때의 후보다. **아직 GitHub에 등록하지 않았다.** 선행 범위가 준비된 가까운 묶음부터 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 중복/담당/상태를 확인한다.
+역할별 이슈/PR로 묶을 때의 후보다. 현재 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)과 [공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)만 등록했고 실제 상위·서브 관계를 확인했다. 준비 문서는 [draft PR #3](https://github.com/trycatch98/Holdlog/pull/3)에 연결했다. #2는 ready·담당 미배정이며 T001~T008 구현은 아직 없다. 나머지 후보는 미등록이다. 선행 범위가 준비된 가까운 묶음부터 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 중복/담당/상태를 확인한다.
 
 | 작업 식별자 후보 | 역할·영역 | 포함 작업 | 결과 |
 |---|---|---|---|
