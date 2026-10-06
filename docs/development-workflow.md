@@ -131,7 +131,7 @@ GitHub Spec Kit 1.1.0과 Codex 스킬을 설치했다. 기능 명세를 계속 �
 
 `$speckit-specify`는 스크립트 밖에서도 `.specify/feature.json`을 직접 기록하므로 위 설정만으로 새 스펙의 병렬 생성을 보호할 수 없다. 같은 작업 폴더의 새 스펙 생성과 공용 선택 파일 변경은 한 작업씩 진행한다. 각 작업이 사용할 스펙 폴더와 번호를 먼저 정한 뒤, 병렬 설계·구현은 각자의 경로와 저장 방지 설정으로 실행한다.
 
-전체 개발 단위·기능별 원본 연결·선행 관계는 [스펙 목록](../specs/README.md)에서 관리한다. 현재 선택은 [002 공통 계약 설계](../specs/002-shared-contracts/spec.md)다. 기능 범위 명세와 [002 API·데이터 계약 설계](../specs/002-shared-contracts/contracts/README.md)를 작성했다. 다음은 [001 개발 기반](../specs/001-development-foundation/spec.md) 설계·생성 소비자 확인·기능별 계획과 작업 분리다. 서비스 구현·API/기기 실행 검증은 아직 없다.
+전체 개발 단위·기능별 원본 연결·선행 관계는 [스펙 목록](../specs/README.md)에서 관리한다. 현재 선택은 [001 개발 기반](../specs/001-development-foundation/spec.md)이다. 기능 범위 명세·[002 계약 설계](../specs/002-shared-contracts/contracts/README.md)·[001 기반 설계](../specs/001-development-foundation/plan.md)를 작성했다. [001 작업 목록](../specs/001-development-foundation/tasks.md)을 작성했다. 001 일관성 분석과 문구 보완을 마쳤다. 다음은 작업 이슈 연결·로컬 기반 개발·생성 소비자 확인이다. 실제 서버·휴대폰 확인은 로컬 개발과 분리한다. 서비스 구현·API/기기 실행 검증은 아직 없다.
 
 ## 설치와 확인
 

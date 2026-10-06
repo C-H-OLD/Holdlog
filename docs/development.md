@@ -4,24 +4,24 @@
 
 | 구분 | 상태 | 확인할 곳 |
 |---|---|---|
-| 개발 방식·로컬 Git | Spec Kit 1.1.0·Codex·Living Spec 설정 완료. GitHub 원격 저장소 미연결 | [개발 흐름](development-workflow.md) |
+| 개발 방식·로컬 Git | Spec Kit 1.1.0·Codex·Living Spec 설정 완료. GitHub 원격 연결, 공개 저장소 상태 | [개발 흐름](development-workflow.md) |
 | 제품 범위·기능·권한 | 문서 작성 | [PRD](prd.md) · [기능 명세](functional-spec.md) |
 | 개발 단위·선행 관계·공통 계약 범위 | 21개 개발 단위·API/데이터 계약 설계 작성. 실제 소비자 연동 전 | [기능 스펙 목록](../specs/README.md) |
-| 기술 구성 | 선택 완료, 실제 구성·검증 전 | [기술·운영 명세](technical-spec.md) |
+| 기술 구성 | 선택·[001 기반 설계](../specs/001-development-foundation/plan.md) 작성, 실제 구성·검증 전 | [기술·운영 명세](technical-spec.md) |
 | 화면 | 시안 제작, 사용자 검토와 실제 구현은 별도 | [현재 시안](screens.md) |
 | 개발 환경·앱·서버·관리자 웹 | 아직 구성·구현하지 않음 | [준비 체크리스트](setup-checklist.md) |
 | 미결정 | 운동 시작 방식 A·B | [미결정 사항](open-questions.md) |
 
 ## 다음 작업
 
-1. [공통 계약 스펙](../specs/002-shared-contracts/spec.md)의 [API·데이터 설계](../specs/002-shared-contracts/contracts/README.md)를 읽고 프론트·백엔드 생성 소비자를 맞춘다.
-2. [개발 기반 스펙](../specs/001-development-foundation/spec.md)의 구조 설계를 계약과 맞추고 서버 사양·기기·계정·초기 데이터 준비를 확인한다.
+1. 일관성 분석한 [001 작업 목록](../specs/001-development-foundation/tasks.md)을 기준으로 상위·가까운 작업 이슈를 연결한다. 공통 준비 뒤 서버·웹·모바일의 로컬 작업을 역할별로 진행한다.
+2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비자를 검사한다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
 3. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈다.
 4. 이후 기반 구성과 기능 구현을 진행하고 실제 기기·서버 연동을 확인한다.
 
 진행 여부와 세부 준비 항목은 [준비 체크리스트](setup-checklist.md) 한곳에서 관리한다. 구현 순서는 기능의 선행 작업에 맞춰 조정하며 확정된 개발 순서로 취급하지 않는다.
 
-개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세와002 공통 API·데이터 설계를 작성했다. 기능별 구현 계획·기반 설치·서비스 구현은 아직 없다.
+개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세·002 공통 API·데이터 설계·001 기반 설계를 작성했다. [001의 33개 작업 목록](../specs/001-development-foundation/tasks.md)도 작성했다. 일관성 분석과 문구 보완을 마쳤다. 기반 설치·서비스 구현·실행 검증은 아직 없다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실기기 확인은 별도다.
 
 ## 구현할 때 찾는 기준
 
