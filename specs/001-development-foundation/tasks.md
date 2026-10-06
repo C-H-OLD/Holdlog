@@ -81,7 +81,7 @@
 
 - [ ] T030 [INTEGRATION] `docs/development.md`, `specs/001-development-foundation/quickstart.md`, `docs/setup-checklist.md`에 실제 설치/실행/검사 명령과 성공 조건·필수 설정 이름·문제 해결 절차를 반영한다. 선행 T026·T028·T029; FR-002·006·008·009·SC-004–006. 검사/전달: 실행 확인한 명령만 현재 안내에 추가하고 기기 대기 항목은 미수행으로 유지한다. 문서 링크/화면 번호·`git diff --check`를 확인한다.
 - [ ] T031 [INTEGRATION] `docs/history/development/001-foundation-verification.md`와 `docs/setup-checklist.md`에 결정된 iOS/Android 실기기의 전용 개발 빌드·로컬 개발 API 연결200/503/네트워크 불가·standalone validator 결과를 확인해 기록한다. 선행 T015·T019·T021·T023 및 해당 실기기/서명/접속 환경 준비; FR-002·004·005·008·SC-001·002·005. 검사/전달: 로컬 가상 기기 결과와 구분하고 기기의 `localhost`를 PC 주소로 쓰지 않는다. 현재 휴대폰 미정으로 이 확인만 대기한다. 이 작업은 T001–T030의 로컬 개발·검사 및 T033 전달을 막지 않는다. 물리 서버 현장 연결이 필요하면 준비된 환경에서 별도로 기록하며 운영 배포로 확장하지 않는다.
-- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T031; FR-001–009·SC-001–006. 검사/전달: 확인한 결과와 누락 증거·보완 작업을 상위 #1에 전달한다. 실기기 필수 검사 미수행은 누락으로 남긴다. 이 검증 작업 완료만으로001 전체 완료를 표시하지 않으며, 전체 완료는 상위 #1에서 T033 전달을 포함한 모든 필수 작업의 완료 증거를 모아 판단한다.
+- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T030; FR-001–009·SC-001–006. 검사/전달: 확인한 결과와 누락 증거·보완 작업을 상위 #1에 전달한다. T031이 완료된 경우 실기기 결과를 반영하고, 필수 검사 미수행은 누락으로 남긴다. 이 검증 작업 완료만으로001 전체 완료를 표시하지 않으며, 전체 완료는 상위 #1에서 T031 실기기 검사·T033 전달을 포함한 모든 필수 작업의 완료 증거를 모아 판단한다.
 - [ ] T033 [SHARED] `packages/contracts/README.md`와 `specs/002-shared-contracts/quickstart.md`에 기반 도구/소비자 검사 결과와 후속003/004/006의 전달 링크를 갱신한다. `specs/development-roles.md`에는 검사 결과 원본 링크만 연결한다. 선행 T024·T030; FR-001·005·008·009. 검사/전달: 제품 계약 필드를 복사하지 않고 검증된 버전·소비 범위·미검증 항목만 연결한다.001 기반 완료를002 전체 합의나 제품 기능 완료로 바꾸지 않는다.
 
 ## 선행 관계와 진행 순서
@@ -112,7 +112,8 @@ flowchart TD
   N --> O
   O --> P[설정 경계·재현·상태 T027–T029]
   P --> Q[실행 안내 T030]
-  M --> R[실기기 확인·최종 대조 T031–T032]
+  L --> U[실기기 확인 T031]
+  M --> R[요구사항·증거 대조 T032]
   Q --> R
   M --> S[로컬 결과 전달 T033]
   Q --> S
@@ -180,7 +181,7 @@ flowchart TD
 | [#10](https://github.com/trycatch98/Holdlog/issues/10) · `001/foundation-integration` | INTEGRATION | T017·T022·T023·T024 | 실제 로컬 실행·브라우저·가상 기기 연결과 공통 계약 소비 결과를 확인한다. | #8·#6·#5·#7 |
 | [#11](https://github.com/trycatch98/Holdlog/issues/11) · `001/foundation-reproducibility` | INTEGRATION | T027·T028·T029·T030 | 별도 작업 폴더에서 설치·검사를 재현하고 비밀 경계와 실제 실행 안내를 확인한다. | #9·#10 |
 | [#12](https://github.com/trycatch98/Holdlog/issues/12) · `001/device-verification` | INTEGRATION | T031 | 실제 iOS·Android 휴대폰에서 개발 앱과 API 연결·검사 함수를 확인한다. | #5·#10·#7·실제 휴대폰/서명/접속 환경 |
-| [#14](https://github.com/trycatch98/Holdlog/issues/14) · `001/foundation-final-audit` | INTEGRATION | T032 | 요구사항·실행 증거 대조 결과와 누락 항목을 상위 #1에 전달한다. | #12·#10·#11 |
+| [#14](https://github.com/trycatch98/Holdlog/issues/14) · `001/foundation-final-audit` | INTEGRATION | T032 | 요구사항·실행 증거 대조 결과와 누락 항목을 상위 #1에 전달한다. | #10·#11 |
 | [#13](https://github.com/trycatch98/Holdlog/issues/13) · `001/contracts-handoff` | SHARED | T033 | 확인된 계약 소비 범위와 남은 조건을 다음 기능 개발자에게 전달한다. | #10·#11 |
 
 같은 작업을 두 묶음에 중복 배정하지 않는다. 큰 묶음을 나누면 기존 식별자·포함 ID와 선행 연결부터 조정한다. 초기 목록의 총합은 공통 준비3 + 계약 기반5 + US1 9 + US2 7 + US3 5 + 마무리4 = **33개**다. 작업 형식 확인은 작성 품질 검사이며 실제 구현/서비스 실행 검사가 아니다.
