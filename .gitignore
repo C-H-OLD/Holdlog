@@ -9,3 +9,37 @@ node_modules/
 .expo/
 dist/
 coverage/
+
+# Local tooling, generated builds and device caches
+.npm/
+build/
+*.tsbuildinfo
+*.log
+.gradle/
+DerivedData/
+apps/mobile/ios/
+apps/mobile/android/
+
+# Credentials, signing and native service configuration
+secrets/
+certificates/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.mobileprovision
+*.cer
+*.crt
+GoogleService-Info.plist
+google-services.json
+local.properties
+
+# Local database dumps and private file storage
+*.dump
+*.sql.gz
+*.sqlite
+*.sqlite3
+infra/development/data/
+infra/development/storage/

@@ -1,6 +1,6 @@
 # Holdlog(가제) — 기술·운영 명세
 
-현재 채택한 기술과 운영 기준, 구현할 때 지켜야 할 조건을 정리한다. 제품 동작은 [기능 명세](./functional-spec.md)와 [기록 관계 설계](./record-relationships.md)를 따른다. 세부 구현 제안은 확정 요구사항과 구분한다. 남은 선택은 [미결정 사항](./open-questions.md), 실제 설정·검증 작업은 [초기 설정 준비](./setup-checklist.md)에서 관리한다. 설치·구현·배포는 아직 진행하지 않았다.
+현재 채택한 기술과 운영 기준, 구현할 때 지켜야 할 조건을 정리한다. 제품 동작은 [기능 명세](./functional-spec.md)와 [기록 관계 설계](./record-relationships.md)를 따른다. 세부 구현 제안은 확정 요구사항과 구분한다. 남은 선택은 [미결정 사항](./open-questions.md), 실제 설정·검증 작업은 [초기 설정 준비](./setup-checklist.md)에서 관리한다. 공통 도구·workspace 설치 검사는 [개발 안내](development.md)에 연결했다. 서비스 구현·배포는 아직 진행하지 않았다.
 
 ## 1. 현재 정한 방향
 

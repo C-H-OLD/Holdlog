@@ -1,10 +1,10 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: 작업 목록 작성, 현재 범위 32개 모두 미실행
+**작성일**: 2026-10-06 · **상태**: T001–T003 구현·로컬 검사 완료, 나머지 29개 미실행
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
-아래 파일·명령은 구현할 위치와 결과이며 실제 생성·설치·실행 완료를 뜻하지 않는다. 2026-10-06 일관성 분석과 준비 문구 보완을 수행했다. 구현·검사는 아직 없으며 GitHub 연결 상태는 아래 배정 묶음과 상위 이슈에서 확인한다. 후속 변경 시 영향받는 스펙·설계·작업의 일관성을 다시 확인한다.
+아래 파일·명령은 구현할 위치와 결과이며 실제 생성·설치·실행 완료를 뜻하지 않는다. 2026-10-06 일관성 분석과 준비 문구 보완을 수행했다. T001–T003의 구현·로컬 검사 증거는 [공통 준비 검증 기록](../../docs/history/development/001-shared-foundation-verification.md)에 남겼다. GitHub 연결 상태는 아래 배정 묶음과 상위 이슈에서 확인한다. 후속 변경 시 영향받는 스펙·설계·작업의 일관성을 다시 확인한다.
 
 ## 읽는 방법과 범위
 
@@ -21,9 +21,9 @@
 
 목표: 기존 자료를 보존하면서 재현 가능한 도구·작업 공간을 준비한다.
 
-- [ ] T001 [SHARED] `docs/setup-checklist.md`에 개발 도구·Docker daemon·Xcode/Android 도구의 실제 준비 상태와 Git 설정 오류를 확인해 기록하고, 서버 사양·휴대폰 미정을 유지한다. 선행 없음; FR-007–009·SC-005. 검사/전달: 도구 존재와 실행 성공을 구분하고 운영 자료·비밀값을 출력하지 않는다. 서버/휴대폰 결정은 이 작업의 완료 조건이 아니다.
-- [ ] T002 [SHARED] `.nvmrc`, `.npmrc`, `package.json`, `package-lock.json`과 `apps/mobile/package.json`, `apps/admin/package.json`, `apps/api/package.json`, `packages/contracts/package.json`에 workspace·패키지 이름·호환 도구/의존성 정확한 버전을 고정한다. 선행 T001; FR-001·002·005. 검사/전달: 계획의 Node/npm·SDK 계열에서 공식 메타데이터/엔진을 재확인하고 `npm ci`가 재현되는지 확인한다. 빈 작업 폴더를 만든다는 이유로 기존 계약·문서·시안을 덮어쓰지 않는다.
-- [ ] T003 [SHARED] `tsconfig.base.json`, `eslint.config.mjs`, `.gitignore`에 공통 타입/lint 기준과 로컬 비밀·서명·인증서·DB/파일 자료 제외 규칙을 준비한다. 선행 T002; FR-006·007·009. 검사/전달: 공개 예시는 추적할 수 있고 실제 비밀/빌드/저장 자료는 추적되지 않는지 합성 파일로 확인한다. 앱별 React 조합을 공통 설정에서 강제하지 않는다.
+- [x] T001 [SHARED] `docs/setup-checklist.md`에 개발 도구·Docker daemon·Xcode/Android 도구의 실제 준비 상태와 Git 설정 오류를 확인해 기록하고, 서버 사양·휴대폰 미정을 유지한다. 선행 없음; FR-007–009·SC-005. 검사/전달: 도구 존재와 실행 성공을 구분하고 운영 자료·비밀값을 출력하지 않는다. 서버/휴대폰 결정은 이 작업의 완료 조건이 아니다.
+- [x] T002 [SHARED] `.nvmrc`, `.npmrc`, `package.json`, `package-lock.json`과 `apps/mobile/package.json`, `apps/admin/package.json`, `apps/api/package.json`, `packages/contracts/package.json`에 workspace·패키지 이름·호환 도구/의존성 정확한 버전을 고정한다. 선행 T001; FR-001·002·005. 검사/전달: 계획의 Node/npm·SDK 계열에서 공식 메타데이터/엔진을 재확인하고 `npm ci`가 재현되는지 확인한다. 빈 작업 폴더를 만든다는 이유로 기존 계약·문서·시안을 덮어쓰지 않는다.
+- [x] T003 [SHARED] `tsconfig.base.json`, `eslint.config.mjs`, `.gitignore`에 공통 타입/lint 기준과 로컬 비밀·서명·인증서·DB/파일 자료 제외 규칙을 준비한다. 선행 T002; FR-006·007·009. 검사/전달: 공개 예시는 추적할 수 있고 실제 비밀/빌드/저장 자료는 추적되지 않는지 합성 파일로 확인한다. 앱별 React 조합을 공통 설정에서 강제하지 않는다.
 
 ## Phase 2: 공통 계약 소비 기반
 
@@ -165,7 +165,7 @@ flowchart TD
 
 현재 범위의 32개 작업을 다음 11개 작업 이슈로 나눠 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈로 연결한다.
 
-준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 현재 범위의 32개 작업은 전부 미완료다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. T001–T003의 구현·검사를 완료했으며 나머지 29개는 미완료다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
 
 | 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈 |
 |---|---|---|---|---|

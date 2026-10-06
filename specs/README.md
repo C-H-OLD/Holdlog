@@ -4,7 +4,7 @@
 
 기존 개발 기반001과 새 범위002~021, 총21개 개발 단위로 전체 기능을 나눴다. 이 목록은 **개발 범위·담당 연결·선행 관계의 원본**이다. 각 `spec.md`는 Living Spec으로 유지한다. 상세 제품 규칙은 기존 명세에서 관리하며 기능 스펙에는 범위와 짧은 요구 결과·원본 링크만 둔다.
 
-현재는 전체 범위 명세·[공통 API·데이터 설계](002-shared-contracts/contracts/README.md)와 [001 기반 설계](001-development-foundation/plan.md)를 작성했다. 현재 Spec Kit 선택은001이며 [32개 역할별 작업](001-development-foundation/tasks.md)을 작성했다. 001 일관성 분석과 문구 보완을 마쳤다. 확정된 32개 작업의 세부 이슈를 모두 연결했다. 다음은 배정 후 로컬 기반 개발이다. 서비스 구현·생성 소비자 실행 검증은 아직 없다. 절차와 선택 방법은 [개발 흐름](../docs/development-workflow.md)을 따른다.
+현재는 전체 범위 명세·[공통 API·데이터 설계](002-shared-contracts/contracts/README.md)와 [001 기반 설계](001-development-foundation/plan.md)를 작성했다. 현재 Spec Kit 선택은001이며 [32개 역할별 작업](001-development-foundation/tasks.md)을 작성했다. 001 일관성 분석과 문구 보완을 마쳤다. 확정된 32개 작업의 세부 이슈를 모두 연결했다. T001–T003의 공통 준비·설치·설정 검사를 수행했다. [검증 기록](../docs/history/development/001-shared-foundation-verification.md)을 참고한다. 다음은 #2 구현 PR 병합 후 계약 생성 기반 #4다. 서비스 구현·생성 소비자 실행 검증은 아직 없다. 절차와 선택 방법은 [개발 흐름](../docs/development-workflow.md)을 따른다.
 
 ## 상세 규칙 원본
 
@@ -315,4 +315,4 @@ D/B 상세 내용은 복사하지 않고 주 적용 단위만 표시한다. 모�
 - 공지 개선 시안은 승인됐으며 표시줄 범위·겹침 허용도 확정됐다. [화면 작업 목록](../docs/screen-worklist.md)은 실제 구현 적용과 시안 승인을 구분한다.
 - 기능 이후 운영 준비는 [기술 명세6절](../docs/technical-spec.md#6-기능-개발-이후에-다룰-운영-준비)을 따른다. 이번 착수 조건으로 추가하지 않는다.
 
-002의 [API·데이터 계약](002-shared-contracts/contracts/README.md)과 [001 기반 설계](001-development-foundation/plan.md)를 작성했다. [001 작업 목록](001-development-foundation/tasks.md)을 작성했다. 일관성 분석과 문구 보완을 마쳤다. 확정된 32개 작업의 세부 이슈를 모두 연결했다. 다음은 배정 후 로컬 기반 개발·생성 소비자 준비다. 실제 서버·기기는 미정이며 001은 로컬 서버·웹·가상 기기 검사로 완료를 판단한다. 실제 휴대폰·물리 서버 확인은 후속 범위다. 이후 필요한 기능부터 계획·작업·검증 예제를 작성하며 제품 코드·DB 변경 파일은 아직 없다.
+002의 [API·데이터 계약](002-shared-contracts/contracts/README.md)과 [001 기반 설계](001-development-foundation/plan.md)를 작성했다. [001 작업 목록](001-development-foundation/tasks.md)을 작성했다. 일관성 분석과 문구 보완을 마쳤다. 확정된 32개 작업의 세부 이슈를 모두 연결했다. T001–T003 공통 준비·설치·설정 검사 이후 계약 생성·소비자 준비를 진행한다. 병합·완료 상태는 GitHub 이슈에서 확인한다. 실제 서버·기기는 미정이며 001은 로컬 서버·웹·가상 기기 검사로 완료를 판단한다. 실제 휴대폰·물리 서버 확인은 후속 범위다. 이후 필요한 기능부터 계획·작업·검증 예제를 작성하며 제품 코드·DB 변경 파일은 아직 없다.

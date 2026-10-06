@@ -9,19 +9,19 @@
 | 개발 단위·선행 관계·공통 계약 범위 | 21개 개발 단위·API/데이터 계약 설계 작성. 실제 소비자 연동 전 | [기능 스펙 목록](../specs/README.md) |
 | 기술 구성 | 선택·[001 기반 설계](../specs/001-development-foundation/plan.md) 작성, 실제 구성·검증 전 | [기술·운영 명세](technical-spec.md) |
 | 화면 | 시안 제작, 사용자 검토와 실제 구현은 별도 | [현재 시안](screens.md) |
-| 개발 환경·앱·서버·관리자 웹 | 아직 구성·구현하지 않음 | [준비 체크리스트](setup-checklist.md) |
+| 개발 환경·앱·서버·관리자 웹 | 공통 workspace·도구·설정·lockfile 준비 및 설치 검사 완료. 서비스 구현·실행 전 | [준비 체크리스트](setup-checklist.md) |
 | 미결정 | 운동 시작 방식 A·B | [미결정 사항](open-questions.md) |
 
 ## 다음 작업
 
-1. [001 도구·설정 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T003이 첫 착수 후보이며 역할은 SHARED, 담당자는 미배정이다. [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)의 검토·병합과 실제 구현 완료는 구분한다. 이후 [계약 생성·검사 #4](https://github.com/trycatch98/Holdlog/issues/4)를 진행하고 서버·웹·모바일의 로컬 작업으로 이어간다. 확정된 32개 작업은 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 모두 등록했다. 현재 진행 상태는 GitHub 이슈에서 확인한다.
+1. [001 도구·설정 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T003 구현·로컬 검사를 수행했다. [검증 기록](history/development/001-shared-foundation-verification.md)을 참고하고, 담당·PR·병합 상태는 이슈에서 확인한다. 준비 문서 PR #3은 병합됐다. #2의 구현 PR 병합 후 [계약 생성·검사 #4](https://github.com/trycatch98/Holdlog/issues/4)를 진행하고 서버·웹·모바일의 로컬 작업으로 이어간다. 확정된 32개 작업은 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 모두 등록했다. 현재 진행 상태는 GitHub 이슈에서 확인한다.
 2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비자를 검사한다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
 3. 이후 기반 구성을 진행하고 서버·웹·모바일의 로컬 작업을 시작한다. 001은 로컬 실행·연결 검사로 완료를 판단하고 실제 기기·물리 서버 확인은 필요한 후속 범위에서 계획한다.
 4. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈 뒤 기능을 구현한다.
 
 진행 여부와 세부 준비 항목은 [준비 체크리스트](setup-checklist.md) 한곳에서 관리한다. 구현 순서는 기능의 선행 작업에 맞춰 조정하며 확정된 개발 순서로 취급하지 않는다.
 
-개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세·002 공통 API·데이터 설계·001 기반 설계를 작성했다. [001의 32개 작업 목록](../specs/001-development-foundation/tasks.md)도 작성했다. 일관성 분석과 문구 보완을 마쳤다. 기반 설치·서비스 구현·실행 검증은 아직 없다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실제 휴대폰·물리 서버 확인은 001 완료 조건에서 제외한다.
+개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세·002 공통 API·데이터 설계·001 기반 설계를 작성했다. [001의 32개 작업 목록](../specs/001-development-foundation/tasks.md)도 작성했다. 일관성 분석과 문구 보완을 마쳤다. 공통 workspace 설치·설정 검사를 수행했으며 서비스 구현·실행 검증은 아직 없다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실제 휴대폰·물리 서버 확인은 001 완료 조건에서 제외한다.
 
 ## 구현할 때 찾는 기준
 
@@ -41,7 +41,19 @@
 
 ## 실행과 완료 확인
 
-현재는 실행할 앱 코드가 없다. 기본 구조가 만들어지면 이 문서에 실제 설치·실행·검증 명령과 필요한 설정을 추가한다. 예정 명령을 실행 가능한 것처럼 적지 않는다.
+현재 실행할 앱 코드는 없으며 workspace manifest와 공통 설정만 준비했다. Node24.21.0·npm11.19.0을 사용한다. `.nvmrc`와 `package.json`의 도구 버전에 맞춰 PATH를 준비한 뒤 루트에서 설치한다.
+
+```sh
+node --version # v24.21.0
+npm --version  # 11.19.0
+npm ci
+npx --no-install eslint eslint.config.mjs
+python3 scripts/check-contracts.py
+python3 scripts/check-docs.py
+git diff --check
+```
+
+위 설치·설정·기존 정적 검사만 수행했다. 현재 로컬의 기본 `python3` 실행 파일은 종료 코드137로 중단되어 `/usr/bin/python3`로 기존 검사를 통과했다. 합성 입력으로 타입/lint 설정을 확인한 결과와 프로젝트 전용 Node 설치 방법은 [검증 기록](history/development/001-shared-foundation-verification.md)을 따른다. 전체 workspace 검사 runner·계약 생성 명령은 #4·#9에서, 앱·웹·서버 실행 명령은 #5–#7에서 구현한다.
 
 기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 
