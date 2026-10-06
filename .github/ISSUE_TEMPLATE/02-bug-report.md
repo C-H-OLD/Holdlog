@@ -27,6 +27,5 @@ title: "[스펙번호][BUG] 문제 제목"
 
 ## 진행과 연결
 
-- 상태: backlog / ready / blocked / in-progress / in-review / done
 - 관련 PR:
 - 검사 결과·남은 작업:

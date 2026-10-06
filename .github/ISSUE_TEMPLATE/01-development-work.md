@@ -41,6 +41,5 @@ title: "[스펙번호][역할] 작업 제목"
 
 ## 진행과 연결
 
-- 상태: backlog / ready / blocked / in-progress / in-review / done
 - 관련 PR:
 - 남은 작업·차단 원인: <!-- 없으면 없음 -->

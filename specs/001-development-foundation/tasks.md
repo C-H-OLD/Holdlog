@@ -81,7 +81,7 @@
 
 - [ ] T030 [INTEGRATION] `docs/development.md`, `specs/001-development-foundation/quickstart.md`, `docs/setup-checklist.md`에 실제 설치/실행/검사 명령과 성공 조건·필수 설정 이름·문제 해결 절차를 반영한다. 선행 T026·T028·T029; FR-002·006·008·009·SC-004–006. 검사/전달: 실행 확인한 명령만 현재 안내에 추가하고 기기 대기 항목은 미수행으로 유지한다. 문서 링크/화면 번호·`git diff --check`를 확인한다.
 - [ ] T031 [INTEGRATION] `docs/history/development/001-foundation-verification.md`와 `docs/setup-checklist.md`에 결정된 iOS/Android 실기기의 전용 개발 빌드·로컬 개발 API 연결200/503/네트워크 불가·standalone validator 결과를 확인해 기록한다. 선행 T015·T019·T021·T023 및 해당 실기기/서명/접속 환경 준비; FR-002·004·005·008·SC-001·002·005. 검사/전달: 로컬 가상 기기 결과와 구분하고 기기의 `localhost`를 PC 주소로 쓰지 않는다. 현재 휴대폰 미정으로 이 확인만 대기한다. 이 작업은 T001–T030의 로컬 개발·검사 및 T033 전달을 막지 않는다. 물리 서버 현장 연결이 필요하면 준비된 환경에서 별도로 기록하며 운영 배포로 확장하지 않는다.
-- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T031; FR-001–009·SC-001–006. 검사/전달: 필수 결과가 모두 확인된 범위만 완료 표시한다. 실기기 필수 검사가 남으면001 전체 완료를 선언하지 않고 누락 작업/사유를 유지한다. 작업 체크·PR 병합·이슈 완료는 별도로 판단한다.
+- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T031; FR-001–009·SC-001–006. 검사/전달: 확인한 결과와 누락 증거·보완 작업을 상위 #1에 전달한다. 실기기 필수 검사 미수행은 누락으로 남긴다. 이 검증 작업 완료만으로001 전체 완료를 표시하지 않으며, 전체 완료는 상위 #1에서 T033 전달을 포함한 모든 필수 작업의 완료 증거를 모아 판단한다.
 - [ ] T033 [SHARED] `packages/contracts/README.md`, `specs/002-shared-contracts/quickstart.md`, `specs/development-roles.md`에 기반 도구/소비자 검사 결과와 후속003/004/006의 전달 링크를 갱신한다. 선행 T024·T030; FR-001·005·008·009. 검사/전달: 제품 계약 필드를 복사하지 않고 검증된 버전·소비 범위·미검증 항목만 연결한다.001 기반 완료를002 전체 합의나 제품 기능 완료로 바꾸지 않는다.
 
 ## 선행 관계와 진행 순서
@@ -134,7 +134,7 @@ flowchart TD
 
 | 항목 | 현재 상태 | 막는 작업·처리 |
 |---|---|---|
-| 실기기·빌드 도구·앱 식별자/서명 | 휴대폰 미정, 전체 도구 준비 미확인 | 실기기 확인 T031만 대기하며 최종 전체 완료 대조 T032에는 미수행으로 남김. T014/T015/T021/T023 로컬 개발과 T033 전달은 가능 |
+| 실기기·빌드 도구·앱 식별자/서명 | 휴대폰 미정, 전체 도구 준비 미확인 | 실기기 확인 T031만 대기하며 요구사항·증거 대조 T032에는 미수행으로 남김. T014/T015/T021/T023 로컬 개발과 T033 전달은 가능 |
 | 물리 서버 OS/CPU/RAM/디스크·접속 | 미정 | 자원 제한·해당 서버 배포/연결 확인은 대기. 로컬 Docker 기반 준비/검사는 가능, T001/T029에 미정 기록 |
 | 실제 관리자 계정·인증 저장/API |004 구현 전 | T016 절차 작성 가능. 실제 계정 준비/로그인·Secure cookie/CSRF 확인은004에서 수행 |
 | 초기 암장·세팅 자료 | 미확인 | 합성 자료로001 검사 가능. 실제 운영 자료는006 준비에서 확인 |
@@ -166,21 +166,21 @@ flowchart TD
 
 확정된 33개 작업을 다음 12개 작업 이슈로 모두 등록하고 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈 관계로 연결했다. #2의 기존 T001–T008 묶음은 도구·설정 준비(T001–T003)와 계약 생성·검사(T004–T008, #4)로 나눴다. 로컬 실행·연결 확인(#10)과 재현 검사·실행 안내(#11)도 각각 전달 가능한 결과로 나눴다.
 
-준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 현재 #2만 ready이고 나머지는 선행 작업 대기로 blocked다. 33개 작업은 전부 미완료다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 33개 작업은 전부 미완료다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
 
-| 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈·현재 상태 |
+| 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈 |
 |---|---|---|---|---|
-| [#2](https://github.com/trycatch98/Holdlog/issues/2) · `001/shared-foundation` | SHARED | T001·T002·T003 | 같은 도구·버전·설치 기준으로 앱·웹·서버 개발을 시작할 수 있다. | 없음 · ready |
-| [#4](https://github.com/trycatch98/Holdlog/issues/4) · `001/contract-generation` | SHARED | T004·T005·T006·T007·T008 | 같은 데이터 규칙에서 타입·값 검사 함수·예제를 생성하고 앱·웹·서버가 함께 쓴다. | #2 · blocked |
-| [#5](https://github.com/trycatch98/Holdlog/issues/5) · `001/backend-runtime` | BE | T009·T010·T011·T012·T018·T019 | 개발 API·저장소·작업 처리기를 실행하고 정상·DB 불가 상태를 확인할 수 있다. | #4 · blocked |
-| [#6](https://github.com/trycatch98/Holdlog/issues/6) · `001/admin-runtime` | FE | T013·T020 | 관리자 웹을 실행·빌드하고 개발 API 연결을 검사할 수 있다. | #4 · blocked |
-| [#7](https://github.com/trycatch98/Holdlog/issues/7) · `001/mobile-runtime` | FE | T014·T015·T021 | 전용 개발 앱을 가상 기기에서 실행하고 개발 API 연결을 검사할 수 있다. | #4 · blocked |
-| [#8](https://github.com/trycatch98/Holdlog/issues/8) · `001/admin-bootstrap-guide` | BE | T016 | 초기 관리자 비밀 입력·교체·재실행 절차를 004 인증 개발에 전달한다. | #4 · blocked |
-| [#9](https://github.com/trycatch98/Holdlog/issues/9) · `001/check-commands` | SHARED | T025·T026 | 루트에서 실행·타입·코드·빌드·기반 검사를 호출하고 실패를 정확히 알 수 있다. | #6·#5·#4·#7 · blocked |
-| [#10](https://github.com/trycatch98/Holdlog/issues/10) · `001/foundation-integration` | INTEGRATION | T017·T022·T023·T024 | 실제 로컬 실행·브라우저·가상 기기 연결과 공통 계약 소비 결과를 확인한다. | #8·#6·#5·#7 · blocked |
-| [#11](https://github.com/trycatch98/Holdlog/issues/11) · `001/foundation-reproducibility` | INTEGRATION | T027·T028·T029·T030 | 별도 작업 폴더에서 설치·검사를 재현하고 비밀 경계와 실제 실행 안내를 확인한다. | #9·#10 · blocked |
-| [#12](https://github.com/trycatch98/Holdlog/issues/12) · `001/device-verification` | INTEGRATION | T031 | 실제 iOS·Android 휴대폰에서 개발 앱과 API 연결·검사 함수를 확인한다. | #5·#10·#7·실제 휴대폰/서명/접속 환경 · blocked |
-| [#14](https://github.com/trycatch98/Holdlog/issues/14) · `001/foundation-final-audit` | INTEGRATION | T032 | 모든 요구사항과 필수 실행 증거를 대조해 001 전체 완료 여부를 판단한다. | #12·#10·#11 · blocked |
-| [#13](https://github.com/trycatch98/Holdlog/issues/13) · `001/contracts-handoff` | SHARED | T033 | 확인된 계약 소비 범위와 남은 조건을 다음 기능 개발자에게 전달한다. | #10·#11 · blocked |
+| [#2](https://github.com/trycatch98/Holdlog/issues/2) · `001/shared-foundation` | SHARED | T001·T002·T003 | 같은 도구·버전·설치 기준으로 앱·웹·서버 개발을 시작할 수 있다. | 없음 |
+| [#4](https://github.com/trycatch98/Holdlog/issues/4) · `001/contract-generation` | SHARED | T004·T005·T006·T007·T008 | 같은 데이터 규칙에서 타입·값 검사 함수·예제를 생성하고 앱·웹·서버가 함께 쓴다. | #2 |
+| [#5](https://github.com/trycatch98/Holdlog/issues/5) · `001/backend-runtime` | BE | T009·T010·T011·T012·T018·T019 | 개발 API·저장소·작업 처리기를 실행하고 정상·DB 불가 상태를 확인할 수 있다. | #4 |
+| [#6](https://github.com/trycatch98/Holdlog/issues/6) · `001/admin-runtime` | FE | T013·T020 | 관리자 웹을 실행·빌드하고 개발 API 연결을 검사할 수 있다. | #4 |
+| [#7](https://github.com/trycatch98/Holdlog/issues/7) · `001/mobile-runtime` | FE | T014·T015·T021 | 전용 개발 앱을 가상 기기에서 실행하고 개발 API 연결을 검사할 수 있다. | #4 |
+| [#8](https://github.com/trycatch98/Holdlog/issues/8) · `001/admin-bootstrap-guide` | BE | T016 | 초기 관리자 비밀 입력·교체·재실행 절차를 004 인증 개발에 전달한다. | #4 |
+| [#9](https://github.com/trycatch98/Holdlog/issues/9) · `001/check-commands` | SHARED | T025·T026 | 루트에서 실행·타입·코드·빌드·기반 검사를 호출하고 실패를 정확히 알 수 있다. | #6·#5·#4·#7 |
+| [#10](https://github.com/trycatch98/Holdlog/issues/10) · `001/foundation-integration` | INTEGRATION | T017·T022·T023·T024 | 실제 로컬 실행·브라우저·가상 기기 연결과 공통 계약 소비 결과를 확인한다. | #8·#6·#5·#7 |
+| [#11](https://github.com/trycatch98/Holdlog/issues/11) · `001/foundation-reproducibility` | INTEGRATION | T027·T028·T029·T030 | 별도 작업 폴더에서 설치·검사를 재현하고 비밀 경계와 실제 실행 안내를 확인한다. | #9·#10 |
+| [#12](https://github.com/trycatch98/Holdlog/issues/12) · `001/device-verification` | INTEGRATION | T031 | 실제 iOS·Android 휴대폰에서 개발 앱과 API 연결·검사 함수를 확인한다. | #5·#10·#7·실제 휴대폰/서명/접속 환경 |
+| [#14](https://github.com/trycatch98/Holdlog/issues/14) · `001/foundation-final-audit` | INTEGRATION | T032 | 요구사항·실행 증거 대조 결과와 누락 항목을 상위 #1에 전달한다. | #12·#10·#11 |
+| [#13](https://github.com/trycatch98/Holdlog/issues/13) · `001/contracts-handoff` | SHARED | T033 | 확인된 계약 소비 범위와 남은 조건을 다음 기능 개발자에게 전달한다. | #10·#11 |
 
 같은 작업을 두 묶음에 중복 배정하지 않는다. 큰 묶음을 나누면 기존 식별자·포함 ID와 선행 연결부터 조정한다. 초기 목록의 총합은 공통 준비3 + 계약 기반5 + US1 9 + US2 7 + US3 5 + 마무리4 = **33개**다. 작업 형식 확인은 작성 품질 검사이며 실제 구현/서비스 실행 검사가 아니다.
