@@ -18,6 +18,7 @@
 
 | 찾는 내용 | 문서 |
 |---|---|
+| 에이전트 개발 절차·Living Spec | [Spec Kit 개발 흐름](development-workflow.md) · [기능 스펙 목록](../specs/README.md) |
 | 개발 환경·설정·구현 준비 | [준비 체크리스트](setup-checklist.md) |
 | 아직 결정하지 않은 항목 | [미결정 사항](open-questions.md) |
 | 남은 화면 제작·적용 | [화면 작업 목록](screen-worklist.md) |

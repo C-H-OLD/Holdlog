@@ -9,6 +9,10 @@
 - 새로운 화면·상태·안내 문구를 임의로 추가하지 않는다. 현재 범위와 필요한 추가 적용은 [화면 번호표](screen-numbering.md)·[작업 목록](screen-worklist.md)을 따른다.
 - 작성·제작·구현·검증 여부를 구분한다. 실제 수행하지 않은 작업을 완료로 표시하지 않는다.
 
+## 에이전트 개발
+
+기능 개발·변경은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 사용자가 스킬을 직접 명시하지 않아도 관련 설치 스킬을 읽고 현재 단계부터 진행한다. Living Spec 원칙과 원본 위치는 [프로젝트 원칙](../.specify/memory/constitution.md)·[스펙 목록](../specs/README.md)을 따른다.
+
 ## 문서 관리
 
 | 문서·위치 | 관리할 내용 |

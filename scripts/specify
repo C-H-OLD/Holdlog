@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -eu
+holdlog_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+if [ ! -x "$holdlog_root/.tools/bin/specify" ]; then
+  echo "프로젝트용 Spec Kit이 없습니다. docs/development-workflow.md의 설치 방법을 확인하세요." >&2
+  exit 1
+fi
+cd "$holdlog_root"
+exec "$holdlog_root/.tools/bin/specify" "$@"

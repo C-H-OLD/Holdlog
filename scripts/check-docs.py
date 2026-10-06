@@ -29,7 +29,11 @@ def anchors(path):
     return values
 
 
-markdown = [ROOT / 'README.md', ROOT / 'AGENTS.md', *sorted((ROOT / 'docs').rglob('*.md'))]
+markdown = [ROOT / 'README.md', ROOT / 'AGENTS.md',
+            *sorted((ROOT / 'docs').rglob('*.md')),
+            *sorted((ROOT / 'specs').rglob('*.md')),
+            ROOT / '.specify/memory/constitution.md']
+markdown = [path for path in markdown if path.exists()]
 for path in markdown:
     for raw in re.findall(r'!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', path.read_text()):
         if re.match(r'^[a-z]+:', raw):
@@ -119,6 +123,16 @@ try:
             errors.append(f'독립 화면 없는 상태 번호: {number}')
 except (KeyError, ValueError) as error:
     errors.append(f'화면 자료 확인 실패: {error}')
+
+feature_state = ROOT / '.specify/feature.json'
+if feature_state.exists():
+    try:
+        feature = json.loads(feature_state.read_text())['feature_directory']
+        selected = (ROOT / feature).resolve()
+        if not selected.is_relative_to((ROOT / 'specs').resolve()) or not (selected / 'spec.md').is_file():
+            errors.append('Spec Kit 현재 기능 경로가 specs/ 안의 실제 스펙을 가리키지 않음')
+    except (KeyError, ValueError, TypeError) as error:
+        errors.append(f'Spec Kit 현재 기능 설정 오류: {error}')
 
 print(f'문서 링크 {link_count}개 · HTML 참조 {html_count}개 · JSON {json_count}개 / 파일 경로 {json_path_count}개 확인')
 if errors:
