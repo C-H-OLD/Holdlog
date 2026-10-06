@@ -1,5 +1,5 @@
 {
-  "name": "@holdlog/api",
+  "name": "@holdlog/server",
   "version": "0.0.0",
   "private": true,
   "engines": {
@@ -12,5 +12,9 @@
     "@nestjs/platform-express": "11.2.7",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   }
 }

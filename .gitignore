@@ -43,3 +43,8 @@ local.properties
 *.sqlite3
 infra/development/data/
 infra/development/storage/
+
+# Public configuration templates and isolated local backups
+!.env.*.example
+backups/
+infra/development/backups/

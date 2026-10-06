@@ -59,3 +59,11 @@ npm ls --depth=0 --workspaces --cache /tmp/holdlog-npm-cache
 `/usr/bin/python3 scripts/check-contracts.py`는 API79개 경로·109개 작업·107개 자료형과 runtime22개 정의, HTTP13/runtime5/거절3개 예제의 기존 정적 검사를 통과했다. `/usr/bin/python3 scripts/check-docs.py`는 문서 링크·JSON·모바일41개/88개 상태·웹3개/5개 상태 일치 검사를 통과했다. 기본 `/usr/local/bin/python3`은 종료137로 중단돼 시스템 Python을 사용했다. 원인은 이 작업에서 확인하지 않았으며 Python 설치/전역 설정은 변경하지 않았다.
 
 공통 계약 원본·시안 자료·제품 명세를 덮어쓰지 않았다. 서비스 실행·DB/worker·생성 계약 소비·전체 workspace runner·웹 빌드·Expo 전용 빌드·가상 기기 연결은 후속 #4–#11 범위이며 이번에 통과로 표시하지 않는다. 001 전체 완료 및 002 계약 합의 완료를 뜻하지 않는다.
+
+## 사용자 요청 보완: 서버 명칭·검사 하네스
+
+서버를 `apps/server`·`@holdlog/server`로 변경했다. 위 초기 검사 기록의 `apps/api`는 당시 경로다. 현재 계획·작업·명령은 새 이름을 따른다. 서버/웹/모바일/계약 각각 `tsconfig.json`과 `lint`·`typecheck`를 제공하며 환경 확인용 `checks/environment.ts`를 검사한다. 원래 합성 검사만 수행한 상태와 달리 루트 `npm run check`로 실제 명령을 순서대로 호출한다. 회귀 테스트 8개와 네 workspace의 lint·typecheck를 통과했다.
+
+React Hooks·브라우저/Node/React Native 전역·타입 기반 TypeScript lint를 적용했다. `npm ci`·`npm run check`로 재설치 및 전체 도구 검사 결과를 확인한다. 회귀 검사에서는 Node 전역·JSX 검사 포함·모바일 타이머·조건부 Hooks 거절·브라우저 Node 전역 거절·필수 명령 누락/종료17 전파를 확인한다. 웹 타입 검사에 잘못된 서버 전역을 넣으면 실패하고 합성 파일은 제거한다. 서비스 API/DB/worker·제품 화면·가상 기기/네이티브 빌드는 여전히 미수행이다.
+
+`.env.*.example`은 공개 예시로 추적 가능하게 하고 `backups/`와 개발 backups 폴더는 제외한다. SQL migration은 추적한다. Expo CNG 선택 근거와 네이티브 원본 관리 방식은 현재 기술 명세를 따른다. CodeRabbit 지적에 따라 스펙 가정과 목록 표의 낡은 구현 전 문구도 보완했다.

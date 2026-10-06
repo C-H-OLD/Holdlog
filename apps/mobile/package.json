@@ -14,5 +14,9 @@
   },
   "devDependencies": {
     "@types/react": "19.2.14"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   }
 }

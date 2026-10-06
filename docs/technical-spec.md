@@ -126,7 +126,8 @@ Holdlog는 React Native + Expo + 전용 개발 빌드를 사용한다. 이는 Ex
 
 ### 코드
 
-- 비공개 Git 저장소 하나에 `apps/mobile`, `apps/admin`, `apps/api`, `packages/contracts`, `docs`를 두는 구성으로 관리한다.
+- 모바일 네이티브 프로젝트는 Expo CNG 방식으로 시작한다. `app.config.ts`·config plugin·로컬 네이티브 모듈을 원본으로 관리하고 생성된 `ios/`·`android/`는 Git에서 제외한다. 직접 작성한 네이티브 코드는 생성 폴더 밖에 추적하며, 네이티브 프로젝트 자체를 유지해야 하면 생성/제외 정책과 관련 스펙을 먼저 변경한다. [Expo CNG](https://docs.expo.dev/workflow/continuous-native-generation/)
+- 비공개 Git 저장소 하나에 `apps/mobile`, `apps/admin`, `apps/server`, `packages/contracts`, `docs`를 두는 구성으로 관리한다.
 - 앱·관리자 웹·서버는 각각 배포한다. 공통 API 자료형만 공유하고 서버 권한 코드를 앱에 넣지 않는다.
 - 사진·영상, 운영 DB 덤프, 비밀 키를 Git에 넣지 않는다. 운영 비밀값은 물리 서버의 접근 제한된 설정 파일 또는 별도 비밀 관리 도구로 관리한다.
 - DB 변경 파일은 코드와 함께 관리하고, 배포 전에 시험 환경에서 적용한다.

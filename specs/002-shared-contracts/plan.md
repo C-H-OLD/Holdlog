@@ -52,7 +52,7 @@ packages/contracts/
 scripts/check-contracts.py
 ```
 
-`apps/mobile`, `apps/admin`, `apps/api`와 generated DTO·runtime validator·DB migration은001 및 해당 기능 구현에서 만든다. contracts 폴더에는 계약 필드 사본을 두지 않는다. 생성 DTO/검증기/mock은 원본 JSON으로 생성해 소비하며 수기로 별도 수정하지 않는다. 생성 도구·명령과 lockfile은001에서 고정하고 양쪽 소비자 타입검사를 실행한다.
+`apps/mobile`, `apps/admin`, `apps/server`와 generated DTO·runtime validator·DB migration은001 및 해당 기능 구현에서 만든다. contracts 폴더에는 계약 필드 사본을 두지 않는다. 생성 DTO/검증기/mock은 원본 JSON으로 생성해 소비하며 수기로 별도 수정하지 않는다. 생성 도구·명령과 lockfile은001에서 고정하고 양쪽 소비자 타입검사를 실행한다.
 
 ## 설계 전달·후속 개발
 

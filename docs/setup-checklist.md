@@ -28,9 +28,9 @@
 - [x] 로컬 Git 기준 자료 커밋과 Spec Kit·Codex·Living Spec 개발 방식 설정
 - [x] GitHub 원격 저장소 연결: [trycatch98/Holdlog](https://github.com/trycatch98/Holdlog). 현재 공개 저장소이며, 로컬 이력의 원격 반영은 별도
 - [x] [개발 기반 설계](../specs/001-development-foundation/plan.md): workspace·도구 계열·계약 생성·역할별 전달·검증 절차 작성
-- [x] [001 역할별 작업 목록](../specs/001-development-foundation/tasks.md) 32개 작성. 순서·변경 범위·검사·전달·외부 확인 분리
+- [x] [001 역할별 작업 목록](../specs/001-development-foundation/tasks.md) 33개 작성. 순서·변경 범위·검사·전달·외부 확인 분리
 - [x] 001 스펙·설계·작업 일관성 분석: 15개 FR/SC 연결 확인, 로컬 빌드/실기기 경계·이슈 묶음·상태 문구 보완
-- [x] 001 확정된 32개 작업을 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. 현재 진행 상태는 GitHub 이슈에서 확인. T001–T003 구현·검사 결과는 [검증 기록](history/development/001-shared-foundation-verification.md)에 연결
+- [x] 001 확정된 33개 작업을 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. 현재 진행 상태는 GitHub 이슈에서 확인. T001–T003 구현·검사 결과는 [검증 기록](history/development/001-shared-foundation-verification.md)에 연결
 - [x] 001 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)·[공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2) 등록·서브 관계 확인, [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3) 연결. 준비 문서 PR #3 병합 완료. 현재 담당·진행·구현 PR은 #2에서 확인
 - [ ] 로컬 기반 설치·앱/웹/서버·개발 DB 실행과 가상 기기 연결 검증
 실제 휴대폰 확인은 필요한 후속 기능의 검사 범위에서 계획한다. 001 완료 조건에 포함하지 않는다.
