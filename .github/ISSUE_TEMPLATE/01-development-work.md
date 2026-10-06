@@ -11,8 +11,7 @@ title: "[스펙번호][역할] 작업 제목"
 - 스펙 번호·경로:
 - 관련 FR·SC / 기존 검증 T번호:
 - plan.md·tasks.md 경로와 작업 ID: <!-- 아직 없으면 작성 작업임을 표시 -->
-- 담당 역할·담당자:
-- 검토자:
+- 담당 역할:
 - 상위 기능 이슈: <!-- 없으면 없음 -->
 - 작업 식별자: <!-- 스펙 폴더 + 고유 작업 키. 재분할 시에도 추적할 수 있게 유지 -->
 - 역할 라벨: role:frontend / role:backend / role:shared / role:integration 중 하나
@@ -42,6 +41,5 @@ title: "[스펙번호][역할] 작업 제목"
 
 ## 진행과 연결
 
-- 상태: backlog / ready / blocked / in-progress / in-review / done
 - 관련 PR:
 - 남은 작업·차단 원인: <!-- 없으면 없음 -->

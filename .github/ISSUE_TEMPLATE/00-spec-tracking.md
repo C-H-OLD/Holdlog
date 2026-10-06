@@ -10,9 +10,7 @@ title: "[스펙번호][SPEC] 스펙 이름"
 
 - 스펙 번호·폴더:
 - 스펙·계약 원본 링크:
-- 기능 책임자: <!-- 미배정이면 미배정 -->
 - 선행 스펙·이슈:
-- 상태: backlog / ready / blocked / in-progress / in-review / done
 
 ## 현재 개발 범위
 

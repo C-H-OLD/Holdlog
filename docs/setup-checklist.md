@@ -11,7 +11,7 @@
 ## 2. 기술과 운영 준비
 
 - [ ] Expo 전용 개발 빌드 구성 및 Firebase·지도·로그인 네이티브 모듈 실기기 검증
-- [ ] 개발에 사용할 서버 OS·CPU·RAM·디스크와 개발 기기 연결 환경 확인
+- [ ] 개발에 사용할 서버 OS·CPU·RAM·디스크와 개발 기기 연결 환경 확인. 2026-10-06 사용자 확인: 물리 서버 사양·테스트 휴대폰 미정
 - [x] 로컬 파일 저장·이어 올리기·공통 저장 인터페이스·기존 파일 이전의 [계약 설계](../specs/002-shared-contracts/contracts/README.md)
 - [ ] 위 파일 저장·업로드·이전 계약의 실제 구현과 실행 검증
 - [ ] 실제 서버에서 영상 변환 자원·압축 설정 검증
@@ -19,14 +19,25 @@
 - [ ] 변환 성공 검증 후 원본 삭제·실패 재시도·임시 파일 정리 검증
 - [ ] Android API 키·결제 계정 설정, Map ID 미설정 및 Maps SDK 사용 확인
 - [ ] iOS 기본 Apple MapKit, 자체 DB 암장 검색·기기 위치·지점 표시 실제 기기 검증
-- [ ] 개발·시험·운영 환경과 설정값 관리 방법 결정
+- [x] 개발·시험 설정의 공개 예시/비밀 분리·영역 구분 [설계](../specs/001-development-foundation/data-model.md)
+- [ ] 위 설정 관리의 실제 구성·검증과 운영 설정 준비
 - [ ] 구글·Apple 개발자 설정, 앱 식별자·서명·스토어 배포 설정
 - [ ] 초대 링크 라우팅, 로그인 후 초대 유지, 이미 가입·잘못된 초대·재가입 차단 검증
 - [ ] 개발용 딥링크 검증, 외부 접속 환경 준비 시 공개 링크·OS 연결·미설치 안내 구성
 - [ ] 관리자 페이지의 실제 등록 데이터와 최초 접속용 서비스 관리자 계정 준비
 - [x] 로컬 Git 기준 자료 커밋과 Spec Kit·Codex·Living Spec 개발 방식 설정
 - [x] GitHub 원격 저장소 연결: [trycatch98/Holdlog](https://github.com/trycatch98/Holdlog). 현재 공개 저장소이며, 로컬 이력의 원격 반영은 별도
-- [ ] [개발 기반 스펙](../specs/001-development-foundation/spec.md)에 따라 앱·서버 기본 구조 설계·준비
+- [x] [개발 기반 설계](../specs/001-development-foundation/plan.md): workspace·도구 계열·계약 생성·역할별 전달·검증 절차 작성
+- [x] [001 역할별 작업 목록](../specs/001-development-foundation/tasks.md) 32개 작성. 순서·변경 범위·검사·전달·외부 확인 분리
+- [x] 001 스펙·설계·작업 일관성 분석: 15개 FR/SC 연결 확인, 로컬 빌드/실기기 경계·이슈 묶음·상태 문구 보완
+- [x] 001 확정된 32개 작업을 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. 현재 진행 상태는 GitHub 이슈에서 확인. 구현은 전부 미완료
+- [x] 001 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)·[공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2) 등록·서브 관계 확인, [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3) 연결. 담당 미배정·구현 전
+- [ ] 로컬 기반 설치·앱/웹/서버·개발 DB 실행과 가상 기기 연결 검증
+실제 휴대폰 확인은 필요한 후속 기능의 검사 범위에서 계획한다. 001 완료 조건에 포함하지 않는다.
+- [ ] 도구 정확한 버전·lockfile·이미지 digest 고정. 로컬 Node24.4.0은 설계의 최소24.15로 교체 필요
+- [ ] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. 현재 Xcode 선택 경로는 CommandLineTools
+- [ ] Docker daemon·개발 DB/worker 실행 확인. CLI/Compose 명령 존재 확인만 수행
+- [ ] 비공개 코드 저장소 운영 기준에 맞는 공개 범위 확인. 현재 공개 상태이며 설정 변경 미수행
 
 ## 3. 데이터와 API 설계
 
