@@ -13,8 +13,8 @@
 - **Language/Version**: TypeScript, Node24 LTS(최소24.15), npm11 workspaces. Expo SDK57 계열과 SDK 지정 React Native/React 조합, NestJS11 계열. 설치 시 정확한 의존성·도구 버전과 lockfile을 고정한다. 현재 lockfile은 없다.
 - **Primary Dependencies**: Expo 전용 개발 빌드, React/Vite 관리자 웹, NestJS, PostgreSQL17, pg-boss, `pg`와 SQL 변경 파일. 생성 도구는 openapi-typescript7·Ajv8/2020-12·ajv-formats·json-schema-to-typescript·Redocly CLI.
 - **Storage**: 개발 전용 PostgreSQL 영구 볼륨·비공개 파일 볼륨. 업무 데이터 원본은 [002 모델](../002-shared-contracts/data-model.md). 기반은 DB 접속·변경 적용 이력·합성 queue 검사까지 준비한다.
-- **Testing**: TypeScript·ESLint·계약 규약/예제·API 기본 테스트·실제 개발 DB 검사·웹 빌드·Expo 호환/전용 개발 빌드·로컬 가상 기기 연결과 후속 실기기 확인. 지금은 기존 Python 정적 검사만 실행 가능하다.
-- **Target Platform**: iOS/Android·관리자 브라우저·보유 물리 서버 Docker Compose. 개발 컴퓨터는 macOS arm64. 물리 서버 사양과 테스트 휴대폰은 사용자가 미정으로 확인했다.
+- **Testing**: TypeScript·ESLint·계약 규약/예제·API 기본 테스트·실제 개발 DB 검사·웹 빌드·Expo 호환/전용 개발 빌드·iOS 시뮬레이터·Android 에뮬레이터의 로컬 API 연결. 지금은 기존 Python 정적 검사만 실행 가능하다.
+- **Target Platform**: 로컬 iOS 시뮬레이터·Android 에뮬레이터·관리자 브라우저·개발 컴퓨터의 Docker Compose. 개발 컴퓨터는 macOS arm64. 물리 서버 사양과 테스트 휴대폰은 사용자가 미정으로 확인했다.
 - **Project Type**: npm workspace 하나, 모바일·웹·API·worker 실행 분리. worker는 같은 API 코드의 별도 진입점이며 업무 마이크로서비스를 추가하지 않는다.
 - **Performance Goals**: 근거 없는 응답시간·처리량 수치를 추가하지 않는다. 영상 초기 동시1·알림/삭제 처리기 분리는 [기술 원본](../../docs/technical-spec.md). 자원 제한·영상 성능은 사양 확인 및 후속011 검증에서 정한다.
 - **Constraints**: 운영 자료 미사용·비밀값/파일/DB 덤프 Git 제외·기존 자료 보존·생성 결과 수기 수정 금지. 백업·외부 도메인·운영 HTTPS·배포 자동화는 후속 운영 범위다.
@@ -30,7 +30,7 @@
 | 계약 협업 | 역할·소비 범위 확인 | 동일 생성물·예제·FE/BE 검사 연결 |
 | 실제 증거 | 도구 존재와 실행 구분 | 작성/설치/로컬/실기기·미수행 분리 |
 
-설계 전후 원칙 위반 없음. 서버·기기 미정은 실행 작업의 선행 조건이며 제품 동작의 미정 사항과 구분한다. 실제 배포·기기 확인 완료를 선언하지 않는다.
+설계 전후 원칙 위반 없음. 물리 서버·실제 휴대폰 준비는 001 실행·완료의 선행 조건이 아니다. 로컬 Docker·플랫폼 빌드 도구는 해당 실행 검사에 필요하다. 실제 배포·기기 확인 완료를 선언하지 않는다.
 
 ## Project Structure
 
@@ -79,11 +79,11 @@ package-lock.json            # 같은 도구/의존성 설치 기준
 |---|---|---|
 | SHARED | 루트 workspace/lockfile·계약 생성·공통 명령/설정 | 원본 확인·공통 담당 지정; 규약·예제·재생성·FE/BE 타입 검사 |
 | BE | API·DB·worker·Compose·초기 관리자 준비 절차 | 공통 도구/계약; DB 재시작·readiness·합성 queue 재개·설정 누락 실패 |
-| FE 모바일 | Expo 실행/빌드·API 소비 검사 | 공통 타입·로컬 빌드 도구; 가상 기기 실행/연결, 후속 실기기 성공/불가 |
+| FE 모바일 | Expo 실행/빌드·API 소비 검사 | 공통 타입·로컬 빌드 도구; iOS 시뮬레이터·Android 에뮬레이터 실행/연결 성공·실패 |
 | FE 관리자 | React/Vite 실행·빌드·proxy·소비 검사 | 공통 타입; 웹 연결 성공/불가·번들에 서버 비밀 미포함 |
 | INTEGRATION | 동일 버전 합친 결과·실행 증거·개발 안내 | 각 소비자/API 준비; FR/SC 대조·미수행 외부 검사 분리 |
 
-사람을 임의 배정하지 않았다. 작업 ID·세부 의존성·GitHub 작업 이슈와 배정 묶음는 [tasks.md](tasks.md)에 작성했다. 로컬에서 코드·DB·웹·가상 기기 개발/연결을 진행하며 실제 서버·휴대폰 준비는 로컬 개발을 막지 않는다. 실기기 확인은 별도 후속 작업이다. GitHub 등록·배정·착수는 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)을 따른다.
+사람을 임의 배정하지 않았다. 작업 ID·세부 의존성·GitHub 작업 이슈와 배정 묶음는 [tasks.md](tasks.md)에 작성했다. 로컬에서 코드·DB·웹·가상 기기 개발/연결을 진행하며 실제 서버·휴대폰 준비는 로컬 개발을 막지 않는다. 실기기 확인과 물리 서버 배포는 001 완료 조건에서 제외하고 필요한 후속 기능·운영 범위에서 계획한다. GitHub 등록·배정·착수는 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)을 따른다.
 
 초기 관리자 비밀 입력·해시·교체 절차는001 준비 범위다. principal/session 저장·인증 API·웹 인증 소비는004가 담당한다. 실제 계정 준비는004 저장 구조가 생긴 뒤 실행한다. 공개 가입 API나 별도 화면을 추가하지 않는다.
 
