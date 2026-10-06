@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-06",
+  "scope": "신규 화면3개·기존 내 정보·A02 사이드바",
+  "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+  "screens": [
+    {
+      "id": "577:34181",
+      "number": "00.01.01",
+      "name": "00.01.01 앱 시작 공지 / 이미지 슬라이드",
+      "size": [
+        390,
+        844
+      ],
+      "specificationCardId": "577:34207",
+      "canvasPosition": [
+        60,
+        80
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34181"
+    },
+    {
+      "id": "577:34214",
+      "number": "05.06.01",
+      "name": "05.06.01 오픈소스 안내 / 기본",
+      "size": [
+        390,
+        1453
+      ],
+      "specificationCardId": "577:34238",
+      "canvasPosition": [
+        60,
+        5076
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34214"
+    },
+    {
+      "id": "577:34245",
+      "number": "A04.01",
+      "name": "A04.01 공지 관리 / 웹",
+      "size": [
+        1440,
+        900
+      ],
+      "specificationCardId": "577:34338",
+      "canvasPosition": [
+        60,
+        1584
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34245"
+    }
+  ],
+  "components": {
+    "section": "575:33849",
+    "popup": "575:33857",
+    "image": "575:33850",
+    "licenseScreen": "575:33880",
+    "licenseNotice": "575:33873",
+    "licenseBody": "575:33871",
+    "adminScreen": "575:34077",
+    "adminList": "575:34005",
+    "adminForm": "575:34037",
+    "newSaveButtonSpecimen": "577:34829",
+    "openSourceMenuVariant": "575:33904"
+  },
+  "modifiedComponents": [
+    "473:32116",
+    "473:32241",
+    "510:55346"
+  ],
+  "validation": {
+    "brokenChangedInstances": 0,
+    "mobileWidth": 390,
+    "webWidth": 1440,
+    "placement": "00 공통은 일정 왼쪽. 05.06은 내 정보 섹션 아래. A04는 관리자 섹션 다음 행. 옆 명세64 간격.",
+    "runtimeTested": false
+  },
+  "review": "../../figma/assets/announcements-licenses-2026-10-06/review.html",
+  "licenseExamples": {
+    "React": "https://raw.githubusercontent.com/facebook/react/main/LICENSE",
+    "ReactNative": "https://raw.githubusercontent.com/facebook/react-native/main/LICENSE"
+  },
+  "notes": [
+    "이미지·주소·라이브러리 버전은 시안 예시다. 실제 앱 의존성은 아직 없다.",
+    "별도 기능 스펙002·003 제거, 상세 원본은 기능 명세 S26·S27 및 관리자 명세 공지 관리.",
+    "새 공지 등록은 변하는 저장 버튼만 옆에 표시하며 전체 화면을 반복하지 않는다."
+  ]
+}

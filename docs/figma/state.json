@@ -1,6 +1,6 @@
 {
   "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
-  "phase": "공통 메뉴·선택창 확정 / 달력·목록 표시줄 적용 / 다른 기록 화면 배치 확인 남음 / 시작 방식 추후 결정",
+  "phase": "공지 팝업 개선·관리자 삭제 추가 / 사용자 검토 대기",
   "pages": [
     {
       "id": "0:1",
@@ -1013,6 +1013,23 @@
   },
   "screens": [
     {
+      "id": "577:34181",
+      "number": "00.01.01",
+      "name": "00.01.01 앱 시작 공지 / 이미지 슬라이드",
+      "size": [
+        390,
+        844
+      ],
+      "specificationCardId": "577:34207",
+      "canvasPosition": [
+        60,
+        80
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34181"
+    },
+    {
       "id": "123:479",
       "number": "01.01.01",
       "name": "01.01.01 일정 달력 / 기본",
@@ -1778,6 +1795,23 @@
       ]
     },
     {
+      "id": "562:32587",
+      "number": "02.13.01",
+      "name": "02.13.01 운동 중 기록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=562-32587",
+      "size": [
+        390,
+        924
+      ],
+      "status": "사용자 검토 대기",
+      "specificationCardId": "562:32827",
+      "canvasPosition": [
+        60,
+        12500
+      ]
+    },
+    {
       "id": "455:25612",
       "number": "03.01.01",
       "name": "03.01.01 암장 지도 / 지점 선택",
@@ -2065,6 +2099,23 @@
         60,
         4092
       ]
+    },
+    {
+      "id": "577:34214",
+      "number": "05.06.01",
+      "name": "05.06.01 오픈소스 안내 / 기본",
+      "size": [
+        390,
+        1453
+      ],
+      "specificationCardId": "577:34238",
+      "canvasPosition": [
+        60,
+        5076
+      ],
+      "pageId": "6:3",
+      "status": "사용자 확인 완료",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34214"
     },
     {
       "id": "109:89",
@@ -2509,37 +2560,56 @@
       ]
     },
     {
-      "id": "562:32587",
-      "number": "02.13.01",
-      "name": "02.13.01 운동 중 기록 / 기본",
-      "pageId": "6:3",
-      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=562-32587",
+      "id": "577:34245",
+      "number": "A04.01",
+      "name": "A04.01 공지 관리 / 웹",
       "size": [
-        390,
-        924
+        1440,
+        900
       ],
-      "status": "사용자 검토 대기",
-      "specificationCardId": "562:32827",
+      "specificationCardId": "577:34338",
       "canvasPosition": [
         60,
-        12500
-      ]
+        1584
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34245"
+    },
+    {
+      "id": "577:34883",
+      "number": "A04.02",
+      "name": "A04.02 공지 관리 / 삭제 확인",
+      "size": [
+        1440,
+        900
+      ],
+      "specificationCardId": "577:34338",
+      "canvasPosition": [
+        1564,
+        1584
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34883"
     }
   ],
   "currentScreenRegistry": "screens",
   "currentValidation": {
-    "scope": "현재89개 시안 목록. 이번 운동 화면·알림 견본·표시줄·옆 명세만 사진 및 구조 검증",
-    "mobileGroups": 39,
-    "mobileStates": 86,
-    "webGroups": 2,
-    "webStates": 3,
-    "specifications": 41,
+    "scope": "공지 팝업·관리자 기본 및 삭제 확인 시안 사진·원본 연결 확인",
+    "mobileGroups": 41,
+    "mobileStates": 88,
+    "webGroups": 3,
+    "webStates": 5,
+    "specifications": 44,
     "brokenChangedInstances": 0,
     "pending": [
+      "공지 팝업 개선·관리자 삭제 사용자 검토",
       "운동 시작 A·B 선택은 추후 결정",
       "달력·목록 외 기록 화면의 표시줄 적용·배치 확인",
       "실제 앱 구현 후 동작 검증"
-    ]
+    ],
+    "report": "../history/figma/announcements-refinement-2026-10-06.json"
   },
   "pendingValidations": [
     "사용자 시안 검토",

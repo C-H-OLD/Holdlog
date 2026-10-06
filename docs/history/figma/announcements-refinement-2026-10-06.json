@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-06",
+  "scope": "공지 팝업·관리자 기본 및 삭제 확인 시안 사진·원본 연결 확인",
+  "screens": [
+    {
+      "id": "577:34181",
+      "number": "00.01.01",
+      "name": "00.01.01 앱 시작 공지 / 이미지 슬라이드",
+      "size": [
+        390,
+        844
+      ],
+      "specificationCardId": "577:34207",
+      "canvasPosition": [
+        60,
+        80
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34181"
+    },
+    {
+      "id": "577:34245",
+      "number": "A04.01",
+      "name": "A04.01 공지 관리 / 웹",
+      "size": [
+        1440,
+        900
+      ],
+      "specificationCardId": "577:34338",
+      "canvasPosition": [
+        60,
+        1584
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34245"
+    },
+    {
+      "id": "577:34883",
+      "number": "A04.02",
+      "name": "A04.02 공지 관리 / 삭제 확인",
+      "size": [
+        1440,
+        900
+      ],
+      "specificationCardId": "577:34338",
+      "canvasPosition": [
+        1564,
+        1584
+      ],
+      "pageId": "6:3",
+      "status": "제작·사진·구조 확인 / 사용자 검토 대기",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34883"
+    }
+  ],
+  "validation": {
+    "brokenChangedInstances": 0,
+    "webStates": 5,
+    "specificationPosition": [
+      3068,
+      1584
+    ]
+  },
+  "review": "../../figma/assets/announcements-licenses-2026-10-06/review.html",
+  "status": "사용자 검토 대기"
+}

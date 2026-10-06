@@ -4,12 +4,13 @@
 
 **지금 제작한 최신 Figma 화면과 사용자가 확정한 동작이 기준이다.** 예전 문서나 생성 이미지에 맞추려고 현재 화면을 되돌리지 않는다. 화면에 보이지 않는 저장·권한 규칙은 최신 확정 기능 명세를 따른다. 숫자·사람·브랜드는 예시이며 실제 운영 자료가 아니다.
 
-현재 모바일39개 독립 화면·86개 상태 시안·39개 화면 옆 명세, 관리자 웹2개 독립 화면·3개 상태 시안·2개 명세다. 아래는 화면마다 기본 시안을 연결하며 모든 상태와 노드 링크는 [화면·상태 번호표](./screen-numbering.md)를 따른다. 부품 견본은 독립 화면으로 세지 않는다.
+현재 모바일41개 독립 화면·88개 상태 시안·41개 화면 옆 명세, 관리자 웹3개 독립 화면·5개 상태 시안·3개 명세다. 아래는 화면마다 기본 시안을 연결하며 모든 상태와 노드 링크는 [화면·상태 번호표](./screen-numbering.md)를 따른다. 부품 견본은 독립 화면으로 세지 않는다.
 
 ## 모바일 화면
 
 | 화면 번호 | 화면 설계 | 최신 Figma |
 |---|---|---|
+| 00.01 | [앱 시작 공지](./screen-design.md#screen-00-01) | [현재 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34181) |
 | 01.01 | [일정 달력](./screen-design.md#screen-01-01) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-479) |
 | 01.02 | [일정 목록](./screen-design.md#screen-01-02) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-310) |
 | 01.03 | [날짜 일정 시트](./screen-design.md#screen-01-03) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-877) |
@@ -37,6 +38,7 @@
 | 05.03 | [사진·영상 보관함](./screen-design.md#screen-05-03) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47639) |
 | 05.04 | [사진·영상 보기](./screen-design.md#screen-05-04) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47695) |
 | 05.05 | [알림 설정](./screen-design.md#screen-05-05) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47316) |
+| 05.06 | [오픈소스 안내](./screen-design.md#screen-05-06) | [현재 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34214) |
 | 06.01 | [크루 정보](./screen-design.md#screen-06-01) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=109-89) |
 | 06.02 | [크루원 목록](./screen-design.md#screen-06-02) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=477-34402) |
 | 06.03 | [내 크루 목록](./screen-design.md#screen-06-03) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-35317) |
@@ -57,9 +59,13 @@
 | A02 | 암장·브랜드 등록·수정 | [A02.01](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-57505) |
 | A03 | 벽 세팅 등록·수정·취소 | [A03.01](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-58616) · [취소 확인 A03.02](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=511-59027) |
 
+| A04 | 공지 관리 | [A04.01](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34245) · [삭제 확인](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34883) |
+
 웹 화면 규격은 [디자인 시스템](./figma-design-system.md)을, 저장·수정 규칙은 [관리자 명세](./admin-spec.md)를 따른다.
 
 ## 사진과 검증 자료
+
+- [공지·오픈소스 최신 사진](./figma/assets/announcements-licenses-2026-10-06/review.html): 공지 팝업·관리자 웹·내 정보·오픈소스 안내
 
 - [현재 제작·검증 자료 안내](./figma/README.md): 화면별 사진과 최신 변경 자료
 - [추가 화면 사진](./figma/assets/additional-screens-2026-10-02/review.html): 필터·기존 기록 연결·회원 기록·보관함·로그인 등

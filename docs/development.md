@@ -34,6 +34,7 @@
 | 프로필·파일·알림 설정 | [S16](functional-spec.md#s16-내-정보알림-설정) · [S21](functional-spec.md#s21-내-사진영상-보관함) | [내 정보](screen-design.md#screen-05-01) |
 | 크루·초대·관리자 이관 | [초대 가입](functional-spec.md#s02-초대-코드-입력qr-스캔초대-링크-가입) · [크루](functional-spec.md#s19-크루-목록선택생성가입) · [만들기·이관](functional-spec.md#s24-크루-만들기--첫-버전) | [크루](screen-design.md#screen-06-01) |
 | 로그인 | [S01](functional-spec.md#s01-구글apple-로그인) | [로그인](screen-design.md#screen-07-01) |
+| 앱 시작 공지·오픈소스 안내 | [S26 공지](functional-spec.md#s26-앱-시작-공지-팝업) · [S27 안내](functional-spec.md#s27-오픈소스-안내) | [남은 시안 작업](screen-worklist.md) |
 | 서비스 관리자 웹 | [관리자 명세](admin-spec.md) | [관리자 웹](screen-design.md#admin-web) |
 
 
@@ -41,6 +42,6 @@
 
 현재는 실행할 앱 코드가 없다. 기본 구조가 만들어지면 이 문서에 실제 설치·실행·검증 명령과 필요한 설정을 추가한다. 예정 명령을 실행 가능한 것처럼 적지 않는다.
 
-기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01~T80과 [운동 검증 기준](workout-recording-spec.md#완료-확인-기준)을 함께 확인하고, 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
+기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01~T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 
 문서 링크와 화면 번호는 프로젝트 루트에서 `python3 scripts/check-docs.py`로 확인한다.

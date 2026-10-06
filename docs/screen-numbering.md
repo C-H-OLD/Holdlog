@@ -8,7 +8,7 @@
 
 독립 화면의 이름·화면 설계·기본 Figma 링크는 [현재 화면 목록](./screens.md)에서 관리한다. 이 문서는 각 화면의 상태 번호와 Figma 노드를 관리한다.
 
-현재 모바일39개 독립 화면·86개 상태·39개 옆 명세, 관리자 웹2개 독립 화면·3개 상태·2개 옆 명세다. 가입 크루 없음은 일정의01.01.02 상태이며 별도 독립 화면이 아니다.
+현재 모바일41개 독립 화면·88개 상태·41개 옆 명세, 관리자 웹3개 독립 화면·5개 상태·3개 옆 명세다. 가입 크루 없음은 일정의01.01.02 상태이며 별도 독립 화면이 아니다.
 
 ## 현재 Figma에 있는 상태
 
@@ -16,6 +16,7 @@
 
 | 상태 번호 | Figma 이름 | 노드 |
 |---|---|---|
+| 00.01.01 | 00.01.01 앱 시작 공지 / 이미지 슬라이드 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34181) |
 | 01.01.01 | 01.01.01 일정 달력 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-479) |
 | 01.01.02 | 01.01.02 일정 달력 / 가입 크루 없음 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=529-31675) |
 | 01.02.01 | 01.02.01 일정 목록 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=123-310) |
@@ -79,6 +80,7 @@
 | 05.04.02 | 05.04.02 사진·영상 보기 / 영상 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47714) |
 | 05.04.03 | 05.04.03 사진·영상 보기 / 파일 삭제 확인 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48027) |
 | 05.05.01 | 05.05.01 알림 설정 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47316) |
+| 05.06.01 | 05.06.01 오픈소스 안내 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34214) |
 | 06.01.01 | 06.01.01 크루 정보 / 일반 회원 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=109-89) |
 | 06.01.02 | 06.01.02 크루 정보 / 관리자 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=475-33651) |
 | 06.01.03 | 06.01.03 크루 정보 / 탈퇴 확인 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48044) |
@@ -118,3 +120,5 @@
 | A02.01 | 암장·브랜드 등록 / 웹 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-57505) |
 | A03.01 | 벽 세팅 등록 / 웹 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=510-58616) |
 | A03.02 | 벽 세팅 등록 / 취소 확인 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=511-59027) |
+| A04.01 | A04.01 공지 관리 / 웹 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34245) |
+| A04.02 | A04.02 공지 관리 / 삭제 확인 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34883) |
