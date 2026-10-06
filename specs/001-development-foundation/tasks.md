@@ -166,7 +166,7 @@ flowchart TD
 
 확정된 33개 작업을 다음 12개 작업 이슈로 모두 등록하고 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈 관계로 연결했다. #2의 기존 T001–T008 묶음은 도구·설정 준비(T001–T003)와 계약 생성·검사(T004–T008, #4)로 나눴다. 로컬 실행·연결 확인(#10)과 재현 검사·실행 안내(#11)도 각각 전달 가능한 결과로 나눴다.
 
-준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 현재 #2만 ready이고 나머지는 선행 작업 대기로 blocked다. 담당자·검토자는 모두 미배정이며 33개 작업은 전부 미완료다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 현재 #2만 ready이고 나머지는 선행 작업 대기로 blocked다. 33개 작업은 전부 미완료다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
 
 | 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈·현재 상태 |
 |---|---|---|---|---|

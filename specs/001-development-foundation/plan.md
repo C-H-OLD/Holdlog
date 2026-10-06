@@ -1,6 +1,6 @@
 # Implementation Plan: 개발 기반 구성
 
-**기능 선택**: `001-development-foundation` · **Git 브랜치**: `main`(설계 작성, 구현 브랜치는 별도) · **Date**: 2026-10-06 · **Spec**: [spec.md](spec.md)
+**기능 선택**: `001-development-foundation` · **준비 브랜치**: `docs/001-foundation-preparation`(main 반영 전, 구현 브랜치는 별도) · **Date**: 2026-10-06 · **Spec**: [spec.md](spec.md)
 
 ## Summary
 
