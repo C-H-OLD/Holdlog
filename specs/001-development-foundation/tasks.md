@@ -164,19 +164,23 @@ flowchart TD
 
 첫 결과(MVP)는 공통 준비·계약 생성·US1의 로컬 실행이다. 이어서 US2 로컬 연결·US3 재현 검사와 T033 후속 전달까지 로컬에서 진행한다. 실물 서버·휴대폰 미정으로 코드 개발을 기다리지 않는다. 실기기 확인 T031은 준비 뒤 별도로 진행하고 최종 T032에서 로컬 완료/외부 미수행을 구분한다. 실제 기기에서 수행하지 않은 검사를 통과로 바꾸지 않는다.
 
-역할별 이슈/PR로 묶을 때의 후보다. 현재 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)과 [공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)만 등록했고 실제 상위·서브 관계를 확인했다. 준비 문서는 [draft PR #3](https://github.com/trycatch98/Holdlog/pull/3)에 연결했다. #2는 ready·담당 미배정이며 T001–T008 구현은 아직 없다. 나머지 후보는 미등록이다. 선행 범위가 준비된 가까운 묶음부터 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 중복/담당/상태를 확인한다.
+확정된 33개 작업을 다음 12개 작업 이슈로 모두 등록하고 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈 관계로 연결했다. #2의 기존 T001–T008 묶음은 도구·설정 준비(T001–T003)와 계약 생성·검사(T004–T008, #4)로 나눴다. 로컬 실행·연결 확인(#10)과 재현 검사·실행 안내(#11)도 각각 전달 가능한 결과로 나눴다.
 
-| 작업 식별자 후보 | 역할·영역 | 포함 작업 | 결과 |
-|---|---|---|---|
-| 001/shared-foundation | SHARED·루트/계약 | T001–T008 | 버전·workspace·공통 생성/검사 기반 |
-| 001/backend-runtime | BE·API/DB/worker | T009–T012·T018·T019 | 실행·저장/queue·health |
-| 001/admin-runtime | FE·관리자 웹 | T013·T020 | 웹 실행·소비 검사 |
-| 001/mobile-runtime | FE·모바일 | T014·T015·T021 | 앱 준비·기기 빌드·소비 검사 |
-| 001/admin-bootstrap-guide | BE·준비 절차 | T016 |004에 넘길 비밀/계정 준비 절차 |
-| 001/check-commands | SHARED·공통 명령 | T025·T026 | 자동 검사/실행 명령 |
-| 001/foundation-integration | INTEGRATION·로컬 확인/문서 | T017·T022–T024·T027–T030 | 로컬 대상·연결·재현 증거 |
-| 001/device-verification | INTEGRATION·실기기 확인 | T031 | 기기 준비 뒤 실제 결과 확인, 로컬 개발과 별도 완료 |
-| 001/foundation-final-audit | INTEGRATION·최종 확인 | T032 | 전체 FR/SC·필수 증거·남은 범위 대조 |
-| 001/contracts-handoff | SHARED·계약 안내/역할 문서 | T033 | 검증한 범위와 후속 소비 조건 전달 |
+준비 문서는 [draft PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 현재 #2만 ready이고 나머지는 선행 작업 대기로 blocked다. 담당자·검토자는 모두 미배정이며 33개 작업은 전부 미완료다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+
+| 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈·현재 상태 |
+|---|---|---|---|---|
+| [#2](https://github.com/trycatch98/Holdlog/issues/2) · `001/shared-foundation` | SHARED | T001·T002·T003 | 같은 도구·버전·설치 기준으로 앱·웹·서버 개발을 시작할 수 있다. | 없음 · ready |
+| [#4](https://github.com/trycatch98/Holdlog/issues/4) · `001/contract-generation` | SHARED | T004·T005·T006·T007·T008 | 같은 데이터 규칙에서 타입·값 검사 함수·예제를 생성하고 앱·웹·서버가 함께 쓴다. | #2 · blocked |
+| [#5](https://github.com/trycatch98/Holdlog/issues/5) · `001/backend-runtime` | BE | T009·T010·T011·T012·T018·T019 | 개발 API·저장소·작업 처리기를 실행하고 정상·DB 불가 상태를 확인할 수 있다. | #4 · blocked |
+| [#6](https://github.com/trycatch98/Holdlog/issues/6) · `001/admin-runtime` | FE | T013·T020 | 관리자 웹을 실행·빌드하고 개발 API 연결을 검사할 수 있다. | #4 · blocked |
+| [#7](https://github.com/trycatch98/Holdlog/issues/7) · `001/mobile-runtime` | FE | T014·T015·T021 | 전용 개발 앱을 가상 기기에서 실행하고 개발 API 연결을 검사할 수 있다. | #4 · blocked |
+| [#8](https://github.com/trycatch98/Holdlog/issues/8) · `001/admin-bootstrap-guide` | BE | T016 | 초기 관리자 비밀 입력·교체·재실행 절차를 004 인증 개발에 전달한다. | #4 · blocked |
+| [#9](https://github.com/trycatch98/Holdlog/issues/9) · `001/check-commands` | SHARED | T025·T026 | 루트에서 실행·타입·코드·빌드·기반 검사를 호출하고 실패를 정확히 알 수 있다. | #6·#5·#4·#7 · blocked |
+| [#10](https://github.com/trycatch98/Holdlog/issues/10) · `001/foundation-integration` | INTEGRATION | T017·T022·T023·T024 | 실제 로컬 실행·브라우저·가상 기기 연결과 공통 계약 소비 결과를 확인한다. | #8·#6·#5·#7 · blocked |
+| [#11](https://github.com/trycatch98/Holdlog/issues/11) · `001/foundation-reproducibility` | INTEGRATION | T027·T028·T029·T030 | 별도 작업 폴더에서 설치·검사를 재현하고 비밀 경계와 실제 실행 안내를 확인한다. | #9·#10 · blocked |
+| [#12](https://github.com/trycatch98/Holdlog/issues/12) · `001/device-verification` | INTEGRATION | T031 | 실제 iOS·Android 휴대폰에서 개발 앱과 API 연결·검사 함수를 확인한다. | #5·#10·#7·실제 휴대폰/서명/접속 환경 · blocked |
+| [#14](https://github.com/trycatch98/Holdlog/issues/14) · `001/foundation-final-audit` | INTEGRATION | T032 | 모든 요구사항과 필수 실행 증거를 대조해 001 전체 완료 여부를 판단한다. | #12·#10·#11 · blocked |
+| [#13](https://github.com/trycatch98/Holdlog/issues/13) · `001/contracts-handoff` | SHARED | T033 | 확인된 계약 소비 범위와 남은 조건을 다음 기능 개발자에게 전달한다. | #10·#11 · blocked |
 
 같은 작업을 두 묶음에 중복 배정하지 않는다. 큰 묶음을 나누면 기존 식별자·포함 ID와 선행 연결부터 조정한다. 초기 목록의 총합은 공통 준비3 + 계약 기반5 + US1 9 + US2 7 + US3 5 + 마무리4 = **33개**다. 작업 형식 확인은 작성 품질 검사이며 실제 구현/서비스 실행 검사가 아니다.

@@ -30,6 +30,7 @@
 - [x] [개발 기반 설계](../specs/001-development-foundation/plan.md): workspace·도구 계열·계약 생성·역할별 전달·검증 절차 작성
 - [x] [001 역할별 작업 목록](../specs/001-development-foundation/tasks.md) 33개 작성. 순서·변경 범위·검사·전달·외부 확인 분리
 - [x] 001 스펙·설계·작업 일관성 분석: 15개 FR/SC 연결 확인, 로컬 빌드/실기기 경계·이슈 묶음·상태 문구 보완
+- [x] 001 확정된 33개 작업을 [12개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. #2만 ready, 나머지는 선행 대기. 구현은 전부 미완료
 - [x] 001 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)·[공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2) 등록·서브 관계 확인, [준비 문서 draft PR #3](https://github.com/trycatch98/Holdlog/pull/3) 연결. 담당 미배정·구현 전
 - [ ] 로컬 기반 설치·앱/웹/서버·개발 DB 실행과 가상 기기 연결 검증
 - [ ] 실제 휴대폰 준비 후 전용 개발 빌드·API 연결 검증. 로컬 개발의 선행 조건은 아님
