@@ -25,7 +25,7 @@
 - [ ] 개발용 딥링크 검증, 외부 접속 환경 준비 시 공개 링크·OS 연결·미설치 안내 구성
 - [ ] 관리자 페이지의 실제 등록 데이터와 최초 접속용 서비스 관리자 계정 준비
 - [x] 로컬 Git 기준 자료 커밋과 Spec Kit·Codex·Living Spec 개발 방식 설정
-- [ ] GitHub 비공개 원격 저장소 연결
+- [x] GitHub 원격 저장소 연결: [trycatch98/Holdlog](https://github.com/trycatch98/Holdlog). 현재 공개 저장소이며, 로컬 이력의 원격 반영은 별도
 - [ ] [개발 기반 스펙](../specs/001-development-foundation/spec.md)에 따라 앱·서버 기본 구조 설계·준비
 
 ## 3. 데이터와 API 설계

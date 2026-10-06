@@ -32,6 +32,7 @@ def anchors(path):
 markdown = [ROOT / 'README.md', ROOT / 'AGENTS.md',
             *sorted((ROOT / 'docs').rglob('*.md')),
             *sorted((ROOT / 'specs').rglob('*.md')),
+            *sorted((ROOT / '.github').rglob('*.md')),
             ROOT / '.specify/memory/constitution.md']
 markdown = [path for path in markdown if path.exists()]
 for path in markdown:

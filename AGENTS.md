@@ -7,6 +7,7 @@
 | 모든 작업 | [프로젝트 작업 규칙](docs/work-rules.md) |
 | 개발 시작·현재 준비 상황 | [개발 시작 안내](docs/development.md) |
 | 에이전트 기능 개발·변경 | [Spec Kit 개발 흐름](docs/development-workflow.md) · [기능 스펙 목록](specs/README.md) |
+| GitHub 이슈 준비·작업 선택·PR·완료 처리 | [GitHub 개발 흐름](docs/development-workflow.md#github-이슈와-pr) · [개발자 배정 기준](specs/development-roles.md#여러-개발자의-작업-배정) |
 | 기능 구현·수정 | [기능 명세](docs/functional-spec.md) · [기술·운영 명세](docs/technical-spec.md) |
 | 기록 연결·공개·삭제 | [기록 관계 설계](docs/record-relationships.md) |
 | 운동 기록 기능 | [운동 기록 명세](docs/workout-recording-spec.md) |
