@@ -16,8 +16,8 @@
 
 1. [001 도구·설정 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T003이 첫 착수 후보이며 역할은 SHARED, 담당자는 미배정이다. [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)의 검토·병합과 실제 구현 완료는 구분한다. 이후 [계약 생성·검사 #4](https://github.com/trycatch98/Holdlog/issues/4)를 진행하고 서버·웹·모바일의 로컬 작업으로 이어간다. 확정된 33개 작업은 [12개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 모두 등록했다. 현재 진행 상태는 GitHub 이슈에서 확인한다.
 2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비자를 검사한다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
-3. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈다.
-4. 이후 기반 구성과 기능 구현을 진행하고 실제 기기·서버 연동을 확인한다.
+3. 이후 기반 구성을 진행하고 서버·웹·모바일의 로컬 작업을 시작한다. 실제 기기·서버 연동은 별도로 확인한다.
+4. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈 뒤 기능을 구현한다.
 
 진행 여부와 세부 준비 항목은 [준비 체크리스트](setup-checklist.md) 한곳에서 관리한다. 구현 순서는 기능의 선행 작업에 맞춰 조정하며 확정된 개발 순서로 취급하지 않는다.
 
