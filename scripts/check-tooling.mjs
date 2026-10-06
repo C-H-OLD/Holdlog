@@ -1,7 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { parseArgs } from 'node:util';
 const { values } = parseArgs({ options: { root: { type: 'string', default: process.cwd() }, script: { type: 'string' } } });
-const scripts = values.script ? [values.script] : ['lint', 'typecheck', 'test:tooling'];
+const scripts = values.script ? [values.script] : ['check:lockfile', 'lint', 'typecheck', 'test:tooling'];
 console.log('Tooling checks: configuration samples and any existing source. Application build/integration checks are separate.');
 for (const script of scripts) {
   console.log(`Checking ${script}`);

@@ -48,14 +48,14 @@ node --version # v24.21.0
 npm --version  # 11.19.0
 npm ci
 npm run check
-# 개별 검사: npm run lint / npm run typecheck / npm run test:tooling
+# 개별 검사: npm run check:lockfile / npm run lint / npm run typecheck / npm run test:tooling
 # 특정 대상: npm run lint --workspace=@holdlog/server
 python3 scripts/check-contracts.py
 python3 scripts/check-docs.py
 git diff --check
 ```
 
-위 설치·설정·기존 정적 검사만 수행했다. 현재 로컬의 기본 `python3` 실행 파일은 종료 코드137로 중단되어 `/usr/bin/python3`로 기존 검사를 통과했다. 합성 입력으로 타입/lint 설정을 확인한 결과와 프로젝트 전용 Node 설치 방법은 [검증 기록](history/development/001-shared-foundation-verification.md)을 따른다. 루트 `npm run check`는 현재 소스와 환경 확인용 코드의 lint·타입·도구 회귀 검사를 수행한다. 서비스 실행·빌드·DB·기기 검사는 포함하지 않는다. 계약 생성·서비스 전체 검사 명령은 #4·#9에서, 앱·웹·서버 실행 명령은 #5–#7에서 구현한다.
+위 설치·설정·기존 정적 검사만 수행했다. 현재 로컬의 기본 `python3` 실행 파일은 종료 코드137로 중단되어 `/usr/bin/python3`로 기존 검사를 통과했다. 이 로컬 환경에서 위 계약·문서 검사와 아래 링크 검사 명령은 `/usr/bin/python3`로 실행한다. 다른 환경에서는 정상 동작하는 Python3를 사용한다. 합성 입력으로 타입/lint 설정을 확인한 결과와 프로젝트 전용 Node 설치 방법은 [검증 기록](history/development/001-shared-foundation-verification.md)을 따른다. 루트 `npm run check`는 manifest/lockfile 일치와 현재 소스·환경 확인용 코드의 lint·타입·도구 회귀 검사를 수행한다. 서비스 실행·빌드·DB·기기 검사는 포함하지 않는다. 계약 생성·서비스 전체 검사 명령은 #4·#9에서, 앱·웹·서버 실행 명령은 #5–#7에서 구현한다.
 
 기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 

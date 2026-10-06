@@ -67,3 +67,9 @@ npm ls --depth=0 --workspaces --cache /tmp/holdlog-npm-cache
 React Hooks·브라우저/Node/React Native 전역·타입 기반 TypeScript lint를 적용했다. `npm ci`·`npm run check`로 재설치 및 전체 도구 검사 결과를 확인한다. 회귀 검사에서는 Node 전역·JSX 검사 포함·모바일 타이머·조건부 Hooks 거절·브라우저 Node 전역 거절·필수 명령 누락/종료17 전파를 확인한다. 웹 타입 검사에 잘못된 서버 전역을 넣으면 실패하고 합성 파일은 제거한다. 서비스 API/DB/worker·제품 화면·가상 기기/네이티브 빌드는 여전히 미수행이다.
 
 `.env.*.example`은 공개 예시로 추적 가능하게 하고 `backups/`와 개발 backups 폴더는 제외한다. SQL migration은 추적한다. Expo CNG 선택 근거와 네이티브 원본 관리 방식은 현재 기술 명세를 따른다. CodeRabbit 지적에 따라 스펙 가정과 목록 표의 낡은 구현 전 문구도 보완했다.
+
+## 리뷰 수정 검증
+
+서브에이전트와 CodeRabbit 리뷰를 종합해 테스트 probe의 기존 파일 삭제 가능성, 관리자 Node 설정 타입 분리, 모바일 루트 JSX 환경, 계약 Node 테스트 환경, 로컬 Python 대체 명령 안내를 수정했다. probe는 고유하게 생성한 폴더만 정리하며 성공/예외 양쪽에서 기존 파일 보존을 검사했다. 관리자 Node 설정용 `tsconfig.node.json`을 추가하고 브라우저 소스의 Node 전역 거절을 유지했다. 정상 코드 거절 사례를 먼저 재현하고 회귀 테스트를 추가했다.
+
+CodeRabbit의 lockfile 검토 제외를 보완해 `check:lockfile`을 루트 하네스 첫 검사로 연결했다. 루트와 네 workspace manifest의 이름·버전·엔진·직접 의존성 및 workspace 목록을 lockfile과 대조하며, 합성 manifest 버전 불일치는 실패했다. `npm ci` 재설치와 `npm run check`의 네 workspace lint·typecheck, 회귀 테스트13개가 통과했다. 기존 문서·계약 정적 검사와 `git diff --check`도 통과했다. 이는 코드/설정 검사 결과이며 앱/서비스 빌드·기기 검사는 포함하지 않는다.

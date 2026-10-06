@@ -63,7 +63,7 @@ package.json                 # workspace·공통 명령
 package-lock.json            # 같은 도구/의존성 설치 기준
 ```
 
-사용자 요청으로 서버 경로는 `apps/server`, 패키지는 `@holdlog/server`로 정했다. 앱별 TypeScript 환경과 타입 기반 ESLint·Hooks 규칙을 설정하고 `npm run check`로 lint·typecheck·도구 회귀 검사를 순서대로 실행한다. 현재는 환경 확인용 코드와 존재하는 소스가 대상이며 서비스 빌드/DB/기기 검사와 구분한다. 필수 명령 누락과 오류는 비정상 종료한다. T034는 #2 보완 범위이며 T026의 전체 서비스 명령 연결은 후속 작업이다.
+사용자 요청으로 서버 경로는 `apps/server`, 패키지는 `@holdlog/server`로 정했다. 앱별 TypeScript 환경과 타입 기반 ESLint·Hooks 규칙을 설정하고 `npm run check`로 manifest/lockfile 일치·lint·typecheck·도구 회귀 검사를 순서대로 실행한다. 관리자 브라우저 소스와 Node 설정/테스트는 별도 TypeScript 프로젝트로 검사한다. 테스트 probe는 고유 임시 폴더에서 생성·정리해 기존 파일을 보존한다. 현재는 환경 확인용 코드와 존재하는 소스가 대상이며 서비스 빌드/DB/기기 검사와 구분한다. 필수 명령 누락과 오류는 비정상 종료한다. T034는 #2 보완 범위이며 T026의 전체 서비스 명령 연결은 후속 작업이다.
 
 계약 패키지는 모바일·브라우저에 서버 비밀값·NestJS·DB 모듈을 보내지 않는 진입점을 제공한다. 각 앱의 React 의존성을 따로 관리한다. UI 공통 부품은003 후속 범위다. SQL 변경 파일의 주 변경 담당은 해당 백엔드 작업자이며 공통 설정/계약은 작업별 한 명이 변경을 모은다.
 

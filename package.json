@@ -25,6 +25,7 @@
     "lint": "eslint eslint.config.mjs scripts --max-warnings=0 && npm run lint --workspaces",
     "typecheck": "npm run typecheck --workspaces",
     "test:tooling": "node --test scripts/test/tooling.test.mjs",
-    "check": "node scripts/check-tooling.mjs"
+    "check": "node scripts/check-tooling.mjs",
+    "check:lockfile": "node scripts/check-lockfile.mjs"
   }
 }
