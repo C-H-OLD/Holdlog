@@ -1,6 +1,6 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: 작업별 구현·검사 여부는 각 작업 항목의 체크를 따른다. 실제 연동 검증 전.
+**작성일**: 2026-10-06 · **상태**: 작업별 구현·검사 여부는 각 작업 항목의 체크를 따른다. 실제 로컬 연동·재현·T032 대조를 확인했다. 후속 전달·최종 병합 상태는 상위 #1에서 관리한다.
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
@@ -25,7 +25,7 @@
 - [x] T002 [SHARED] `.nvmrc`, `.npmrc`, `package.json`, `package-lock.json`과 `apps/mobile/package.json`, `apps/admin/package.json`, `apps/server/package.json`, `packages/contracts/package.json`에 workspace·패키지 이름·호환 도구/의존성 정확한 버전을 고정한다. 선행 T001; FR-001·002·005. 검사/전달: 계획의 Node/npm·SDK 계열에서 공식 메타데이터/엔진을 재확인하고 `npm ci`가 재현되는지 확인한다. 빈 작업 폴더를 만든다는 이유로 기존 계약·문서·시안을 덮어쓰지 않는다.
 - [x] T003 [SHARED] `tsconfig.base.json`, `eslint.config.mjs`, `.gitignore`에 공통 타입/lint 기준과 로컬 비밀·서명·인증서·DB/파일 자료 제외 규칙을 준비한다. 선행 T002; FR-006·007·009. 검사/전달: 공개 예시는 추적할 수 있고 실제 비밀/빌드/저장 자료는 추적되지 않는지 합성 파일로 확인한다. 앱별 React 조합을 공통 설정에서 강제하지 않는다.
 
-- [x] T034 [SHARED] 사용자 요청에 따라 서버를 `apps/server`·`@holdlog/server`로 변경하고 각 workspace의 `tsconfig.json`·lint/typecheck 명령, 환경 확인용 `checks/environment.ts`, 루트 `scripts/check-tooling.mjs`·`scripts/test/tooling.test.mjs`를 준비한다. 선행 T003; FR-001·002·006·007·008·009. 검사: manifest/lockfile 일치와 불일치 거절, 임시 파일 정리의 기존 파일 보존, 관리자 Node 설정과 브라우저 타입 분리, Node/브라우저/React Native 환경·Hooks·타입 기반 lint, 브라우저 서버 전역 거절, 필수 명령 누락·실패 종료 전파를 검증한다. 루트 `npm run check`는 현재 코드와 설정 검사를 수행하며 서비스 빌드·DB·기기 검사를 대신하지 않는다. #2의 보완 범위이며 T025·T026의 서비스 전체 검사 연결은 미완료로 유지한다.
+- [x] T034 [SHARED] 사용자 요청에 따라 서버를 `apps/server`·`@holdlog/server`로 변경하고 각 workspace의 `tsconfig.json`·lint/typecheck 명령, 환경 확인용 `checks/environment.ts`, 루트 `scripts/check-tooling.mjs`·`scripts/test/tooling.test.mjs`를 준비한다. 선행 T003; FR-001·002·006·007·008·009. 검사: manifest/lockfile 일치와 불일치 거절, 임시 파일 정리의 기존 파일 보존, 관리자 Node 설정과 브라우저 타입 분리, Node/브라우저/React Native 환경·Hooks·타입 기반 lint, 브라우저 서버 전역 거절, 필수 명령 누락·실패 종료 전파를 검증한다. T034 당시 루트 `npm run check`는 코드와 설정 검사만 수행했다. 현재는 T025·T026에서 웹/API 빌드를 포함하며 실제 DB·기기 검사는 별도로 실행한다. #2의 보완 범위이며 이후 T025·T026에서 서비스 전체 검사 연결을 완료했다.
 
 ## Phase 2: 공통 계약 소비 기반
 
@@ -88,7 +88,7 @@ T014·T021의 모바일 기반·단독 검사와 T015의 iOS/Android 전용 앱 
 ## Phase 6: 공통 마무리
 
 - [x] T030 [INTEGRATION] `docs/development.md`, `specs/001-development-foundation/quickstart.md`, `docs/setup-checklist.md`에 실제 설치/실행/검사 명령과 성공 조건·필수 설정 이름·문제 해결 절차를 반영한다. 선행 T026·T028·T029; FR-002·006·008·009·SC-004–006. 검사/전달: 실행 확인한 명령만 현재 안내에 추가하고 범위 밖 기기·서버 확인은 후속 범위로 표시한다. 문서 링크/화면 번호·`git diff --check`를 확인한다.
-- [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T030; FR-001–009·SC-001–006. 검사/전달: 확인한 결과와 누락 증거·보완 작업을 상위 #1에 전달한다. 001 로컬 범위의 필수 검사 미수행은 누락으로 남긴다. 실제 휴대폰 검사·물리 서버 배포는 범위 밖으로 구분한다. 이 검증 작업 완료만으로001 전체 완료를 표시하지 않으며, 전체 완료는 상위 #1에서 T033 전달을 포함한 현재 로컬 범위의 모든 필수 작업의 완료 증거를 모아 판단한다.
+- [x] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T030; FR-001–009·SC-001–006. 검사/전달: 확인한 결과와 누락 증거·보완 작업을 상위 #1에 전달한다. 001 로컬 범위의 필수 검사 미수행은 누락으로 남긴다. 실제 휴대폰 검사·물리 서버 배포는 범위 밖으로 구분한다. 이 검증 작업 완료만으로001 전체 완료를 표시하지 않으며, 전체 완료는 상위 #1에서 T033 전달을 포함한 현재 로컬 범위의 모든 필수 작업의 완료 증거를 모아 판단한다.
 - [ ] T033 [SHARED] `packages/contracts/README.md`와 `specs/002-shared-contracts/quickstart.md`에 기반 도구/소비자 검사 결과와 후속003/004/006의 전달 링크를 갱신한다. `specs/development-roles.md`에는 검사 결과 원본 링크만 연결한다. 선행 T024·T030; FR-001·005·008·009. 검사/전달: 제품 계약 필드를 복사하지 않고 검증된 버전·소비 범위·미검증 항목만 연결한다.001 기반 완료를002 전체 합의나 제품 기능 완료로 바꾸지 않는다.
 
 ## 선행 관계와 진행 순서

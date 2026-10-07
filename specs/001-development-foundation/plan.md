@@ -6,7 +6,7 @@
 
 모바일·관리자 웹·API·개발 DB·작업 처리기의 실행 기반을 하나의 저장소에 준비한다. 각 소비자는 [002 계약](../002-shared-contracts/contracts/README.md)의 원본에서 생성한 자료형·검사 함수를 사용한다. 개발 연결 확인은 테스트 진입점으로 수행하고 새 제품 화면을 추가하지 않는다.
 
-현재는 설계·작업 목록 작성 및 일관성 분석을 마쳤다. T001–T003의 workspace·공통 설정·lockfile을 준비하고 설치·설정 검사를 수행했다. [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)을 참고한다. T004–T008의 계약 생성·검사 도구와 소비 타입 검사를 구현했다. [계약 검사 결과](quickstart.md#계약-생성과-소비-검사-결과)를 참고한다. T009–T012·T018–T019의 NestJS API·SQL 변경 실행기·개발/시험 DB·합성 worker와 서버 단독 검사를 구현했다. [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)을 참고한다. T013·T020의 관리자 웹 실행·빌드·개발 연결 도구와 합성 HTTP 서버를 사용하는 단독 검사를 완료했다. [웹 기반 검증](../../docs/history/development/001-admin-foundation-verification.md)을 참고한다. 모바일 T014·T015·T021의 실행·개발 연결 기반과 iOS/Android 전용 앱 단독 검사를 확인했다. [로컬 검증](../../docs/history/development/001-foundation-verification.md)을 참고한다. 실제 브라우저/API 연동은 남아 있다. 선택 근거는 [research.md](research.md), 개발 자료는 [data-model.md](data-model.md), 개발 인터페이스는 [contracts/README.md](contracts/README.md), 검사 절차는 [quickstart.md](quickstart.md), 역할별 상세 순서와 선행 조건은 [tasks.md](tasks.md)를 따른다.
+현재는 설계·작업 목록 작성 및 일관성 분석을 마쳤다. T001–T003의 workspace·공통 설정·lockfile을 준비하고 설치·설정 검사를 수행했다. [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)을 참고한다. T004–T008의 계약 생성·검사 도구와 소비 타입 검사를 구현했다. [계약 검사 결과](quickstart.md#계약-생성과-소비-검사-결과)를 참고한다. T009–T012·T018–T019의 NestJS API·SQL 변경 실행기·개발/시험 DB·합성 worker와 서버 단독 검사를 구현했다. [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)을 참고한다. T013·T020의 관리자 웹 실행·빌드·개발 연결 도구와 합성 HTTP 서버를 사용하는 단독 검사를 완료했다. [웹 기반 검증](../../docs/history/development/001-admin-foundation-verification.md)을 참고한다. 모바일 T014·T015·T021의 실행·개발 연결 기반과 iOS/Android 전용 앱 단독 검사를 확인했다. [로컬 검증](../../docs/history/development/001-foundation-verification.md)을 참고한다. 실제 브라우저·가상 기기/API 연동과 독립 폴더 재현은 #10·#11에서 확인했다. 선택 근거는 [research.md](research.md), 개발 자료는 [data-model.md](data-model.md), 개발 인터페이스는 [contracts/README.md](contracts/README.md), 검사 절차는 [quickstart.md](quickstart.md), 역할별 상세 순서와 선행 조건은 [tasks.md](tasks.md)를 따른다.
 
 ## Technical Context
 
@@ -34,7 +34,7 @@
 
 ## Project Structure
 
-아래 실행 구조 중 workspace manifest·루트 설정·lockfile은 T001–T003에서 준비했다. 계약 생성 도구·생성물은 T004–T008에서 준비했다. 서버 실행 코드·DB·worker·health 구성은 T009–T012·T018–T019에서 구현·단독 검사를 완료했다. 관리자 웹 실행·개발 proxy·연결 검사는 T013·T020에서 구현했다. 모바일 실행·개발 연결 기반은 T014·T021에서 구현했고 T015의 iOS/Android 전용 앱 실행을 확인했다. 실제 연동은 남아 있다.
+아래 실행 구조 중 workspace manifest·루트 설정·lockfile은 T001–T003에서 준비했다. 계약 생성 도구·생성물은 T004–T008에서 준비했다. 서버 실행 코드·DB·worker·health 구성은 T009–T012·T018–T019에서 구현·단독 검사를 완료했다. 관리자 웹 실행·개발 proxy·연결 검사는 T013·T020에서 구현했다. 모바일 실행·개발 연결 기반은 T014·T021에서 구현했고 T015의 iOS/Android 전용 앱 실행을 확인했다. 실제 로컬 연동·재현 결과는 [검증 기록](../../docs/history/development/001-foundation-verification.md)을 따른다.
 
 ```text
 specs/001-development-foundation/
@@ -63,7 +63,7 @@ package.json                 # workspace·공통 명령
 package-lock.json            # 같은 도구/의존성 설치 기준
 ```
 
-사용자 요청으로 서버 경로는 `apps/server`, 패키지는 `@holdlog/server`로 정했다. 앱별 TypeScript 환경과 타입 기반 ESLint·Hooks 규칙을 설정하고 `npm run check`로 manifest/lockfile 일치·lint·typecheck·도구 회귀 검사를 순서대로 실행한다. 관리자 브라우저 소스와 Node 설정/테스트는 별도 TypeScript 프로젝트로 검사한다. 테스트 probe는 고유 임시 폴더에서 생성·정리해 기존 파일을 보존한다. 현재는 환경 확인용 코드와 존재하는 소스가 대상이며 서비스 빌드/DB/기기 검사와 구분한다. 필수 명령 누락과 오류는 비정상 종료한다. T034는 #2 보완 범위이며 T026의 전체 서비스 명령 연결은 후속 작업이다.
+사용자 요청으로 서버 경로는 `apps/server`, 패키지는 `@holdlog/server`로 정했다. 앱별 TypeScript 환경과 타입 기반 ESLint·Hooks 규칙을 설정하고 `npm run check`로 manifest/lockfile 일치·lint·typecheck·도구 회귀 검사를 순서대로 실행한다. 관리자 브라우저 소스와 Node 설정/테스트는 별도 TypeScript 프로젝트로 검사한다. 테스트 probe는 고유 임시 폴더에서 생성·정리해 기존 파일을 보존한다. 루트 검사는 현재 workspace의 lint·typecheck·test·웹/API build를 수행하며 실제 DB·기기 검사는 별도로 실행한다. 필수 명령 누락과 오류는 비정상 종료한다. T034는 #2 보완 범위이며 T026의 전체 서비스 명령 연결은 #9에서 완료했다.
 
 계약 패키지는 모바일·브라우저에 서버 비밀값·NestJS·DB 모듈을 보내지 않는 진입점을 제공한다. 각 앱의 React 의존성을 따로 관리한다. UI 공통 부품은003 후속 범위다. SQL 변경 파일의 주 변경 담당은 해당 백엔드 작업자이며 공통 설정/계약은 작업별 한 명이 변경을 모은다.
 
