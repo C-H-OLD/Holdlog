@@ -1,6 +1,6 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: T001–T013·T018–T020·T034 구현·로컬 검사 완료, 나머지 16개 미실행
+**작성일**: 2026-10-06 · **상태**: T001–T014·T018–T021·T034 구현·로컬 검사 완료, 나머지 14개 미실행
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
@@ -50,12 +50,14 @@ T004–T008의 실행 증거·남은 조건은 [계약 검사 결과](quickstart
 - [x] T011 [US1] [BE] `infra/development/compose.yaml`, `infra/development/.env.example`, `apps/server/src/database/`, `apps/server/db/migrations/`에 개발/시험 DB·비공개 파일 볼륨·SQL 변경 실행기를 준비한다. 선행 T010; FR-003·007·SC-003. 검사/전달: PostgreSQL 이미지 tag/digest·영구 볼륨·개발/시험 구분, 변경 이력의 버전/checksum/시각과 “적용한 파일의 checksum 변경을 거절한다”를 확인한다. 제품 테이블·운영 연결·볼륨 삭제를 사용하지 않는다.
 - [x] T012 [US1] [BE] `apps/server/src/worker.ts`, `apps/server/src/jobs/`, `apps/server/test/jobs.integration.spec.ts`에 pg-boss 실행·종료·합성 작업 재개와 결과 표식을 준비한다. 선행 T011; FR-002·003·SC-003. 검사/전달: worker 작업 중 중지/재시작·재시도에서 동일 jobId 효과가 중복되지 않는지 실제 시험 DB로 확인한다. 내부 queue schema는 라이브러리에 맡기고 실제 영상/알림/삭제 처리기를 구현하지 않는다.
 - [x] T013 [P] [US1] [FE] `apps/admin/package.json`, `apps/admin/vite.config.ts`, `apps/admin/tsconfig.json`, `apps/admin/src/main.tsx`, `apps/admin/.env.example`에 React/Vite 실행·빌드 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: 개발 서버·웹 빌드·설정 오류를 확인하고 상대 API 경로를 사용한다. 제품 화면을 새로 설계하지 않으며 서버 비밀을 웹 변수에 넣지 않는다. 의존성/lock 변경은 공통 담당에게 전달한다.
-- [ ] T014 [P] [US1] [FE] `apps/mobile/package.json`, `apps/mobile/app.config.ts`, `apps/mobile/metro.config.js`, `apps/mobile/tsconfig.json`, `apps/mobile/App.tsx`, `apps/mobile/.env.example`에 Expo·전용 개발 빌드·계약 패키지 소비 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: SDK 지원 조합·타입·Metro 모듈 해석·설정 누락을 확인한다. 제품 화면/탐색과 로그인/지도/푸시 동작은 추가하지 않는다. 로컬 가상 기기는 개발용 앱 식별자로 준비하고 실제 배포 식별자·실기기 서명이 필요한 검사는 해당 후속 기능·배포 범위에서 계획한다. lock 변경은 공통 담당에게 전달한다.
+- [x] T014 [P] [US1] [FE] `apps/mobile/package.json`, `apps/mobile/app.config.ts`, `apps/mobile/metro.config.cjs`, `apps/mobile/tsconfig.json`, `apps/mobile/App.tsx`, `apps/mobile/.env.example`에 Expo·전용 개발 빌드·계약 패키지 소비 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: SDK 지원 조합·타입·Metro 모듈 해석·설정 누락을 확인한다. 제품 화면/탐색과 로그인/지도/푸시 동작은 추가하지 않는다. 로컬 가상 기기는 개발용 앱 식별자로 준비하고 실제 배포 식별자·실기기 서명이 필요한 검사는 해당 후속 기능·배포 범위에서 계획한다. lock 변경은 공통 담당에게 전달한다.
 - [ ] T015 [US1] [FE] `apps/mobile/app.config.ts`와 `docs/history/development/001-foundation-verification.md`에 로컬 Xcode/Android 도구·개발용 앱 식별자를 준비하고 iOS 시뮬레이터/Android 에뮬레이터용 전용 개발 빌드 설치/시작 결과를 기록한다. 선행 T014 및 로컬 플랫폼 빌드 도구; FR-002·008·SC-001·005. 검사/전달: OS/가상 기기/도구·실제 명령·결과를 남긴다. Metro 시작/Expo Go로 전용 개발 빌드를 대신하지 않고 가상 기기를 실기기로 표시하지 않는다. 휴대폰·스토어 계정·물리 서버 미정으로 이 작업을 막지 않는다.
 - [ ] T016 [P] [US1] [BE] `specs/001-development-foundation/contracts/admin-bootstrap.md`에 초기 관리자 비밀 입력·전달·Argon2id 해시·명시적 교체·재실행/실패 절차를 작성해004에 전달한다. 선행 T008; FR-002·007·008. 검사/전달: C02 원본에 맞고 기존 비밀번호를 조용히 덮어쓰지 않는 절차인지 확인한다. 실제 principal 저장·로그인·cookie/CSRF 구현/실행은004에 연결하며001 완료 조건으로 당겨오지 않는다.
 - [ ] T017 [US1] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 API/worker·개발 DB·웹·모바일의 실제 시작·설정 누락 실패와 DB 정상 재시작/자료 보존 결과를 합쳐 기록한다. 선행 T010–T016; FR-001–003·007–009·SC-001·003·005. 검사/전달: 같은 계약/도구 버전과 합성 자료를 사용하고 대상별 성공/실패/미수행을 분리한다. 로컬 플랫폼 도구 미준비 시 해당 실행만 미수행으로 남긴다. 실물 서버/휴대폰 미정은 로컬 실행의 차단 조건이 아니다.
 
 T009–T012·T018–T019의 서버 단독 실행·DB 재시작·worker 중단/재개 증거는 [서버 기반 검증 기록](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 브라우저·가상 기기의 실제 API 연동은 #10 범위다.
+
+T014·T021의 모바일 기반·단독 검사와 T015의 Android 전용 앱 실행 증거는 [로컬 검증 기록](../../docs/history/development/001-foundation-verification.md#모바일-기반--7--t014t015t021)에 있다. T015의 iOS 실행은 Xcode 첫 실행 준비 후 확인하며 아직 완료로 표시하지 않는다.
 
 ## Phase 4: US2 — 앱과 서버 연결 확인 (P1)
 
@@ -66,7 +68,7 @@ T009–T012·T018–T019의 서버 단독 실행·DB 재시작·worker 중단/�
 - [x] T018 [US2] [BE] `apps/server/test/health.e2e-spec.ts`에 live200·ready200/503·비밀/DB 오류 미노출·개발 경로의 운영 외부 노출 차단 검사를 먼저 작성하고 실패를 확인한다. 선행 T011; FR-004·007·SC-002. 검사/전달: [기반 연결 계약](contracts/README.md#개발-연결)의 정확한 상태/body를 기대값으로 사용하고 worker 성공을 API live 응답으로 판단하지 않는다.
 - [x] T019 [US2] [BE] `apps/server/src/health/`, `apps/server/src/app.module.ts`에 `/internal/health/live`와 `/internal/health/ready`를 구현하고 실제 DB 쿼리/오류 처리·개발 접근 제한을 연결한다. 선행 T018; FR-004·007·SC-002. 검사/전달: T018 통과, DB 중지503·복구200, 제품 `/api/v1` 계약에 추가하지 않는 개발 경로와 호출 방법을 전달한다.
 - [x] T020 [P] [US2] [FE] `apps/admin/src/development/connection-check.ts`, `apps/admin/test/connection-check.test.ts`, `apps/admin/vite.config.ts`에 테스트 호출 진입점과 개발 proxy를 준비한다. 선행 T013; FR-004·005·007·SC-002. 검사/전달: 응답/503/연결 불가 검사부터 작성하고 구현한다. health 응답은001 기반 계약, 제품 타입은002 생성물을 사용한다. 제품 화면 추가 없이 실행하며 관리자 인증의 로컬 HTTPS/Secure/CSRF는004 전달 조건으로 유지한다.
-- [ ] T021 [P] [US2] [FE] `apps/mobile/src/development/connection-check.ts`, `apps/mobile/test/connection-check.test.ts`에 개발 호출 진입점과 실제 개발 호스트 주소 처리를 준비한다. 선행 T014; FR-004·005·007·SC-002. 검사/전달: 성공/503/연결 불가와 설정 누락 검사부터 작성하고 구현한다. health 응답은001, 제품 타입/runtime 검사 함수는002 생성물을 소비한다. 앱 화면/버튼을 추가하지 않고 개발 테스트 실행 방법을 제공한다.
+- [x] T021 [P] [US2] [FE] `apps/mobile/src/development/connection-check.ts`, `apps/mobile/test/connection-check.test.ts`에 개발 호출 진입점과 실제 개발 호스트 주소 처리를 준비한다. 선행 T014; FR-004·005·007·SC-002. 검사/전달: 성공/503/연결 불가와 설정 누락 검사부터 작성하고 구현한다. health 응답은001, 제품 타입/runtime 검사 함수는002 생성물을 소비한다. 앱 화면/버튼을 추가하지 않고 개발 테스트 실행 방법을 제공한다.
 - [ ] T022 [US2] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 실제 브라우저와 개발 API의 연결200·DB 중지503·API/네트워크 연결 불가 결과를 기록한다. 선행 T019·T020; FR-004·008·SC-002·005. 검사/전달: proxy 주소/Origin·API/계약 버전과 각 결과를 남기고 실패를 빈 결과나 성공으로 취급하지 않는다.
 - [ ] T023 [US2] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 iOS 시뮬레이터/Android 에뮬레이터에서 로컬 API200·DB503·연결 불가와 standalone validator 실행 결과를 기록한다. 선행 T015·T019·T021; FR-004·005·008·SC-002·005. 검사/전달: 플랫폼별 개발 호스트 주소를 사용하고 mock과 실제 로컬 API 연결 결과를 구분한다. 가상 기기/로컬 네트워크 결과는 실기기/외부 서버 결과가 아니며 해당 후속 기능·운영 범위에서 필요한 별도 확인을 계획한다.
 - [ ] T024 [US2] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 FE/BE 생성 버전·원본 해시·공통 예제 소비 결과와 실제 연결 결과를 대조해 전달한다. 선행 T022·T023; FR-005·008·SC-002·005. 검사/전달: 프론트/백엔드 소비 확인을 분리하고 형식 통과·개발 health 연결을 제품 권한/DB 관계/실제 기능 완료로 취급하지 않는다. 해당 범위의 계약 확인만002에 전달한다.
