@@ -34,7 +34,7 @@
 
 ## Project Structure
 
-아래 실행 구조 중 workspace manifest·루트 설정·lockfile은 T001–T003에서 준비했다. 계약 생성 도구·생성물은 T004–T008에서 준비했다. 서비스 실행 코드·DB 구성은 후속 작업의 구현 예정 위치다.
+아래 실행 구조 중 workspace manifest·루트 설정·lockfile은 T001–T003에서 준비했다. 계약 생성 도구·생성물은 T004–T008에서 준비했다. 서버 실행 코드·DB·worker·health 구성은 T009–T012·T018–T019에서 구현·단독 검사를 완료했다. 모바일·관리자 웹 실행과 실제 연동은 후속 구현 위치다.
 
 ```text
 specs/001-development-foundation/

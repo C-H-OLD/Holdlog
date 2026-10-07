@@ -20,8 +20,10 @@ PostgreSQL17.11의 OCI index digest는 `sha256:ae69c452f483507a6b99fb654cf93aad7
 ## 검증 명령과 범위
 
 - `npm run build --workspace=@holdlog/server`, 서버 `lint`·`typecheck`, 설정 단독 `npm test --workspace=@holdlog/server`를 수행했다.
-- `TEST_DATABASE_URL`을 별도 로컬 시험 DB로 전달하고 `npm run test:foundation --workspace=@holdlog/server`의 설정3·migration1·health3·worker2, 총9개 검사를 수행했다. 시험 DB가 없으면 실패하며 미수행을 성공으로 건너뛰지 않는다.
+- `TEST_DATABASE_URL`을 별도 로컬 시험 DB로 전달하고 `npm run test:foundation --workspace=@holdlog/server`의 설정3·migration1·health3·worker2·시작 실패 정리1, 총10개 검사를 수행했다. 시험 DB가 없으면 실패하며 미수행을 성공으로 건너뛰지 않는다.
 - API/worker 진입점을 실행하고 `curl`과 같은 HTTP GET, Compose의 `stop db`·`up -d --wait db`, 실제 SQL 재조회로 컨테이너 중단과 영구 볼륨 자료 보존을 별도로 확인했다. 보조 검증 코드는 고유 로컬 임시 파일을 사용했으며 실제 명령 안내는 [개발 안내](../../development.md#서버dbworker-로컬-실행)에 있다.
 - 공통 `npm run check`, Python 계약·문서 검사와 `git diff --check` 결과는 PR 검증에도 연결한다. 서버 실행 검사가 루트 check에 자동 연결되는 작업은 #9 범위다.
 
 파일 볼륨은 구성·생성을 확인했으며 실제 업로드·조회·삭제 구현의 증거가 아니다. 제품 DB 테이블·로그인·미디어·푸시·실제 브라우저/가상 기기 연동은 미수행이다. 실제 휴대폰·물리 서버 검사는001 범위 밖이다. worker 효과 중복 방지는 기반 표식에 한정하며 후속 업무 효과는 같은 트랜잭션 또는 해당 계약의 재요청 처리로 구현해야 한다. 강제 종료 시험은 빠른 검증을 위해 짧은 queue 만료와 명시적 supervise를 사용하고, 일반 worker queue 만료는30초다.
+
+CodeRabbit 리뷰 후 worker 시작 실패 정리를 보완했다. queue 종료 오류와 pool 종료 오류의 네 가지 조합에서 pool 종료 시도와 원래 시작 오류 보존을 회귀 검사했다. plan/tasks의 중복된 진행 요약도 완료15개·남은18개로 맞췄다.

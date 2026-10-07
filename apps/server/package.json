@@ -22,7 +22,7 @@
     "dev:api": "npm run build && node --env-file=.env dist/src/main.js",
     "dev:worker": "npm run build && node --env-file=.env dist/src/worker.js",
     "db:migrate": "npm run build && node --env-file=.env dist/src/database/cli.js",
-    "test": "npm run build && node --test dist/test/config.spec.js",
+    "test": "npm run build && node --test dist/test/config.spec.js dist/test/worker.spec.js",
     "test:foundation": "npm run build && node --test --test-concurrency=1 dist/test/*.spec.js dist/test/*e2e-spec.js"
   },
   "devDependencies": {
