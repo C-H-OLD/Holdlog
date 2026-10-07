@@ -8,7 +8,7 @@
 
 **Input**: 승인한 Spec Kit·Living Spec 운영 방식으로 개발을 시작하기 위한 첫 범위를 정리한다.
 
-구조·도구·계약 소비·검증 설계는 [plan.md](plan.md)에 작성했다. 역할별 순서·검사·전달은 [tasks.md](tasks.md)에 작성했다. 공통 도구·workspace 설치 결과는 [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)에 남겼으며 서버·DB·worker 단독 실행 결과는 [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 앱·웹 실행과 실제 연동은 후속 작업이다.
+구조·도구·계약 소비·검증 설계는 [plan.md](plan.md)에 작성했다. 역할별 순서·검사·전달은 [tasks.md](tasks.md)에 작성했다. 공통 도구·workspace 설치 결과는 [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)에 남겼으며 서버·DB·worker 단독 실행 결과는 [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 관리자 웹과 iOS/Android 전용 앱의 단독 실행도 확인했다. [모바일 검증 기록](../../docs/history/development/001-foundation-verification.md)을 참고하며 실제 API 연동은 후속 작업이다.
 
 001의 완료 범위는 개발 컴퓨터의 서버·DB·worker·관리자 웹과 iOS 시뮬레이터·Android 에뮬레이터의 실행·연결·검사다. 실제 휴대폰 검사와 물리 서버 배포·접속은 완료 조건에 포함하지 않으며, 필요한 후속 기능·운영 범위에서 계획한다.
 
@@ -96,7 +96,7 @@
 
 ## Assumptions
 
-- T001–T003의 공통 설치·설정 검사를 완료했다. 사용자 요청으로 서버 이름과 앱별 lint/타입 검사 하네스를 보완한다. 후속 작업에서 모바일·관리자 웹·서버의 실행·연결·검사를 확인한다. 제품 화면과 기능의 구현은 이 스펙 범위에서 제외한다.
+- T001–T003의 공통 설치·설정 검사를 완료했다. 사용자 요청으로 서버 이름과 앱별 lint/타입 검사 하네스를 보완한다. 모바일·관리자 웹·서버의 단독 실행·검사를 확인했으며 후속 작업에서 실제 연결·연동을 확인한다. 제품 화면과 기능의 구현은 이 스펙 범위에서 제외한다.
 - 서비스 관리자 초기 계정 준비 절차는 이 범위의 백엔드 준비 작업이다. 관리자 인증 동작과 웹 소비 연동은 [004 계정·인증](../004-identity-profile/spec.md)이 담당하고 방법은 C02 설계에서 정한다. 준비 절차에 공개 관리자 가입이나 새 화면을 추가하지 않는다.
 - 개발 도구·기기·서버 사양은 [준비 체크리스트](../../docs/setup-checklist.md)에서 확인한다. 실제 기술 버전과 실행 방법은 구현 계획에서 정한다.
 - 로그인·지도·푸시·미디어·제품 화면·제품 데이터 관계의 구현은 후속 기능 범위다. 기반 준비 완료가 해당 기능 완료를 뜻하지 않는다.
