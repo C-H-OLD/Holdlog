@@ -11,7 +11,7 @@
 | 내용 | 한곳에서 관리할 원본 |
 |---|---|
 | 제품 목적과 기능 F01~F23 | [PRD](../docs/prd.md) |
-| 화면 동작 S01~S27·공통 상태·권한·공개·계산·D01~D08·B01~B05·T01~T80 | [기능 명세](../docs/functional-spec.md) |
+| 화면 동작 S01~S27·공통 상태·권한·공개·계산·D01~D08·B01~B05·T01~T85 | [기능 명세](../docs/functional-spec.md) |
 | 기록·참석·개인 연결·파일의 논리 관계와 삭제 영향 | [기록 관계](../docs/record-relationships.md) |
 | 운동 본체·표시줄·운영체제 알림 | [운동 명세](../docs/workout-recording-spec.md) |
 | 서비스 관리자 등록·수정·취소·공지 관리 | [관리자 명세](../docs/admin-spec.md) |
@@ -49,7 +49,7 @@
 | [014 회원 공개 기록·통계·상세](014-member-records/spec.md) | 06.11·02.11 | F20 | 범위 명세·품질 확인 / 설계·구현 전 |
 | [015 공동 변경 이력·수정 되돌리기](015-shared-history/spec.md) | 02.12 | F13~F14 | 범위 명세·품질 확인 / 설계·구현 전 |
 | [016 참여자 기준 암장 추천](016-gym-recommendations/spec.md) | 03.02 추천 영역 | F11 | 범위 명세·품질 확인 / 설계·구현 전 |
-| [017 일정 푸시·알림 설정](017-push-notifications/spec.md) | 05.05 | F18 | 범위 명세·품질 확인 / 설계·구현 전 |
+| [017 일정 푸시·알림 설정·수신 목록](017-push-notifications/spec.md) | 05.05·05.07 | F18 | 범위 명세·품질 확인 / 설계·구현 전 |
 | [018 운동 중 빠른 기록](018-workout-recording/spec.md) | 02.13·기록 영역 표시줄·OS 알림 | F07·F16 확장 | 확정 본체 명세·품질 확인 / 시작 진입 미정 |
 | [019 앱 시작 공지·관리자 공지 관리](019-announcements/spec.md) | 00.01·A04 | F22 | 명세·품질 확인 / 개선 시안 승인·구현 전 |
 | [020 모바일 오픈소스 안내](020-open-source-notices/spec.md) | 05.06 | F23 | 범위 명세·품질 확인 / 설계·구현 전 |
@@ -57,18 +57,18 @@
 
 ## 전체 화면 담당 연결
 
-최신 목록의 모바일41개·관리자 웹3개, 총44개 독립 화면을 각각 하나의 주 담당에 연결했다. 상태별 목록은 [원본 번호표](../docs/screen-numbering.md)를 사용한다.003은 모든 화면의 공통 부품을 지원한다. 보조 기능은 주 화면 담당이 조립하며 별도 화면을 복제하지 않는다.
+최신 목록의 모바일42개·관리자 웹3개, 총45개 독립 화면을 각각 하나의 주 담당에 연결했다. 상태별 목록은 [원본 번호표](../docs/screen-numbering.md)를 사용한다.003은 모든 화면의 공통 부품을 지원한다. 보조 기능은 주 화면 담당이 조립하며 별도 화면을 복제하지 않는다.
 
 | 화면 번호 | 주 담당 스펙 | 보조 기능·연동 |
 |---|---|---|
 | [00.01](../docs/screen-design.md#screen-00-01) | [019](019-announcements/spec.md) | — |
-| [01.01](../docs/screen-design.md#screen-01-01) | [008](008-schedules/spec.md) | 005 선택·미가입 진입 |
-| [01.02](../docs/screen-design.md#screen-01-02) | [008](008-schedules/spec.md) | 005 선택 |
+| [01.01](../docs/screen-design.md#screen-01-01) | [008](008-schedules/spec.md) | 005 선택·미가입 진입·017 알림 진입 |
+| [01.02](../docs/screen-design.md#screen-01-02) | [008](008-schedules/spec.md) | 005 선택·017 알림 진입 |
 | [01.03](../docs/screen-design.md#screen-01-03) | [008](008-schedules/spec.md) | — |
 | [01.04](../docs/screen-design.md#screen-01-04) | [008](008-schedules/spec.md) | — |
 | [01.05](../docs/screen-design.md#screen-01-05) | [008](008-schedules/spec.md) | — |
-| [02.01](../docs/screen-design.md#screen-02-01) | [012](012-record-browsing/spec.md) | 005 선택·018 운동 표시줄 |
-| [02.02](../docs/screen-design.md#screen-02-02) | [012](012-record-browsing/spec.md) | 005 선택·018 운동 표시줄 |
+| [02.01](../docs/screen-design.md#screen-02-01) | [012](012-record-browsing/spec.md) | 005 선택·018 운동 표시줄·017 알림 진입 |
+| [02.02](../docs/screen-design.md#screen-02-02) | [012](012-record-browsing/spec.md) | 005 선택·018 운동 표시줄·017 알림 진입 |
 | [02.03](../docs/screen-design.md#screen-02-03) | [012](012-record-browsing/spec.md) | — |
 | [02.04](../docs/screen-design.md#screen-02-04) | [009](009-personal-records/spec.md) | 010 연결·011 미디어 |
 | [02.05](../docs/screen-design.md#screen-02-05) | [009](009-personal-records/spec.md) | 010 연결·011 미디어 |
@@ -90,6 +90,7 @@
 | [05.04](../docs/screen-design.md#screen-05-04) | [011](011-media-library/spec.md) | — |
 | [05.05](../docs/screen-design.md#screen-05-05) | [017](017-push-notifications/spec.md) | — |
 | [05.06](../docs/screen-design.md#screen-05-06) | [020](020-open-source-notices/spec.md) | — |
+| [05.07](../docs/screen-design.md#screen-05-07) | [017](017-push-notifications/spec.md) | 003 공통 헤더·008/012 진입 |
 | [06.01](../docs/screen-design.md#screen-06-01) | [005](005-crew-membership/spec.md) | 021 탈퇴 |
 | [06.02](../docs/screen-design.md#screen-06-02) | [005](005-crew-membership/spec.md) | 014 회원 기록 진입 |
 | [06.03](../docs/screen-design.md#screen-06-03) | [005](005-crew-membership/spec.md) | — |
@@ -221,7 +222,7 @@ D/B 상세 내용은 복사하지 않고 주 적용 단위만 표시한다. 모�
 | B04 | 008·010·017 | [경계 정책](../docs/functional-spec.md#8-경계-상황의-확정-정책) |
 | B05 | 004·005·011·014·017·021 | 같은 원본8절 |
 
-아래는 기존 T01~T80의 **검사 연결**이다. 실행 결과는 아직 없다. 여러 기능이 표시된 경우 합친 뒤 함께 확인한다. 기대 결과는 [기능 명세9절](../docs/functional-spec.md#9-기능-완료-확인-시나리오)에서만 관리한다.
+아래는 기존 T01~T85의 **검사 연결**이다. 실행 결과는 아직 없다. 여러 기능이 표시된 경우 합친 뒤 함께 확인한다. 기대 결과는 [기능 명세9절](../docs/functional-spec.md#9-기능-완료-확인-시나리오)에서만 관리한다.
 
 | 기존 검증 | 연결 개발 단위 |
 |---|---|
@@ -305,6 +306,11 @@ D/B 상세 내용은 복사하지 않고 주 적용 단위만 표시한다. 모�
 | T78 | 005 |
 | T79 | 003·005·012 |
 | T80 | 003·005·012 |
+| T81 | 013 |
+| T82 | 003·008·012·017 |
+| T83 | 017 |
+| T84 | 017 |
+| T85 | 017 |
 
 운동은 [운동 완료 기준](../docs/workout-recording-spec.md#완료-확인-기준)→018, 관리자 등록·세팅은 [관리자 완료 기준](../docs/admin-spec.md#3-완료-확인-기준)→006, 공지의 S26·관리자 완료 기준→019, 오픈소스의 S27 검증→020에 연결한다. 공통 계약 자체는002 계약 합의 종료 조건을 따른다. 기존 T번호가 없는 기능에도 각 스펙의 FR·SC를 적용한다.
 

@@ -69,10 +69,10 @@
 
 | 요구사항 | 검사할 상황 | 기대 결과 원본·검증 항목 |
 |---|---|---|
-| FR-001 | 다섯 메뉴 이동·기존 경로 복귀·미가입/크루 선택 상태 | [S1.2](../../docs/functional-spec.md#12-하단-메뉴--확정) · [S19](../../docs/functional-spec.md#s19-크루-목록선택생성가입) · [T67](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T79](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T80](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) |
+| FR-001 | 다섯 메뉴 이동·기존 경로 복귀·미가입/크루 선택 상태·화면별 종 버튼 제한 | [S1.2](../../docs/functional-spec.md#12-하단-메뉴--확정) · [S19](../../docs/functional-spec.md#s19-크루-목록선택생성가입) · [T67](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T79](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T80](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [수신 목록 진입](../../docs/functional-spec.md#notification-inbox) · [T82](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) |
 | FR-002 | 달력 다중 항목·도장·단위·글자 확대와 공통 부품 재사용 | [S2.1](../../docs/functional-spec.md#21-상태와-입력) · [00 공통 기준](../../docs/screen-design.md#00-공통-기준) · [T35](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T36](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T37](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) |
 | FR-003 | 작성 중 나가기/계속 작성·실패 입력 유지·중복 저장·충돌 | [S2.1](../../docs/functional-spec.md#21-상태와-입력) |
-| FR-004 | 크루 전환·화면 복귀 시 유지/초기화·이전 권한 자료 회수 | [S19](../../docs/functional-spec.md#s19-크루-목록선택생성가입) · [T26](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T79](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T80](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) |
+| FR-004 | 크루 전환·화면 복귀 시 유지/초기화·이전 권한 자료 회수 | [S19](../../docs/functional-spec.md#s19-크루-목록선택생성가입) · [T26](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T79](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [T80](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) · [수신 목록 진입](../../docs/functional-spec.md#notification-inbox) · [T82](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) |
 
 ### Key Entities
 
