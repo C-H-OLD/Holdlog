@@ -12,7 +12,8 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "noEmit": true
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   },
   "include": [
     "src/**/*",

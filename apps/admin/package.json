@@ -18,6 +18,11 @@
   },
   "scripts": {
     "lint": "eslint . --max-warnings=0",
-    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json"
-  }
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
+    "test": "node --test test/*.test.ts"
+  },
+  "type": "module"
 }
