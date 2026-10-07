@@ -13,7 +13,7 @@
 - **Language/Version**: TypeScript, Node24 LTS(최소24.15), npm11 workspaces. Expo SDK57 계열과 SDK 지정 React Native/React 조합, NestJS11 계열. 공통 준비에서 Node24.21.0·npm11.19.0과 직접 의존성 exact 버전·루트 lockfile을 고정했다. 정확한 목록은 각 `package.json`·`package-lock.json`을 따른다.
 - **Primary Dependencies**: Expo 전용 개발 빌드, React/Vite 관리자 웹, NestJS, PostgreSQL17, pg-boss, `pg`와 SQL 변경 파일. 생성 도구는 openapi-typescript7.13.0·Ajv8.20.0/2020-12·ajv-formats3.0.1·json-schema-to-typescript16.0.0·Redocly CLI2.59.0·esbuild0.28.2로 고정했다.
 - **Storage**: 개발 전용 PostgreSQL 영구 볼륨·비공개 파일 볼륨. 업무 데이터 원본은 [002 모델](../002-shared-contracts/data-model.md). 기반은 DB 접속·변경 적용 이력·합성 queue 검사까지 준비한다.
-- **Testing**: TypeScript·ESLint·계약 규약/예제·API 기본 테스트·실제 개발 DB 검사·웹 빌드·Expo 호환/전용 개발 빌드·iOS 시뮬레이터·Android 에뮬레이터의 로컬 API 연결. 현재는 workspace 설치·공통 타입/lint 설정·계약 생성/예제/소비 검사 및 기존 Python 정적 검사를 확인했다. 전체 앱/서비스 검사는 후속 작업이다.
+- **Testing**: TypeScript·ESLint·계약 규약/예제·API 기본 테스트·실제 개발 DB 검사·웹 빌드·Expo 호환/전용 개발 빌드·iOS 시뮬레이터·Android 에뮬레이터의 로컬 API 연결. workspace 설치·타입/lint·계약 생성/예제/소비·Python 정적 검사·루트 회귀56개·웹/API 빌드·실제 시험 DB10개와 전용 앱 빌드/실행·실제 브라우저/가상 기기의 로컬 API 연결·독립 폴더 재현을 확인했다. 모바일 전체18개 예제 실행과 APK/IPA·네이티브 빌드 로그 표식 검사는 미수행이며, 제품 앱/서비스 기능·실기기·물리 서버 검사는 후속 범위다. 실제 증거와 한계는 [최종 대조](spec.md#최종-요구사항증거-대조--t032--14)를 따른다.
 - **Target Platform**: 로컬 iOS 시뮬레이터·Android 에뮬레이터·관리자 브라우저·개발 컴퓨터의 Docker Compose. 개발 컴퓨터는 macOS arm64. 물리 서버 사양과 테스트 휴대폰은 사용자가 미정으로 확인했다.
 - **Project Type**: npm workspace 하나, 모바일·웹·API·worker 실행 분리. worker는 같은 API 코드의 별도 진입점이며 업무 마이크로서비스를 추가하지 않는다.
 - **Performance Goals**: 근거 없는 응답시간·처리량 수치를 추가하지 않는다. 영상 초기 동시1·알림/삭제 처리기 분리는 [기술 원본](../../docs/technical-spec.md). 자원 제한·영상 성능은 사양 확인 및 후속011 검증에서 정한다.
