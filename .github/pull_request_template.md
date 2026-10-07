@@ -9,6 +9,7 @@
 - tasks.md 작업 ID: <!-- 없거나 해당 없으면 이유 -->
 - 담당 역할: FE / BE / SHARED / INTEGRATION
 - 공통 파일 변경 담당·다른 작업과의 겹침: <!-- 해당 없으면 없음 -->
+- 병합 대상·최신 대상 rebase·작업 커밋 squash: <!-- 기능 PR은 develop, 출시/hotfix는 main. 출시 develop 자체는 rebase/squash하지 않음 -->
 - 공통 계약 변경: <!-- 없음 또는 원본·버전·영향 소비자 -->
 
 ## 검증
