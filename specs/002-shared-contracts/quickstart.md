@@ -1,10 +1,10 @@
 # 계약 확인·개발자 전달
 
-작성일: 2026-10-06 · 상태: 설계/정적 검사 안내. API·DB·기기 실행 검증 전.
+작성일: 2026-10-06 · 갱신일: 2026-10-07 · 상태: 계약 설계·정적 검사와001 기반 도구/소비자 검증 전달.002 전체 계약 합의·제품 API/DB/기기 기능 검증은 미완료.
 
 ## 지금 실행할 수 있는 검사
 
-저장소 루트에서 Python3.11 이상으로 실행한다. 앱·서버·DB 설치는 필요 없다.
+아래 Python 정적 검사는 앱·서버·DB 설치 없이 저장소 루트에서 실행한다. 로컬 Python 실행 문제가 있으면 [개발 안내](../../docs/development.md#실행과-완료-확인)의 확인된 대체 명령을 따른다.
 
 ```sh
 python3 scripts/check-contracts.py
@@ -12,9 +12,32 @@ python3 scripts/check-docs.py
 git diff --check
 ```
 
-계약 검사는 로컬 참조·operationId·경로인자·인증 scheme·C01~C12 연결·44개 화면 route·합성 예제 형식·거절 예제를 확인한다. 예제 검사는 현재 예제에서 사용하는 JSON Schema 부분집합만 검사한다. **전체 OpenAPI/JSON Schema 규약 검증기는 아니다.** 후속001에서 생성 도구/표준 검증기 버전을 고정하고 전체 규약·생성 DTO 타입 검사를 추가한다. 문서 검사는 링크·화면 번호 등의 일치만 확인한다.
+계약 검사는 로컬 참조·operationId·경로인자·인증 scheme·C01~C12 연결·44개 화면 route·합성 예제 형식·거절 예제를 확인한다. 예제 검사는 현재 예제에서 사용하는 JSON Schema 부분집합만 검사한다. **전체 OpenAPI/JSON Schema 규약 검증기는 아니다.** 001에서 생성 도구/표준 검증기 버전을 고정하고 OpenAPI 규약·생성 타입·FE/BE 소비자 검사를 추가했다. 아래 npm 검사는 Python 부분집합 검사와 별도로 실행한다. 문서 검사는 링크·화면 번호 등의 일치만 확인한다.
 
-현재 실행할 앱·API URL이 없으므로 curl·앱 실행 명령을 작동하는 것처럼 제시하지 않는다. 후속 기능이 구현되면 실제 설치·실행 명령은 [개발 안내](../../docs/development.md)에 추가한다.
+Node24.21.0·npm11.19.0을 준비한 뒤 저장소 루트에서 실행한다. 생성물은 수기로 수정하지 않는다.
+
+```sh
+npm ci
+npm run contracts:check
+# 계약 원본 또는 생성 도구 변경 후
+npm run contracts:generate
+npm run check
+```
+
+실제 로컬 앱·웹·API/worker·DB의 설치/실행·공개 설정 이름·실패 복구는 [개발 안내](../../docs/development.md)를 따른다. 루트 check는 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행을 포함하지 않는다. 시험 DB 검사는 로컬 TEST_DATABASE_URL을 준비해 `npm run test:foundation`으로 별도 실행한다.
+
+## 001 기반에서 확인한 범위
+
+같은 생성 계약1.0.0·Node24.21.0·npm11.19.0을 사용했다. 원본 SHA-256·생성 도구 정확한 버전·입력/출력 목록은 [manifest](../../packages/contracts/generated/manifest.json), 실행별 대조는 [T024 공통 계약·예제 소비 기록](../../docs/history/development/001-foundation-verification.md#공통-계약예제-소비-대조)을 따른다.
+
+- Node/BE 공통 검사: 공통 예제18개 수락·mustReject3개 거절·HTTP 구조 연결13개, 서버 타입 검사/빌드 확인.
+- 실제 Chrome: 같은 generated fixtures의 HTTP13개·runtime5개 수락·mustReject3개 거절.
+- 실제 iOS/Android Hermes: 타입 지정 HTTP AdminSession·runtime ClimbCount의 대표 합성 입력2개 검사 true. 모바일 전체18개 예제 실행은 미수행.
+- [실제 로컬 연결](../../docs/history/development/001-foundation-verification.md#실제-연결-결과): 웹·두 가상 기기에서 health200·DB503·API 중단 실패·복구200 확인. 제품 API 응답 검사는 미수행.
+
+[T030 별도 폴더 재현 기록](../../docs/history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)은 npm ci·차이 없는 계약 재생성·루트 check 회귀56개·실제 시험 DB 검사10개와 설정 실패/복구·합성 비밀 표식의 출력 검사를 확인했다. 모바일 export의 설정 로드 순서를 보완해 양쪽 번들 생성도 확인했다. 네이티브 바이너리 재빌드·실제 휴대폰 검사는 이 재현 작업에서 수행하지 않았다.
+
+이 증거는001 기반과 해당 계약 소비 범위의 전달이다.002 전체 합의나 제품 권한·업무 DB 트랜잭션·날짜 의미·파일 bytes·네이티브 기능의 완료를 뜻하지 않는다. 외부 계정·서명·물리 서버·실제 기기의 준비 상태는 [준비 체크리스트](../../docs/setup-checklist.md)를 유지한다.001 전체 완료는 [최종 대조·전달 작업](../001-development-foundation/tasks.md#phase-6-공통-마무리)의 증거를 모아 상위 이슈에서 따로 판단한다.
 
 ## 같은 원본으로 단독 개발
 
@@ -28,13 +51,13 @@ Mock이 통과해도 실제 연동을 완료로 표시하지 않는다. 생성�
 
 ## 002 요구사항별 증거
 
-| 요구사항 | 이번 설계/정적 근거 | 후속 실행 확인 |
+| 요구사항 | 현재 설계/기반 근거 | 남은 제품 실행 확인 |
 |---|---|---|
-| FR-001 | OpenAPI·runtime·처리 의미의 원본 분리, C01~C12·operationId 참조 검사 | 프론트/백엔드 생성 소비자 타입 검사와 오류·재요청 검사 |
+| FR-001 | OpenAPI·runtime·처리 의미의 원본 분리, C01~C12·operationId 참조 검사, 위001의 FE/BE 생성 소비자 타입·예제 검사 | 실제 제품 API의 오류·재요청 검사 |
 | FR-002 | 논리 모델의 식별·소유·변경 집합, API owner/public 분리 | 실제 DB 제약·사용자/크루/admin 권한 검사 |
 | FR-003 | TX/잠금/receipt/outbox·연결/삭제 명령, Error·거절 예제 | [기존 T06/T42/T47/T57](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) 동시 실행·장애 주입 |
 | FR-004 | 시간대·기간·null/0·정렬/cursor·calendar complete, 0/미입력 예제 | [T12/T56/T65/T66/T72](../../docs/functional-spec.md#9-기능-완료-확인-시나리오) 실제 query·집계 비교 |
-| FR-005 | 양쪽이 쓰는 합성 HTTP/runtime·거절 예제 | 같은 예제로 mock·서버·실제 연동 결과를 각각 기록 |
+| FR-005 | 양쪽이 쓰는 합성 HTTP/runtime·거절 예제와 위001의 소비 환경별 결과 | 제품 mock·실제 서버/기기 연동을 같은 예제로 검사하고 범위를 각각 기록 |
 | FR-006 | 시작 UI미정·공지승인·기록탭만 표시/겹침허용·외부 준비 분리 | 확정 본체 실기기 검사, 시작UI는 결정 후 별도 확인 |
 
 모든 제품 기능의 FR/T 기대 결과 연결은 [스펙 목록](../README.md#기존-요구사항과-검증-연결)과 각 기능 스펙의 검증 표를 따른다. 기대 규칙을 예제 안내에 다시 쓰지 않는다.
@@ -54,4 +77,16 @@ Mock이 통과해도 실제 연동을 완료로 표시하지 않는다. 생성�
 
 - 데이터 모델·API 범위·인증/업로드의 서브에이전트 검토 지적을 반영했다.
 - 미입력 집합 상태, 익명 참석 유지, 이미지 초안, 설정 집합 버전, owner identity, 달력필터, no-crew 개인접근, 파일권한 표시, route 인자, 재연결 사건, 토큰저장·HEAD오류·작업사건의 연결을 보완했다.
-- 정적 검사 통과와 서비스 실행 통과는 구분한다. 실제 담당자별 생성소비자 확인·API/DB/기기 실행은 아직 없다.
+- 정적 검사·001 기반 실행·제품 기능 실행은 구분한다. 생성소비자·개발 health·합성 DB/worker의 실제 결과는 위001 기록을 따르며 제품 API/DB/기기 기능 검증은 후속 범위다.
+
+## 후속003/004/006 전달
+
+세 기능 모두 범위 명세·품질 확인 상태이며 상세 설계·구현·실행 검증 전이다. 아래 원본에서 필요한 계획·작업을 작성하고 사용 계약의 합의 범위와 [선행 관계](../README.md#선행-관계)를 확인한다. 로컬 기반 통과가 제품 기능 착수에 필요한 계약 합의를 자동 확정하지 않는다.
+
+| 전달 대상 | 사용할 기반·원본 | 후속에서 확인할 결과 |
+|---|---|---|
+| [003 앱 탐색·공통 화면](../003-app-shell/spec.md) | [모바일 실행 안내](../../docs/development.md#모바일-단독-실행)·생성 HTTP/runtime 진입점·[현재 시안](../../docs/screens.md) | 기존 탐색·공통 UI·입력 유지·실패 표시와 시안 적용. 실제 화면·기기 기능 검증 |
+| [004 계정·인증](../004-identity-profile/spec.md) | [초기 관리자 준비 절차](../001-development-foundation/contracts/admin-bootstrap.md)·[관리자 웹 실행 안내](../../docs/development.md#관리자-웹-단독-실행)·[개발 연결의 인증 전달 조건](../001-development-foundation/contracts/README.md#개발-연결) | 실제 관리자 계정 생성·principal/session 저장·로그인/만료/회수·권한 거절. 로컬 HTTPS·Secure cookie·Origin/CSRF와 네이티브 로그인 연동 검증 |
+| [006 운영 자료](../006-gym-catalog-admin/spec.md) | [관리자 명세](../../docs/admin-spec.md)·[DB 실행 안내](../../docs/development.md#서버dbworker-로컬-실행)·[초기 자료 준비 상태](../../docs/setup-checklist.md) |004 인증과 연결한 운영 자료 권한·저장·실제 초기 암장/벽/세팅 데이터 등록·날짜 의미·모바일 반영. 합성 기반 자료로 초기 데이터 완료를 표시하지 않음 |
+
+권한·트랜잭션·날짜·파일 bytes·네이티브 기능의 기대 결과는 각 기능 스펙과 [실제 연동 경계](#실제-연동에서-확인할-경계)를 따른다. 실행하지 않은 외부 서비스·서명·실제 기기·물리 서버 확인은 필요한 후속 기능·운영 범위에 남긴다.
