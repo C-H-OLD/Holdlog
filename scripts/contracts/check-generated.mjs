@@ -3,6 +3,13 @@ import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { generate, provenance } from './generate.mjs';
+/**
+ * Compare committed outputs with a fresh temporary generation, without repairing them.
+ * @param {string} [root] - Repository root; defaults to the current working directory.
+ * @returns {Promise<number>} Number of generated files when metadata, file lists and bytes match.
+ * @throws {Error} If metadata/outputs are missing, invalid or stale, or temporary generation fails.
+ * Creates and removes its own temporary directory; existing generated files remain untouched on success or failure.
+ */
 export async function checkGenerated(root = process.cwd()) {
   const actual = resolve(root, 'packages/contracts/generated');
   let manifest;

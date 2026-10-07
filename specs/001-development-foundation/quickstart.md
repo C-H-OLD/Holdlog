@@ -55,6 +55,7 @@ git diff --check
 - HTTP109개 operation·107개 schema와 runtime22개 `$defs`를 처리한다. Redocly OpenAPI3.1 규약 검사 통과; 기존 미사용 component3개(VersionInput·AssetDraftInput·CatalogDetail)의 경고가 남는다. 업무 원본을 삭제하거나 경고를 숨기지 않았다.
 - 정상 예제18개·거절 예제3개, HTTP 예제13개의 operation/schema 연결을 검사했다. FE의 HTTP/기기 자료·BE의 HTTP/job/storage 타입은 package exports로 소비한다. 잘못된 필수 필드·타입·열거값은 기대 타입 오류로 확인한다.
 - 동일 입력 재생성 일치, 원본/도구 변경 후 미생성·생성 파일 누락/추가/변조의 실패를 고유 시험 사본에서 확인한다. manifest에는 입력 SHA-256·계약/도구 버전·출력 목록을 기록하고 시각·절대 경로를 넣지 않는다.
+- 공개 함수 주석 보완: TypeScript AST로 수기 소스의 공개 함수17개 모두 JSDoc이 있음을 확인했다(17/17, 100%). 생성 validator 선언154개 모두 설명을 포함하며 fixture/HTTP 입력 함수의 주석도 생성 템플릿에서 관리한다. 내부 참조·직렬화·생성 helper에도 역할과 실패 조건을 설명했다.
 - Node 전역·외부 import·문자열 동적 컴파일이 없는 제한된 VM에서 실제 클라이언트 생성물 import와 값 검사·HTTP parameter 해석·fixture 호출을 확인했다. Node VM 모듈의 실험 기능 경고는 테스트 환경에만 해당한다. 실제 브라우저 빌드·Metro·Hermes·기기 실행은 T013/T014와 후속 연동에서 확인한다.
 - Python 정적 검사와 문서 검사는 `/usr/bin/python3`로 수행한다. 실제 권한·status·DB 트랜잭션·비JSON bytes·서비스/실기기 연동은 미수행이다.
 

@@ -11,13 +11,13 @@
     "packages/contracts/package.json": "a6112db2868fe5d6ca2fdd74fde21a3daa0900b357c4cb8e3b908d28d43a1d47",
     "packages/contracts/runtime.schema.json": "834b06ccb97fd3747c2c434608f8bb493bfd091bda099c0a17cc72a0fd0fd925",
     "redocly.yaml": "c0a7337c685a5d428cf8c3c644aaeaaa6cce661bc637575e53931a8c10f291ab",
-    "scripts/contracts/check-examples.mjs": "ed10a22ffc713a7521c66ffc069b6e6dda5f117314ebc048c37e11c0aee2cf2c",
-    "scripts/contracts/check-generated.mjs": "b2e69094ea541e091b2e2940e606921948cda0792c997fec3a0711deda50b035",
+    "scripts/contracts/check-examples.mjs": "6115e997d66c8153f796cb6bf4564fba8d5793e35ae8159fc684e41a62050700",
+    "scripts/contracts/check-generated.mjs": "220e3904fa5a4e9ffb6ad6ed1a1b43b2fe07d39a193fe123e5e9a00996ab5dbd",
     "scripts/contracts/check.mjs": "32fc9ce6103c51dfa2f290be8ebb8067493e69352f27a86cedfae2842edd0770",
-    "scripts/contracts/formats.mjs": "af06afa0052b1323765b60efb1e7f3f998ca3275ade97ea65ceffefde6418f4b",
-    "scripts/contracts/generate.mjs": "509a27dd3ee016ea3bf5cdb19a3f3cb109c49ff7dcddb1d7538caa543fb72b4f",
-    "scripts/contracts/http-input.mjs": "2e0be588d5e60ad998710f6d1557660fe837484cd9599b3fd6a357a945bcde45",
-    "scripts/contracts/schema-registry.mjs": "1fdaad8039d937960ba0351f4c25d5cac88b65682b36fcb0c5c886cf42d7239d"
+    "scripts/contracts/formats.mjs": "69b4763e9b3e8e024f5344ba0ed758437fcdc38d5d254dc031791b9beb20c2a1",
+    "scripts/contracts/generate.mjs": "5f5e850918f9a948f385dc0088a06a256d4eff3d13c18f16d6330dfe79358300",
+    "scripts/contracts/http-input.mjs": "7e250f5cc6259ddfeb67ec7d9dc0e19ec99d14bceecbdb07eec8fe650666d5af",
+    "scripts/contracts/schema-registry.mjs": "93bb6a6ac23b832d8a8be5d13dee72d13af1c32ab53405658a2467b06d3d497c"
   },
   "tools": {
     "openapi-typescript": "7.13.0",
