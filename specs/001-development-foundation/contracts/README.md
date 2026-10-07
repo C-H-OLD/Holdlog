@@ -1,6 +1,6 @@
 # 개발 기반 인터페이스
 
-작성일: 2026-10-06 · 상태: 설계. 아래는 기반 인터페이스다. npm 설치·lint/typecheck·계약 생성/검사는 구현했으며 서비스 시작·빌드·API는 후속 작업이다. 제품 필드는 [공통 계약 원본](../../../packages/contracts/README.md)을 따른다.
+작성일: 2026-10-06 · 상태: 설계. 아래는 기반 인터페이스다. npm 설치·lint/typecheck·계약 생성/검사와 서버 workspace의 API·worker 실행/빌드·개발 health를 구현했다. 서버 [실행 안내](../../../docs/development.md#서버dbworker-로컬-실행)와 [단독 검증](../../../docs/history/development/001-backend-foundation-verification.md)을 따른다. 루트 서비스 명령과 앱/웹 실행·실제 연동은 후속 작업이다. 제품 필드는 [공통 계약 원본](../../../packages/contracts/README.md)을 따른다.
 
 ## 명령 계약
 

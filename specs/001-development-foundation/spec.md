@@ -8,7 +8,7 @@
 
 **Input**: 승인한 Spec Kit·Living Spec 운영 방식으로 개발을 시작하기 위한 첫 범위를 정리한다.
 
-구조·도구·계약 소비·검증 설계는 [plan.md](plan.md)에 작성했다. 역할별 순서·검사·전달은 [tasks.md](tasks.md)에 작성했다. 공통 도구·workspace 설치 결과는 [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)에 남겼으며 서비스 실행은 아직 없다.
+구조·도구·계약 소비·검증 설계는 [plan.md](plan.md)에 작성했다. 역할별 순서·검사·전달은 [tasks.md](tasks.md)에 작성했다. 공통 도구·workspace 설치 결과는 [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)에 남겼으며 서버·DB·worker 단독 실행 결과는 [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 앱·웹 실행과 실제 연동은 후속 작업이다.
 
 001의 완료 범위는 개발 컴퓨터의 서버·DB·worker·관리자 웹과 iOS 시뮬레이터·Android 에뮬레이터의 실행·연결·검사다. 실제 휴대폰 검사와 물리 서버 배포·접속은 완료 조건에 포함하지 않으며, 필요한 후속 기능·운영 범위에서 계획한다.
 
