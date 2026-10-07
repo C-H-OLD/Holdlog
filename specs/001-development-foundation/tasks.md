@@ -1,6 +1,6 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: T001–T015·T018–T021·T034 구현·로컬 검사 완료, 나머지 13개 미실행
+**작성일**: 2026-10-06 · **상태**: 작업별 구현·검사 여부는 각 작업 항목의 체크를 따른다. 실제 연동 검증 전.
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
@@ -173,7 +173,7 @@ flowchart TD
 
 현재 범위의 33개 작업을 다음 11개 작업 이슈로 나눠 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈로 연결한다.
 
-준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. T001–T015·T018–T021·T034의 구현·검사를 완료했으며 나머지 13개는 미완료다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 작업별 구현·검사 완료 여부는 각 작업 항목의 체크를 따른다. 완료 목록과 미완료 개수를 따로 복사하지 않는다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
 
 | 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈 |
 |---|---|---|---|---|
