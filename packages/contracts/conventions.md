@@ -72,4 +72,9 @@ Error 필드 정의는 OpenAPI 원본이다. code는 프론트의 기존 다이�
 
 화면·초대·푸시·운동·공지 숨김·오픈소스의 필드는 runtime.schema.json 원본을 쓴다. 운동 시작 A/B는 선택하지 않았다. workout finish는 시작 UI와 독립이며 profile/crew 변경으로 다른 계정에 draft를 넘기지 않는다. OS 강제종료와 프로세스 정리의 구분은 기기 구현검증이 필요하며 서버가 자동저장하지 않는다. 운동표시줄은 records 탭 context에서만 보이고 다른 UI 겹침은 허용한다. 하단메뉴 유무로 별도 위치를 만들지 않는다. 공지는 익명 GET으로 앱시작에 읽고, 기기 오늘숨김은 서버에 동기화하지 않는다. notices는 배포파일로 오프라인 제공하며 API가 필요 없다.
 
-breaking 변경은 `/api/v2`와 계약 major 갱신, additive 선택필드/응답은 minor, 의미 보정은 patch. 이미 배포된 소비자가 알 수 없는 응답필드를 무시할 수 있도록 생성 소비자에서 대응하고 서버 입력에는 unknown 거절을 유지한다. 열거값 추가는 exhaustive 소비자 영향 때문에 breaking으로 처리한다. [역할 분리 원본](../../specs/development-roles.md)에 따라 백엔드 초안·프론트 소비 검토·예제 확인을 모은다. 현재 서브에이전트 설계 검토는 실제 담당 개발자의 연동 승인/실행 검사를 대신하지 않는다.
+HTTP breaking 변경은 API major 경로와 계약 major를 함께 갱신하고, Runtime breaking 변경은 계약 major를 갱신하되 기존 HTTP 경로를 유지한다. additive 선택필드/응답은 minor, 의미 보정은 patch. 이미 배포된 소비자가 알 수 없는 응답필드를 무시할 수 있도록 생성 소비자에서 대응하고 서버 입력에는 unknown 거절을 유지한다. 열거값 추가는 exhaustive 소비자 영향 때문에 breaking으로 처리한다. [역할 분리 원본](../../specs/development-roles.md)에 따라 백엔드 초안·프론트 소비 검토·예제 확인을 모은다. 현재 서브에이전트 설계 검토는 실제 담당 개발자의 연동 승인/실행 검사를 대신하지 않는다.
+
+
+### 002 화면 경로 변경 — 계약2.0.0
+
+C12의 승인된05.07 알림 목록 화면을 Route.screenId에 추가했다. enum 추가는 exhaustive 소비자에 영향을 주므로 계약 major를 올린다. 기존 HTTP 입력·응답과 `/api/v1` 경로는 유지한다. 소비자는 같은 manifest의 생성물을 함께 갱신하고 화면 분기에서05.07을 처리한다. 이 변경은 수신 조회·읽음 API 확정이나 알림 화면 구현 완료를 뜻하지 않는다.

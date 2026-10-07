@@ -14,7 +14,7 @@
 
 ## 수신 알림 목록 추가에 따른 남은 계약
 
-2026-10-07 확정된 [수신 목록·읽음 규칙](../../../docs/functional-spec.md#notification-inbox)과 [05.07 화면](../../../docs/screen-design.md#screen-05-07)을 C09·C12 설계에 반영해야 한다. 현재 `packages/contracts/openapi.json`에는 알림 설정만 있고 수신 목록 조회·모두 읽음 API는 없다. Runtime에도05.07 목록 진입 계약이 없으므로 현재 생성 DTO·형식 검사 통과를 새 기능의 계약 완료로 취급하지 않는다.
+2026-10-07 확정된 [수신 목록·읽음 규칙](../../../docs/functional-spec.md#notification-inbox)과 [05.07 화면](../../../docs/screen-design.md#screen-05-07)을 C09·C12 설계에 반영해야 한다. 현재 `packages/contracts/openapi.json`에는 알림 설정만 있고 수신 목록 조회·모두 읽음 API는 없다. Runtime에는05.07 Route를 추가했지만 수신 조회·읽음 API는 아직 없다. 생성 DTO·형식 검사 통과를 새 기능의 계약 완료로 취급하지 않는다.
 
 - 본인 전체 크루 수신 목록과 크루명·종류·내용·시각·읽음 상태, 날짜 묶음에 필요한 시간대·정렬·페이지 계약을 정의한다.
 - 전체 수신 목록의 모두 읽음 범위·저장 성공/실패·재요청, 처리 중 새 수신 경계를 정하고 다른 계정의 조회·읽음 변경을 거절한다.
