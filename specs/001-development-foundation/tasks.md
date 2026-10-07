@@ -89,7 +89,7 @@ T014·T021의 모바일 기반·단독 검사와 T015의 iOS/Android 전용 앱 
 
 - [x] T030 [INTEGRATION] `docs/development.md`, `specs/001-development-foundation/quickstart.md`, `docs/setup-checklist.md`에 실제 설치/실행/검사 명령과 성공 조건·필수 설정 이름·문제 해결 절차를 반영한다. 선행 T026·T028·T029; FR-002·006·008·009·SC-004–006. 검사/전달: 실행 확인한 명령만 현재 안내에 추가하고 범위 밖 기기·서버 확인은 후속 범위로 표시한다. 문서 링크/화면 번호·`git diff --check`를 확인한다.
 - [ ] T032 [INTEGRATION] `specs/001-development-foundation/tasks.md`, `specs/001-development-foundation/spec.md`, `specs/README.md`에서 FR-001–009·SC-001–006과 실제 증거를 최종 대조한다. 선행 T017·T024·T027–T030; FR-001–009·SC-001–006. 검사/전달: 확인한 결과와 누락 증거·보완 작업을 상위 #1에 전달한다. 001 로컬 범위의 필수 검사 미수행은 누락으로 남긴다. 실제 휴대폰 검사·물리 서버 배포는 범위 밖으로 구분한다. 이 검증 작업 완료만으로001 전체 완료를 표시하지 않으며, 전체 완료는 상위 #1에서 T033 전달을 포함한 현재 로컬 범위의 모든 필수 작업의 완료 증거를 모아 판단한다.
-- [ ] T033 [SHARED] `packages/contracts/README.md`와 `specs/002-shared-contracts/quickstart.md`에 기반 도구/소비자 검사 결과와 후속003/004/006의 전달 링크를 갱신한다. `specs/development-roles.md`에는 검사 결과 원본 링크만 연결한다. 선행 T024·T030; FR-001·005·008·009. 검사/전달: 제품 계약 필드를 복사하지 않고 검증된 버전·소비 범위·미검증 항목만 연결한다.001 기반 완료를002 전체 합의나 제품 기능 완료로 바꾸지 않는다.
+- [x] T033 [SHARED] `packages/contracts/README.md`와 `specs/002-shared-contracts/quickstart.md`에 기반 도구/소비자 검사 결과와 후속003/004/006의 전달 링크를 갱신한다. `specs/development-roles.md`에는 검사 결과 원본 링크만 연결한다. 선행 T024·T030; FR-001·005·008·009. 검사/전달: 제품 계약 필드를 복사하지 않고 검증된 버전·소비 범위·미검증 항목만 연결한다.001 기반 완료를002 전체 합의나 제품 기능 완료로 바꾸지 않는다.
 
 ## 선행 관계와 진행 순서
 
