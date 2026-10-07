@@ -1,6 +1,6 @@
 # 화면·상태 번호표
 
-정리일: 2026-10-06
+정리일: 2026-10-07
 
 **섹션 → 화면 → 상태** 순서로 찾는다. 예: `02 기록 → 02.01 기록 달력 → 02.01.01 기본`. 번호 변경은 화면 내용이나 제작 범위를 추가하지 않는다.
 
@@ -8,7 +8,7 @@
 
 독립 화면의 이름·화면 설계·기본 Figma 링크는 [현재 화면 목록](./screens.md)에서 관리한다. 이 문서는 각 화면의 상태 번호와 Figma 노드를 관리한다.
 
-현재 모바일41개 독립 화면·88개 상태·41개 옆 명세, 관리자 웹3개 독립 화면·5개 상태·3개 옆 명세다. 가입 크루 없음은 일정의01.01.02 상태이며 별도 독립 화면이 아니다.
+현재 모바일42개 독립 화면·89개 상태·42개 옆 명세, 관리자 웹3개 독립 화면·5개 상태·3개 옆 명세다. 가입 크루 없음은 일정의01.01.02 상태이며 별도 독립 화면이 아니다.
 
 ## 현재 Figma에 있는 상태
 
@@ -81,6 +81,7 @@
 | 05.04.03 | 05.04.03 사진·영상 보기 / 파일 삭제 확인 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48027) |
 | 05.05.01 | 05.05.01 알림 설정 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47316) |
 | 05.06.01 | 05.06.01 오픈소스 안내 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34214) |
+| 05.07.01 | 05.07.01 알림 목록 / 기본 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=625-38695) |
 | 06.01.01 | 06.01.01 크루 정보 / 일반 회원 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=109-89) |
 | 06.01.02 | 06.01.02 크루 정보 / 관리자 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=475-33651) |
 | 06.01.03 | 06.01.03 크루 정보 / 탈퇴 확인 | [Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-48044) |

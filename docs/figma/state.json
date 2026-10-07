@@ -1,6 +1,6 @@
 {
   "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
-  "phase": "확정 상세 메뉴·날짜·시간 선택 담당 섹션 배치 완료 / 실제 앱 구현 전",
+  "phase": "통계 상단 수정·05.07 알림 목록 확정 내용 등록 / 실제 앱 구현 전",
   "pages": [
     {
       "id": "0:1",
@@ -1931,9 +1931,9 @@
       "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=471-30692",
       "size": [
         390,
-        2167
+        2095
       ],
-      "status": "사용자 검토 대기",
+      "status": "사용자 확정 내용 반영 / 실제 앱 구현 전",
       "specificationCardId": "493:45111",
       "canvasPosition": [
         60,
@@ -1950,7 +1950,7 @@
         390,
         844
       ],
-      "status": "사용자 검토 대기",
+      "status": "사용자 확정 내용 반영 / 실제 앱 구현 전",
       "specificationCardId": "493:45111",
       "canvasPosition": [
         510,
@@ -1967,7 +1967,7 @@
         390,
         844
       ],
-      "status": "사용자 검토 대기",
+      "status": "사용자 확정 내용 반영 / 실제 앱 구현 전",
       "specificationCardId": "493:45111",
       "canvasPosition": [
         960,
@@ -2126,6 +2126,23 @@
       "pageId": "6:3",
       "status": "사용자 확인 완료",
       "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34214"
+    },
+    {
+      "id": "625:38695",
+      "number": "05.07.01",
+      "name": "05.07.01 알림 목록 / 기본",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=625-38695",
+      "size": [
+        390,
+        844
+      ],
+      "status": "사용자 확정 내용 반영 / 화면·명세 노드 확인 / 실제 앱 구현 전",
+      "specificationCardId": "625:39385",
+      "canvasPosition": [
+        60,
+        6609
+      ]
     },
     {
       "id": "109:89",
