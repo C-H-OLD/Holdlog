@@ -5,7 +5,7 @@ import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { build, createServer } from 'vite';
+import { build, createServer, type ViteDevServer } from 'vite';
 import configuration from '../vite.config.ts';
 import { checkDevelopmentConnection } from '../src/development/connection-check.ts';
 
@@ -21,16 +21,17 @@ void test('real Vite serves React modules and proxies success503/network failure
     } else if (request.url === '/internal/health/live') response.end('{"status":"ok"}');
     else response.end(JSON.stringify({ path: request.url, origin: request.headers.origin, cookie: request.headers.cookie }));
   });
-  upstream.listen(0, '127.0.0.1'); await once(upstream, 'listening');
-  const address = upstream.address(); assert.ok(address && typeof address !== 'string');
   const previous = process.env.ADMIN_DEV_API_ORIGIN;
-  process.env.ADMIN_DEV_API_ORIGIN = 'http://127.0.0.1:' + address.port;
-  const config = configuration({ command: 'serve', mode: 'development', isPreview: false });
-  const vite = await createServer({ ...config, configFile: false, server: { ...config.server, port: 0, strictPort: false } });
   const errors: string[] = [];
   const original = console.error;
-  console.error = (...args: unknown[]) => { errors.push(args.map(String).join(' ')); };
+  let vite: ViteDevServer | undefined;
   try {
+    upstream.listen(0, '127.0.0.1'); await once(upstream, 'listening');
+    const address = upstream.address(); assert.ok(address && typeof address !== 'string');
+    process.env.ADMIN_DEV_API_ORIGIN = 'http://127.0.0.1:' + address.port;
+    const config = configuration({ command: 'serve', mode: 'development', isPreview: false });
+    vite = await createServer({ ...config, configFile: false, server: { ...config.server, port: 0, strictPort: false } });
+    console.error = (...args: unknown[]) => { errors.push(args.map(String).join(' ')); };
     await vite.listen();
     const origin = vite.resolvedUrls?.local[0]; assert.ok(origin);
     const fetcher: typeof fetch = (input, init) => fetch(new URL(input instanceof Request ? input.url : input, origin), init);
@@ -54,9 +55,12 @@ void test('real Vite serves React modules and proxies success503/network failure
     assert.ok(errors.every(line => !line.includes('synthetic-leak-marker')));
   } finally {
     console.error = original;
-    await vite.close();
-    if (upstream.listening) { const close = once(upstream, 'close'); upstream.close(); await close; }
-    if (previous === undefined) delete process.env.ADMIN_DEV_API_ORIGIN; else process.env.ADMIN_DEV_API_ORIGIN = previous;
+    // A rejected creation or shutdown must not leave an upstream handle or local environment behind.
+    try { await vite?.close(); }
+    finally {
+      try { if (upstream.listening) { const close = once(upstream, 'close'); upstream.close(); await close; } }
+      finally { if (previous === undefined) delete process.env.ADMIN_DEV_API_ORIGIN; else process.env.ADMIN_DEV_API_ORIGIN = previous; }
+    }
   }
 });
 
