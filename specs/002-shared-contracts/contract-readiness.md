@@ -41,7 +41,7 @@
 | C09 | 설정·푸시·수신 조회·단건/전체 읽음 계약2.1.0 | [#31](https://github.com/trycatch98/Holdlog/issues/31): 누르면 읽음·설정과 무관한 목록 저장을 확정하고 조회/실패/재요청/동시 수신 경계를 정의.017에서 실제 권한·저장·UI·푸시 검증 |
 | C12 | [#32](https://github.com/trycatch98/Holdlog/issues/32): 승인05.07 및 화면45개 집합 대조 준비 | 실제 화면 진입/복귀·네이티브 동작은003/017. 운동 시작 A/B는 계속 미정. 경로 추가가 UI 구현은 아님 |
 | FE/BE 추가 소비 | 기존001 예제/생성 소비 재사용 | [#33](https://github.com/trycatch98/Holdlog/issues/33)·[#34](https://github.com/trycatch98/Holdlog/issues/34)·[#35](https://github.com/trycatch98/Holdlog/issues/35): 새 공통 예제·생성물을 모바일/관리자/서버 checks에서 소비 |
-| 최종 전달 | FR별 작업 연결 및 원본 대조 | [#36](https://github.com/trycatch98/Holdlog/issues/36): 필수 검사/병합 후 기능별 착수 조건 전달.002 전체 완료 전 |
+| 최종 전달 | FR별 작업 연결 및 원본 대조 | [#36](https://github.com/trycatch98/Holdlog/issues/36): 계약 구현 PR #37/#38 병합 기준과 기능별 착수 조건 전달. 최종 이슈 완료 상태는 #36/#29 |
 
 미정 제품 동작은 [open-questions](../../docs/open-questions.md) 한곳에서 관리한다. 알림의 보존·탈퇴 공개 경계는 기존 즉시 권한 회수 정책을 따르며 새로운 보존 정책을 계약 형식으로 몰래 확정하지 않는다. 다른 계약의 기능별 계획은 해당 C번호의 대조 범위를 확인해 진행할 수 있다. 공통 파일은 SHARED 담당이 모으고 기능별 UI·서비스 구현은 [배정 기준](../development-roles.md#여러-개발자의-작업-배정)에 따라 분리한다.
 
@@ -55,10 +55,10 @@
 | FR-004 | T002·T006·T009 | UTC/IANA·기간·null/0·중복 제외 원본 연결. 서비스 계산 검사 후속 |
 | FR-005 | T002·T006·T007·T008·T009 |001 공통 소비 재사용. 새 예제·세 앱 typed/값 소비 확인 |
 | FR-006 | T001·T002·T003·T010 | 알림 제품 결정 반영, 운동 시작/외부 검사는 미정·후속으로 구분 |
-| SC-001~003 | T009·T010 | 계약 검사와 미수행 제품 검사를 분리해 기록한 뒤 판단. 아직 전체 통과 표시하지 않음 |
-| SC-004 | T002·T005·T010 | 계약 책임표 및 현재 화면 집합 대조. 최종 전달·병합 대기 |
+| SC-001~003 | T009·T010 | 002 계약 형식/예제/소비 검사 확인 및 미수행 제품 검사를 구분해 전달. 제품 실행 통과 선언 아님 |
+| SC-004 | T002·T005·T010 | 계약 책임표·현재45화면 집합 및 병합 기준을 전달 |
 
-모든 FR·SC에 작업이 있다. 미연결 작업은 없다. C09 제품 결정 대기는 해소했다. T003~T009의 계약/소비 검사 뒤 T010에서 병합된 기준을 전달한다. 요구사항 품질 체크16개 통과는 구현 완료와 별개다.
+모든 FR·SC에 작업이 있다. 미연결 작업은 없다. C09 제품 결정 대기는 해소했다. T003~T009의 계약/소비 검사와 T010의 병합 기준 전달을 수행했다. 요구사항 품질 체크16개 통과는 구현 완료와 별개다.
 
 ## HTTP operationId 대조 색인
 
@@ -107,3 +107,19 @@
 ### C12
 
 `resolveInvite`, `joinCrew`, `getCrewInvite`, `finishWorkout`, `appAnnouncements`, `adminAnnouncements`, `adminCreateAnnouncement`, `adminAnnouncement`, `adminEditAnnouncement`, `adminDeleteAnnouncement`, `readAnnouncementImage`, `myNotifications`, `markNotificationRead`, `readAllNotifications`.
+
+
+## 병합 기준과 다음 작업 전달
+
+[PR #37](https://github.com/trycatch98/Holdlog/pull/37)의 기반 대조/Route와 [PR #38](https://github.com/trycatch98/Holdlog/pull/38)의 수신/읽음·생성 소비가 develop에 병합됐다. 계약2.1.0은 [manifest](../../packages/contracts/generated/manifest.json)의 한 원본으로 맞춘다. 코드·문서 최종 전달 후 #36/#29에서 필수 작업/PR·미수행 범위를 확인해002 완료를 판단한다. 사용자 제품 결정·독립 에이전트·CodeRabbit 검토를 반영했으며 사람 담당 배정/실제 연동 승인과 구분한다.
+
+| 다음 작업 | 독립적으로 준비할 범위 | 실제 완료 확인의 선행 |
+|---|---|---|
+|003 공통 화면/탐색 | C01/C02/C03/C12의 공통 부품·Route 소비, 화면 주 담당의 조립 기준 |001 기반.004/005 연결과 실제 화면 적용은 후속 |
+|004 계정/프로필 |FE 입력/세션 소비와 BE 인증·보안 구현을 같은 계약 예제로 분할 |003·외부 제공자 설정,005/017/021 연동 |
+|006 운영 데이터 |BE 운영 자료/초기 데이터와 admin FE 폼을 C02/C04/C08 계약으로 분할 |004 관리자 인증,007/009/016 실제 데이터 연동 |
+|나머지003~021 |자기 C번호의 원본으로 상세plan/tasks·모의 소비·독립 영역 구현 준비 |[정확한 선행표](../README.md#선행-관계)와 기능별 FR/T의 실제 연동 검사 |
+
+공통 원본·DB migration·루트 설정 변경은 한 SHARED 담당이 모은다. 앱/서버/관리자 및 서로 다른 화면·기능 파일로 작업을 나누고, 공유 화면은 주 담당이 조립한다. 사람은 아직 지정하지 않았다. 역할·작업 범위·GitHub 선행 관계를 먼저 정하고 각 작업의 별도 브랜치/폴더와 SPECIFY_FEATURE_DIRECTORY·SPECIFY_FEATURE_NO_PERSIST=1을 사용한다. 공용 선택 파일과 새 스펙 번호는 동시에 수정하지 않는다. [배정 기준](../development-roles.md#여러-개발자의-작업-배정)을 따른다.
+
+017의 새 수신/읽음은 실제 설정 꺼짐·클릭/실패 복원·재진입·동시 새 수신/동일 키 재시도·현재 가입 회수·계정 주체·원자 저장·목표 진입·푸시 분리를 검사한다. 모든 기능의 계약 형식 통과가 제품 동작 완료는 아니다. 운동 시작A/B만 계속 미정이며 확정 운동 본체와 분리한다. 배포/물리 서버/실제 휴대폰·업무 API/DB 기능은 후속 범위다.
