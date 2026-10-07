@@ -1,12 +1,12 @@
 # 개발 기반 인터페이스
 
-작성일: 2026-10-06 · 상태: 설계. 아래는 기반 인터페이스다. npm 설치·lint/typecheck·계약 생성/검사와 서버 workspace의 API·worker 실행/빌드·개발 health를 구현했다. 서버 [실행 안내](../../../docs/development.md#서버dbworker-로컬-실행)와 [단독 검증](../../../docs/history/development/001-backend-foundation-verification.md)을 따른다. 관리자 웹 workspace의 실행·빌드·개발 proxy와 연결 검사 도구도 구현했다. [웹 실행 안내](../../../docs/development.md#관리자-웹-단독-실행)를 따른다. 모바일 실행·연결 도구도 구현했다. [모바일 실행 안내](../../../docs/development.md#모바일-단독-실행)와 [검증 기록](../../../docs/history/development/001-foundation-verification.md)을 따른다. iOS/Android 전용 앱 실행을 확인했다. 루트 서비스 명령·실제 브라우저/API 연동은 후속 작업이다. 제품 필드는 [공통 계약 원본](../../../packages/contracts/README.md)을 따른다.
+작성일: 2026-10-06 · 상태: 설계. 아래는 기반 인터페이스다. npm 설치·lint/typecheck·계약 생성/검사와 서버 workspace의 API·worker 실행/빌드·개발 health를 구현했다. 서버 [실행 안내](../../../docs/development.md#서버dbworker-로컬-실행)와 [단독 검증](../../../docs/history/development/001-backend-foundation-verification.md)을 따른다. 관리자 웹 workspace의 실행·빌드·개발 proxy와 연결 검사 도구도 구현했다. [웹 실행 안내](../../../docs/development.md#관리자-웹-단독-실행)를 따른다. 모바일 실행·연결 도구도 구현했다. [모바일 실행 안내](../../../docs/development.md#모바일-단독-실행)와 [검증 기록](../../../docs/history/development/001-foundation-verification.md)을 따른다. iOS/Android 전용 앱 실행을 확인했다. 루트 실행·검사 명령은 #9에서 연결했다. 실제 브라우저/API 연동과 전체 재현 검사는 후속 작업이다. 제품 필드는 [공통 계약 원본](../../../packages/contracts/README.md)을 따른다.
 
 ## 명령 계약
 
-루트 npm 명령을 공통 진입점으로 준비한다. 구현 후 실제 실행 결과를 확인하고 [개발 안내](../../../docs/development.md)에 검증된 명령을 적는다.
+루트 npm 명령을 `scripts/check-workspaces.mjs`로 연결했다. `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/실행기/앱 단독 검사·웹/API 빌드를 순서대로 실행한다. 각 명령의 필수 manifest와 script를 실행 전에 확인하고 첫 실패의 종료 코드를 전달한다. 기존 workspace 명령은 유지한다. 실제 실행 증거는 [공통 명령 검증](../../../docs/history/development/001-check-commands-verification.md)에 남기고 개발 안내의 전체 재현·정리는 #11에서 수행한다.
 
-| 예정 명령 | 결과 |
+| 명령 | 결과 |
 |---|---|
 | `npm ci` | lockfile과 같은 설치. lock/버전 불일치 시 실패 |
 | `npm run contracts:generate` | 타입·검사 함수·예제 index 생성 |
@@ -16,6 +16,8 @@
 | `npm run typecheck` / `lint` / `test` | 각 workspace 검사. 필요한 검사가 없으면 성공으로 건너뛰지 않음 |
 | `npm run build:admin` / `build:api` | 웹/API 빌드. 모바일은 플랫폼별 전용 개발 빌드 |
 | `npm run test:foundation` | 실제 시험 DB·API·합성 queue 검사와 미수행 외부 검사 구분 |
+
+`test:foundation`은 명시적 `TEST_DATABASE_URL`을 요구하며 기존 서버의 시험 DB·queue 검사를 호출한다. 기본 `check`·`test`는 이 DB 검사와 실제 브라우저/API 연동·모바일 네이티브 빌드/기기 검사를 수행하지 않았다고 출력한다. Python 문서/계약 정적 검사는 `python3 scripts/check-docs.py`·`python3 scripts/check-contracts.py`로 별도 실행한다.
 
 검사 실패는 비정상 종료하고 대상·원인을 알려준다. 누락된 설정의 값과 비밀은 출력하지 않는다.
 

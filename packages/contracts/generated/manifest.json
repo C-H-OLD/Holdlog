@@ -4,7 +4,7 @@
   "npm": "11.19.0",
   "inputs": {
     "package-lock.json": "87f9e57027c11afeb503cff77288069011381a38545ed3710d2e6e992125be64",
-    "package.json": "09d6e26f445e32d0326260d66a66ad83fcd77c94681fb23c6f622a7222a95748",
+    "package.json": "7d1a1b3e744f2585d91b6081f17927e7cb4c3f369569337147d5cf37bc1fa616",
     "packages/contracts/conventions.md": "6ec530c06bd77d52daaa64b23e3dd3686178cb6edf5bfabb96ad9b4beb2c7437",
     "packages/contracts/examples.json": "0138fc4cdf178a285dc462f30e18487c27f5df0006bc4a4d3adcbcd57bdd3730",
     "packages/contracts/openapi.json": "c79f369ecad8c6fbcc21670f48fe9848f8ab77f00d53fd53822dfce2394893e4",
