@@ -1,6 +1,6 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: T001–T015·T018–T021·T034 구현·로컬 검사 완료, 나머지 13개 미실행
+**작성일**: 2026-10-06 · **상태**: 작업별 구현·검사 여부는 각 작업 항목의 체크를 따른다. 실제 연동 검증 전.
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
@@ -52,7 +52,7 @@ T004–T008의 실행 증거·남은 조건은 [계약 검사 결과](quickstart
 - [x] T013 [P] [US1] [FE] `apps/admin/package.json`, `apps/admin/vite.config.ts`, `apps/admin/tsconfig.json`, `apps/admin/src/main.tsx`, `apps/admin/.env.example`에 React/Vite 실행·빌드 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: 개발 서버·웹 빌드·설정 오류를 확인하고 상대 API 경로를 사용한다. 제품 화면을 새로 설계하지 않으며 서버 비밀을 웹 변수에 넣지 않는다. 의존성/lock 변경은 공통 담당에게 전달한다.
 - [x] T014 [P] [US1] [FE] `apps/mobile/package.json`, `apps/mobile/app.config.ts`, `apps/mobile/metro.config.cjs`, `apps/mobile/tsconfig.json`, `apps/mobile/App.tsx`, `apps/mobile/.env.example`에 Expo·전용 개발 빌드·계약 패키지 소비 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: SDK 지원 조합·타입·Metro 모듈 해석·설정 누락을 확인한다. 제품 화면/탐색과 로그인/지도/푸시 동작은 추가하지 않는다. 로컬 가상 기기는 개발용 앱 식별자로 준비하고 실제 배포 식별자·실기기 서명이 필요한 검사는 해당 후속 기능·배포 범위에서 계획한다. lock 변경은 공통 담당에게 전달한다.
 - [x] T015 [US1] [FE] `apps/mobile/app.config.ts`와 `docs/history/development/001-foundation-verification.md`에 로컬 Xcode/Android 도구·개발용 앱 식별자를 준비하고 iOS 시뮬레이터/Android 에뮬레이터용 전용 개발 빌드 설치/시작 결과를 기록한다. 선행 T014 및 로컬 플랫폼 빌드 도구; FR-002·008·SC-001·005. 검사/전달: OS/가상 기기/도구·실제 명령·결과를 남긴다. Metro 시작/Expo Go로 전용 개발 빌드를 대신하지 않고 가상 기기를 실기기로 표시하지 않는다. 휴대폰·스토어 계정·물리 서버 미정으로 이 작업을 막지 않는다.
-- [ ] T016 [P] [US1] [BE] `specs/001-development-foundation/contracts/admin-bootstrap.md`에 초기 관리자 비밀 입력·전달·Argon2id 해시·명시적 교체·재실행/실패 절차를 작성해004에 전달한다. 선행 T008; FR-002·007·008. 검사/전달: C02 원본에 맞고 기존 비밀번호를 조용히 덮어쓰지 않는 절차인지 확인한다. 실제 principal 저장·로그인·cookie/CSRF 구현/실행은004에 연결하며001 완료 조건으로 당겨오지 않는다.
+- [x] T016 [P] [US1] [BE] `specs/001-development-foundation/contracts/admin-bootstrap.md`에 초기 관리자 비밀 입력·전달·Argon2id 해시·명시적 교체·재실행/실패 절차를 작성해004에 전달한다. 선행 T008; FR-002·007·008. 검사/전달: C02 원본에 맞고 기존 비밀번호를 조용히 덮어쓰지 않는 절차인지 확인한다. 실제 principal 저장·로그인·cookie/CSRF 구현/실행은004에 연결하며001 완료 조건으로 당겨오지 않는다.
 - [ ] T017 [US1] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 API/worker·개발 DB·웹·모바일의 실제 시작·설정 누락 실패와 DB 정상 재시작/자료 보존 결과를 합쳐 기록한다. 선행 T010–T016; FR-001–003·007–009·SC-001·003·005. 검사/전달: 같은 계약/도구 버전과 합성 자료를 사용하고 대상별 성공/실패/미수행을 분리한다. 로컬 플랫폼 도구 미준비 시 해당 실행만 미수행으로 남긴다. 실물 서버/휴대폰 미정은 로컬 실행의 차단 조건이 아니다.
 
 T009–T012·T018–T019의 서버 단독 실행·DB 재시작·worker 중단/재개 증거는 [서버 기반 검증 기록](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 브라우저·가상 기기의 실제 API 연동은 #10 범위다.
@@ -173,7 +173,7 @@ flowchart TD
 
 현재 범위의 33개 작업을 다음 11개 작업 이슈로 나눠 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈로 연결한다.
 
-준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. T001–T015·T018–T021·T034의 구현·검사를 완료했으며 나머지 13개는 미완료다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. 작업별 구현·검사 완료 여부는 각 작업 항목의 체크를 따른다. 완료 목록과 미완료 개수를 따로 복사하지 않는다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
 
 | 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈 |
 |---|---|---|---|---|
