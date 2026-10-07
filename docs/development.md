@@ -9,7 +9,7 @@
 | 개발 단위·선행 관계·공통 계약 범위 | 21개 개발 단위·API/데이터 계약 설계 작성. 실제 소비자 연동 전 | [기능 스펙 목록](../specs/README.md) |
 | 기술 구성 | 선택·[001 기반 설계](../specs/001-development-foundation/plan.md) 작성, 실제 구성·검증 전 | [기술·운영 명세](technical-spec.md) |
 | 화면 | 시안 제작, 사용자 검토와 실제 구현은 별도 | [현재 시안](screens.md) |
-| 개발 환경·앱·서버·관리자 웹 | 공통 workspace·도구·설정·lockfile 준비 및 설치 검사 완료. 서버·DB·worker 단독 실행 검사 완료. 관리자 웹 단독 실행·빌드·합성 연결 검사 완료. 모바일 기반·Android 단독 실행 완료. iOS 전용 빌드·실제 연동 전 | [준비 체크리스트](setup-checklist.md) |
+| 개발 환경·앱·서버·관리자 웹 | 공통 workspace·도구·설정·lockfile 준비 및 설치 검사 완료. 서버·DB·worker 단독 실행 검사 완료. 관리자 웹 단독 실행·빌드·합성 연결 검사 완료. 모바일 기반·iOS/Android 전용 앱 단독 실행 완료. 실제 연동 전 | [준비 체크리스트](setup-checklist.md) |
 | 미결정 | 운동 시작 방식 A·B | [미결정 사항](open-questions.md) |
 
 ## 다음 작업
@@ -85,11 +85,15 @@ npm run prebuild --workspace=@holdlog/mobile
 npm run dev --workspace=@holdlog/mobile
 # 터미널2: 전용 앱 빌드·가상 기기 설치/시작
 npm run android --workspace=@holdlog/mobile -- --device emulator-5554 --no-bundler
-npm run ios --workspace=@holdlog/mobile -- --device <시뮬레이터-UUID> --no-bundler
-# iOS: Expo 자동 실행 주소 대신 loopback Metro를 명시
+npm run ios --workspace=@holdlog/mobile -- --device generic --output /tmp/holdlog-ios-build --no-bundler
+xcrun simctl bootstatus <시뮬레이터-UUID> -b
+xcrun simctl install <시뮬레이터-UUID> /tmp/holdlog-ios-build/HoldlogDevelopment.app
+# iOS: 창 자동화와 자동 실행 주소에 의존하지 않고 loopback Metro를 명시
 xcrun simctl launch --terminate-running-process <시뮬레이터-UUID> com.holdlog.development --initialUrl http://127.0.0.1:8081
 npm run export:bundle --workspace=@holdlog/mobile
 ```
+
+iOS 설치 대상은 `xcrun simctl list devices available`에서 선택해 먼저 부팅한다. 시뮬레이터에 앱을 바로 설치하는 `expo run:ios --device UUID`는 이 환경에서 빌드·설치 후 System Events 창 활성화 단계가 실패했으므로 위 build-only와 simctl 명령을 사용한다.
 
 공개 설정은 iOS의 `EXPO_PUBLIC_DEV_API_ORIGIN_IOS`와 Android의 `EXPO_PUBLIC_DEV_API_ORIGIN_ANDROID`만 소비한다. 기본값 예시는 각각 `http://127.0.0.1:3100`, `http://10.0.2.2:3100`이다. Android의 loopback은 가상 기기 자체이므로 거절한다. 명시한 사설 개발 호스트도 사용할 수 있다. 두 설정 누락·잘못된 origin은 이름만 알려주고 실행을 거절한다. DB·서버·관리자 비밀을 공개 변수에 넣지 않는다.
 

@@ -15,7 +15,7 @@ Node24.21.0·npm11.19.0, Expo57.0.27·React19.2.3·React Native0.86.3·expo-dev-
 - Metro localhost가 IPv6에만 바인딩되는 환경을 재현했다. 개발 명령에 Node의 ipv4first DNS 옵션을 적용해127.0.0.1:8081로 제한했고 Android의10.0.2.2에서 앱 JS 번들 로드를 확인했다.
 - 최초 직접 Gradle 실행은 공개 host 설정이 없어 이름만으로 실패했다. 설정을 명시한 재실행은 성공했다.
 - 현재 개발용 공개 .env 파일만 로컬에 준비했다. 서명/서버 비밀은 추가하지 않았다.
-- iOS 도구: 사용자가 Xcode26.2에서27.0(27A266a)으로 업데이트했다. 첫 실행·약관·구성 요소 준비 후 iPhone 17 Pro/iOS26.2(23C54) 시뮬레이터에서 expo run:ios --device UUID --no-bundler로 빌드·설치·시작을 확인했다. 빌드 오류0·Expo 생성 스크립트 의존성 경고1이었다.
+- iOS 도구: 사용자가 Xcode26.2에서27.0(27A266a)으로 업데이트했다. 첫 실행·약관·구성 요소 준비 후 iPhone 17 Pro/iOS26.2(23C54) 시뮬레이터에서 expo run:ios --device UUID --no-bundler로 빌드·설치·시작을 확인했다. 빌드 오류0·Expo 생성 스크립트 의존성 경고1이었다. Expo CLI는 설치·앱 시작 후 시뮬레이터 창 활성화의 System Events 확인 단계에서 실패해 최종 종료 코드1이었다. 이 자동화 권한에 의존하지 않는 expo run:ios --device generic --output /private/tmp/holdlog-issue7-ios-build --no-bundler 재빌드는 종료0이었다. 생성한 앱을 simctl install로 설치하고 simctl launch로 시작·런타임 검증을 다시 수행했다.
 - Expo 자동 실행의 LAN 주소는 loopback Metro와 맞지 않았고 URL 전달만으로 JS 연결이 잡히지 않았다. Expo가 지원하는 simctl launch --terminate-running-process UUID com.holdlog.development --initialUrl http://127.0.0.1:8081로 로컬 주소를 명시해713개 모듈 로드와 실제 iOS Hermes에서 계약 검사 true·연결 함수 등록을 확인했다. 실제 API 요청은 아직 하지 않았다.
 
 ## 남은 실제 연동
