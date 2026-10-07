@@ -1,6 +1,6 @@
 # 개발 기반 검증 안내
 
-작성일: 2026-10-06 · 상태: 서버·DB·worker·관리자 웹·iOS/Android 전용 앱 단독 실행 검사 완료. 실제 연동은 후속 범위.
+작성일: 2026-10-06 · 상태: 서버·DB·worker·관리자 웹·iOS/Android 전용 앱 단독 실행 검사 완료. 실제 로컬 연동·독립 폴더 재현 확인.
 
 ## 지금 실행 가능한 검사
 
@@ -16,9 +16,9 @@ git diff --check
 
 ## 구현 후 확인 순서
 
-아래는 **후속 검증 절차**다. 명령은 [기반 인터페이스](contracts/README.md)에 있다. 계약 생성·검사는 구현했고 서버 workspace 실행 명령은 [개발 안내](../../docs/development.md#서버dbworker-로컬-실행)에 있고 웹 workspace 명령은 [관리자 웹 실행 안내](../../docs/development.md#관리자-웹-단독-실행)에 있다. 모바일 실행·연결 도구는 [모바일 실행 안내](../../docs/development.md#모바일-단독-실행)에 있다. iOS/Android 전용 앱 실행을 확인했다. 루트 명령은 #9, 실제 브라우저·가상 기기/API 연동은 #10에서 검증했고 별도 폴더 재현과 안내 정리는 #11에서 확인한다. 아래 순서는 이후 환경에서도 재사용하는 절차다.
+아래는 **검증·재현 절차**다. 명령은 [기반 인터페이스](contracts/README.md)에 있다. 계약 생성·검사는 구현했고 서버 workspace 실행 명령은 [개발 안내](../../docs/development.md#서버dbworker-로컬-실행)에 있고 웹 workspace 명령은 [관리자 웹 실행 안내](../../docs/development.md#관리자-웹-단독-실행)에 있다. 모바일 실행·연결 도구는 [모바일 실행 안내](../../docs/development.md#모바일-단독-실행)에 있다. iOS/Android 전용 앱 실행을 확인했다. 루트 명령은 #9, 실제 브라우저·가상 기기/API 연동은 #10에서 검증했고 별도 폴더 재현과 안내 정리는 #11에서 확인했다. 아래 순서는 이후 환경에서도 재사용하는 절차다.
 
-1. 도구 정확한 버전·직접 의존성·lockfile·이미지 digest를 고정한다. 개발/시험 설정의 비밀은 로컬에만 둔다. T001–T003에서 Node24.21.0·npm11.19.0·직접 의존성·lockfile을 고정하고 설치·설정 검사를 수행했다. 이미지 digest는 T011에서 고정한다.
+1. 도구 정확한 버전·직접 의존성·lockfile·이미지 digest를 고정한다. 개발/시험 설정의 비밀은 로컬에만 둔다. T001–T003에서 Node24.21.0·npm11.19.0·직접 의존성·lockfile을 고정하고 설치·설정 검사를 수행했다. 이미지 digest는 T011에서 고정했다.
 2. 깨끗한 checkout에서 설치 후 커밋된 생성물의 계약 검사를 먼저 실행한다. 원본 변경 시 명시적으로 생성하고 검사한다. 재생성 동일·정상 예제 허용·거절 예제 거절·FE/BE 타입 소비 통과를 확인한다. 원본만 바꾸고 생성하지 않으면 검사 실패해야 한다.
 3. 개발 DB 접속·시험 변경 적용 뒤 API/worker를 시작한다. live/ready·합성 queue 처리를 확인한다. DB 중지 시 ready503, 필수 설정 누락 시 대상 시작 실패를 확인한다.
 4. worker 작업 중 중지/재시작 후 합성 작업 재개·중복 효과 방지, DB 정상 중지/재시작 후 합성 자료 보존을 확인한다. 볼륨 삭제 명령은 쓰지 않는다.
@@ -45,7 +45,7 @@ git diff --check
 
 사용자가 서버 사양·테스트 휴대폰은 미정이라고 확인했다. 계정·서명·초기 암장/세팅 자료는 미확인이다. Docker daemon·개발/시험 DB·worker의 [서버 단독 실행 검사](../../docs/history/development/001-backend-foundation-verification.md)를 수행했다. Xcode27·iOS26.2 시뮬레이터와 Android SDK36/API33 에뮬레이터에서 전용 앱 빌드·설치·실행과 Hermes 계약 소비를 확인했다. 실제 API 연결은 [#10 기록](../../docs/history/development/001-foundation-verification.md#실제-로컬-연동--10--t017t022t023t024)에서 확인했다. 준비 상태 원본은 [체크리스트](../../docs/setup-checklist.md)다.
 
-별도 폴더의 설치·동일 계약 재생성·루트 검사·실패/복구·실제 DB와 worker·합성 비밀 경계는 [#11 기록](../../docs/history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)에 있다. 모바일 `npm run export:bundle --workspace=@holdlog/mobile`은 Node env-file로 앱의 `.env`를 먼저 읽는다. 설정 이름·성공 조건·문제 해결의 현재 원본은 [개발 안내](../../docs/development.md#실행과-완료-확인)다. #14 최종 대조와 #13 전달이 남아 있으며001·002나 제품 기능 전체 완료로 표시하지 않는다.
+별도 폴더의 설치·동일 계약 재생성·루트 검사·실패/복구·실제 DB와 worker·합성 비밀 경계는 [#11 기록](../../docs/history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)에 있다. 모바일 `npm run export:bundle --workspace=@holdlog/mobile`은 Node env-file로 앱의 `.env`를 먼저 읽는다. 설정 이름·성공 조건·문제 해결의 현재 원본은 [개발 안내](../../docs/development.md#실행과-완료-확인)다. #14 최종 대조는 [001 스펙](spec.md#최종-요구사항증거-대조--t032--14), #13 후속 전달은 [002 안내](../002-shared-contracts/quickstart.md)를 따른다.001의 전체 병합·완료 상태는 상위 #1에서 관리하며002나 제품 기능 전체 완료로 확대하지 않는다.
 
 ## 계약 생성과 소비 검사 결과
 

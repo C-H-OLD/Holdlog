@@ -4,11 +4,11 @@
 
 **Created**: 2026-10-06
 
-**Status**: T001–T015·T018–T021·T034 구현·단독 검사 완료 · 실제 연동 검증 전
+**Status**: 로컬 실행·연결·재현 검증과 T032 요구사항 대조 완료 · 후속 전달·전체 병합과 완료 상태는 상위 #1에서 관리
 
 **Input**: 승인한 Spec Kit·Living Spec 운영 방식으로 개발을 시작하기 위한 첫 범위를 정리한다.
 
-구조·도구·계약 소비·검증 설계는 [plan.md](plan.md)에 작성했다. 역할별 순서·검사·전달은 [tasks.md](tasks.md)에 작성했다. 공통 도구·workspace 설치 결과는 [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)에 남겼으며 서버·DB·worker 단독 실행 결과는 [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 관리자 웹과 iOS/Android 전용 앱의 단독 실행도 확인했다. [모바일 검증 기록](../../docs/history/development/001-foundation-verification.md)을 참고하며 실제 API 연동은 후속 작업이다.
+구조·도구·계약 소비·검증 설계는 [plan.md](plan.md), 역할별 작업·검사·전달은 [tasks.md](tasks.md)에 있다. 공통 설치·설정은 [공통 기반 검증](../../docs/history/development/001-shared-foundation-verification.md), 서버·DB·worker는 [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md), 관리자 웹은 [웹 기반 검증](../../docs/history/development/001-admin-foundation-verification.md)을 확인했다. iOS/Android 전용 앱 실행, 실제 브라우저·가상 기기의 로컬 API 연결, 독립 작업 폴더의 설치·검사 재현과 비밀 경계는 [로컬 검증 기록](../../docs/history/development/001-foundation-verification.md)에 있다. T032의 최종 대조는 아래에 기록하며, T033 전달과 모든 필수 작업의 병합·완료 증거는 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)에서 모아 전체 완료를 판단한다.
 
 001의 완료 범위는 개발 컴퓨터의 서버·DB·worker·관리자 웹과 iOS 시뮬레이터·Android 에뮬레이터의 실행·연결·검사다. 실제 휴대폰 검사와 물리 서버 배포·접속은 완료 조건에 포함하지 않으며, 필요한 후속 기능·운영 범위에서 계획한다.
 
@@ -94,9 +94,41 @@
 - **SC-005**: 검사 기록에서 수행한 로컬 검사와 범위 밖 외부 검사를 구분한다. 외부 계정·실제 휴대폰·물리 서버 확인은 후속 범위로 남기며 001 완료 조건에 포함하지 않는다. 수행하지 않은 검사를 통과로 표시하지 않는다.
 - **SC-006**: 기존 문서·시안의 연결 검사와 현재 화면 번호 검사가 통과한다.
 
+## 최종 요구사항·증거 대조 — T032 / #14
+
+대조일: 2026-10-07 · 기준 main `3dae04f523e3d632b89429baa475608fe1cdd5ef`.[#10](https://github.com/trycatch98/Holdlog/issues/10)의 T017·T022–T024는 [PR #22](https://github.com/trycatch98/Holdlog/pull/22), [#11](https://github.com/trycatch98/Holdlog/issues/11)의 T027–T030은 [PR #23](https://github.com/trycatch98/Holdlog/pull/23)에서 병합됐다. 선행 작업의 체크와 실제 수행 기록을 대조했다. #10 실행 이후 이 기준까지 실행 코드 변경은 #11의 모바일 export 설정 로드 보완이며, 같은 작업의 양쪽 production export 재검증이 기록돼 있다. 기존 네이티브 빌드와 실제 Hermes 연결 증거를 유지하며 이번 대조에서 네이티브 빌드·DB 중단을 반복하지 않았다.
+
+아래의 “확인”은 링크된 실제 수행 범위에 대한 판단이다. 전체 기능 완료·제품 동작 완료 또는 기록하지 않은 검사의 통과를 뜻하지 않는다.
+
+| 요구사항 | 실제 증거·대조 결과 | 판단·남은 경계 |
+|---|---|---|
+| FR-001 작업 위치·역할 | [plan의 작업 구조](plan.md#project-structure), [역할 구분](../development-roles.md), workspace의 mobile/admin/server/contracts와 별도 worker 진입점 대조 | 확인. T033의 후속 개발자 전달 완료는 별도 |
+| FR-002 실제 명령·설정 | [개발 안내](../../docs/development.md#실행과-완료-확인), [#10 시작·설정 실패](../../docs/history/development/001-foundation-verification.md#실행-환경과-시작설정-실패), [#11 실패·복구](../../docs/history/development/001-foundation-verification.md#t028-설치생성검사실패-후-복구) | 확인. 공개 origin·서버/시험 DB 필수 설정의 누락 실패와 복구를 구분 |
+| FR-003 개발 저장 | [서버 기반](../../docs/history/development/001-backend-foundation-verification.md), [#11 DB·worker 재현](../../docs/history/development/001-foundation-verification.md#t028-실제-dbworker-재현), Compose의 개발/시험 DB 분리·고정 이미지·영구 볼륨 | 확인. 합성 행 보존·queue 효과 검사이며 운영 자료·제품 DB 관계·백업 검사는 아님 |
+| FR-004 가상 기기·웹 연결 | [#10 실제 연결 표](../../docs/history/development/001-foundation-verification.md#실제-연결-결과), 서버 health와 FE 연결 함수의 정확한 상태/body 검사 | 확인. Chrome·iOS Hermes·Android Hermes 각각 정상200·DB503·API 중단 연결 불가·복구200 |
+| FR-005 같은 계약 | [생성 manifest](../../packages/contracts/generated/manifest.json), [#10 계약 소비 대조](../../docs/history/development/001-foundation-verification.md#공통-계약예제-소비-대조), [#11 동일 재생성](../../docs/history/development/001-foundation-verification.md#t028-설치생성검사실패-후-복구) | 확인. 계약1.0.0·원본 해시 일치. Node/Chrome은 공통 예제18개·거절3개, 양쪽 Hermes는 HTTP/runtime 대표 입력2개. T033 전달은 별도 |
+| FR-006 코드·문서 검사 | [공통 명령 검증](../../docs/history/development/001-check-commands-verification.md), [#11 설치·실패·복구](../../docs/history/development/001-foundation-verification.md#t028-설치생성검사실패-후-복구), runner의 실패 종료 전파 | 확인. check 회귀56개·lint/typecheck·웹/API build 및 별도 실제 시험 DB10개·skip0. 기본 check는 DB·기기 검사를 대신하지 않음 |
+| FR-007 비밀 분리 | Git 제외·공개 예시와 [#11 합성 표식 검사](../../docs/history/development/001-foundation-verification.md#t027-합성-표식과-출력-경계)의 추적 파일·웹/API 출력·모바일 공개 config/양쪽 export·API 응답/로그 대조 | 기록된 경계 확인. APK/IPA·네이티브 빌드 로그 등 미검사 출력은 아래 누락 범위로 유지 |
+| FR-008 수행 상태 구분 | [준비 체크리스트](../../docs/setup-checklist.md), [#11 준비 상태 대조](../../docs/history/development/001-foundation-verification.md#t029-준비-상태-대조t030-안내), 단독/mock과 실제 로컬 실행 구분 | 확인. 계정·초기 자료·실기기·물리 서버를 로컬 통과로 바꾸지 않음 |
+| FR-009 기존 자료·연결 보존 | [공통 자료 보존](../../docs/history/development/001-shared-foundation-verification.md#기존-자료-보존), [#11 자료 보존](../../docs/history/development/001-foundation-verification.md#t029-준비-상태-대조t030-안내), 이번 문서·계약 정적 검사 | 확인. 승인 명세·시안·계약 원본/생성물·lockfile을 수정하지 않으며 DB 볼륨 삭제 없음 |
+| SC-001 대상별 실행 | [#7 양쪽 전용 앱 빌드·설치·시작](../../docs/history/development/001-foundation-verification.md#모바일-기반--7--t014t015t021), [#10 시작 결과](../../docs/history/development/001-foundation-verification.md#실행-환경과-시작설정-실패) | 확인. iOS CLI 창 활성화 실패와 권한에 의존하지 않는 종료0 재빌드·simctl 실행을 구분 |
+| SC-002 연결 성공·불가 | [#10 실제 연결 표](../../docs/history/development/001-foundation-verification.md#실제-연결-결과) | 확인. 세 소비자 모두 성공/불가 확인. API 중단 시나리오이며 별도 인터넷 차단·실기기 네트워크는 미수행 |
+| SC-003 저장 시작·중지·재시작 | [#10 합성 행 보존](../../docs/history/development/001-foundation-verification.md#실제-연결-결과), [#11 독립 폴더 DB·worker 재현](../../docs/history/development/001-foundation-verification.md#t028-실제-dbworker-재현) | 확인. stop/up 후 같은 행1개·worker 정상 재시작. 볼륨 삭제·재해 복구 아님 |
+| SC-004 검사 성공·실패·재실행 | [#11 실패 후 복구 표](../../docs/history/development/001-foundation-verification.md#t028-설치생성검사실패-후-복구), [runner 검사](../../docs/history/development/001-check-commands-verification.md#수행한-검사) | 확인. stale 생성물·타입 오류·설정 누락은 비정상 종료, 원복 후 정상 검사 |
+| SC-005 로컬·외부 구분 | [#10 후속 범위](../../docs/history/development/001-foundation-verification.md#검사와-후속-범위), [#11 준비 상태 대조](../../docs/history/development/001-foundation-verification.md#t029-준비-상태-대조t030-안내) | 확인. 실제 휴대폰·물리 서버 배포·외부 계정은 001 완료 범위 밖이며 미정/미확인/미수행 유지 |
+| SC-006 기존 링크·화면 번호 | T028·T030의 정적 검사와 이번 `/usr/bin/python3 scripts/check-docs.py`·`scripts/check-contracts.py`·`git diff --check` | 확인. 문서 링크·JSON·모바일41개/88상태·웹3개/5상태 일치. 제품 기능 검사를 뜻하지 않음 |
+
+### 누락 범위와 상위 #1 전달
+
+- FR·SC의 필수 로컬 실행·연결·DB/worker 재시작·설치 재현·실패 복구 증거는 위 원본에서 확인했다. 이번 감사가 기존 수행 결과를 새 실행으로 표시하지 않는다.
+- 로컬 출력 중 APK/IPA와 네이티브 빌드 로그의 합성 비밀 표식 검사는 미수행이다. #7의 네이티브 실행 성공만으로 해당 미검사 범위를 통과로 바꾸지 않는다. FR-007의 확인은 #11이 실제 검사한 공개 config·양쪽 Hermes export·웹/API 출력·로그 범위다. 해당 네이티브 출력의 비밀 경계를 요구하는 후속 기능·서명 작업에서는 별도 검사와 증거가 필요하다. 외부 서버 로그·제품 로그인/파일/푸시 출력도 미검사다.
+- 계약의 형식·HTTP 구조·대표 입력 이식성과 개발 health 연결은 제품 인증/권한·제품 DB 관계/트랜잭션·업로드/Range bytes의 검증이 아니다. 실제 관리자 계정과 HTTPS/Secure/CSRF는004, 초기 암장/세팅 자료는006, 지도는007, 미디어/바이트는011, 기기 푸시는017 등 해당 후속 범위로 전달한다. 모바일 공통 예제18개 전체 실행도 미수행으로 유지한다.
+- 물리 서버 사양·실제 휴대폰은 미정, 외부 계정·서명 자격증명·초기 자료는 미확인 또는 후속 구현 전 미수행이다. 범위 밖 준비가 로컬 검증 완료로 바뀌지 않는다.
+- T032는 요구사항과 증거 대조 결과를 제출하는 작업이다. T033/#13은 [PR #24](https://github.com/trycatch98/Holdlog/pull/24)로 전달·병합됐다. 이 감사 PR을 포함한 모든 필수 자식 작업의 병합·완료 증거를 모은 뒤 상위 #1에서 001 전체 완료를 판단한다. 이 감사만으로 상위 이슈나 002 계약 전체 합의를 완료 처리하지 않는다.
+
 ## Assumptions
 
-- T001–T003의 공통 설치·설정 검사를 완료했다. 사용자 요청으로 서버 이름과 앱별 lint/타입 검사 하네스를 보완한다. 모바일·관리자 웹·서버의 단독 실행·검사를 확인했으며 후속 작업에서 실제 연결·연동을 확인한다. 제품 화면과 기능의 구현은 이 스펙 범위에서 제외한다.
+- 공통 설치·설정과 서버 이름·앱별 lint/타입 검사 하네스를 준비했다. 모바일·관리자 웹·서버의 단독 실행 및 실제 로컬 연결, 독립 폴더 재현 검사를 확인했다. 제품 화면과 기능의 구현은 이 스펙 범위에서 제외한다.
 - 서비스 관리자 초기 계정 준비 절차는 이 범위의 백엔드 준비 작업이다. 관리자 인증 동작과 웹 소비 연동은 [004 계정·인증](../004-identity-profile/spec.md)이 담당하고 방법은 C02 설계에서 정한다. 준비 절차에 공개 관리자 가입이나 새 화면을 추가하지 않는다.
 - 개발 도구·기기·서버 사양은 [준비 체크리스트](../../docs/setup-checklist.md)에서 확인한다. 실제 기술 버전과 실행 방법은 구현 계획에서 정한다.
 - 로그인·지도·푸시·미디어·제품 화면·제품 데이터 관계의 구현은 후속 기능 범위다. 기반 준비 완료가 해당 기능 완료를 뜻하지 않는다.
