@@ -9,10 +9,11 @@
 ```sh
 python3 scripts/check-contracts.py
 python3 scripts/check-docs.py
+python3 -m unittest discover -s scripts/test -p 'test_contract_routes.py'
 git diff --check
 ```
 
-계약 검사는 로컬 참조·operationId·경로인자·인증 scheme·C01~C12 연결·44개 화면 route·합성 예제 형식·거절 예제를 확인한다. 예제 검사는 현재 예제에서 사용하는 JSON Schema 부분집합만 검사한다. **전체 OpenAPI/JSON Schema 규약 검증기는 아니다.** 001에서 생성 도구/표준 검증기 버전을 고정하고 OpenAPI 규약·생성 타입·FE/BE 소비자 검사를 추가했다. 아래 npm 검사는 Python 부분집합 검사와 별도로 실행한다. 문서 검사는 링크·화면 번호 등의 일치만 확인한다.
+계약 검사는 로컬 참조·operationId·경로인자·인증 scheme·C01~C12 연결·현재 등록 화면 집합과 Route의 누락·추가·중복·합성 예제 형식·거절 예제를 확인한다. 예제 검사는 현재 예제에서 사용하는 JSON Schema 부분집합만 검사한다. **전체 OpenAPI/JSON Schema 규약 검증기는 아니다.** 001에서 생성 도구/표준 검증기 버전을 고정하고 OpenAPI 규약·생성 타입·FE/BE 소비자 검사를 추가했다. 아래 npm 검사는 Python 부분집합 검사와 별도로 실행한다. 문서 검사는 링크·화면 번호 등의 일치만 확인한다.
 
 Node24.21.0·npm11.19.0을 준비한 뒤 저장소 루트에서 실행한다. 생성물은 수기로 수정하지 않는다.
 

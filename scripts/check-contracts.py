@@ -104,6 +104,20 @@ def valid(value, schema, doc):
     return True
 
 
+def check_routes(routes, state):
+    """Reject missing/extra/duplicate routes against the selected Figma registry."""
+    assert len(routes) == len(set(routes)), '중복 화면 Route'
+    registry = state[state['currentScreenRegistry']]
+    expected = set()
+    for screen in registry:
+        number = screen['number']
+        assert re.fullmatch(r'(?:\d{2}\.\d{2}\.\d{2}|A\d{2}\.\d{2})', number), f'잘못된 화면 상태 번호: {number}'
+        expected.add(number.rsplit('.', 1)[0])
+    actual = set(routes)
+    assert actual == expected, f'화면 Route 불일치: 누락 {sorted(expected - actual)}, 추가 {sorted(actual - expected)}'
+    return len(expected)
+
+
 def main():
     assert API['openapi'] == '3.1.0'
     walk(API, API)
@@ -134,9 +148,9 @@ def main():
         value = example.get('value', {**example.get('baseValue', {}), **example.get('inject', {})})
         assert not valid(value, API['components']['schemas'][example['schema']], API), f'거절 예제 허용: {example["id"]}'
     assert used_contracts == {f'C{i:02d}' for i in range(1, 13)}
-    assert len(RUNTIME['$defs']['Route']['properties']['screenId']['enum']) == 44
+    screen_count = check_routes(RUNTIME['$defs']['Route']['properties']['screenId']['enum'], json.loads((ROOT / 'docs/figma/state.json').read_text()))
     print(f'API {len(API["paths"])}개 경로·{len(operations)}개 작업·{len(API["components"]["schemas"])}개 자료형, runtime {len(RUNTIME["$defs"])}개 정의')
-    print(f'HTTP 예제 {len(EXAMPLES["http"])}개·runtime 예제 {len(EXAMPLES["runtime"])}개·거절 예제 {len(EXAMPLES["mustReject"])}개, C01~C12·화면44개 참조 확인')
+    print(f'HTTP 예제 {len(EXAMPLES["http"])}개·runtime 예제 {len(EXAMPLES["runtime"])}개·거절 예제 {len(EXAMPLES["mustReject"])}개, C01~C12·화면{screen_count}개 참조 확인')
     print('정적 참조·예제 형식 검사 통과. 전체 OpenAPI 규약 검사·실제 API/DB/기기 실행 검증은 별도.')
 
 

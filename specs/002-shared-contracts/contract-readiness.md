@@ -1,0 +1,109 @@
+# 계약별 착수 준비 대조
+
+2026-10-07 · [상위 #29](https://github.com/trycatch98/Holdlog/issues/29) · 에이전트 원본 대조. 담당 개발자 간 합의·제품 연동 완료를 뜻하지 않는다.
+
+형식 원본은 [OpenAPI](../../packages/contracts/openapi.json)·[Runtime](../../packages/contracts/runtime.schema.json), 의미 원본은 [conventions](../../packages/contracts/conventions.md)·[논리 모델](data-model.md)이다. 아래는 찾기 위한 연결이며 필드·권한표·계산식을 복사하지 않는다. 계약별 소비 기능·정책 절·기존 T번호는 [C01~C12 책임표](contract-scope.md#정해야-할-계약)가 원본이다.
+
+[이번 준비 검사 결과](../../docs/history/development/002-readiness-verification.md)에서 실제 수행 범위와 남은 검사를 확인한다.
+
+## 현재 원본과 소비 증거
+
+79 HTTP 경로·109 operationId·107 HTTP 자료형·22 Runtime 정의를 대조했다. 공통 C01은 모든 작업에 적용하며 x-global-contracts로 표시된다. 각 operation의 x-contracts·tags·x-policy-sources는 계약·소비 기능·정책 파일 연결이다. 파일 존재만으로 정책 의미가 증명되지는 않는다.
+
+[001 소비 증거](quickstart.md#001-기반에서-확인한-범위)는 같은 생성물을 이용한 타입·Node/Chrome 예제와 대표 Hermes 입력 검사다. FE는 `apps/mobile/src/development/contract-check.ts`·`apps/admin/src/api/contracts.ts`, 공통 FE/BE typed 소비는 `packages/contracts/test/frontend-consumer.ts`·`backend-consumer.ts`에 있다. 제품 서버 controller·업무 DB·최종 UI 소비는 후속 기능이 구현한다. 현재 앱 checks의 environment 파일을 업무 계약 소비로 계산하지 않는다.
+
+## C번호·자료·예제·FR 연결
+
+예제 ID는 [examples.json](../../packages/contracts/examples.json)의 합성 형식 검사이며 정상 저장·권한·동시 변경을 실행한 결과가 아니다. Runtime 열은 직접 관련된 정의의 찾기 안내다. 공통 식별·실패 형식은 모든 계약에서 함께 사용한다.
+
+| 계약 | HTTP 작업 수 | 관련 Runtime | 현재 예제 ID | 002 요구사항 |
+|---|---:|---|---|---|
+| [C01 공통 요청·실패·동시 변경](contract-scope.md#정해야-할-계약) | 전체 공통 | —（HTTP 공통 형식） | version-conflict | FR-001·003·005 |
+| [C02 계정·인증·권한](contract-scope.md#정해야-할-계약) | 13 | PendingInvite | own-profile | FR-001·002·003·005 |
+| [C03 크루·가입·초대·선택](contract-scope.md#정해야-할-계약) | 17 | PendingInvite, Route | invite-preview | FR-001·002·003·005 |
+| [C04 암장·난이도·벽·세팅](contract-scope.md#정해야-할-계약) | 15 | —（HTTP 운영 자료） | zero-grade | FR-001·002·004·005 |
+| [C05 일정·응답·방문 생성 사실](contract-scope.md#정해야-할-계약) | 11 | DomainEvent | schedule-input | FR-001·002·003·004·005 |
+| [C06 개인 기록·값·공개 대상](contract-scope.md#정해야-할-계약) | 14 | ClimbCount, WorkoutDraft, WorkoutLifecycle | zero-grade, missing-climbs, workout-finish | FR-001·002·003·004·005 |
+| [C07 실제 참석·연결·분리·삭제](contract-scope.md#정해야-할-계약) | 19 | DomainEvent | existing-link | FR-001·002·003·004·005 |
+| [C08 미디어·저장소·이미지](contract-scope.md#정해야-할-계약) | 41 | MediaJob, StorageObjectRef, StorageStart/Append/Complete/Cancel/Read/Stat/Delete/Result | file-upload, announcement | FR-001·002·003·005 |
+| [C09 알림·기기·예약](contract-scope.md#정해야-할-계약) | 9 | NotificationJob, PushPayload | settings, push-destination | FR-001·002·003·005·006 |
+| [C10 조회·시간대·집계·추천](contract-scope.md#정해야-할-계약) | 10 | —（HTTP 조회·계산） | calendar-personal-no-crew | FR-001·004·005 |
+| [C11 공동 이력·작업 사건](contract-scope.md#정해야-할-계약) | 21 | DomainEvent, MediaJob, NotificationJob | shared-history | FR-001·002·003·005 |
+| [C12 화면 진입·기기별 상태](contract-scope.md#정해야-할-계약) | 11 | Route, WorkoutDraft/Lifecycle/Display, AnnouncementSuppression, PendingInvite, PushPayload, NoticeEntry, OpenSourceManifest | invite-preview, announcement, workout-finish, workout-display-records, workout-display-other-tab, notice-offline, push-destination, selected-date-route | FR-001·005·006 |
+
+거절 예제는 PublicRecord 비공개 필드·개인 과거 이력·음수 완등 입력의 형식 거절이다. 실제 현재 가입 검사·주체별 projection·원자성은 후속 서버 통합 검사로 증명한다.
+
+## 작업별 남은 의미·실행 검사
+
+| 범위 | 현재 확인 | 후속 확인과 차단 범위 |
+|---|---|---|
+| C01~C08·C10~C11 | 식별·소유 관계·공개 projection·UTC/IANA·null/0·version·멱등·TX/outbox 경계를 conventions/모델과 연결 | 각 기능의 FR/T번호로 실제 권한·변경 실패·재요청·동시 변경을 확인. 합성 DTO 통과로 계산/트랜잭션 완료 처리 금지 |
+| C09 | 기존 설정·푸시 대상·worker 발송 계약만 있음 | [#31](https://github.com/trycatch98/Holdlog/issues/31): 개별 열기 읽음 및 설정/목록 생성 관계 답변 대기. 조회·읽음·저장 실패·동시 새 수신·현재 가입 권한 계약 뒤017 착수 |
+| C12 | [#32](https://github.com/trycatch98/Holdlog/issues/32): 승인05.07 및 화면45개 집합 대조 준비 | 실제 화면 진입/복귀·네이티브 동작은003/017. 운동 시작 A/B는 계속 미정. 경로 추가가 UI 구현은 아님 |
+| FE/BE 추가 소비 | 기존001 예제/생성 소비 재사용 | [#33](https://github.com/trycatch98/Holdlog/issues/33) 뒤 [#34](https://github.com/trycatch98/Holdlog/issues/34)·[#35](https://github.com/trycatch98/Holdlog/issues/35)에서 같은 새 계약·예제를 소비 |
+| 최종 전달 | FR별 작업 연결 및 원본 대조 | [#36](https://github.com/trycatch98/Holdlog/issues/36): 필수 검사/병합 후 기능별 착수 조건 전달.002 전체 완료 전 |
+
+미정 제품 동작은 [open-questions](../../docs/open-questions.md) 한곳에서 관리한다. 알림의 보존·탈퇴 공개 경계는 기존 즉시 권한 회수 정책을 따르며 새로운 보존 정책을 계약 형식으로 몰래 확정하지 않는다. 다른 계약의 기능별 계획은 해당 C번호의 대조 범위를 확인해 진행할 수 있다. 공통 파일은 SHARED 담당이 모으고 기능별 UI·서비스 구현은 [배정 기준](../development-roles.md#여러-개발자의-작업-배정)에 따라 분리한다.
+
+## FR·SC와 작업 대조
+
+| 기준 | 연결 작업 | 현재 증거/완료 판단 |
+|---|---|---|
+| FR-001 | T001·T002·T004·T005·T009 | 원본/책임/형식 연결. 새 C09와 최종 검사 대기 |
+| FR-002 | T002·T004·T008·T009 | 논리 모델 소유/관계 연결. 새 알림 읽음 모델·BE 소비 대기 |
+| FR-003 | T002·T004·T006·T009 | TX/멱등/권한 회수 원본 연결. 의미별 후속 실행 검사 구분 |
+| FR-004 | T002·T006·T009 | UTC/IANA·기간·null/0·중복 제외 원본 연결. 서비스 계산 검사 후속 |
+| FR-005 | T002·T006·T007·T008·T009 |001 공통 소비 재사용. 새 예제와 양쪽 소비 대기 |
+| FR-006 | T001·T002·T003·T010 | 운동 시작/알림 질문/외부 검사를 미정·후속으로 구분 |
+| SC-001~003 | T009·T010 | 계약 검사와 미수행 제품 검사를 분리해 기록한 뒤 판단. 아직 전체 통과 표시하지 않음 |
+| SC-004 | T002·T005·T010 | 계약 책임표 및 현재 화면 집합 대조. 최종 전달·병합 대기 |
+
+모든 FR·SC에 작업이 있다. 미연결 작업은 없다. C09 미정은 T003/T004와 후속 T006~T010에 영향을 주며 T002/T005는 독립 진행한다. 요구사항 품질 체크16개 통과는 구현 완료와 별개다.
+
+## HTTP operationId 대조 색인
+
+아래는 현재 원본의 x-contracts별 operationId 색인이다. 여러 C번호를 사용하는 작업은 반복 표시되므로 수를 더해 전체 개수로 사용하지 않는다. 원본 변경 시 이 대조도 함께 갱신한다. 공통 C01은 모든109개 작업이다.
+
+### C02
+
+`createLoginChallenge`, `login`, `refreshSession`, `logout`, `adminLogin`, `adminSession`, `adminLogout`, `getMyProfile`, `editMyProfile`, `deleteAccount`, `previewAccountDeletion`, `registerDevice`, `unregisterDevice`.
+
+### C03
+
+`deleteAccount`, `getSelectedCrew`, `selectCrew`, `myCrews`, `createCrew`, `getCrew`, `crewMembers`, `resolveInvite`, `joinCrew`, `getCrewInvite`, `transferAdministrator`, `previewAccountDeletion`, `previewLeaveCrew`, `leaveCrew`, `memberRecords`, `memberRecord`, `memberStatistics`.
+
+### C04
+
+`listBrands`, `searchGyms`, `gymDetail`, `adminListBrand`, `adminCreateBrand`, `adminGetBrand`, `adminEditBrand`, `adminListGym`, `adminCreateGym`, `adminGetGym`, `adminEditGym`, `adminListSettings`, `adminCreateSetting`, `adminEditSetting`, `adminCancelSetting`.
+
+### C05
+
+`listSchedules`, `createSchedule`, `scheduleCalendar`, `getSchedule`, `editSchedule`, `cancelSchedule`, `respondToSchedule`, `recommendGyms`, `createCrewVisit`, `revertSchedules`, `revertVisits`.
+
+### C06
+
+`myRecords`, `createPersonalRecord`, `myRecord`, `editPersonalRecord`, `deletePersonalRecord`, `recordCandidates`, `createLinkedRecord`, `linkExistingRecord`, `unlinkRecord`, `myStatistics`, `memberRecords`, `memberRecord`, `memberStatistics`, `finishWorkout`.
+
+### C07
+
+`deleteAccount`, `previewAccountDeletion`, `previewLeaveCrew`, `leaveCrew`, `editPersonalRecord`, `deletePersonalRecord`, `createCrewVisit`, `crewVisit`, `editCrewVisit`, `deleteCrewVisit`, `recordCandidates`, `createLinkedRecord`, `linkExistingRecord`, `unlinkRecord`, `browseRecords`, `recordCalendar`, `revertSchedules`, `revertVisits`, `unshareDirectCrewMedia`.
+
+### C08
+
+`editMyProfile`, `deleteAccount`, `leaveCrew`, `myRecord`, `editPersonalRecord`, `deletePersonalRecord`, `crewVisit`, `deleteCrewVisit`, `memberRecord`, `adminCreateAnnouncement`, `adminEditAnnouncement`, `adminDeleteAnnouncement`, `createProfileImageDraft`, `createAdminImageDraft`, `myMediaLibrary`, `startMedia`, `mediaInfo`, `deleteMedia`, `retryMedia`, `completeMedia`, `uploadHead`, `uploadPatch`, `uploadDelete`, `readThumbnail`, `readContent`, `startMediaAdmin`, `mediaInfoAdmin`, `deleteMediaAdmin`, `retryMediaAdmin`, `completeMediaAdmin`, `uploadHeadAdmin`, `uploadPatchAdmin`, `uploadDeleteAdmin`, `readThumbnailAdmin`, `readContentAdmin`, `readAnnouncementImage`, `unshareDirectCrewMedia`, `reuploadMedia`, `uploadOptions`, `reuploadMediaAdmin`, `uploadOptionsAdmin`.
+
+### C09
+
+`logout`, `createSchedule`, `editSchedule`, `cancelSchedule`, `respondToSchedule`, `notificationSettings`, `editNotificationSettings`, `registerDevice`, `unregisterDevice`.
+
+### C10
+
+`searchGyms`, `listSchedules`, `scheduleCalendar`, `recommendGyms`, `myRecords`, `browseRecords`, `recordCalendar`, `myStatistics`, `memberRecords`, `memberStatistics`.
+
+### C11
+
+`createSchedule`, `editSchedule`, `cancelSchedule`, `deletePersonalRecord`, `createCrewVisit`, `editCrewVisit`, `deleteCrewVisit`, `createLinkedRecord`, `linkExistingRecord`, `unlinkRecord`, `historySchedules`, `revertSchedules`, `historyVisits`, `revertVisits`, `deleteMedia`, `retryMedia`, `completeMedia`, `deleteMediaAdmin`, `retryMediaAdmin`, `completeMediaAdmin`, `unshareDirectCrewMedia`.
+
+### C12
+
+`resolveInvite`, `joinCrew`, `getCrewInvite`, `finishWorkout`, `appAnnouncements`, `adminAnnouncements`, `adminCreateAnnouncement`, `adminAnnouncement`, `adminEditAnnouncement`, `adminDeleteAnnouncement`, `readAnnouncementImage`.

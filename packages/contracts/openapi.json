@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Holdlog 공통 API 계약",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "설계 원본. 서비스 구현·배포·실행 확인 전. 제품 정책은 docs 원본, 프로토콜 의미는 conventions.md 참조."
   },
   "servers": [
