@@ -15,6 +15,7 @@
 | 제품 범위 | [제품 요구사항](docs/prd.md) |
 | 기능·저장·권한 | [기능 명세](docs/functional-spec.md) |
 | 기술 구성·운영 조건 | [기술·운영 명세](docs/technical-spec.md) |
+| 시스템 구성·코드 구조·모노레포 선택 이유 | [아키텍처 안내](docs/architecture.md) |
 | 화면 모습·동작 | [화면 설계](docs/screen-design.md) · [Figma 시안](docs/screens.md) |
 | 전체 문서 | [문서 안내](docs/README.md) |
 
