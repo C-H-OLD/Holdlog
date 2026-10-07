@@ -4,7 +4,7 @@ import { loadRegistry, createRegistry } from '../../../scripts/contracts/schema-
 
 test('all source operations and runtime definitions are registered', () => {
   const registry = loadRegistry();
-  assert.equal(Object.keys(registry.operations).length, 109);
+  assert.equal(Object.keys(registry.operations).length, 112);
   assert.equal(Object.keys(registry.runtime.$defs).length, 22);
   assert.equal(registry.resolve('runtime.schema.json#/$defs/ClimbCount').$ref, 'openapi.json#/components/schemas/ClimbCount');
   assert.ok(registry.operations.createPersonalRecord.body['application/json']);

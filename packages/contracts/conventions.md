@@ -26,7 +26,7 @@ Error 필드 정의는 OpenAPI 원본이다. code는 프론트의 기존 다이�
 | 401 | UNAUTHENTICATED·ACCOUNT_DELETED |
 | 403 | FORBIDDEN·JOIN_BLOCKED |
 | 404 | NOT_FOUND·INVITE_INVALID(유효하지 않은 초대) |
-| 409 | IDEMPOTENCY_MISMATCH·REQUEST_IN_PROGRESS·ALREADY_MEMBER·LINK_CONFLICT·LINKED_VISIT_LOCKED·DATE_GYM_MISMATCH·NOT_ATTENDEE·ACTIVE_RECORD_ELSEWHERE·ADMIN_TRANSFER_INVALID·ADMIN_TRANSFER_REQUIRED·ACTUAL_VISIT_IN_FUTURE·UPLOAD_OFFSET_CONFLICT·MEDIA_NOT_READY |
+| 409 | IDEMPOTENCY_MISMATCH·REQUEST_IN_PROGRESS·ALREADY_MEMBER·LINK_CONFLICT·LINKED_VISIT_LOCKED·DATE_GYM_MISMATCH·NOT_ATTENDEE·ACTIVE_RECORD_ELSEWHERE·ADMIN_TRANSFER_INVALID·ADMIN_TRANSFER_REQUIRED·ACTUAL_VISIT_IN_FUTURE·UPLOAD_OFFSET_CONFLICT·MEDIA_NOT_READY·QUERY_SNAPSHOT_CHANGED |
 | 410 | REUPLOAD_REQUIRED·WORKOUT_RESULT_DELETED |
 | 412 / 428 | VERSION_CONFLICT / PRECONDITION_REQUIRED |
 | 416 / 460 | RANGE_NOT_SATISFIABLE / CHECKSUM_MISMATCH(tus 구간검사) |
@@ -78,3 +78,14 @@ HTTP breaking 변경은 API major 경로와 계약 major를 함께 갱신하고,
 ### 002 화면 경로 변경 — 계약2.0.0
 
 C12의 승인된05.07 알림 목록 화면을 Route.screenId에 추가했다. enum 추가는 exhaustive 소비자에 영향을 주므로 계약 major를 올린다. 기존 HTTP 입력·응답과 `/api/v1` 경로는 유지한다. 소비자는 같은 manifest의 생성물을 함께 갱신하고 화면 분기에서05.07을 처리한다. 이 변경은 수신 조회·읽음 API 확정이나 알림 화면 구현 완료를 뜻하지 않는다.
+
+
+## 수신 목록과 읽음 — C09
+
+- `myNotifications`는 인증 계정의 전체 크루 수신 목록이다. accountId/crewId 필터를 허용하지 않는다. 알림 대상 조건은 [5.5 원본](../../docs/functional-spec.md#55-푸시-알림)을 따르며 수신 행 생성과 푸시 발송을 분리한다. OS 권한·종류별 설정은 푸시 발송만 제한한다. 해당 설정이 꺼져도 같은 사건/대상 수신 행을 생성하며, 설정 변경/푸시 실패/읽음으로 기존 목록을 지우지 않는다.
+- 목록/수신 행 읽음/대상 진입에서 현재 계정·가입·권한을 각각 검사한다. 탈퇴·제외된 크루의 행은 crewName/content/scheduleId까지 목록 projection에서 제외하고 단건 읽음은404다. 계정 삭제는 본인 수신 행·읽음 상태를 제거한다. target이 삭제/취소되어도 현재 허용되는 수신 행의 읽음과 대상 화면 열기의 성공은 별개다. 비공개 개인 기록·파일 내용/과거본문을 표시 내용으로 복사하지 않는다.
+- 조회는 기존 cursor/pageSize(기본50/최대200) 규칙을 따른다. receivedAt DESC,id DESC이며 timeZone은 필수 IANA, localDate는 같은 timeZone에서 계산한다. 날짜 그룹은 페이지 경계에서 같은 날짜를 합친다. unreadCount는 현재 허용된 전체 수신 목록 기준이며 페이지 크기와 무관하다. 가입/내용/읽음/신규 수신으로 revision이 바뀌면 기존 cursor는409 QUERY_SNAPSHOT_CHANGED로 처음부터 조회한다. 시간대 변경도 기존 cursor 재사용을 거절한다. 자동 보존기한/목록 삭제 기능을 추가하지 않는다.
+- `markNotificationRead`는 누르는 즉시 호출하며 대상 화면의 로딩 완료를 기다리지 않는다. 화면은 즉시 읽음 표시를 반영할 수 있으나 이전 상태를 보관해 저장 실패 시 되돌린다. readAt은 서버 UTC 최초 읽음 시각이며 재요청으로 바꾸지 않는다. 입력은 빈 객체, 인증 계정은 서버가 결정한다. 사용자가 readAt/계정/크루를 보내는 입력은400이다. 한번 읽음은 되돌리는 API가 없으므로 If-Match 없이 단조 변경한다.
+- `readAllNotifications`는 첫 요청 수락 시 계정별 단조 수신 sequence의 경계를 서버에서 잡고, 그 경계 이하의 현재 허용된 전체 수신 행을 같은 TX에서 읽음 처리한다. 화면에 로드된 행만 처리하지 않는다. readThrough는 서버의 불투명 경계이며 클라이언트 입력으로 받지 않는다. 경계를 잡은 뒤 도착한 새 수신은 안 읽음을 유지해 모두 읽음이 다시 활성화한다. 응답 unreadCount는 완료 시 현재 허용된 행의 값이므로 새 수신이 있으면0보다 클 수 있다.
+- 두 읽음 POST는 UUID Idempotency-Key와 빈 JSON 객체를 요구한다. 동일 키는 같은 계정·operation·path/body에 결합하고 기존 멱등 규칙으로 처리한다. 전체 읽음 재시도는 최초 readThrough를 사용하므로 새 수신까지 다시 읽지 않는다. 키 보존 만료 뒤의 전체 읽음은 새로운 사용자 실행으로 취급한다. 저장 실패는 전체 TX 롤백이며 안 읽음을 성공으로 표시하지 않는다. 응답 유실은 같은 키 재요청/재조회로 저장 여부를 확인한다. 명시적 실패와 성공했지만 응답을 잃은 상태를 혼동하지 않는다. 실패한 요청 재시도에도 최초 경계를 유지하도록 경계 receipt를 읽음 TX와 별도로 먼저 확보하며 개인 내용은 저장하지 않는다.
+- readAt 저장은 발송 작업의 state/sentAt과 독립이다. 푸시 발송 성공이나 대상 화면 열기를 읽음 근거로 사용하지 않는다. 원본 변경은 계약2.1.0의 추가 API/자료형·예제·생성 소비에 함께 반영했다. 실제 권한/원자성/전달은017의 서버 통합 검사다.

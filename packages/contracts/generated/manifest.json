@@ -1,13 +1,13 @@
 {
-  "contractVersion": "2.0.0",
+  "contractVersion": "2.1.0",
   "node": "24.21.0",
   "npm": "11.19.0",
   "inputs": {
     "package-lock.json": "87f9e57027c11afeb503cff77288069011381a38545ed3710d2e6e992125be64",
     "package.json": "7d1a1b3e744f2585d91b6081f17927e7cb4c3f369569337147d5cf37bc1fa616",
-    "packages/contracts/conventions.md": "8dd41fb618fd0cf0980e3600d45a96544b7c6baee8b773a5fd57e2a2d0583e03",
-    "packages/contracts/examples.json": "0138fc4cdf178a285dc462f30e18487c27f5df0006bc4a4d3adcbcd57bdd3730",
-    "packages/contracts/openapi.json": "0c00396690879162d946f41b4f528869aed6c910485017361733ca13005877e0",
+    "packages/contracts/conventions.md": "148fe17803e793ea7bcc5621198a532bb1bda46fe84c31355343edda380d3949",
+    "packages/contracts/examples.json": "9baebfd9644f6bdffb2584df7683001c2076d4531242a6f6fc6b1fc7aca88e25",
+    "packages/contracts/openapi.json": "746e3c321a920cd9299fb1211e9cc5fd3f14b913c72a2679f703715415882b8e",
     "packages/contracts/package.json": "a6112db2868fe5d6ca2fdd74fde21a3daa0900b357c4cb8e3b908d28d43a1d47",
     "packages/contracts/runtime.schema.json": "2a66e06a5779bbe381e3657cd118c31bf67a4f4f3e2e6703d305ef0db66ade38",
     "redocly.yaml": "c0a7337c685a5d428cf8c3c644aaeaaa6cce661bc637575e53931a8c10f291ab",

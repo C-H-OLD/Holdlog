@@ -290,6 +290,215 @@
       },
       "sourceTests": [],
       "verification": "UI시작A/B와독립;clientWorkoutId영구dedupe"
+    },
+    {
+      "id": "notification-inbox-all-crews",
+      "operationId": "myNotifications",
+      "schema": "NotificationPage",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "items": [
+          {
+            "id": "00000000-0000-4000-8000-000000000102",
+            "eventId": "00000000-0000-4000-8000-000000000202",
+            "crewId": "00000000-0000-4000-8000-000000000302",
+            "crewName": "합성 크루 B",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:00:00Z",
+            "localDate": "2026-10-07",
+            "readAt": "2026-10-07T01:00:00Z",
+            "scheduleId": "00000000-0000-4000-8000-000000000402",
+            "destination": "schedule_detail"
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000101",
+            "eventId": "00000000-0000-4000-8000-000000000201",
+            "crewId": "00000000-0000-4000-8000-000000000301",
+            "crewName": "합성 크루 A",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:00:00Z",
+            "localDate": "2026-10-07",
+            "readAt": null,
+            "scheduleId": "00000000-0000-4000-8000-000000000401",
+            "destination": "schedule_detail"
+          }
+        ],
+        "nextCursor": null,
+        "snapshotVersion": "synthetic-revision-1",
+        "timeZone": "Asia/Seoul",
+        "unreadCount": 1
+      }
+    },
+    {
+      "id": "notification-reentry-read",
+      "operationId": "myNotifications",
+      "schema": "NotificationPage",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "items": [
+          {
+            "id": "00000000-0000-4000-8000-000000000102",
+            "eventId": "00000000-0000-4000-8000-000000000202",
+            "crewId": "00000000-0000-4000-8000-000000000302",
+            "crewName": "합성 크루 B",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:00:00Z",
+            "localDate": "2026-10-07",
+            "readAt": "2026-10-07T01:00:00Z",
+            "scheduleId": "00000000-0000-4000-8000-000000000402",
+            "destination": "schedule_detail"
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000101",
+            "eventId": "00000000-0000-4000-8000-000000000201",
+            "crewId": "00000000-0000-4000-8000-000000000301",
+            "crewName": "합성 크루 A",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:00:00Z",
+            "localDate": "2026-10-07",
+            "readAt": "2026-10-07T01:00:00Z",
+            "scheduleId": "00000000-0000-4000-8000-000000000401",
+            "destination": "schedule_detail"
+          }
+        ],
+        "nextCursor": null,
+        "snapshotVersion": "synthetic-revision-2",
+        "timeZone": "Asia/Seoul",
+        "unreadCount": 0
+      }
+    },
+    {
+      "id": "notification-single-read-input",
+      "operationId": "markNotificationRead",
+      "schema": "NotificationReadInput",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {}
+    },
+    {
+      "id": "notification-single-read-result",
+      "operationId": "markNotificationRead",
+      "schema": "NotificationReadResult",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "notificationId": "00000000-0000-4000-8000-000000000101",
+        "readAt": "2026-10-07T01:00:00Z",
+        "unreadCount": 0
+      }
+    },
+    {
+      "id": "notification-all-read-input",
+      "operationId": "readAllNotifications",
+      "schema": "NotificationReadInput",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {}
+    },
+    {
+      "id": "notification-all-read-result",
+      "operationId": "readAllNotifications",
+      "schema": "NotificationReadAllResult",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "readAt": "2026-10-07T01:00:00Z",
+        "readThrough": "synthetic-server-cutoff-102",
+        "unreadCount": 0
+      }
+    },
+    {
+      "id": "notification-new-after-read-all",
+      "operationId": "myNotifications",
+      "schema": "NotificationPage",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "items": [
+          {
+            "id": "00000000-0000-4000-8000-000000000103",
+            "eventId": "00000000-0000-4000-8000-000000000203",
+            "crewId": "00000000-0000-4000-8000-000000000301",
+            "crewName": "합성 크루 A",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:01:00Z",
+            "localDate": "2026-10-07",
+            "readAt": null,
+            "scheduleId": "00000000-0000-4000-8000-000000000401",
+            "destination": "schedule_detail"
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000102",
+            "eventId": "00000000-0000-4000-8000-000000000202",
+            "crewId": "00000000-0000-4000-8000-000000000302",
+            "crewName": "합성 크루 B",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:00:00Z",
+            "localDate": "2026-10-07",
+            "readAt": "2026-10-07T01:00:00Z",
+            "scheduleId": "00000000-0000-4000-8000-000000000402",
+            "destination": "schedule_detail"
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000101",
+            "eventId": "00000000-0000-4000-8000-000000000201",
+            "crewId": "00000000-0000-4000-8000-000000000301",
+            "crewName": "합성 크루 A",
+            "kind": "new_schedule",
+            "content": "새 일정이 등록됐어요",
+            "receivedAt": "2026-10-07T01:00:00Z",
+            "localDate": "2026-10-07",
+            "readAt": "2026-10-07T01:00:00Z",
+            "scheduleId": "00000000-0000-4000-8000-000000000401",
+            "destination": "schedule_detail"
+          }
+        ],
+        "nextCursor": null,
+        "snapshotVersion": "synthetic-revision-3",
+        "timeZone": "Asia/Seoul",
+        "unreadCount": 1
+      }
+    },
+    {
+      "id": "notification-read-failure",
+      "operationId": "markNotificationRead",
+      "schema": "Error",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "code": "TEMPORARY_FAILURE",
+        "requestId": "00000000-0000-4000-8000-000000000001",
+        "fieldErrors": [],
+        "currentVersion": null,
+        "resourceId": null,
+        "retryable": true,
+        "blockingCrewIds": [],
+        "existingVisitId": null
+      }
     }
   ],
   "runtime": [
@@ -383,6 +592,26 @@
         "selectedDate": "2026-10-06",
         "fileId": null
       }
+    },
+    {
+      "id": "notification-inbox-route",
+      "schema": "Route",
+      "contracts": [
+        "C12"
+      ],
+      "value": {
+        "screenId": "05.07",
+        "tabContext": "records",
+        "crewId": null,
+        "scheduleId": null,
+        "visitId": null,
+        "personalRecordId": null,
+        "memberAccountId": null,
+        "gymId": null,
+        "inviteId": null,
+        "selectedDate": null,
+        "fileId": null
+      }
     }
   ],
   "mustReject": [
@@ -422,6 +651,39 @@
         "brandId": "00000000-0000-4000-8000-000000000001",
         "gradeKey": 3,
         "count": -1
+      }
+    },
+    {
+      "id": "notification-recipient-spoof",
+      "schema": "NotificationReadInput",
+      "value": {
+        "accountId": "00000000-0000-4000-8000-000000000999"
+      }
+    },
+    {
+      "id": "notification-invalid-time",
+      "schema": "NotificationItem",
+      "value": {
+        "id": "00000000-0000-4000-8000-000000000101",
+        "eventId": "00000000-0000-4000-8000-000000000201",
+        "crewId": "00000000-0000-4000-8000-000000000301",
+        "crewName": "합성 크루 A",
+        "kind": "new_schedule",
+        "content": "새 일정이 등록됐어요",
+        "receivedAt": "2026-10-07T01:00:00",
+        "localDate": "2026-10-07",
+        "readAt": null,
+        "scheduleId": "00000000-0000-4000-8000-000000000401",
+        "destination": "schedule_detail"
+      }
+    },
+    {
+      "id": "notification-invalid-count",
+      "schema": "NotificationReadAllResult",
+      "value": {
+        "readAt": "2026-10-07T01:00:00Z",
+        "readThrough": "synthetic-server-cutoff-102",
+        "unreadCount": -1
       }
     }
   ]

@@ -119,9 +119,11 @@ def check_routes(routes, state):
 
 
 def main():
+    """Check contract sources, registered screens and synthetic fixtures; raise on inconsistency."""
     assert API['openapi'] == '3.1.0'
     walk(API, API)
     walk(RUNTIME, RUNTIME)
+    screen_count = check_routes(RUNTIME['$defs']['Route']['properties']['screenId']['enum'], json.loads((ROOT / 'docs/figma/state.json').read_text()))
     operations = {}
     used_contracts = set(API['x-global-contracts'])
     for path, item in API['paths'].items():
@@ -148,7 +150,6 @@ def main():
         value = example.get('value', {**example.get('baseValue', {}), **example.get('inject', {})})
         assert not valid(value, API['components']['schemas'][example['schema']], API), f'거절 예제 허용: {example["id"]}'
     assert used_contracts == {f'C{i:02d}' for i in range(1, 13)}
-    screen_count = check_routes(RUNTIME['$defs']['Route']['properties']['screenId']['enum'], json.loads((ROOT / 'docs/figma/state.json').read_text()))
     print(f'API {len(API["paths"])}개 경로·{len(operations)}개 작업·{len(API["components"]["schemas"])}개 자료형, runtime {len(RUNTIME["$defs"])}개 정의')
     print(f'HTTP 예제 {len(EXAMPLES["http"])}개·runtime 예제 {len(EXAMPLES["runtime"])}개·거절 예제 {len(EXAMPLES["mustReject"])}개, C01~C12·화면{screen_count}개 참조 확인')
     print('정적 참조·예제 형식 검사 통과. 전체 OpenAPI 규약 검사·실제 API/DB/기기 실행 검증은 별도.')
