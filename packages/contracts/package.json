@@ -9,5 +9,36 @@
   "scripts": {
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "type": "module",
+  "exports": {
+    "./http": {
+      "types": "./generated/http.d.ts",
+      "default": "./generated/empty.mjs"
+    },
+    "./runtime": {
+      "types": "./generated/client.d.ts",
+      "default": "./generated/empty.mjs"
+    },
+    "./backend": {
+      "types": "./generated/runtime.d.ts",
+      "default": "./generated/empty.mjs"
+    },
+    "./validators": {
+      "types": "./generated/validators.d.mts",
+      "default": "./generated/validators.mjs"
+    },
+    "./operations": {
+      "types": "./generated/index.d.mts",
+      "default": "./generated/index.mjs"
+    },
+    "./fixtures": {
+      "types": "./generated/fixtures.d.mts",
+      "default": "./generated/fixtures.mjs"
+    },
+    "./http-input": {
+      "types": "./generated/http-input.d.mts",
+      "default": "./generated/http-input.mjs"
+    }
   }
 }

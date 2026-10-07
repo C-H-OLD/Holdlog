@@ -1,6 +1,6 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: T001–T003·T034 구현·로컬 검사 완료, 나머지 29개 미실행
+**작성일**: 2026-10-06 · **상태**: T001–T008·T034 구현·로컬 검사 완료, 나머지 24개 미실행
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
@@ -31,11 +31,13 @@
 
 목표: 같은 원본에서 타입·검사·예제를 생성해 후속 역할에 전달한다. 이 단계가 끝나면 각 실행 대상의 단독 작업을 시작할 수 있다.
 
-- [ ] T004 [SHARED] `scripts/contracts/schema-registry.mjs`와 `packages/contracts/test/schema-registry.test.mjs`에 로컬 문서 ID/JSON Pointer 참조 해결과 HTTP operation 입출력 schema 추출을 준비한다. 선행 T003; FR-005·006. 검사/전달: runtime의 OpenAPI 외부 참조·모든 `$defs`·path/query/header/body/response를 처리하고 미해결 참조/지원하지 않는 검증 키워드는 실패한다. OpenAPI 전체 문서를 JSON Schema로 간주하지 않는다.
-- [ ] T005 [SHARED] `scripts/contracts/generate.mjs`, `scripts/contracts/formats.mjs`, `packages/contracts/generated/`에 HTTP/runtime 타입과 Ajv2020 standalone 검사 함수를 생성한다. 선행 T004; FR-005·007. 검사/전달: `coerceTypes`, `useDefaults`, `removeAdditional`을 끄고 UUID/date/date-time/email/URI·IANA 시간대를 검사한다. standalone format 코드와 모바일에서 사용할 출력 형식을 준비하고 서버 모듈을 클라이언트 출력에 포함하지 않는다.
-- [ ] T006 [SHARED] `scripts/contracts/check-examples.mjs`, `packages/contracts/generated/fixtures.mjs`, `packages/contracts/test/examples.test.mjs`에 기존 `examples.json`을 읽는 fixture adapter와 규약/정상/거절 검사를 준비한다. 선행 T005; FR-005·006. 검사/전달: 예제 schema와 operation 입출력 연결, 모든 `mustReject` 거절을 확인한다. 예제에 없는 업무 동작을 생성하지 않고 비JSON bytes·권한 검사의 후속 경계를 표시한다.
-- [ ] T007 [SHARED] `packages/contracts/package.json`, `packages/contracts/test/frontend-consumer.ts`, `packages/contracts/test/backend-consumer.ts`에 진입점과 FE HTTP/runtime·BE HTTP/job/storage 소비 타입 검사를 준비한다. 선행 T006; FR-001·005·007. 검사/전달: 같은 원본 버전의 정상 소비는 통과하고 잘못된 타입은 기대 오류로 검증한다. 브라우저/모바일 진입점에 NestJS·DB·비밀 설정 의존성이 없어야 한다.
-- [ ] T008 [SHARED] `scripts/contracts/check-generated.mjs`, `packages/contracts/generated/manifest.json`, 루트 `package.json`에 `contracts:generate`/`contracts:check` 명령과 생성 차이 검사를 연결한다. 선행 T007; FR-005·006·008. 검사/전달: 계약 버전·원본 SHA-256·도구 버전·출력 목록을 남기고 “매번 달라지는 시각을 생성 결과에 넣지 않음”을 지킨다. 재생성은 동일해야 하며 임시 원본 변경 후 미재생성은 실패해야 한다. 원본 변경 검사는 별도 시험 사본에서 수행한다.
+- [x] T004 [SHARED] `scripts/contracts/schema-registry.mjs`와 `packages/contracts/test/schema-registry.test.mjs`에 로컬 문서 ID/JSON Pointer 참조 해결과 HTTP operation 입출력 schema 추출을 준비한다. 선행 T003; FR-005·006. 검사/전달: runtime의 OpenAPI 외부 참조·모든 `$defs`·path/query/header/body/response를 처리하고 미해결 참조/지원하지 않는 검증 키워드는 실패한다. OpenAPI 전체 문서를 JSON Schema로 간주하지 않는다.
+- [x] T005 [SHARED] `scripts/contracts/generate.mjs`, `scripts/contracts/formats.mjs`, `scripts/contracts/http-input.mjs`, `packages/contracts/test/validation.test.mjs`, `packages/contracts/test/http-input.test.mjs`, `packages/contracts/generated/`에 HTTP/runtime 타입과 Ajv2020 standalone 검사 함수를 생성한다. 선행 T004; FR-005·007. 검사/전달: `coerceTypes`, `useDefaults`, `removeAdditional`을 끄고 UUID/date/date-time/email/URI·IANA 시간대를 검사한다. standalone format 코드와 모바일에서 사용할 출력 형식을 준비하고 서버 모듈을 클라이언트 출력에 포함하지 않는다.
+- [x] T006 [SHARED] `scripts/contracts/check-examples.mjs`, `packages/contracts/generated/fixtures.mjs`, `packages/contracts/test/examples.test.mjs`에 기존 `examples.json`을 읽는 fixture adapter와 규약/정상/거절 검사를 준비한다. 선행 T005; FR-005·006. 검사/전달: 예제 schema와 operation 입출력 연결, 모든 `mustReject` 거절을 확인한다. 예제에 없는 업무 동작을 생성하지 않고 비JSON bytes·권한 검사의 후속 경계를 표시한다.
+- [x] T007 [SHARED] `packages/contracts/package.json`, `packages/contracts/test/frontend-consumer.ts`, `packages/contracts/test/backend-consumer.ts`에 진입점과 FE HTTP/runtime·BE HTTP/job/storage 소비 타입 검사를 준비한다. 선행 T006; FR-001·005·007. 검사/전달: 같은 원본 버전의 정상 소비는 통과하고 잘못된 타입은 기대 오류로 검증한다. 브라우저/모바일 진입점에 NestJS·DB·비밀 설정 의존성이 없어야 한다.
+- [x] T008 [SHARED] `scripts/contracts/check-generated.mjs`, `packages/contracts/generated/manifest.json`, `packages/contracts/test/generated.test.mjs`, 루트 `package.json`·`scripts/check-tooling.mjs`에 `contracts:generate`/`contracts:check` 명령과 생성 차이 검사를 연결한다. 선행 T007; FR-005·006·008. 검사/전달: 계약 버전·원본 SHA-256·도구 버전·출력 목록을 남기고 “매번 달라지는 시각을 생성 결과에 넣지 않음”을 지킨다. 재생성은 동일해야 하며 임시 원본 변경 후 미재생성은 실패해야 한다. 원본 변경 검사는 별도 시험 사본에서 수행한다.
+
+T004–T008의 실행 증거·남은 조건은 [계약 검사 결과](quickstart.md#계약-생성과-소비-검사-결과)에 있다. 구현·검사 완료와 PR 병합·#4 종료는 구분한다.
 
 ## Phase 3: US1 — 개발 작업 시작 (P1)
 
@@ -167,7 +169,7 @@ flowchart TD
 
 현재 범위의 33개 작업을 다음 11개 작업 이슈로 나눠 [상위 스펙 #1](https://github.com/trycatch98/Holdlog/issues/1)의 실제 서브 이슈로 연결한다.
 
-준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. T001–T003·T034의 구현·검사를 완료했으며 나머지 29개는 미완료다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
+준비 문서는 [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3)에서 검토한다. T001–T008·T034의 구현·검사를 완료했으며 나머지 24개는 미완료다. PR 병합·이슈 완료는 별도다. 담당자는 GitHub Assignees로 배정하고 PR 리뷰는 [개발 흐름](../../docs/development-workflow.md#pr-리뷰와-수정)을 따른다. 이슈 등록 여부와 코드 구현 완료를 구분한다. 선행 결과가 준비되면 [개발 흐름](../../docs/development-workflow.md#github-이슈와-pr)에 따라 상태를 갱신한다.
 
 | 이슈·작업 식별자 | 역할 | 포함 작업 | 결과 | 선행 이슈 |
 |---|---|---|---|---|

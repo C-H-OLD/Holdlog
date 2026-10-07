@@ -1,0 +1,46 @@
+{
+  "contractVersion": "1.0.0",
+  "node": "24.21.0",
+  "npm": "11.19.0",
+  "inputs": {
+    "package-lock.json": "64bf20b795a8f670f69c84dcee0d31b9c107b802c1763edbf8f210bfdd154dcd",
+    "package.json": "09d6e26f445e32d0326260d66a66ad83fcd77c94681fb23c6f622a7222a95748",
+    "packages/contracts/conventions.md": "6ec530c06bd77d52daaa64b23e3dd3686178cb6edf5bfabb96ad9b4beb2c7437",
+    "packages/contracts/examples.json": "0138fc4cdf178a285dc462f30e18487c27f5df0006bc4a4d3adcbcd57bdd3730",
+    "packages/contracts/openapi.json": "c79f369ecad8c6fbcc21670f48fe9848f8ab77f00d53fd53822dfce2394893e4",
+    "packages/contracts/package.json": "a6112db2868fe5d6ca2fdd74fde21a3daa0900b357c4cb8e3b908d28d43a1d47",
+    "packages/contracts/runtime.schema.json": "834b06ccb97fd3747c2c434608f8bb493bfd091bda099c0a17cc72a0fd0fd925",
+    "redocly.yaml": "c0a7337c685a5d428cf8c3c644aaeaaa6cce661bc637575e53931a8c10f291ab",
+    "scripts/contracts/check-examples.mjs": "6115e997d66c8153f796cb6bf4564fba8d5793e35ae8159fc684e41a62050700",
+    "scripts/contracts/check-generated.mjs": "220e3904fa5a4e9ffb6ad6ed1a1b43b2fe07d39a193fe123e5e9a00996ab5dbd",
+    "scripts/contracts/check.mjs": "32fc9ce6103c51dfa2f290be8ebb8067493e69352f27a86cedfae2842edd0770",
+    "scripts/contracts/formats.mjs": "69b4763e9b3e8e024f5344ba0ed758437fcdc38d5d254dc031791b9beb20c2a1",
+    "scripts/contracts/generate.mjs": "5f5e850918f9a948f385dc0088a06a256d4eff3d13c18f16d6330dfe79358300",
+    "scripts/contracts/http-input.mjs": "7e250f5cc6259ddfeb67ec7d9dc0e19ec99d14bceecbdb07eec8fe650666d5af",
+    "scripts/contracts/schema-registry.mjs": "93bb6a6ac23b832d8a8be5d13dee72d13af1c32ab53405658a2467b06d3d497c"
+  },
+  "tools": {
+    "openapi-typescript": "7.13.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "json-schema-to-typescript": "16.0.0",
+    "@redocly/cli": "2.59.0",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  },
+  "outputs": [
+    "client.d.ts",
+    "empty.mjs",
+    "fixtures.d.mts",
+    "fixtures.mjs",
+    "http-input.d.mts",
+    "http-input.mjs",
+    "http.d.ts",
+    "index.d.mts",
+    "index.mjs",
+    "manifest.json",
+    "runtime.d.ts",
+    "validators.d.mts",
+    "validators.mjs"
+  ]
+}

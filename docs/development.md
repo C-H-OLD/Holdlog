@@ -14,8 +14,8 @@
 
 ## 다음 작업
 
-1. [001 도구·설정 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T003 구현·로컬 검사를 수행했다. [검증 기록](history/development/001-shared-foundation-verification.md)을 참고하고, 담당·PR·병합 상태는 이슈에서 확인한다. 준비 문서 PR #3은 병합됐다. #2의 구현 PR 병합 후 [계약 생성·검사 #4](https://github.com/trycatch98/Holdlog/issues/4)를 진행하고 서버·웹·모바일의 로컬 작업으로 이어간다. 확정된 33개 작업은 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 모두 등록했다. 현재 진행 상태는 GitHub 이슈에서 확인한다.
-2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비자를 검사한다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
+1. [001 도구·설정 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T003 구현·로컬 검사를 수행했다. [검증 기록](history/development/001-shared-foundation-verification.md)을 참고하고, 담당·PR·병합 상태는 이슈에서 확인한다. 준비 문서 PR #3은 병합됐다. #2는 PR #15로 병합됐고 [계약 생성·검사 #4](https://github.com/trycatch98/Holdlog/issues/4)의 구현·검사를 수행했다. #4 병합 후 서버·웹·모바일의 로컬 작업으로 이어간다. 확정된 33개 작업은 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 모두 등록했다. 현재 진행 상태는 GitHub 이슈에서 확인한다.
+2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비 타입 검사를 수행했다. 실제 앱·API 소비는 후속 작업이다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
 3. 이후 기반 구성을 진행하고 서버·웹·모바일의 로컬 작업을 시작한다. 001은 로컬 실행·연결 검사로 완료를 판단하고 실제 기기·물리 서버 확인은 필요한 후속 범위에서 계획한다.
 4. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈 뒤 기능을 구현한다.
 
@@ -47,7 +47,9 @@
 node --version # v24.21.0
 npm --version  # 11.19.0
 npm ci
+npm run contracts:check
 npm run check
+# 계약 원본 변경 후: npm run contracts:generate
 # 개별 검사: npm run check:lockfile / npm run lint / npm run typecheck / npm run test:tooling
 # 특정 대상: npm run lint --workspace=@holdlog/server
 python3 scripts/check-contracts.py
@@ -55,7 +57,7 @@ python3 scripts/check-docs.py
 git diff --check
 ```
 
-위 설치·설정·기존 정적 검사만 수행했다. 현재 로컬의 기본 `python3` 실행 파일은 종료 코드137로 중단되어 `/usr/bin/python3`로 기존 검사를 통과했다. 이 로컬 환경에서 위 계약·문서 검사와 아래 링크 검사 명령은 `/usr/bin/python3`로 실행한다. 다른 환경에서는 정상 동작하는 Python3를 사용한다. 합성 입력으로 타입/lint 설정을 확인한 결과와 프로젝트 전용 Node 설치 방법은 [검증 기록](history/development/001-shared-foundation-verification.md)을 따른다. 루트 `npm run check`는 manifest/lockfile 일치와 현재 소스·환경 확인용 코드의 lint·타입·도구 회귀 검사를 수행한다. 서비스 실행·빌드·DB·기기 검사는 포함하지 않는다. 계약 생성·서비스 전체 검사 명령은 #4·#9에서, 앱·웹·서버 실행 명령은 #5–#7에서 구현한다.
+위 설치·설정·계약 생성/소비·기존 정적 검사를 수행했다. 계약 검사 결과는 [001 검증 안내](../specs/001-development-foundation/quickstart.md#계약-생성과-소비-검사-결과)를 따른다. 현재 로컬의 기본 `python3` 실행 파일은 종료 코드137로 중단되어 `/usr/bin/python3`로 기존 검사를 통과했다. 이 로컬 환경에서 위 계약·문서 검사와 아래 링크 검사 명령은 `/usr/bin/python3`로 실행한다. 다른 환경에서는 정상 동작하는 Python3를 사용한다. 합성 입력으로 타입/lint 설정을 확인한 결과와 프로젝트 전용 Node 설치 방법은 [검증 기록](history/development/001-shared-foundation-verification.md)을 따른다. 루트 `npm run check`는 manifest/lockfile 일치·계약 검사와 현재 소스·환경 확인용 코드의 lint·타입·도구 회귀 검사를 수행한다. 서비스 실행·빌드·DB·기기 검사는 포함하지 않는다. 계약 생성/검사는 #4에서 구현했으며 서비스 전체 검사 명령은 #9에서, 앱·웹·서버 실행 명령은 #5–#7에서 구현한다.
 
 기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 

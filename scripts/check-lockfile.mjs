@@ -3,7 +3,21 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+/**
+ * Check that root and workspace manifests match their npm lockfile snapshots.
+ * @param {string} [root] - Repository root; defaults to the current working directory.
+ * @returns {number} Number of manifest snapshots checked.
+ * @throws {Error|SyntaxError} If required JSON cannot be read or parsed.
+ * @throws {import('node:assert').AssertionError} For unsupported lockfile versions or snapshot/workspace drift.
+ * Read-only: this checks direct manifest metadata, not transitive integrity or installation success.
+ */
 export function checkLockfile(root = process.cwd()) {
+  /**
+   * Read JSON metadata beneath the selected repository root.
+   * @param {string} path - Repository-relative JSON filename.
+   * @returns {object} Parsed manifest or lockfile data.
+   * @throws {Error|SyntaxError} If the file cannot be read or parsed.
+   */
   const read = path => JSON.parse(readFileSync(join(root, path), 'utf8'));
   const lock = read('package-lock.json');
   assert.equal(lock.lockfileVersion, 3, 'Expected lockfileVersion 3');
