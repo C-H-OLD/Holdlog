@@ -15,7 +15,7 @@ test('source examples pass and every mustReject fails', () => {
   assert.equal(result.bindings.length, 13);
 });
 test('missing schema/operation and unrelated bindings are rejected', () => {
-  for (const change of [{ schema: 'Missing' }, { operationId: 'Missing' }, { operationId: 'adminLogin' }]) {
+  for (const change of [{ schema: 'Missing' }, { operationId: 'Missing' }, { operationId: 'listBrands' }]) {
     const copy = structuredClone(examples);
     Object.assign(copy.http[1], change);
     assert.throws(() => checkExamples(copy, registry, validators, index));
