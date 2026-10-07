@@ -23,7 +23,7 @@
     "prebuild": "expo prebuild --no-install",
     "ios": "expo run:ios",
     "android": "expo run:android",
-    "export:bundle": "expo export --platform all",
+    "export:bundle": "node --env-file=.env ../../node_modules/expo/bin/cli export --platform all",
     "test": "node --test test/*.test.ts"
   },
   "main": "index.js",

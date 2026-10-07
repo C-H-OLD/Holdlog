@@ -79,4 +79,56 @@ iOS는 iPhone17Pro/iOS26.2 시뮬레이터, Android는 Pixel_8_API_33/Android13 
 - 로컬 TEST_DATABASE_URL을 명시한 루트 `npm run test:foundation` 종료0: 실제 시험 DB 검사10개 통과·skip0. migration 재연결·변조 거절, health200/503, 운영 모드 개발 route 제외·로그 비밀 제외, worker 중단과 SIGKILL 후 중복 효과 없는 재처리 포함. 최초 검증용 연결 설정에서 DB 사용자명을 잘못 지정한 실행은 인증 실패했으며 Compose의 holdlog로 바로잡은 재실행 결과다.
 - #8의 최초 관리자 절차 문서를 확인했다. 실제 관리자 계정 생성·세션·권한 구현은004 범위로 미수행이다.
 - 실제 휴대폰·서명·외부 물리 서버·배포는001 로컬 범위 밖으로 미수행이다. 해당 환경의 네이티브 기능과 운영 검사는 후속 기능·배포 범위에서 별도로 수행한다.
-- #11의 T027–T030·T032·T033과 상위 #1의 최종 대조·완료 판단은 남아 있다. 이번 실행을 근거로 #11 작업을 자동 완료 처리하지 않는다.
+- 이 #10 실행만으로 #11 재현 작업이나 #14 최종 대조·#13 전달을 자동 완료 처리하지 않는다. #11의 별도 수행 결과는 아래에 기록한다.
+
+## 별도 폴더 재현과 비밀 경계 — #11 / T027–T030
+
+2026-10-07 · 기준 main c88b10f31adedb9e299ec9930b75647ca63809e1에서 독립 Git worktree를 만들고 기존 node_modules나 생성 빌드 없이 시작했다. Node24.21.0·npm11.19.0과 커밋된 lockfile, 위 고정 Compose 이미지·기존 볼륨을 사용했다. 실제 비밀번호는 Git 제외·권한600의 로컬 설정으로만 전달했다. T027–T030의 실행 증거이며 #14의 전체 요구사항 대조와 #13의 전달 완료를 대신하지 않는다.
+
+### T028 설치·생성·검사·실패 후 복구
+
+| 절차 | 실제 결과 |
+|---|---|
+| `npm ci` | 종료0, 713 packages 설치. 기존 lockfile 변경 없음. 설치된 의존성은 같은 lock 기준이며 전역 도구는 변경하지 않음 |
+| `npm run contracts:check` → `contracts:generate` | 각각 종료0. 생성 디렉터리의 `git diff --exit-code` 종료0으로 동일 재생성 확인 |
+| 원본 변경 후 미생성 | conventions.md에 임시 문장을 넣고 루트 check 실행: manifest 입력 차이로 종료1. finally에서 원본 bytes 복구 |
+| 잘못된 타입 | 관리자 소스의 고유 임시 probe에서 number에 문자열 지정: 루트 typecheck 종료2·TS2322. 해당 probe만 제거 |
+| 시험 DB 설정 누락 | TEST_DATABASE_URL 없이 루트 test:foundation 종료1·필수 설정 이름 진단. 로컬 시험 설정 전달 후 동일 루트 명령의 실제 DB 검사10개 종료0·skip0 |
+| 웹 설정 누락·복구 | 관리자 .env를 임시 이름으로 옮긴 상태에서 dev:admin 종료1·ADMIN_DEV_API_ORIGIN 진단. 파일 원복 후 같은 루트 명령 시작·HTTP200 및 Holdlog 관리자 문서 확인 |
+| 모바일 설정 누락·복구 | 앱 .env를 빈 내용으로 잠시 바꾼 export:bundle 종료1·공개 iOS origin 이름 진단. 원본 bytes 복구 후 공개 config와 iOS/Android export 성공 |
+| 정상 재검사 | 루트 check 종료0: 회귀56개·모든 workspace lint/typecheck·웹/API build. 처음 의도적으로 실패시킨 입력·타입·설정이 현재 소스에 남지 않음 |
+
+모바일 export의 별도 문제도 재현했다. 기존 `expo export --platform all`은 .env가 있어도 앱 설정의 origin 검사에서 종료1이었다. 설치된 CLI의 resolveOptionsAsync가 getConfig를 호출한 뒤 exportAppAsync가 dotenv를 읽는 순서를 확인했다. 공개 origin을 환경으로 먼저 전달하면 동일 명령이 종료0이었다. `export:bundle`을 `node --env-file=.env ../../node_modules/expo/bin/cli export --platform all`로 보완한 뒤, 공개 origin을 따로 주입하지 않고 앱 .env만으로 양쪽 export 종료0을 확인했다. 이 변경은 export의 설정 로드 순서만 바꾸며 앱의 필수 origin 검증과 제품 동작은 유지한다. iOS586개·Android466개 모듈의 production Hermes 번들과 metadata를 생성했다. 이번에 네이티브 바이너리를 새로 빌드하거나 실기기를 실행한 것은 아니다.
+
+### T028 실제 DB·worker 재현
+
+새 작업 폴더에서 루트 dev:api와 dev:worker를 별도 프로세스로 실행해 api.started·worker.started를 확인했다. 개발 DB의 이번 UUID 합성 행1개를 만든 뒤 Compose stop db → up -d --wait db를 수행했다. 중단 중 ready503/unavailable, 복구 후 ready200/ready와 같은 UUID 행1개를 확인했다. 검증 후 그 행만 삭제했다. 볼륨 삭제·운영 자료 사용은 없었다.
+
+worker는 이 실제 DB 중단을 worker.failed로 기록했고 SIGTERM 후 worker.stopped·종료0이었다. 같은 루트 dev:worker 명령으로 재시작해 worker.started를 확인한 뒤 정상 종료했다. 시험 DB의 test:foundation은 작업 처리 중 중단과 별도 프로세스 SIGKILL 후 새 worker의 재시도 완료·효과 행1개를 각각 검증했다. DB/queue 정상 경로를 환경 오류로 미수행했던 #9 기록과 구분하며, 여기서는 독립 폴더에서 실제로 수행했다.
+
+### T027 합성 표식과 출력 경계
+
+고유 합성 표식을 서버 전용 키·관리자 준비 입력·DB 접속 비밀번호·비공개 경로 및 사용하지 않는 공개 probe 변수에 넣어 검사했다. 실제 비밀·개인 자료를 표식으로 사용하거나 결과에 저장하지 않았다. 공개 변수에 실제 비밀을 넣어도 안전하다는 뜻은 아니다. 소비되는 EXPO_PUBLIC 설정에는 공개 origin만 제공한다.
+
+| 검사 대상 | 결과·확인 범위 |
+|---|---|
+| 공개 예시·Git 추적 | 서버·Compose 예시는 교체용 비밀번호이고 웹/모바일 예시는 공개 origin이다. 추적 파일1,133개에서 이번 고유 합성 표식 없음. Git 추적 중 .env·키·인증서·서명/네이티브 서비스 비밀 파일 없음 |
+| Git 제외 | 실제 앱별/Compose 환경 파일, DB dump·storage, signing/네이티브 설정, ios/android 생성 프로젝트, 모든 dist와 로그 probe 경로가 check-ignore에 포함됨 |
+| 관리자 웹 production 출력 | build:admin 종료0, HTML/JS 출력2개와 빌드 로그에서 합성 표식 없음 |
+| API 빌드 출력 | build:api 종료0, JS/map 등36개 출력과 빌드 로그에서 합성 표식 없음 |
+| 모바일 공개 config·export | config --type public 종료0과 양쪽 production hbc·metadata3개 및 export 로그에서 서버/관리자/DB/미사용 probe 표식 없음 |
+| 시작 실패 로그 | 필수 DATABASE_URL 누락의 API/worker 종료1은 설정 이름만 진단. 합성 DB 비밀번호의 인증 실패는 worker.failed로 종료1·상세 접속값 미출력 |
+| 실제 API 응답·로그 | 별도 로컬 port3111에서 합성 DB 비밀번호를 제공한 API를 시작. 합성 query·Authorization·Cookie를 보낸 ready 응답은 정확한503/unavailable이고 marker 없음. 종료 후 수집한 API 로그에도 marker 없음 |
+| 정상 실행 로그 | 새 폴더에서 시작한 API·worker와 재시작 worker의 고정 event 로그에서 합성 표식 없음 |
+
+이 결과는 위 입력·빌드·공개 config·로그의 검사 범위다. 서명 산출물·APK/IPA·네이티브 빌드 로그·외부 서버 로그·제품 로그인·파일/푸시 출력은 이번 표식 검사에서 미수행이다. #7의 네이티브 실행과 #10의 Hermes 실제 연결 증거는 별도로 유지한다. 사용하지 않는 합성 공개 변수의 미포함 결과를 실제 비밀을 공개 설정에 넣어도 된다는 허용으로 해석하지 않는다.
+
+### T029 준비 상태 대조·T030 안내
+
+[준비 체크리스트](../../setup-checklist.md)는 로컬 기반 실행·가상 기기/API 연결·개발/시험 설정 경계·계약 도구 소비의 실제 완료만 표시했다. 물리 서버 사양·테스트 휴대폰은 사용자 확인대로 미정이다. Google/Apple 계정·서명·지도/Firebase/APNs 자격증명과 초기 암장/벽 세팅 자료·실제 관리자 계정은 미확인 또는 후속 구현 전 미수행으로 유지한다. 외부 계정·실기기·물리 서버 준비가 로컬 통과로 바뀌지 않는다.
+
+계정/관리자 저장·인증은004, 지도는007, 초기 암장/세팅 등록은006, 미디어/파일은011, 기기 푸시는017의 구현·연동 기준을 따른다. 아직 없는 제품 기능을 기반 합성 자료로 완료 처리하지 않았다. GitHub 저장소의 실제 visibility는 PUBLIC임을 조회했고 공개 범위/비공개 운영 기준 항목은 미완료로 유지했다. 설정 변경은 수행하지 않았다.
+
+실행 명령·성공 조건·필수 설정 이름·문제 해결은 [개발 안내](../../development.md#실행과-완료-확인)에 반영했고 [quickstart](../../../specs/001-development-foundation/quickstart.md)는 그 원본으로 연결한다. 루트 check가 실제 DB/기기 실행을 포함하지 않는다는 점과 별도 test:foundation의 로컬 시험 DB 이름·사용자·포트를 명시했다. 반복 재생성으로 stale 실패를 숨기거나 재시작 때 기존 볼륨을 삭제하지 않도록 안내한다.
+
+기존 문서·시안·계약 원본·lockfile·개발 DB 볼륨을 보존했다. 문서·계약 Python 정적 검사와 git diff --check를 통과했고 이번 변경은 export 명령·안내·T027–T030 체크에 한정한다. #14/T032 최종 대조·#13/T033 전달과 상위 #1의 전체 완료 판단은 남아 있다.

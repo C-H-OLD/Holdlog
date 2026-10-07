@@ -10,7 +10,8 @@
 
 ## 2. 기술과 운영 준비
 
-- [ ] Expo 전용 개발 빌드 구성 및 Firebase·지도·로그인 네이티브 모듈 실기기 검증
+- [x] Expo 전용 개발 빌드 구성·iOS 시뮬레이터/Android 에뮬레이터 실행과 로컬 API 연동: [#7·#10 검증](history/development/001-foundation-verification.md)
+- [ ] Firebase·지도·로그인 네이티브 모듈 실기기 검증
 - [ ] 개발에 사용할 서버 OS·CPU·RAM·디스크와 개발 기기 연결 환경 확인. 2026-10-06 사용자 확인: 물리 서버 사양·테스트 휴대폰 미정
 - [x] 로컬 파일 저장·이어 올리기·공통 저장 인터페이스·기존 파일 이전의 [계약 설계](../specs/002-shared-contracts/contracts/README.md)
 - [ ] 위 파일 저장·업로드·이전 계약의 실제 구현과 실행 검증
@@ -20,7 +21,8 @@
 - [ ] Android API 키·결제 계정 설정, Map ID 미설정 및 Maps SDK 사용 확인
 - [ ] iOS 기본 Apple MapKit, 자체 DB 암장 검색·기기 위치·지점 표시 실제 기기 검증
 - [x] 개발·시험 설정의 공개 예시/비밀 분리·영역 구분 [설계](../specs/001-development-foundation/data-model.md)
-- [ ] 위 설정 관리의 실제 구성·검증과 운영 설정 준비
+- [x] 개발·시험 설정 실제 구성·Git 제외·합성 비밀 표식의 빌드/로그/공개 설정 미포함: [#11 검증](history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)
+- [ ] 운영 설정·서명·외부 발송 자격증명 준비
 - [ ] 구글·Apple 개발자 설정, 앱 식별자·서명·스토어 배포 설정
 - [ ] 초대 링크 라우팅, 로그인 후 초대 유지, 이미 가입·잘못된 초대·재가입 차단 검증
 - [ ] 개발용 딥링크 검증, 외부 접속 환경 준비 시 공개 링크·OS 연결·미설치 안내 구성
@@ -32,12 +34,12 @@
 - [x] 001 스펙·설계·작업 일관성 분석: 15개 FR/SC 연결 확인, 로컬 빌드/실기기 경계·이슈 묶음·상태 문구 보완
 - [x] 001 확정된 33개 작업을 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. 현재 진행 상태는 GitHub 이슈에서 확인. T001–T003 구현·검사 결과는 [검증 기록](history/development/001-shared-foundation-verification.md)에 연결
 - [x] 001 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)·[공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2) 등록·서브 관계 확인, [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3) 연결. 준비 문서 PR #3 병합 완료. 현재 담당·진행·구현 PR은 #2에서 확인
-- [ ] 로컬 기반 설치·앱/웹/서버·개발 DB 실행과 가상 기기 연결 검증
+- [x] 로컬 기반 설치·앱/웹/서버·개발 DB 실행과 가상 기기 연결 검증: [#10 실제 연동·#11 재현](history/development/001-foundation-verification.md)
 실제 휴대폰 확인은 필요한 후속 기능의 검사 범위에서 계획한다. 001 완료 조건에 포함하지 않는다.
 - [x] Node24.21.0·npm11.19.0·직접 의존성 exact 버전·루트 lockfile 고정과 `npm ci` 확인. 전역 도구는 변경하지 않음
 - [x] PostgreSQL17.11 이미지 tag/digest 고정: [서버 기반 검증](history/development/001-backend-foundation-verification.md)
-- [x] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. Xcode27.0·iOS26.2 시뮬레이터와 JDK17·Android SDK36/API33 에뮬레이터에서 com.holdlog.development 전용 앱 빌드·설치·실행을 확인. [검증 기록](history/development/001-foundation-verification.md)을 참고하며 실제 API 연동은 #10에서 수행
-- [x] Docker daemon29.1.5·개발/시험 DB·별도 worker 실행 확인. DB 중지/재시작·자료 보존·worker 중단/재처리와 API 상태 응답의 [서버 단독 검증](history/development/001-backend-foundation-verification.md) 통과. 앱/웹 연동은 #10에서 수행
+- [x] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. Xcode27.0·iOS26.2 시뮬레이터와 JDK17·Android SDK36/API33 에뮬레이터에서 com.holdlog.development 전용 앱 빌드·설치·실행을 확인. [검증 기록](history/development/001-foundation-verification.md)을 참고하며 실제 API 연동은 #10에서 확인했다
+- [x] Docker daemon29.1.5·개발/시험 DB·별도 worker 실행 확인. DB 중지/재시작·자료 보존·worker 중단/재처리와 API 상태 응답의 [서버 단독 검증](history/development/001-backend-foundation-verification.md) 통과. 앱/웹 연동은 #10에서 확인했다
 - [ ] 비공개 코드 저장소 운영 기준에 맞는 공개 범위 확인. 현재 공개 상태이며 설정 변경 미수행
 
 Git 작성자 설정과 `git diff --check`는 정상이다. 공통 타입/lint의 정상·오류·복구, 비밀/빌드/저장 자료 Git 제외와 공개 예시 추적 가능 여부를 확인했다. 상세 결과·미수행 범위는 [공통 준비 검증 기록](history/development/001-shared-foundation-verification.md)을 따른다.
@@ -53,7 +55,7 @@ Git 작성자 설정과 `git diff --check`는 정상이다. 공통 타입/lint�
 - [x] 미디어 소유권·공유 관계와 일정·크루 방문 변경 이력 설계. 개인 기록·개인 파일 변경 이력과 과거 값은 저장하지 않음
 - [x] 같은 일정의 방문 동시 생성과 수정 충돌 처리 설계
 - [x] 알림 사건과 중복 발송 방지 설계
-- [ ] 표준 OpenAPI 검증기·자료형 생성 도구 버전 고정과 프론트·백엔드의 생성 자료형 검사
+- [x] 표준 OpenAPI 검증기·자료형 생성 도구 버전 고정과 프론트·백엔드 생성 자료형 검사: [계약 검사·소비 증거](history/development/001-foundation-verification.md#공통-계약예제-소비-대조). 제품 기능의 계약 합의·업무 검증 완료를 뜻하지 않음
 - [ ] 기능별 실제 DB 구조·변경 파일·API 구현과 연동 검증
 
 ## 4. 첫 구현과 확인
@@ -68,7 +70,7 @@ Git 작성자 설정과 `git diff --check`는 정상이다. 공통 타입/lint�
 - [ ] 개인 기록 삭제 시 해당 본인 첨부 파일 삭제와 실제 참석 유지, 계정·파일 자체 삭제 시 대상 파일 정리 확인
 - [ ] 저장 실패 시 입력 유지와 재시도 확인
 
-개발 환경을 구성하고 실제 실행을 확인한 뒤 설치 명령과 실행 방법을 추가한다.
+실제 확인한 설치·실행·검사와 문제 해결은 [개발 안내](development.md)를 따른다. #11 검증 이후 #14의 요구사항·증거 대조와 #13 전달이 남아 있으며001 전체 완료는 상위 #1에서 판단한다.
 
 ## 5. 기능 개발 이후
 
