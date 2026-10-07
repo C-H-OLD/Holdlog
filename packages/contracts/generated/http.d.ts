@@ -1372,6 +1372,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/me/notifications": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** myNotifications */
+        get: operations["myNotifications"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/me/notifications/{notificationId}/read": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** markNotificationRead */
+        post: operations["markNotificationRead"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/me/notifications/read-all": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** readAllNotifications */
+        post: operations["readAllNotifications"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -2208,6 +2259,49 @@ export interface components {
         AttendanceSelection: {
             retainAttendanceIds: string[];
             addAccountIds: string[];
+        };
+        NotificationItem: {
+            /** Format: uuid */
+            id: string;
+            /** Format: uuid */
+            eventId: string;
+            /** Format: uuid */
+            crewId: string;
+            crewName: string;
+            /** @enum {string} */
+            kind: "new_schedule" | "schedule_changed" | "schedule_cancelled" | "record_reminder";
+            content: string;
+            /** Format: date-time */
+            receivedAt: string;
+            /** Format: date */
+            localDate: string;
+            readAt: string | null;
+            /** Format: uuid */
+            scheduleId: string;
+            /** @enum {string} */
+            destination: "schedule_detail" | "crew_visit_create";
+        };
+        NotificationPage: {
+            items: components["schemas"]["NotificationItem"][];
+            nextCursor: string | null;
+            snapshotVersion: string;
+            /** Format: iana-time-zone */
+            timeZone: string;
+            unreadCount: number;
+        };
+        NotificationReadInput: Record<string, never>;
+        NotificationReadResult: {
+            /** Format: uuid */
+            notificationId: string;
+            /** Format: date-time */
+            readAt: string;
+            unreadCount: number;
+        };
+        NotificationReadAllResult: {
+            /** Format: date-time */
+            readAt: string;
+            readThrough: string;
+            unreadCount: number;
         };
     };
     responses: never;
@@ -6370,6 +6464,114 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    myNotifications: {
+        parameters: {
+            query: {
+                cursor?: string;
+                pageSize?: number;
+                timeZone: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description 요청 성공; 현재 권한으로 구성한 결과 */
+            200: {
+                headers: {
+                    "X-Request-Id"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationPage"];
+                };
+            };
+            /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    markNotificationRead: {
+        parameters: {
+            query?: never;
+            header: {
+                "Idempotency-Key": string;
+            };
+            path: {
+                notificationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NotificationReadInput"];
+            };
+        };
+        responses: {
+            /** @description 요청 성공; 현재 권한으로 구성한 결과 */
+            200: {
+                headers: {
+                    "X-Request-Id"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationReadResult"];
+                };
+            };
+            /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    readAllNotifications: {
+        parameters: {
+            query?: never;
+            header: {
+                "Idempotency-Key": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NotificationReadInput"];
+            };
+        };
+        responses: {
+            /** @description 요청 성공; 현재 권한으로 구성한 결과 */
+            200: {
+                headers: {
+                    "X-Request-Id"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationReadAllResult"];
+                };
             };
             /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */
             default: {

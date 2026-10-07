@@ -10,9 +10,9 @@ const examples = JSON.parse(readFileSync('packages/contracts/examples.json', 'ut
 const registry = loadRegistry();
 test('source examples pass and every mustReject fails', () => {
   const result = checkExamples(examples, registry, validators, index);
-  assert.equal(result.accepted, 18);
-  assert.equal(result.rejected, 3);
-  assert.equal(result.bindings.length, 13);
+  assert.equal(result.accepted, 27);
+  assert.equal(result.rejected, 6);
+  assert.equal(result.bindings.length, 21);
 });
 test('missing schema/operation and unrelated bindings are rejected', () => {
   for (const change of [{ schema: 'Missing' }, { operationId: 'Missing' }, { operationId: 'listBrands' }]) {

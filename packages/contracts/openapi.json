@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Holdlog 공통 API 계약",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "설계 원본. 서비스 구현·배포·실행 확인 전. 제품 정책은 docs 원본, 프로토콜 의미는 conventions.md 참조."
   },
   "servers": [
@@ -9999,6 +9999,243 @@
           "../../docs/technical-spec.md"
         ]
       }
+    },
+    "/me/notifications": {
+      "get": {
+        "operationId": "myNotifications",
+        "summary": "myNotifications",
+        "tags": [
+          "017"
+        ],
+        "x-contracts": [
+          "C09",
+          "C12"
+        ],
+        "x-policy": "5.5 notification-inbox",
+        "security": [
+          {
+            "MobileBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 50
+            }
+          },
+          {
+            "name": "timeZone",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "iana-time-zone"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "요청 성공; 현재 권한으로 구성한 결과",
+            "headers": {
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationPage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "실패 형식. HTTP 상태/코드 대응은 conventions.md 원본",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-policy-sources": [
+          "../../docs/functional-spec.md"
+        ]
+      }
+    },
+    "/me/notifications/{notificationId}/read": {
+      "post": {
+        "operationId": "markNotificationRead",
+        "summary": "markNotificationRead",
+        "tags": [
+          "017"
+        ],
+        "x-contracts": [
+          "C09",
+          "C12"
+        ],
+        "x-policy": "5.5 notification-inbox",
+        "security": [
+          {
+            "MobileBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "요청 성공; 현재 권한으로 구성한 결과",
+            "headers": {
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationReadResult"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "실패 형식. HTTP 상태/코드 대응은 conventions.md 원본",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-policy-sources": [
+          "../../docs/functional-spec.md"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationReadInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/notifications/read-all": {
+      "post": {
+        "operationId": "readAllNotifications",
+        "summary": "readAllNotifications",
+        "tags": [
+          "017"
+        ],
+        "x-contracts": [
+          "C09",
+          "C12"
+        ],
+        "x-policy": "5.5 notification-inbox",
+        "security": [
+          {
+            "MobileBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "요청 성공; 현재 권한으로 구성한 결과",
+            "headers": {
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationReadAllResult"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "실패 형식. HTTP 상태/코드 대응은 conventions.md 원본",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-policy-sources": [
+          "../../docs/functional-spec.md"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationReadInput"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -14019,6 +14256,178 @@
             "uniqueItems": true
           }
         }
+      },
+      "NotificationItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "crewId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "crewName": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "new_schedule",
+              "schedule_changed",
+              "schedule_cancelled",
+              "record_reminder"
+            ]
+          },
+          "content": {
+            "type": "string"
+          },
+          "receivedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "Z$"
+          },
+          "localDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "readAt": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "Z$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scheduleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "destination": {
+            "type": "string",
+            "enum": [
+              "schedule_detail",
+              "crew_visit_create"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "eventId",
+          "crewId",
+          "crewName",
+          "kind",
+          "content",
+          "receivedAt",
+          "localDate",
+          "readAt",
+          "scheduleId",
+          "destination"
+        ]
+      },
+      "NotificationPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationItem"
+            }
+          },
+          "nextCursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "snapshotVersion": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string",
+            "format": "iana-time-zone"
+          },
+          "unreadCount": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor",
+          "snapshotVersion",
+          "timeZone",
+          "unreadCount"
+        ]
+      },
+      "NotificationReadInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      },
+      "NotificationReadResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "readAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "Z$"
+          },
+          "unreadCount": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "notificationId",
+          "readAt",
+          "unreadCount"
+        ]
+      },
+      "NotificationReadAllResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "readAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "Z$"
+          },
+          "readThrough": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unreadCount": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "readAt",
+          "readThrough",
+          "unreadCount"
+        ]
       }
     },
     "securitySchemes": {

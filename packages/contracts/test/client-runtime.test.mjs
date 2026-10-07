@@ -17,7 +17,7 @@ test('actual client exports run in a browser/RN-like context without Node or eva
   assert.equal(loaded.validators[parameter.validator](parse(parameter, '20')), true);
   assert.equal(loaded.validators[parameter.validator](parse(parameter, '201')), false);
   assert.throws(() => parse(parameter, '20x'));
-  assert.equal(loaded.fixtures.getFixtures().http.length, 13);
+  assert.equal(loaded.fixtures.getFixtures().http.length, 21);
   const binary = index.operations.uploadPatch.body['application/offset+octet-stream'];
   assert.equal(binary.binary, true);
   // This flag is a boundary marker; format validation does not validate file bytes.

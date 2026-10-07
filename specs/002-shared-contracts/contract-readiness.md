@@ -8,7 +8,7 @@
 
 ## 현재 원본과 소비 증거
 
-79 HTTP 경로·109 operationId·107 HTTP 자료형·22 Runtime 정의를 대조했다. 공통 C01은 모든 작업에 적용하며 x-global-contracts로 표시된다. 각 operation의 x-contracts·tags·x-policy-sources는 계약·소비 기능·정책 파일 연결이다. 파일 존재만으로 정책 의미가 증명되지는 않는다.
+82 HTTP 경로·112 operationId·112 HTTP 자료형·22 Runtime 정의를 대조했다. 공통 C01은 모든 작업에 적용하며 x-global-contracts로 표시된다. 각 operation의 x-contracts·tags·x-policy-sources는 계약·소비 기능·정책 파일 연결이다. 파일 존재만으로 정책 의미가 증명되지는 않는다.
 
 [001 소비 증거](quickstart.md#001-기반에서-확인한-범위)는 같은 생성물을 이용한 타입·Node/Chrome 예제와 대표 Hermes 입력 검사다. FE는 `apps/mobile/src/development/contract-check.ts`·`apps/admin/src/api/contracts.ts`, 공통 FE/BE typed 소비는 `packages/contracts/test/frontend-consumer.ts`·`backend-consumer.ts`에 있다. 제품 서버 controller·업무 DB·최종 UI 소비는 후속 기능이 구현한다. 현재 앱 checks의 environment 파일을 업무 계약 소비로 계산하지 않는다.
 
@@ -26,21 +26,21 @@
 | [C06 개인 기록·값·공개 대상](contract-scope.md#정해야-할-계약) | 14 | ClimbCount, WorkoutDraft, WorkoutLifecycle | zero-grade, missing-climbs, workout-finish | FR-001·002·003·004·005 |
 | [C07 실제 참석·연결·분리·삭제](contract-scope.md#정해야-할-계약) | 19 | DomainEvent | existing-link | FR-001·002·003·004·005 |
 | [C08 미디어·저장소·이미지](contract-scope.md#정해야-할-계약) | 41 | MediaJob, StorageObjectRef, StorageStart/Append/Complete/Cancel/Read/Stat/Delete/Result | file-upload, announcement | FR-001·002·003·005 |
-| [C09 알림·기기·예약](contract-scope.md#정해야-할-계약) | 9 | NotificationJob, PushPayload | settings, push-destination | FR-001·002·003·005·006 |
+| [C09 알림·기기·예약](contract-scope.md#정해야-할-계약) | 12 | NotificationJob, PushPayload | settings, notification-inbox-all-crews, notification-reentry-read, notification-single-read-input, notification-single-read-result, notification-all-read-input, notification-all-read-result, notification-new-after-read-all, notification-read-failure, push-destination | FR-001·002·003·005·006 |
 | [C10 조회·시간대·집계·추천](contract-scope.md#정해야-할-계약) | 10 | —（HTTP 조회·계산） | calendar-personal-no-crew | FR-001·004·005 |
 | [C11 공동 이력·작업 사건](contract-scope.md#정해야-할-계약) | 21 | DomainEvent, MediaJob, NotificationJob | shared-history | FR-001·002·003·005 |
-| [C12 화면 진입·기기별 상태](contract-scope.md#정해야-할-계약) | 11 | Route, WorkoutDraft/Lifecycle/Display, AnnouncementSuppression, PendingInvite, PushPayload, NoticeEntry, OpenSourceManifest | invite-preview, announcement, workout-finish, workout-display-records, workout-display-other-tab, notice-offline, push-destination, selected-date-route | FR-001·005·006 |
+| [C12 화면 진입·기기별 상태](contract-scope.md#정해야-할-계약) | 14 | Route, WorkoutDraft/Lifecycle/Display, AnnouncementSuppression, PendingInvite, PushPayload, NoticeEntry, OpenSourceManifest | invite-preview, announcement, workout-finish, notification-inbox-all-crews, notification-reentry-read, notification-single-read-input, notification-single-read-result, notification-all-read-input, notification-all-read-result, notification-new-after-read-all, notification-read-failure, workout-display-records, workout-display-other-tab, notice-offline, push-destination, selected-date-route, notification-inbox-route | FR-001·005·006 |
 
-거절 예제는 PublicRecord 비공개 필드·개인 과거 이력·음수 완등 입력의 형식 거절이다. 실제 현재 가입 검사·주체별 projection·원자성은 후속 서버 통합 검사로 증명한다.
+거절 예제는 기존3개와 수신 계정 주입·잘못된 수신 시각·음수 안 읽음 수의 형식 거절이다. 실제 현재 가입 검사·주체별 projection·원자성은 후속 서버 통합 검사로 증명한다.
 
 ## 작업별 남은 의미·실행 검사
 
 | 범위 | 현재 확인 | 후속 확인과 차단 범위 |
 |---|---|---|
 | C01~C08·C10~C11 | 식별·소유 관계·공개 projection·UTC/IANA·null/0·version·멱등·TX/outbox 경계를 conventions/모델과 연결 | 각 기능의 FR/T번호로 실제 권한·변경 실패·재요청·동시 변경을 확인. 합성 DTO 통과로 계산/트랜잭션 완료 처리 금지 |
-| C09 | 기존 설정·푸시 대상·worker 발송 계약만 있음 | [#31](https://github.com/trycatch98/Holdlog/issues/31): 개별 열기 읽음 및 설정/목록 생성 관계 답변 대기. 조회·읽음·저장 실패·동시 새 수신·현재 가입 권한 계약 뒤017 착수 |
+| C09 | 설정·푸시·수신 조회·단건/전체 읽음 계약2.1.0 | [#31](https://github.com/trycatch98/Holdlog/issues/31): 누르면 읽음·설정과 무관한 목록 저장을 확정하고 조회/실패/재요청/동시 수신 경계를 정의.017에서 실제 권한·저장·UI·푸시 검증 |
 | C12 | [#32](https://github.com/trycatch98/Holdlog/issues/32): 승인05.07 및 화면45개 집합 대조 준비 | 실제 화면 진입/복귀·네이티브 동작은003/017. 운동 시작 A/B는 계속 미정. 경로 추가가 UI 구현은 아님 |
-| FE/BE 추가 소비 | 기존001 예제/생성 소비 재사용 | [#33](https://github.com/trycatch98/Holdlog/issues/33) 뒤 [#34](https://github.com/trycatch98/Holdlog/issues/34)·[#35](https://github.com/trycatch98/Holdlog/issues/35)에서 같은 새 계약·예제를 소비 |
+| FE/BE 추가 소비 | 기존001 예제/생성 소비 재사용 | [#33](https://github.com/trycatch98/Holdlog/issues/33)·[#34](https://github.com/trycatch98/Holdlog/issues/34)·[#35](https://github.com/trycatch98/Holdlog/issues/35): 새 공통 예제·생성물을 모바일/관리자/서버 checks에서 소비 |
 | 최종 전달 | FR별 작업 연결 및 원본 대조 | [#36](https://github.com/trycatch98/Holdlog/issues/36): 필수 검사/병합 후 기능별 착수 조건 전달.002 전체 완료 전 |
 
 미정 제품 동작은 [open-questions](../../docs/open-questions.md) 한곳에서 관리한다. 알림의 보존·탈퇴 공개 경계는 기존 즉시 권한 회수 정책을 따르며 새로운 보존 정책을 계약 형식으로 몰래 확정하지 않는다. 다른 계약의 기능별 계획은 해당 C번호의 대조 범위를 확인해 진행할 수 있다. 공통 파일은 SHARED 담당이 모으고 기능별 UI·서비스 구현은 [배정 기준](../development-roles.md#여러-개발자의-작업-배정)에 따라 분리한다.
@@ -49,20 +49,20 @@
 
 | 기준 | 연결 작업 | 현재 증거/완료 판단 |
 |---|---|---|
-| FR-001 | T001·T002·T004·T005·T009 | 원본/책임/형식 연결. 새 C09와 최종 검사 대기 |
-| FR-002 | T002·T004·T008·T009 | 논리 모델 소유/관계 연결. 새 알림 읽음 모델·BE 소비 대기 |
+| FR-001 | T001·T002·T004·T005·T009 | 원본/책임/형식 연결. 새 C09 형식·의미·예제 연결, 제품 실행 검사 후속 |
+| FR-002 | T002·T004·T008·T009 | 논리 모델 소유/관계 연결. 새 읽음 모델·BE 생성 소비 확인, 실제 TX 후속 |
 | FR-003 | T002·T004·T006·T009 | TX/멱등/권한 회수 원본 연결. 의미별 후속 실행 검사 구분 |
 | FR-004 | T002·T006·T009 | UTC/IANA·기간·null/0·중복 제외 원본 연결. 서비스 계산 검사 후속 |
-| FR-005 | T002·T006·T007·T008·T009 |001 공통 소비 재사용. 새 예제와 양쪽 소비 대기 |
-| FR-006 | T001·T002·T003·T010 | 운동 시작/알림 질문/외부 검사를 미정·후속으로 구분 |
+| FR-005 | T002·T006·T007·T008·T009 |001 공통 소비 재사용. 새 예제·세 앱 typed/값 소비 확인 |
+| FR-006 | T001·T002·T003·T010 | 알림 제품 결정 반영, 운동 시작/외부 검사는 미정·후속으로 구분 |
 | SC-001~003 | T009·T010 | 계약 검사와 미수행 제품 검사를 분리해 기록한 뒤 판단. 아직 전체 통과 표시하지 않음 |
 | SC-004 | T002·T005·T010 | 계약 책임표 및 현재 화면 집합 대조. 최종 전달·병합 대기 |
 
-모든 FR·SC에 작업이 있다. 미연결 작업은 없다. C09 미정은 T003/T004와 후속 T006~T010에 영향을 주며 T002/T005는 독립 진행한다. 요구사항 품질 체크16개 통과는 구현 완료와 별개다.
+모든 FR·SC에 작업이 있다. 미연결 작업은 없다. C09 제품 결정 대기는 해소했다. T003~T009의 계약/소비 검사 뒤 T010에서 병합된 기준을 전달한다. 요구사항 품질 체크16개 통과는 구현 완료와 별개다.
 
 ## HTTP operationId 대조 색인
 
-아래는 현재 원본의 x-contracts별 operationId 색인이다. 여러 C번호를 사용하는 작업은 반복 표시되므로 수를 더해 전체 개수로 사용하지 않는다. 원본 변경 시 이 대조도 함께 갱신한다. 공통 C01은 모든109개 작업이다.
+아래는 현재 원본의 x-contracts별 operationId 색인이다. 여러 C번호를 사용하는 작업은 반복 표시되므로 수를 더해 전체 개수로 사용하지 않는다. 원본 변경 시 이 대조도 함께 갱신한다. 공통 C01은 모든112개 작업이다.
 
 ### C02
 
@@ -94,7 +94,7 @@
 
 ### C09
 
-`logout`, `createSchedule`, `editSchedule`, `cancelSchedule`, `respondToSchedule`, `notificationSettings`, `editNotificationSettings`, `registerDevice`, `unregisterDevice`.
+`logout`, `createSchedule`, `editSchedule`, `cancelSchedule`, `respondToSchedule`, `notificationSettings`, `editNotificationSettings`, `registerDevice`, `unregisterDevice`, `myNotifications`, `markNotificationRead`, `readAllNotifications`.
 
 ### C10
 
@@ -106,4 +106,4 @@
 
 ### C12
 
-`resolveInvite`, `joinCrew`, `getCrewInvite`, `finishWorkout`, `appAnnouncements`, `adminAnnouncements`, `adminCreateAnnouncement`, `adminAnnouncement`, `adminEditAnnouncement`, `adminDeleteAnnouncement`, `readAnnouncementImage`.
+`resolveInvite`, `joinCrew`, `getCrewInvite`, `finishWorkout`, `appAnnouncements`, `adminAnnouncements`, `adminCreateAnnouncement`, `adminAnnouncement`, `adminEditAnnouncement`, `adminDeleteAnnouncement`, `readAnnouncementImage`, `myNotifications`, `markNotificationRead`, `readAllNotifications`.

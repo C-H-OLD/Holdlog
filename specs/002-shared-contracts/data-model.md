@@ -128,7 +128,7 @@ Asset.state는 `reserved`→`uploading`→`processing`→`ready`, 실패는 `fai
 | `OutboxEntry` | id, eventId→DomainEvent, queueKind(`media`/`deletion`/`notification`), jobKey, state, availableAt, attempts, claimedAt nullable, lastErrorCode nullable | jobKey unique. (state,availableAt) 인덱스. DB commit된 사건만 전달하며 pg-boss 전달 후 재전달되어도 동일 jobKey 사용 |
 | `JobExecution` | id, jobKey, resourceId UUID nullable, expectedGeneration nullable, state, attempts, startedAt nullable, finishedAt nullable | jobKey unique. 외부 작업 중복 완료 방지. 원문 파일·개인 내용 없음. 삭제 완료 후 원본을 복원하는 FK 없음 |
 | `NotificationEvent` | id, scheduleId→Schedule, scheduleVersion, kind, crewId→Crew, basisLocalDate nullable, scheduleTimeZone, occurredAt | 같은 일정 변경 버전의 묶음 사건은 unique(scheduleId,scheduleVersion,kind). 기록 요청은 일정·종류·기준일로 중복 방지 |
-| `NotificationRecipient` | id, notificationEventId→NotificationEvent, accountId→Account, state, lastCheckedAt nullable | unique(notificationEventId,accountId). 대상 조건과 활성 소속·설정은 실행 직전 다시 검사 |
+| `NotificationRecipient` | id, notificationEventId→NotificationEvent, accountId→Account, state, lastCheckedAt nullable | unique(notificationEventId,accountId). 대상 조건과 활성 소속을 검사해 설정/OS 권한과 무관하게 수신 행 생성. 설정은 발송 직전 검사 |
 | `NotificationDelivery` | id, recipientId→NotificationRecipient, installationId→DeviceInstallation, state, attempts, providerMessageId nullable, sentAt nullable | unique(recipientId,installationId). 외부 푸시 정확히 한 번 도착 보장 없음 |
 | `ScheduleReminder` | id, scheduleId→Schedule, expectedScheduleVersion, basisLocalDate, runAt UTC, state, version | 활성 예약 scheduleId unique. 변경/취소 시 이전 예약 무효화. due 인덱스(state,runAt) |
 | `IdempotencyReceipt` | id, principalScope, principalId UUID, operation, key UUID, requestHash, state, resultResourceId nullable UUID, resultVersion nullable, resultStatus, errorCode nullable, createdAt, expiresAt | unique(principalScope,principalId,operation,key). 개인 응답 본문·미디어·후기·입력 사본 보관 금지. 성공 재요청은 현재 권한 아래 resourceId로 결과 재구성 |
@@ -188,6 +188,12 @@ ActiveWorkout.state는 `active`/`finishing`/`saved`/`cancelled`. 진행 개수�
 
 도메인·HTTPS·백업·복구·외부 저장소 업체는 [기술 명세의 후속 운영 범위](../../docs/technical-spec.md#6-기능-개발-이후에-다룰-운영-준비)로 남긴다. 운동 시작 UI 미정은 현재 데이터/API 설계를 막지 않지만 사용자 강제 종료 판정은 실제 기기 확인이 필요하다.
 
-## 수신 목록·읽음 모델의 후속 범위
+## 수신 목록·읽음 저장 — C09
 
-현재 NotificationRecipient의 `state`는 발송 대상 처리 상태이며 사용자 읽음 상태가 아니다. [추가 C09 계약](contracts/README.md#수신-알림-목록-추가에-따른-남은-계약)에서 본인 수신 목록·표시 내용/시각·저장된 읽음 상태를 별도로 모델링한다. 발송 작업 성공을 읽음으로 취급하지 않는다. 구체 필드·관계·모두 읽음 저장 경계는 해당 계약 설계와 함께 작성한다.
+NotificationRecipient.state는 발송 대상 처리 상태다. 사용자 읽음은 별도 readAt(nullable UTC)으로 저장하고, receivedAt·계정별 수신 sequence를 추가한다. unique(accountId,sequence), 조회 인덱스(accountId,receivedAt DESC,id DESC), 안 읽은 행 인덱스(accountId,sequence) WHERE readAt IS NULL을 사용한다. 같은 사건/계정 unique는 푸시와 목록 모두에 중복 수신 행을 막는다. 표시 크루명/내용은 현재 권한의 projection이며 개인 과거본문·파일 자료를 복제하지 않는다.
+
+계정별 NotificationInboxAggregate는 수신 sequence 발급·목록 revision을 관리한다. 수신 발급과 읽음 경계 포착은 같은 계정 잠금으로 직렬화한다. 읽음/신규 수신·접근 변경은 조회 revision에 반영한다. 회원 상태도 저장 직전에 재확인한다. 전역 크루 선택은 이 집합의 필터가 아니다.
+
+NotificationReadReceipt는 accountId·operation/path·Idempotency-Key·요청 hash·최초 readThrough(sequence)·readAt·처리 상태만 보관한다. 수신 행의 내용·응답 사본은 저장하지 않는다. 최초 경계 receipt를 먼저 확보한 뒤, 그 경계 이하의 현재 허용된 행 변경과 처리 성공 등록을 같은 TX에 묶는다. 실패하면 행 변경은 롤백하고 재시도는 같은 경계를 사용한다. 재요청 성공 응답의 unreadCount는 현재 허용된 미읽음 수로 다시 계산하며 새 수신을 읽음 처리하지 않는다. 단건 최초 readAt은 수신 행에 유지한다.
+
+전체 읽음은 페이지 단위 TX로 쪼개지 않는다. 새 sequence는 경계보다 커서 이번 실행에 포함되지 않는다. 발송 실행은 독립적으로 현재 가입·종류 설정·연결 기기·OS 전달 가능 조건을 검사한다. 발송 억제/실패로 수신 행을 없애거나 읽음 처리하지 않는다. 탈퇴/제외한 크루는 조회 projection과 읽음 대상에서 즉시 제외하고, 계정 삭제 시 해당 수신/receipt를 제거한다. 정책·프로토콜 의미는 [C09 원본](../../packages/contracts/conventions.md#수신-목록과-읽음--c09)을 따른다. 실제 테이블·잠금·TX 검증은017 후속이며 이 설계가 DB 실행 증거는 아니다.
