@@ -1,6 +1,6 @@
 # 개발 기반 검증 안내
 
-작성일: 2026-10-06 · 상태: 서버·DB·worker 단독 실행 검사 완료. 앱/웹 실행·연동은 후속 범위.
+작성일: 2026-10-06 · 상태: 서버·DB·worker·관리자 웹·iOS/Android 전용 앱 단독 실행 검사 완료. 실제 연동은 후속 범위.
 
 ## 지금 실행 가능한 검사
 
@@ -16,7 +16,7 @@ git diff --check
 
 ## 구현 후 확인 순서
 
-아래는 **후속 검증 절차**다. 명령은 [기반 인터페이스](contracts/README.md)에 있다. 계약 생성·검사는 구현했고 서버 workspace 실행 명령은 [개발 안내](../../docs/development.md#서버dbworker-로컬-실행)에 있고 웹 workspace 명령은 [관리자 웹 실행 안내](../../docs/development.md#관리자-웹-단독-실행)에 있다. 모바일 및 루트 서비스 명령과 실제 브라우저/API 연동은 후속 작업이다.
+아래는 **후속 검증 절차**다. 명령은 [기반 인터페이스](contracts/README.md)에 있다. 계약 생성·검사는 구현했고 서버 workspace 실행 명령은 [개발 안내](../../docs/development.md#서버dbworker-로컬-실행)에 있고 웹 workspace 명령은 [관리자 웹 실행 안내](../../docs/development.md#관리자-웹-단독-실행)에 있다. 모바일 실행·연결 도구는 [모바일 실행 안내](../../docs/development.md#모바일-단독-실행)에 있다. iOS/Android 전용 앱 실행을 확인했다. 루트 서비스 명령과 실제 브라우저/API 연동은 후속 작업이다.
 
 1. 도구 정확한 버전·직접 의존성·lockfile·이미지 digest를 고정한다. 개발/시험 설정의 비밀은 로컬에만 둔다. T001–T003에서 Node24.21.0·npm11.19.0·직접 의존성·lockfile을 고정하고 설치·설정 검사를 수행했다. 이미지 digest는 T011에서 고정한다.
 2. 깨끗한 checkout에서 설치 후 커밋된 생성물의 계약 검사를 먼저 실행한다. 원본 변경 시 명시적으로 생성하고 검사한다. 재생성 동일·정상 예제 허용·거절 예제 거절·FE/BE 타입 소비 통과를 확인한다. 원본만 바꾸고 생성하지 않으면 검사 실패해야 한다.
@@ -43,7 +43,7 @@ git diff --check
 
 ## 남은 준비
 
-사용자가 서버 사양·테스트 휴대폰은 미정이라고 확인했다. 계정·서명·초기 암장/세팅 자료는 미확인이다. Docker daemon·개발/시험 DB·worker의 [서버 단독 실행 검사](../../docs/history/development/001-backend-foundation-verification.md)를 수행했다. Xcode·iOS SDK·Android CLI/AVD 목록은 명령 실행을 확인했으며 앱 빌드·가상 기기 연결은 미수행이다. 준비 상태 원본은 [체크리스트](../../docs/setup-checklist.md)다.
+사용자가 서버 사양·테스트 휴대폰은 미정이라고 확인했다. 계정·서명·초기 암장/세팅 자료는 미확인이다. Docker daemon·개발/시험 DB·worker의 [서버 단독 실행 검사](../../docs/history/development/001-backend-foundation-verification.md)를 수행했다. Xcode27·iOS26.2 시뮬레이터와 Android SDK36/API33 에뮬레이터에서 전용 앱 빌드·설치·실행과 Hermes 계약 소비를 확인했다. 실제 API 연결은 #10에서 확인한다. 준비 상태 원본은 [체크리스트](../../docs/setup-checklist.md)다.
 
 설계/정적 검사 통과로001·002 또는 제품 기능 완료를 표시하지 않는다. 서비스 구현·실제 소비자 확인과 연동 검증이 남았다.
 

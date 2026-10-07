@@ -1,15 +1,10 @@
 {
-  "extends": [
-    "expo/tsconfig.base",
-    "../../tsconfig.base.json"
-  ],
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "Preserve",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
-    "jsx": "react-native",
     "types": [
-      "react",
-      "react-native"
+      "node"
     ],
     "lib": [
       "ES2022"
@@ -19,15 +14,14 @@
     "allowImportingTsExtensions": true
   },
   "include": [
-    "src/**/*",
-    "checks/**/*",
-    "App.tsx"
+    "app.config.ts",
+    "configuration/**/*",
+    "test/**/*"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "build",
-    "generated",
     "ios",
     "android"
   ]

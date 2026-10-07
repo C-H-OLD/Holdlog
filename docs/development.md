@@ -9,7 +9,7 @@
 | 개발 단위·선행 관계·공통 계약 범위 | 21개 개발 단위·API/데이터 계약 설계 작성. 실제 소비자 연동 전 | [기능 스펙 목록](../specs/README.md) |
 | 기술 구성 | 선택·[001 기반 설계](../specs/001-development-foundation/plan.md) 작성, 실제 구성·검증 전 | [기술·운영 명세](technical-spec.md) |
 | 화면 | 시안 제작, 사용자 검토와 실제 구현은 별도 | [현재 시안](screens.md) |
-| 개발 환경·앱·서버·관리자 웹 | 공통 workspace·도구·설정·lockfile 준비 및 설치 검사 완료. 서버·DB·worker 단독 실행 검사 완료. 관리자 웹 단독 실행·빌드·합성 연결 검사 완료. 모바일 실행과 실제 연동 전 | [준비 체크리스트](setup-checklist.md) |
+| 개발 환경·앱·서버·관리자 웹 | 현재 준비 상태와 검사 근거는 체크리스트 참조 | [준비 체크리스트](setup-checklist.md) |
 | 미결정 | 운동 시작 방식 A·B | [미결정 사항](open-questions.md) |
 
 ## 다음 작업
@@ -21,7 +21,7 @@
 
 진행 여부와 세부 준비 항목은 [준비 체크리스트](setup-checklist.md) 한곳에서 관리한다. 구현 순서는 기능의 선행 작업에 맞춰 조정하며 확정된 개발 순서로 취급하지 않는다.
 
-개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세·002 공통 API·데이터 설계·001 기반 설계를 작성했다. [001의 33개 작업 목록](../specs/001-development-foundation/tasks.md)도 작성했다. 일관성 분석과 문구 보완을 마쳤다. 공통 workspace 설치·설정·계약 생성 검사와 서버·DB·worker 단독 실행 검사를 수행했다. 관리자 웹 단독 실행·빌드·합성 연결 검사도 수행했다. 모바일 실행과 실제 연동은 후속 작업이다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실제 휴대폰·물리 서버 확인은 001 완료 조건에서 제외한다.
+개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 개발 환경의 현재 준비 상태와 단독 검증 근거는 [준비 체크리스트](setup-checklist.md), 구현 범위와 남은 작업은 [001 작업 목록](../specs/001-development-foundation/tasks.md)에서 확인한다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실제 휴대폰·물리 서버 확인은 001 완료 조건에서 제외한다.
 
 ## 서버·DB·worker 로컬 실행
 
@@ -69,6 +69,37 @@ await checkDevelopmentConnection('ready');
 ```
 
 반환값은 `connected`, `database-unavailable`(ready503), `connection-failed`(5초 제한·네트워크/proxy 실패), `invalid-response`로 구분한다. 원시 오류·응답 본문은 결과에 포함하지 않는다. 현재 자동 검사는 합성 HTTP 서버를 사용한다. C02 관리자 인증의 로컬 HTTPS·Secure cookie·CSRF 검사는004의 전달 조건을 유지한다.
+
+## 모바일 단독 실행
+
+[#7 검증 기록](history/development/001-foundation-verification.md#모바일-기반--7--t014t015t021)의 Expo 전용 개발 앱 기반을 사용한다. 제품 화면은 아직 없어 native root만 실행한다. Expo Go와 Metro 시작만으로 가상 기기 전용 빌드 완료를 판단하지 않는다.
+
+공통 Node/npm 설치 후 Xcode26.4 이상·iOS Simulator와 JDK17·Android SDK36/Build Tools36.0.0·NDK27.1.12297006·arm64 에뮬레이터를 준비한다. Xcode 첫 실행에서 약관과 구성 요소 준비를 마친다. Xcode27/iOS27은 SDK57 scene 설정을 적용한다. 로컬 서명·스토어 계정·실제 휴대폰은 이 단계의 조건이 아니다.
+
+```sh
+cp apps/mobile/.env.example apps/mobile/.env
+npm test --workspace=@holdlog/mobile
+npm run prebuild --workspace=@holdlog/mobile
+# 로컬 도구 PATH와 JAVA_HOME/ANDROID_HOME을 준비한 뒤 가상 기기를 명시
+# 터미널1: IPv4 loopback으로 Metro 실행
+npm run dev --workspace=@holdlog/mobile
+# 터미널2: 전용 앱 빌드·가상 기기 설치/시작
+npm run android --workspace=@holdlog/mobile -- --device emulator-5554 --no-bundler
+npm run ios --workspace=@holdlog/mobile -- --device generic --output /tmp/holdlog-ios-build --no-bundler
+xcrun simctl bootstatus <시뮬레이터-UUID> -b
+xcrun simctl install <시뮬레이터-UUID> /tmp/holdlog-ios-build/HoldlogDevelopment.app
+# iOS: 창 자동화와 자동 실행 주소에 의존하지 않고 loopback Metro를 명시
+xcrun simctl launch --terminate-running-process <시뮬레이터-UUID> com.holdlog.development --initialUrl http://127.0.0.1:8081
+npm run export:bundle --workspace=@holdlog/mobile
+```
+
+iOS 설치 대상은 `xcrun simctl list devices available`에서 선택해 먼저 부팅한다. 시뮬레이터에 앱을 바로 설치하는 `expo run:ios --device UUID`는 이 환경에서 빌드·설치 후 System Events 창 활성화 단계가 실패했으므로 위 build-only와 simctl 명령을 사용한다.
+
+공개 설정은 iOS의 `EXPO_PUBLIC_DEV_API_ORIGIN_IOS`와 Android의 `EXPO_PUBLIC_DEV_API_ORIGIN_ANDROID`만 소비한다. 기본값 예시는 각각 `http://127.0.0.1:3100`, `http://10.0.2.2:3100`이다. Android의 loopback은 가상 기기 자체이므로 거절한다. 명시한 사설 개발 호스트도 사용할 수 있다. 두 설정 누락·잘못된 origin은 이름만 알려주고 실행을 거절한다. DB·서버·관리자 비밀을 공개 변수에 넣지 않는다.
+
+전용 개발 앱의 React Native DevTools 콘솔에서 `holdlogDevelopment.checkConnection('ready')`(또는 `'live'`)와 `holdlogDevelopment.checkContracts()`를 호출한다. 앱 시작만으로 요청하지 않는다. 연결 반환값은 정상·DB503·연결 불가·잘못된 응답을 구분하며 5초 제한을 적용한다. 계약 검사는 합성 입력의 형식 검사이고 제품 권한·업무 동작 검사가 아니다. 실제 가상 기기/API 연결은 #10의 T023에 별도로 기록한다.
+
+생성한 `ios/`·`android/`는 수정 원본이 아니며 Git에서 제외된다. 네이티브 설정은 `app.config.ts`와 config plugin에서 관리한다. 이 앱 식별자는 `com.holdlog.development`이며 배포 식별자를 확정한 것은 아니다.
 
 ## 구현할 때 찾는 기준
 

@@ -36,7 +36,7 @@
 실제 휴대폰 확인은 필요한 후속 기능의 검사 범위에서 계획한다. 001 완료 조건에 포함하지 않는다.
 - [x] Node24.21.0·npm11.19.0·직접 의존성 exact 버전·루트 lockfile 고정과 `npm ci` 확인. 전역 도구는 변경하지 않음
 - [x] PostgreSQL17.11 이미지 tag/digest 고정: [서버 기반 검증](history/development/001-backend-foundation-verification.md)
-- [ ] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. Xcode26.2·iOS 시뮬레이터 SDK26.2, adb35.0.2·emulator36.4.9와 AVD 목록 명령 통과. 가상 기기 실행·빌드·앱 식별자 검사는 #7에서 수행
+- [x] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. Xcode27.0·iOS26.2 시뮬레이터와 JDK17·Android SDK36/API33 에뮬레이터에서 com.holdlog.development 전용 앱 빌드·설치·실행을 확인. [검증 기록](history/development/001-foundation-verification.md)을 참고하며 실제 API 연동은 #10에서 수행
 - [x] Docker daemon29.1.5·개발/시험 DB·별도 worker 실행 확인. DB 중지/재시작·자료 보존·worker 중단/재처리와 API 상태 응답의 [서버 단독 검증](history/development/001-backend-foundation-verification.md) 통과. 앱/웹 연동은 #10에서 수행
 - [ ] 비공개 코드 저장소 운영 기준에 맞는 공개 범위 확인. 현재 공개 상태이며 설정 변경 미수행
 

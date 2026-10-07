@@ -6,7 +6,7 @@
 
 모바일·관리자 웹·API·개발 DB·작업 처리기의 실행 기반을 하나의 저장소에 준비한다. 각 소비자는 [002 계약](../002-shared-contracts/contracts/README.md)의 원본에서 생성한 자료형·검사 함수를 사용한다. 개발 연결 확인은 테스트 진입점으로 수행하고 새 제품 화면을 추가하지 않는다.
 
-현재는 설계·작업 목록 작성 및 일관성 분석을 마쳤다. T001–T003의 workspace·공통 설정·lockfile을 준비하고 설치·설정 검사를 수행했다. [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)을 참고한다. T004–T008의 계약 생성·검사 도구와 소비 타입 검사를 구현했다. [계약 검사 결과](quickstart.md#계약-생성과-소비-검사-결과)를 참고한다. T009–T012·T018–T019의 NestJS API·SQL 변경 실행기·개발/시험 DB·합성 worker와 서버 단독 검사를 구현했다. [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)을 참고한다. T013·T020의 관리자 웹 실행·빌드·개발 연결 도구와 합성 HTTP 서버를 사용하는 단독 검사를 완료했다. [웹 기반 검증](../../docs/history/development/001-admin-foundation-verification.md)을 참고한다. 모바일 실행과 실제 브라우저/API 연동은 후속 작업이다. 선택 근거는 [research.md](research.md), 개발 자료는 [data-model.md](data-model.md), 개발 인터페이스는 [contracts/README.md](contracts/README.md), 검사 절차는 [quickstart.md](quickstart.md), 역할별 상세 순서와 선행 조건은 [tasks.md](tasks.md)를 따른다.
+현재는 설계·작업 목록 작성 및 일관성 분석을 마쳤다. T001–T003의 workspace·공통 설정·lockfile을 준비하고 설치·설정 검사를 수행했다. [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)을 참고한다. T004–T008의 계약 생성·검사 도구와 소비 타입 검사를 구현했다. [계약 검사 결과](quickstart.md#계약-생성과-소비-검사-결과)를 참고한다. T009–T012·T018–T019의 NestJS API·SQL 변경 실행기·개발/시험 DB·합성 worker와 서버 단독 검사를 구현했다. [서버 기반 검증](../../docs/history/development/001-backend-foundation-verification.md)을 참고한다. T013·T020의 관리자 웹 실행·빌드·개발 연결 도구와 합성 HTTP 서버를 사용하는 단독 검사를 완료했다. [웹 기반 검증](../../docs/history/development/001-admin-foundation-verification.md)을 참고한다. 모바일 T014·T015·T021의 실행·개발 연결 기반과 iOS/Android 전용 앱 단독 검사를 확인했다. [로컬 검증](../../docs/history/development/001-foundation-verification.md)을 참고한다. 실제 브라우저/API 연동은 남아 있다. 선택 근거는 [research.md](research.md), 개발 자료는 [data-model.md](data-model.md), 개발 인터페이스는 [contracts/README.md](contracts/README.md), 검사 절차는 [quickstart.md](quickstart.md), 역할별 상세 순서와 선행 조건은 [tasks.md](tasks.md)를 따른다.
 
 ## Technical Context
 
@@ -34,7 +34,7 @@
 
 ## Project Structure
 
-아래 실행 구조 중 workspace manifest·루트 설정·lockfile은 T001–T003에서 준비했다. 계약 생성 도구·생성물은 T004–T008에서 준비했다. 서버 실행 코드·DB·worker·health 구성은 T009–T012·T018–T019에서 구현·단독 검사를 완료했다. 관리자 웹 실행·개발 proxy·연결 검사는 T013·T020에서 구현했다. 모바일 실행과 실제 연동은 후속 구현 위치다.
+아래 실행 구조 중 workspace manifest·루트 설정·lockfile은 T001–T003에서 준비했다. 계약 생성 도구·생성물은 T004–T008에서 준비했다. 서버 실행 코드·DB·worker·health 구성은 T009–T012·T018–T019에서 구현·단독 검사를 완료했다. 관리자 웹 실행·개발 proxy·연결 검사는 T013·T020에서 구현했다. 모바일 실행·개발 연결 기반은 T014·T021에서 구현했고 T015의 iOS/Android 전용 앱 실행을 확인했다. 실제 연동은 남아 있다.
 
 ```text
 specs/001-development-foundation/
