@@ -28,16 +28,19 @@
 - [x] 로컬 Git 기준 자료 커밋과 Spec Kit·Codex·Living Spec 개발 방식 설정
 - [x] GitHub 원격 저장소 연결: [trycatch98/Holdlog](https://github.com/trycatch98/Holdlog). 현재 공개 저장소이며, 로컬 이력의 원격 반영은 별도
 - [x] [개발 기반 설계](../specs/001-development-foundation/plan.md): workspace·도구 계열·계약 생성·역할별 전달·검증 절차 작성
-- [x] [001 역할별 작업 목록](../specs/001-development-foundation/tasks.md) 32개 작성. 순서·변경 범위·검사·전달·외부 확인 분리
+- [x] [001 역할별 작업 목록](../specs/001-development-foundation/tasks.md) 33개 작성. 순서·변경 범위·검사·전달·외부 확인 분리
 - [x] 001 스펙·설계·작업 일관성 분석: 15개 FR/SC 연결 확인, 로컬 빌드/실기기 경계·이슈 묶음·상태 문구 보완
-- [x] 001 확정된 32개 작업을 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. 현재 진행 상태는 GitHub 이슈에서 확인. 구현은 전부 미완료
-- [x] 001 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)·[공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2) 등록·서브 관계 확인, [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3) 연결. 담당 미배정·구현 전
+- [x] 001 확정된 33개 작업을 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 등록하고 상위 #1에 연결. 현재 진행 상태는 GitHub 이슈에서 확인. T001–T003 구현·검사 결과는 [검증 기록](history/development/001-shared-foundation-verification.md)에 연결
+- [x] 001 [상위 #1](https://github.com/trycatch98/Holdlog/issues/1)·[공통 준비 #2](https://github.com/trycatch98/Holdlog/issues/2) 등록·서브 관계 확인, [준비 문서 PR #3](https://github.com/trycatch98/Holdlog/pull/3) 연결. 준비 문서 PR #3 병합 완료. 현재 담당·진행·구현 PR은 #2에서 확인
 - [ ] 로컬 기반 설치·앱/웹/서버·개발 DB 실행과 가상 기기 연결 검증
 실제 휴대폰 확인은 필요한 후속 기능의 검사 범위에서 계획한다. 001 완료 조건에 포함하지 않는다.
-- [ ] 도구 정확한 버전·lockfile·이미지 digest 고정. 로컬 Node24.4.0은 설계의 최소24.15로 교체 필요
-- [ ] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. 현재 Xcode 선택 경로는 CommandLineTools
-- [ ] Docker daemon·개발 DB/worker 실행 확인. CLI/Compose 명령 존재 확인만 수행
+- [x] Node24.21.0·npm11.19.0·직접 의존성 exact 버전·루트 lockfile 고정과 `npm ci` 확인. 전역 도구는 변경하지 않음
+- [ ] PostgreSQL 이미지 tag/digest 고정: #5의 T011에서 진행
+- [ ] 로컬 전체 Xcode·iOS SDK·Android 도구·가상 기기·개발용 앱 식별자 준비. Xcode26.2·iOS 시뮬레이터 SDK26.2, adb35.0.2·emulator36.4.9와 AVD 목록 명령 통과. 가상 기기 실행·빌드·앱 식별자 검사는 #7에서 수행
+- [ ] Docker daemon·개발 DB/worker 실행 확인. Docker CLI29.1.5·Compose5.0.1 명령 통과. `docker info`는 daemon 연결 불가. DB/worker 실행은 #5에서 수행
 - [ ] 비공개 코드 저장소 운영 기준에 맞는 공개 범위 확인. 현재 공개 상태이며 설정 변경 미수행
+
+Git 작성자 설정과 `git diff --check`는 정상이다. 공통 타입/lint의 정상·오류·복구, 비밀/빌드/저장 자료 Git 제외와 공개 예시 추적 가능 여부를 확인했다. 상세 결과·미수행 범위는 [공통 준비 검증 기록](history/development/001-shared-foundation-verification.md)을 따른다.
 
 ## 3. 데이터와 API 설계
 

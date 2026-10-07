@@ -1,6 +1,6 @@
 # Holdlog(가제) — 기술·운영 명세
 
-현재 채택한 기술과 운영 기준, 구현할 때 지켜야 할 조건을 정리한다. 제품 동작은 [기능 명세](./functional-spec.md)와 [기록 관계 설계](./record-relationships.md)를 따른다. 세부 구현 제안은 확정 요구사항과 구분한다. 남은 선택은 [미결정 사항](./open-questions.md), 실제 설정·검증 작업은 [초기 설정 준비](./setup-checklist.md)에서 관리한다. 설치·구현·배포는 아직 진행하지 않았다.
+현재 채택한 기술과 운영 기준, 구현할 때 지켜야 할 조건을 정리한다. 제품 동작은 [기능 명세](./functional-spec.md)와 [기록 관계 설계](./record-relationships.md)를 따른다. 세부 구현 제안은 확정 요구사항과 구분한다. 남은 선택은 [미결정 사항](./open-questions.md), 실제 설정·검증 작업은 [초기 설정 준비](./setup-checklist.md)에서 관리한다. 공통 도구·workspace 설치 검사는 [개발 안내](development.md)에 연결했다. 서비스 구현·배포는 아직 진행하지 않았다.
 
 ## 1. 현재 정한 방향
 
@@ -126,7 +126,8 @@ Holdlog는 React Native + Expo + 전용 개발 빌드를 사용한다. 이는 Ex
 
 ### 코드
 
-- 비공개 Git 저장소 하나에 `apps/mobile`, `apps/admin`, `apps/api`, `packages/contracts`, `docs`를 두는 구성으로 관리한다.
+- 모바일 네이티브 프로젝트는 Expo CNG 방식으로 시작한다. `app.config.ts`·config plugin·로컬 네이티브 모듈을 원본으로 관리하고 생성된 `ios/`·`android/`는 Git에서 제외한다. 직접 작성한 네이티브 코드는 생성 폴더 밖에 추적하며, 네이티브 프로젝트 자체를 유지해야 하면 생성/제외 정책과 관련 스펙을 먼저 변경한다. [Expo CNG](https://docs.expo.dev/workflow/continuous-native-generation/)
+- 비공개 Git 저장소 하나에 `apps/mobile`, `apps/admin`, `apps/server`, `packages/contracts`, `docs`를 두는 구성으로 관리한다.
 - 앱·관리자 웹·서버는 각각 배포한다. 공통 API 자료형만 공유하고 서버 권한 코드를 앱에 넣지 않는다.
 - 사진·영상, 운영 DB 덤프, 비밀 키를 Git에 넣지 않는다. 운영 비밀값은 물리 서버의 접근 제한된 설정 파일 또는 별도 비밀 관리 도구로 관리한다.
 - DB 변경 파일은 코드와 함께 관리하고, 배포 전에 시험 환경에서 적용한다.

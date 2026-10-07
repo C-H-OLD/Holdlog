@@ -6,6 +6,7 @@
 |---|---|
 | decisions/ | 결정과 문서 구조 변경의 이유·근거 |
 | figma/ | 과거 Figma 작업 계획·노드 변경·검증 보고서 |
+| development/ | 개발 작업의 실제 설치·검사 결과와 미수행 범위 |
 | tools/ | 실행을 중지한 과거 일회성 문서 갱신 코드 |
 | design-generation/ | 초기 시안 생성 과정·프롬프트·검사 기록 |
 
@@ -13,6 +14,7 @@
 
 새 기록은 해당 폴더에 날짜·주제·결정 이유·영향받는 현재 명세 링크를 적는다. 현재 명세 본문에 논의 과정이나 이전 규칙을 반복하지 않는다.
 
+- [2026-10-06 공통 개발 준비 검증](development/001-shared-foundation-verification.md)
 - [2026-10-06 Spec Kit 도입](decisions/2026-10-06-spec-kit-adoption.md)
 - [2026-10-06 문서 역할 분리](decisions/2026-10-06-document-structure.md)
 

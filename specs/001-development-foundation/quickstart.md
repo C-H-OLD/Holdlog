@@ -4,7 +4,7 @@
 
 ## 지금 실행 가능한 검사
 
-저장소 루트에서 기존 검사만 실행한다.
+현재 가능한 설치·공통 설정·기존 정적 검사 명령은 [개발 안내](../../docs/development.md#실행과-완료-확인)를 따른다. 아래 기존 검사도 유지한다.
 
 ```sh
 python3 scripts/check-contracts.py
@@ -12,13 +12,13 @@ python3 scripts/check-docs.py
 git diff --check
 ```
 
-현재 컴퓨터의 Git 전역 설정에 `gpg.format` 빈 값 오류가 있어 검토 명령에만 `GIT_CONFIG_GLOBAL=/dev/null git diff --check`를 사용했다. 전역 설정은 변경하지 않았다. 커밋/서명 작업 전 원래 설정을 별도 확인한다.
+공통 준비 검사에서 Git 작성자 설정과 `git diff --check`는 정상이며 과거의 빈 `gpg.format` 오류는 재현되지 않았다. 기본 Python 실행 파일 중단으로 기존 검사는 `/usr/bin/python3`로 통과했다. [검증 기록](../../docs/history/development/001-shared-foundation-verification.md)을 참고한다.
 
 ## 구현 후 확인 순서
 
 아래는 **후속 검증 절차**다. 예정 명령은 [기반 인터페이스](contracts/README.md)에 있으며 아직 구현되지 않았다.
 
-1. 도구 정확한 버전·직접 의존성·lockfile·이미지 digest를 고정한다. 개발/시험 설정의 비밀은 로컬에만 둔다. 현재 Node24.4.0은 최소24.15로 교체가 필요하다.
+1. 도구 정확한 버전·직접 의존성·lockfile·이미지 digest를 고정한다. 개발/시험 설정의 비밀은 로컬에만 둔다. T001–T003에서 Node24.21.0·npm11.19.0·직접 의존성·lockfile을 고정하고 설치·설정 검사를 수행했다. 이미지 digest는 T011에서 고정한다.
 2. 설치와 계약 생성/검사를 실행한다. 재생성 동일·정상 예제 허용·거절 예제 거절·FE/BE 타입 소비 통과를 확인한다. 원본만 바꾸고 생성하지 않으면 검사 실패해야 한다.
 3. 개발 DB 접속·시험 변경 적용 뒤 API/worker를 시작한다. live/ready·합성 queue 처리를 확인한다. DB 중지 시 ready503, 필수 설정 누락 시 대상 시작 실패를 확인한다.
 4. worker 작업 중 중지/재시작 후 합성 작업 재개·중복 효과 방지, DB 정상 중지/재시작 후 합성 자료 보존을 확인한다. 볼륨 삭제 명령은 쓰지 않는다.
@@ -43,6 +43,6 @@ git diff --check
 
 ## 남은 준비
 
-사용자가 서버 사양·테스트 휴대폰은 미정이라고 확인했다. 계정·서명·초기 암장/세팅 자료는 미확인이다. Docker CLI 존재만 확인했고 daemon·DB/worker·전체 Xcode·iOS SDK는 검증하지 않았다. 준비 상태 원본은 [체크리스트](../../docs/setup-checklist.md)다.
+사용자가 서버 사양·테스트 휴대폰은 미정이라고 확인했다. 계정·서명·초기 암장/세팅 자료는 미확인이다. Docker daemon은 연결 불가이며 DB/worker는 미실행이다. Xcode·iOS SDK·Android CLI/AVD 목록은 명령 실행을 확인했으며 앱 빌드·가상 기기 연결은 미수행이다. 준비 상태 원본은 [체크리스트](../../docs/setup-checklist.md)다.
 
 설계/정적 검사 통과로001·002 또는 제품 기능 완료를 표시하지 않는다. 서비스 구현·실제 소비자 확인과 연동 검증이 남았다.
