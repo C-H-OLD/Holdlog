@@ -28,12 +28,22 @@
     "typescript-eslint": "8.71.1"
   },
   "scripts": {
-    "lint": "eslint eslint.config.mjs scripts --max-warnings=0 && npm run lint --workspaces",
-    "typecheck": "npm run typecheck --workspaces",
+    "lint": "node scripts/check-workspaces.mjs --task lint",
+    "typecheck": "node scripts/check-workspaces.mjs --task typecheck",
     "test:tooling": "node --test scripts/test/tooling.test.mjs",
-    "check": "node scripts/check-tooling.mjs",
+    "check": "node scripts/check-workspaces.mjs",
     "check:lockfile": "node scripts/check-lockfile.mjs",
     "contracts:generate": "node scripts/contracts/generate.mjs",
-    "contracts:check": "node scripts/contracts/check.mjs"
+    "contracts:check": "node scripts/contracts/check.mjs",
+    "lint:tooling": "eslint eslint.config.mjs scripts --max-warnings=0",
+    "test:runner": "node --test scripts/test/check-runner.test.mjs",
+    "test": "node scripts/check-workspaces.mjs --task test",
+    "build:admin": "node scripts/check-workspaces.mjs --task build:admin",
+    "build:api": "node scripts/check-workspaces.mjs --task build:api",
+    "test:foundation": "node scripts/check-workspaces.mjs --task test:foundation",
+    "dev:api": "node scripts/check-workspaces.mjs --task dev:api",
+    "dev:worker": "node scripts/check-workspaces.mjs --task dev:worker",
+    "dev:admin": "node scripts/check-workspaces.mjs --task dev:admin",
+    "dev:mobile": "node scripts/check-workspaces.mjs --task dev:mobile"
   }
 }
