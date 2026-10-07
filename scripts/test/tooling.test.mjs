@@ -102,3 +102,19 @@ test('lockfile matches manifests and rejects version drift', async () => {
     assert.throws(() => checkLockfile(root), /devDependencies differs/);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
+
+test('default harness runs contracts and propagates its failure before later checks', () => {
+  const root = mkdtempSync(join(tmpdir(), 'holdlog-contract-harness-'));
+  try {
+    const scripts = Object.fromEntries(['check:lockfile', 'contracts:check', 'lint', 'typecheck', 'test:tooling'].map(name => [name, `node -e "require('node:fs').appendFileSync('trace', '${name},');process.exit(${name === 'contracts:check' ? 23 : 0})"`]));
+    writeFileSync(join(root, 'package.json'), JSON.stringify({ scripts }));
+    const result = spawnSync(process.execPath, ['scripts/check-tooling.mjs', '--root', root], { encoding: 'utf8' });
+    assert.equal(result.status, 23);
+    assert.equal(readFileSync(join(root, 'trace'), 'utf8'), 'check:lockfile,contracts:check,');
+    delete scripts['contracts:check'];
+    writeFileSync(join(root, 'package.json'), JSON.stringify({ scripts }));
+    const missing = spawnSync(process.execPath, ['scripts/check-tooling.mjs', '--root', root], { encoding: 'utf8' });
+    assert.equal(missing.status, 1);
+    assert.match(missing.stdout + missing.stderr, /contracts:check/);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});

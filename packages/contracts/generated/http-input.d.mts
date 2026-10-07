@@ -1,0 +1,1 @@
+export declare function parseParameter(parameter: { in: string; name?: string; required?: boolean; style?: string; explode?: boolean; schema: { type?: string; items?: { type?: string }; default?: unknown } }, value: string | string[] | undefined): unknown;

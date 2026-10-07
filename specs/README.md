@@ -4,7 +4,7 @@
 
 기존 개발 기반001과 새 범위002~021, 총21개 개발 단위로 전체 기능을 나눴다. 이 목록은 **개발 범위·담당 연결·선행 관계의 원본**이다. 각 `spec.md`는 Living Spec으로 유지한다. 상세 제품 규칙은 기존 명세에서 관리하며 기능 스펙에는 범위와 짧은 요구 결과·원본 링크만 둔다.
 
-현재는 전체 범위 명세·[공통 API·데이터 설계](002-shared-contracts/contracts/README.md)와 [001 기반 설계](001-development-foundation/plan.md)를 작성했다. 현재 Spec Kit 선택은001이며 [33개 역할별 작업](001-development-foundation/tasks.md)을 작성했다. 001 일관성 분석과 문구 보완을 마쳤다. 확정된 33개 작업의 세부 이슈를 모두 연결했다. T001–T003의 공통 준비·설치·설정 검사를 수행했다. [검증 기록](../docs/history/development/001-shared-foundation-verification.md)을 참고한다. 다음은 #2 구현 PR 병합 후 계약 생성 기반 #4다. 서비스 구현·생성 소비자 실행 검증은 아직 없다. 절차와 선택 방법은 [개발 흐름](../docs/development-workflow.md)을 따른다.
+현재는 전체 범위 명세·[공통 API·데이터 설계](002-shared-contracts/contracts/README.md)와 [001 기반 설계](001-development-foundation/plan.md)를 작성했다. 현재 Spec Kit 선택은001이며 [33개 역할별 작업](001-development-foundation/tasks.md)을 작성했다. 001 일관성 분석과 문구 보완을 마쳤다. 확정된 33개 작업의 세부 이슈를 모두 연결했다. T001–T003의 공통 준비·설치·설정 검사를 수행했다. [검증 기록](../docs/history/development/001-shared-foundation-verification.md)을 참고한다. #2는 PR #15로 병합됐고 #4의 T004–T008 계약 생성·소비 타입 검사를 구현했다. [계약 검사 결과](001-development-foundation/quickstart.md#계약-생성과-소비-검사-결과)를 참고한다. #4 병합과 실제 서비스/앱 연동은 별도다. 절차와 선택 방법은 [개발 흐름](../docs/development-workflow.md)을 따른다.
 
 ## 상세 규칙 원본
 

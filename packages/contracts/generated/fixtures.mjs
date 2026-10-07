@@ -1,0 +1,429 @@
+const source = {
+  "status": "정적 형식 예제. 실제 API/권한/DB검사 결과가 아님",
+  "http": [
+    {
+      "id": "version-conflict",
+      "contracts": [
+        "C01"
+      ],
+      "operationId": "editSchedule",
+      "schema": "Error",
+      "value": {
+        "code": "VERSION_CONFLICT",
+        "requestId": "00000000-0000-4000-8000-000000000001",
+        "fieldErrors": [],
+        "currentVersion": 2,
+        "resourceId": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "blockingCrewIds": [],
+        "existingVisitId": null
+      },
+      "sourceTests": [
+        "T23"
+      ],
+      "verification": "프론트 입력 보존과 최신 GET 비교. 예제는 형식 검사만, HTTP412/DB무변경은 연동검사"
+    },
+    {
+      "id": "own-profile",
+      "contracts": [
+        "C02"
+      ],
+      "operationId": "getMyProfile",
+      "schema": "Profile",
+      "value": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "예제 회원",
+        "photoFileId": null,
+        "version": 1,
+        "identity": {
+          "provider": "google",
+          "email": "example@example.invalid"
+        }
+      },
+      "sourceTests": [
+        "T01"
+      ],
+      "verification": "제공자/email은 본인 projection만"
+    },
+    {
+      "id": "invite-preview",
+      "contracts": [
+        "C03",
+        "C12"
+      ],
+      "operationId": "resolveInvite",
+      "schema": "InvitePreview",
+      "value": {
+        "inviteId": "00000000-0000-4000-8000-000000000001",
+        "crewName": "예제 크루",
+        "membership": "not_joined",
+        "crewId": null
+      },
+      "sourceTests": [
+        "T02",
+        "T76"
+      ],
+      "verification": "미가입 공동 자료 없음; join확인 전 자동가입없음"
+    },
+    {
+      "id": "zero-grade",
+      "contracts": [
+        "C04",
+        "C06"
+      ],
+      "operationId": "createPersonalRecord",
+      "schema": "PersonalRecordInput",
+      "value": {
+        "visitedAt": "2026-10-06T01:00:00Z",
+        "timeZone": "Asia/Seoul",
+        "gymId": "00000000-0000-4000-8000-000000000002",
+        "climbs": [
+          {
+            "brandId": "00000000-0000-4000-8000-000000000001",
+            "gradeKey": 3,
+            "count": 0
+          }
+        ],
+        "condition": null,
+        "review": null,
+        "reviewVisibility": "public"
+      },
+      "sourceTests": [
+        "T12",
+        "T60"
+      ],
+      "verification": "0은 명시입력"
+    },
+    {
+      "id": "missing-climbs",
+      "contracts": [
+        "C06"
+      ],
+      "operationId": "createPersonalRecord",
+      "schema": "PersonalRecordInput",
+      "value": {
+        "visitedAt": "2026-10-06T01:00:00Z",
+        "timeZone": "Asia/Seoul",
+        "gymId": "00000000-0000-4000-8000-000000000002",
+        "climbs": null,
+        "condition": null,
+        "review": null,
+        "reviewVisibility": "public"
+      },
+      "sourceTests": [
+        "T12"
+      ],
+      "verification": "미입력과0구분"
+    },
+    {
+      "id": "schedule-input",
+      "contracts": [
+        "C05"
+      ],
+      "operationId": "createSchedule",
+      "schema": "ScheduleInput",
+      "value": {
+        "scheduledAt": "2026-10-07T01:00:00Z",
+        "timeZone": "Asia/Seoul",
+        "gymId": null,
+        "description": null
+      },
+      "sourceTests": [
+        "T03"
+      ],
+      "verification": ""
+    },
+    {
+      "id": "existing-link",
+      "contracts": [
+        "C07"
+      ],
+      "operationId": "linkExistingRecord",
+      "schema": "LinkInput",
+      "value": {
+        "recordId": "00000000-0000-4000-8000-000000000001",
+        "recordVersion": 1
+      },
+      "sourceTests": [
+        "T06",
+        "T42"
+      ],
+      "verification": "visit If-Match별도, 현재소유/참석/날짜/암장DB검사"
+    },
+    {
+      "id": "file-upload",
+      "contracts": [
+        "C08"
+      ],
+      "operationId": "startMedia",
+      "schema": "MediaCreateInput",
+      "value": {
+        "purpose": "personal_attachment",
+        "targetId": "00000000-0000-4000-8000-000000000001",
+        "filename": "example.jpg",
+        "mimeType": "image/jpeg",
+        "byteLength": 1234,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "visibility": "private"
+      },
+      "sourceTests": [
+        "T52",
+        "T55"
+      ],
+      "verification": ""
+    },
+    {
+      "id": "settings",
+      "contracts": [
+        "C09"
+      ],
+      "operationId": "editNotificationSettings",
+      "schema": "NotificationSettingsInput",
+      "value": {
+        "newSchedule": true,
+        "scheduleChanges": false,
+        "recordReminder": true
+      },
+      "sourceTests": [
+        "T15",
+        "T16"
+      ],
+      "verification": ""
+    },
+    {
+      "id": "calendar-personal-no-crew",
+      "contracts": [
+        "C10"
+      ],
+      "operationId": "recordCalendar",
+      "schema": "RecordCalendar",
+      "value": {
+        "month": "2026-10",
+        "timeZone": "Asia/Seoul",
+        "items": [],
+        "totalCount": 0,
+        "complete": true
+      },
+      "sourceTests": [
+        "T67"
+      ],
+      "verification": "view=all crewId없이 기존내기록접근; 빈예제는조회성공을뜻함"
+    },
+    {
+      "id": "shared-history",
+      "contracts": [
+        "C11"
+      ],
+      "operationId": "historyVisits",
+      "schema": "HistoryEvent",
+      "value": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "targetKind": "crew_visit",
+        "targetId": "00000000-0000-4000-8000-000000000002",
+        "operation": "updated",
+        "actor": {
+          "actorId": "00000000-0000-4000-8000-000000000003",
+          "accountId": "00000000-0000-4000-8000-000000000001",
+          "name": "예제 회원",
+          "photoFileId": null,
+          "state": "active"
+        },
+        "occurredAt": "2026-10-06T01:00:00Z",
+        "changes": [
+          {
+            "field": "memo",
+            "before": "이전 공동 메모",
+            "after": "수정 공동 메모"
+          }
+        ],
+        "canRevert": true
+      },
+      "sourceTests": [
+        "T32"
+      ],
+      "verification": "개인후기/수치/파일사본없음"
+    },
+    {
+      "id": "announcement",
+      "contracts": [
+        "C08",
+        "C12"
+      ],
+      "operationId": "appAnnouncements",
+      "schema": "AnnouncementList",
+      "value": {
+        "items": [
+          {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "imageFileId": "00000000-0000-4000-8000-000000000002",
+            "link": null,
+            "order": 0,
+            "version": 1
+          }
+        ]
+      },
+      "sourceTests": [
+        "T71",
+        "T73"
+      ],
+      "verification": ""
+    },
+    {
+      "id": "workout-finish",
+      "contracts": [
+        "C06",
+        "C12"
+      ],
+      "operationId": "finishWorkout",
+      "schema": "WorkoutFinishInput",
+      "value": {
+        "gymId": "00000000-0000-4000-8000-000000000002",
+        "startedAt": "2026-10-06T01:00:00Z",
+        "timeZone": "Asia/Seoul",
+        "climbs": [
+          {
+            "brandId": "00000000-0000-4000-8000-000000000001",
+            "gradeKey": 3,
+            "count": 0
+          }
+        ]
+      },
+      "sourceTests": [],
+      "verification": "UI시작A/B와독립;clientWorkoutId영구dedupe"
+    }
+  ],
+  "runtime": [
+    {
+      "id": "workout-display-records",
+      "schema": "WorkoutDisplay",
+      "contracts": [
+        "C12"
+      ],
+      "value": {
+        "appName": "Holdlog",
+        "gymName": "예제 암장",
+        "startedAt": "2026-10-06T01:00:00Z",
+        "elapsedSeconds": 600,
+        "climbTotal": 0,
+        "tabContext": "records",
+        "barVisible": true,
+        "overlapAllowed": true
+      }
+    },
+    {
+      "id": "workout-display-other-tab",
+      "schema": "WorkoutDisplay",
+      "contracts": [
+        "C12"
+      ],
+      "value": {
+        "appName": "Holdlog",
+        "gymName": "예제 암장",
+        "startedAt": "2026-10-06T01:00:00Z",
+        "elapsedSeconds": 600,
+        "climbTotal": 0,
+        "tabContext": "gyms",
+        "barVisible": false,
+        "overlapAllowed": true
+      }
+    },
+    {
+      "id": "notice-offline",
+      "schema": "OpenSourceManifest",
+      "contracts": [
+        "C12"
+      ],
+      "value": {
+        "buildId": "synthetic-example",
+        "generatedAt": "2026-10-06T01:00:00Z",
+        "entries": [
+          {
+            "name": "example-package",
+            "version": "0.0.0",
+            "license": "MIT",
+            "licenseText": "합성 검증 예제이며 실제 배포 고지가 아님",
+            "notices": [],
+            "homepage": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "push-destination",
+      "schema": "PushPayload",
+      "contracts": [
+        "C09",
+        "C12"
+      ],
+      "value": {
+        "schemaVersion": "1",
+        "eventId": "00000000-0000-4000-8000-000000000001",
+        "kind": "record_reminder",
+        "crewId": "00000000-0000-4000-8000-000000000002",
+        "scheduleId": "00000000-0000-4000-8000-000000000003",
+        "destination": "crew_visit_create"
+      }
+    },
+    {
+      "id": "selected-date-route",
+      "schema": "Route",
+      "contracts": [
+        "C12"
+      ],
+      "value": {
+        "screenId": "02.04",
+        "tabContext": "records",
+        "crewId": null,
+        "scheduleId": null,
+        "visitId": null,
+        "personalRecordId": null,
+        "memberAccountId": null,
+        "gymId": null,
+        "inviteId": null,
+        "selectedDate": "2026-10-06",
+        "fileId": null
+      }
+    }
+  ],
+  "mustReject": [
+    {
+      "id": "private-field-in-public-record",
+      "schema": "PublicRecord",
+      "baseValue": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "ownerAccountId": "00000000-0000-4000-8000-000000000001",
+        "visitedAt": "2026-10-06T01:00:00Z",
+        "timeZone": "Asia/Seoul",
+        "gymId": "00000000-0000-4000-8000-000000000002",
+        "climbs": null,
+        "condition": null,
+        "review": null,
+        "media": []
+      },
+      "inject": {
+        "activeLink": {
+          "crewId": "00000000-0000-4000-8000-000000000002"
+        }
+      }
+    },
+    {
+      "id": "personal-history-not-allowed",
+      "schema": "HistoryChange",
+      "value": {
+        "field": "review",
+        "before": "개인 후기",
+        "after": null
+      }
+    },
+    {
+      "id": "negative-climbs",
+      "schema": "ClimbCount",
+      "value": {
+        "brandId": "00000000-0000-4000-8000-000000000001",
+        "gradeKey": 3,
+        "count": -1
+      }
+    }
+  ]
+};
+export function getFixtures() { return JSON.parse(JSON.stringify(source)); }
