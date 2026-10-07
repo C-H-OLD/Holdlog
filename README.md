@@ -4,7 +4,7 @@
 
 ## 현재 단계
 
-문서와 Figma 시안을 준비했고, GitHub Spec Kit·Codex·Living Spec 개발 방식을 설정했다. 앱·서버·관리자 웹 코드는 아직 없으며 설치·실행 명령도 아직 없다.
+문서와 Figma 시안을 준비했고, GitHub Spec Kit·Codex·Living Spec 개발 방식을 설정했다. 공통 workspace·계약 생성과 서버·DB·worker 실행 기반을 구현하고 로컬 단독 검사를 수행했다. 앱·관리자 웹과 실제 연동은 후속 작업이며 설치·실행 방법은 개발 시작 안내에서 확인한다.
 
 ## 개발 시작
 
