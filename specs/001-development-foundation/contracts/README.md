@@ -1,6 +1,6 @@
 # 개발 기반 인터페이스
 
-작성일: 2026-10-06 · 상태: 설계. 아래는 기반 인터페이스다. npm 설치·lint/typecheck·계약 생성/검사와 서버 workspace의 API·worker 실행/빌드·개발 health를 구현했다. 서버 [실행 안내](../../../docs/development.md#서버dbworker-로컬-실행)와 [단독 검증](../../../docs/history/development/001-backend-foundation-verification.md)을 따른다. 관리자 웹 workspace의 실행·빌드·개발 proxy와 연결 검사 도구도 구현했다. [웹 실행 안내](../../../docs/development.md#관리자-웹-단독-실행)를 따른다. 모바일 실행·연결 도구도 구현했다. [모바일 실행 안내](../../../docs/development.md#모바일-단독-실행)와 [검증 기록](../../../docs/history/development/001-foundation-verification.md)을 따른다. Android 전용 앱 실행을 확인했고 iOS 실행은 Xcode 초기 구성을 기다린다. 루트 서비스 명령·실제 브라우저/API 연동은 후속 작업이다. 제품 필드는 [공통 계약 원본](../../../packages/contracts/README.md)을 따른다.
+작성일: 2026-10-06 · 상태: 설계. 아래는 기반 인터페이스다. npm 설치·lint/typecheck·계약 생성/검사와 서버 workspace의 API·worker 실행/빌드·개발 health를 구현했다. 서버 [실행 안내](../../../docs/development.md#서버dbworker-로컬-실행)와 [단독 검증](../../../docs/history/development/001-backend-foundation-verification.md)을 따른다. 관리자 웹 workspace의 실행·빌드·개발 proxy와 연결 검사 도구도 구현했다. [웹 실행 안내](../../../docs/development.md#관리자-웹-단독-실행)를 따른다. 모바일 실행·연결 도구도 구현했다. [모바일 실행 안내](../../../docs/development.md#모바일-단독-실행)와 [검증 기록](../../../docs/history/development/001-foundation-verification.md)을 따른다. iOS/Android 전용 앱 실행을 확인했다. 루트 서비스 명령·실제 브라우저/API 연동은 후속 작업이다. 제품 필드는 [공통 계약 원본](../../../packages/contracts/README.md)을 따른다.
 
 ## 명령 계약
 

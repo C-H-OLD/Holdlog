@@ -1,6 +1,6 @@
 # Tasks: 개발 기반 구성
 
-**작성일**: 2026-10-06 · **상태**: T001–T014·T018–T021·T034 구현·로컬 검사 완료, 나머지 14개 미실행
+**작성일**: 2026-10-06 · **상태**: T001–T015·T018–T021·T034 구현·로컬 검사 완료, 나머지 13개 미실행
 
 **입력**: [spec.md](spec.md) · [plan.md](plan.md) · [research.md](research.md) · [data-model.md](data-model.md) · [기반 인터페이스](contracts/README.md) · [검증 안내](quickstart.md)
 
@@ -51,13 +51,13 @@ T004–T008의 실행 증거·남은 조건은 [계약 검사 결과](quickstart
 - [x] T012 [US1] [BE] `apps/server/src/worker.ts`, `apps/server/src/jobs/`, `apps/server/test/jobs.integration.spec.ts`에 pg-boss 실행·종료·합성 작업 재개와 결과 표식을 준비한다. 선행 T011; FR-002·003·SC-003. 검사/전달: worker 작업 중 중지/재시작·재시도에서 동일 jobId 효과가 중복되지 않는지 실제 시험 DB로 확인한다. 내부 queue schema는 라이브러리에 맡기고 실제 영상/알림/삭제 처리기를 구현하지 않는다.
 - [x] T013 [P] [US1] [FE] `apps/admin/package.json`, `apps/admin/vite.config.ts`, `apps/admin/tsconfig.json`, `apps/admin/src/main.tsx`, `apps/admin/.env.example`에 React/Vite 실행·빌드 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: 개발 서버·웹 빌드·설정 오류를 확인하고 상대 API 경로를 사용한다. 제품 화면을 새로 설계하지 않으며 서버 비밀을 웹 변수에 넣지 않는다. 의존성/lock 변경은 공통 담당에게 전달한다.
 - [x] T014 [P] [US1] [FE] `apps/mobile/package.json`, `apps/mobile/app.config.ts`, `apps/mobile/metro.config.cjs`, `apps/mobile/tsconfig.json`, `apps/mobile/App.tsx`, `apps/mobile/.env.example`에 Expo·전용 개발 빌드·계약 패키지 소비 기반을 준비한다. 선행 T008; FR-001·002·007·SC-001. 검사/전달: SDK 지원 조합·타입·Metro 모듈 해석·설정 누락을 확인한다. 제품 화면/탐색과 로그인/지도/푸시 동작은 추가하지 않는다. 로컬 가상 기기는 개발용 앱 식별자로 준비하고 실제 배포 식별자·실기기 서명이 필요한 검사는 해당 후속 기능·배포 범위에서 계획한다. lock 변경은 공통 담당에게 전달한다.
-- [ ] T015 [US1] [FE] `apps/mobile/app.config.ts`와 `docs/history/development/001-foundation-verification.md`에 로컬 Xcode/Android 도구·개발용 앱 식별자를 준비하고 iOS 시뮬레이터/Android 에뮬레이터용 전용 개발 빌드 설치/시작 결과를 기록한다. 선행 T014 및 로컬 플랫폼 빌드 도구; FR-002·008·SC-001·005. 검사/전달: OS/가상 기기/도구·실제 명령·결과를 남긴다. Metro 시작/Expo Go로 전용 개발 빌드를 대신하지 않고 가상 기기를 실기기로 표시하지 않는다. 휴대폰·스토어 계정·물리 서버 미정으로 이 작업을 막지 않는다.
+- [x] T015 [US1] [FE] `apps/mobile/app.config.ts`와 `docs/history/development/001-foundation-verification.md`에 로컬 Xcode/Android 도구·개발용 앱 식별자를 준비하고 iOS 시뮬레이터/Android 에뮬레이터용 전용 개발 빌드 설치/시작 결과를 기록한다. 선행 T014 및 로컬 플랫폼 빌드 도구; FR-002·008·SC-001·005. 검사/전달: OS/가상 기기/도구·실제 명령·결과를 남긴다. Metro 시작/Expo Go로 전용 개발 빌드를 대신하지 않고 가상 기기를 실기기로 표시하지 않는다. 휴대폰·스토어 계정·물리 서버 미정으로 이 작업을 막지 않는다.
 - [ ] T016 [P] [US1] [BE] `specs/001-development-foundation/contracts/admin-bootstrap.md`에 초기 관리자 비밀 입력·전달·Argon2id 해시·명시적 교체·재실행/실패 절차를 작성해004에 전달한다. 선행 T008; FR-002·007·008. 검사/전달: C02 원본에 맞고 기존 비밀번호를 조용히 덮어쓰지 않는 절차인지 확인한다. 실제 principal 저장·로그인·cookie/CSRF 구현/실행은004에 연결하며001 완료 조건으로 당겨오지 않는다.
 - [ ] T017 [US1] [INTEGRATION] `docs/history/development/001-foundation-verification.md`에 API/worker·개발 DB·웹·모바일의 실제 시작·설정 누락 실패와 DB 정상 재시작/자료 보존 결과를 합쳐 기록한다. 선행 T010–T016; FR-001–003·007–009·SC-001·003·005. 검사/전달: 같은 계약/도구 버전과 합성 자료를 사용하고 대상별 성공/실패/미수행을 분리한다. 로컬 플랫폼 도구 미준비 시 해당 실행만 미수행으로 남긴다. 실물 서버/휴대폰 미정은 로컬 실행의 차단 조건이 아니다.
 
 T009–T012·T018–T019의 서버 단독 실행·DB 재시작·worker 중단/재개 증거는 [서버 기반 검증 기록](../../docs/history/development/001-backend-foundation-verification.md)에 있다. 브라우저·가상 기기의 실제 API 연동은 #10 범위다.
 
-T014·T021의 모바일 기반·단독 검사와 T015의 Android 전용 앱 실행 증거는 [로컬 검증 기록](../../docs/history/development/001-foundation-verification.md#모바일-기반--7--t014t015t021)에 있다. T015의 iOS 실행은 Xcode 첫 실행 준비 후 확인하며 아직 완료로 표시하지 않는다.
+T014·T021의 모바일 기반·단독 검사와 T015의 iOS/Android 전용 앱 실행 증거는 [로컬 검증 기록](../../docs/history/development/001-foundation-verification.md#모바일-기반--7--t014t015t021)에 있다. Xcode27 초기 구성 후 iOS26.2 시뮬레이터에서 빌드·설치·시작과 Hermes 계약 소비를 확인했다.
 
 ## Phase 4: US2 — 앱과 서버 연결 확인 (P1)
 
@@ -141,7 +141,7 @@ flowchart TD
 
 | 항목 | 현재 상태 | 막는 작업·처리 |
 |---|---|---|
-| 로컬 플랫폼 도구·개발용 앱 식별자 | 전체 Xcode·Android 도구 준비 미확인 | T015·T023에서 로컬 빌드·실행·연결을 확인. 실제 휴대폰·실기기 서명은 001 범위 밖 |
+| 로컬 플랫폼 도구·개발용 앱 식별자 | Xcode27·Android SDK36 도구와 양쪽 가상 기기 앱 실행 확인 | T015·T023에서 로컬 빌드·실행·연결을 확인. 실제 휴대폰·실기기 서명은 001 범위 밖 |
 | 물리 서버 OS/CPU/RAM/디스크·접속 | 미정 | 001은 개발 컴퓨터의 Docker로 검사. 해당 서버 배포·접속·자원 제한 확인은 후속 운영·관련 기능 범위 |
 | 실제 관리자 계정·인증 저장/API |004 구현 전 | T016 절차 작성 가능. 실제 계정 준비/로그인·Secure cookie/CSRF 확인은004에서 수행 |
 | 초기 암장·세팅 자료 | 미확인 | 합성 자료로001 검사 가능. 실제 운영 자료는006 준비에서 확인 |

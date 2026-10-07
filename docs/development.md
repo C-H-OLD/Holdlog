@@ -21,7 +21,7 @@
 
 진행 여부와 세부 준비 항목은 [준비 체크리스트](setup-checklist.md) 한곳에서 관리한다. 구현 순서는 기능의 선행 작업에 맞춰 조정하며 확정된 개발 순서로 취급하지 않는다.
 
-개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세·002 공통 API·데이터 설계·001 기반 설계를 작성했다. [001의 33개 작업 목록](../specs/001-development-foundation/tasks.md)도 작성했다. 일관성 분석과 문구 보완을 마쳤다. 공통 workspace 설치·설정·계약 생성 검사와 서버·DB·worker 단독 실행 검사를 수행했다. 관리자 웹 단독 실행·빌드·합성 연결 검사도 수행했다. 모바일 기반·Android 단독 실행도 확인했다. iOS 전용 빌드와 실제 연동은 남아 있다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실제 휴대폰·물리 서버 확인은 001 완료 조건에서 제외한다.
+개발 단계와 스킬 선택은 [Spec Kit 개발 흐름](development-workflow.md)을 따른다. 현재는 전체 기능의 범위 명세·002 공통 API·데이터 설계·001 기반 설계를 작성했다. [001의 33개 작업 목록](../specs/001-development-foundation/tasks.md)도 작성했다. 일관성 분석과 문구 보완을 마쳤다. 공통 workspace 설치·설정·계약 생성 검사와 서버·DB·worker 단독 실행 검사를 수행했다. 관리자 웹 단독 실행·빌드·합성 연결 검사도 수행했다. 모바일 기반과 iOS/Android 전용 빌드·단독 실행도 확인했다. 실제 연동은 남아 있다. 물리 서버·휴대폰 미정으로 로컬 개발을 기다리지 않으며 실제 휴대폰·물리 서버 확인은 001 완료 조건에서 제외한다.
 
 ## 서버·DB·worker 로컬 실행
 
@@ -86,6 +86,8 @@ npm run dev --workspace=@holdlog/mobile
 # 터미널2: 전용 앱 빌드·가상 기기 설치/시작
 npm run android --workspace=@holdlog/mobile -- --device emulator-5554 --no-bundler
 npm run ios --workspace=@holdlog/mobile -- --device <시뮬레이터-UUID> --no-bundler
+# iOS: Expo 자동 실행 주소 대신 loopback Metro를 명시
+xcrun simctl launch --terminate-running-process <시뮬레이터-UUID> com.holdlog.development --initialUrl http://127.0.0.1:8081
 npm run export:bundle --workspace=@holdlog/mobile
 ```
 
