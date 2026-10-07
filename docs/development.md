@@ -7,17 +7,17 @@
 | 개발 방식·로컬 Git | Spec Kit 1.1.0·Codex·Living Spec 설정 완료. GitHub 원격 연결, 공개 저장소 상태 | [개발 흐름](development-workflow.md) |
 | 제품 범위·기능·권한 | 문서 작성 | [PRD](prd.md) · [기능 명세](functional-spec.md) |
 | 개발 단위·선행 관계·공통 계약 범위 | 21개 개발 단위·API/데이터 계약 설계 작성. 실제 소비자 연동 전 | [기능 스펙 목록](../specs/README.md) |
-| 기술 구성 | 선택·[001 기반 설계](../specs/001-development-foundation/plan.md) 작성, 실제 구성·검증 전 | [기술·운영 명세](technical-spec.md) |
+| 기술 구성 | 선택·[001 기반 설계](../specs/001-development-foundation/plan.md)와 로컬 실행·연동 검증. 제품 기능·운영은 후속 범위 | [기술·운영 명세](technical-spec.md) |
 | 화면 | 시안 제작, 사용자 검토와 실제 구현은 별도 | [현재 시안](screens.md) |
 | 개발 환경·앱·서버·관리자 웹 | 현재 준비 상태와 검사 근거는 체크리스트 참조 | [준비 체크리스트](setup-checklist.md) |
 | 미결정 | 운동 시작 방식 A·B | [미결정 사항](open-questions.md) |
 
 ## 다음 작업
 
-1. [001 도구·설정 준비 #2](https://github.com/trycatch98/Holdlog/issues/2)의 T001–T003 구현·로컬 검사를 수행했다. [검증 기록](history/development/001-shared-foundation-verification.md)을 참고하고, 담당·PR·병합 상태는 이슈에서 확인한다. 준비 문서 PR #3은 병합됐다. #2는 PR #15로 병합됐고 [계약 생성·검사 #4](https://github.com/trycatch98/Holdlog/issues/4)의 구현·검사를 수행했다. #4는 PR #16으로 병합됐으며 #5 서버·DB·worker 단독 구현·검사를 수행했다. #6 관리자 웹 실행·빌드·개발 연결 도구의 단독 검사를 수행했다. 모바일의 로컬 작업과 실제 연동으로 이어간다. 확정된 33개 작업은 [11개 세부 이슈](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)로 모두 등록했다. 현재 진행 상태는 GitHub 이슈에서 확인한다.
-2. [공통 계약](../specs/002-shared-contracts/contracts/README.md)의 생성 도구·버전을 고정하고 프론트·백엔드 소비 타입 검사를 수행했다. 실제 앱·API 소비는 후속 작업이다. 물리 서버와 테스트 휴대폰은 미정이며 계정·초기 데이터는 별도 확인한다.
-3. 이후 기반 구성을 진행하고 서버·웹·모바일의 로컬 작업을 시작한다. 001은 로컬 실행·연결 검사로 완료를 판단하고 실제 기기·물리 서버 확인은 필요한 후속 범위에서 계획한다.
-4. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 상세 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈 뒤 기능을 구현한다.
+1. 001의 공통 도구·계약·서버·웹·모바일 기반과 루트 명령, 실제 로컬 연동은 #2·#4–#10의 병합 결과를 사용한다. [실행·연동 기록](history/development/001-foundation-verification.md)에서 실제 브라우저·iOS·Android의 정상·DB 중단·연결 불가·복구 결과를 확인한다.
+2. #11은 별도 작업 폴더의 설치·재생성·실패/복구·비밀 경계와 실행 안내를 확인한다. 이후 #14의 요구사항·증거 최종 대조와 #13의 후속 개발 전달을 마쳐 상위 #1에서001 전체 완료를 판단한다. 담당·PR·병합 상태는 [001 작업 목록](../specs/001-development-foundation/tasks.md#구현-전략과-배정-묶음)의 GitHub 이슈에서 확인한다.
+3. 물리 서버·테스트 휴대폰은 미정이고 계정·서명·초기 데이터는 미확인이다. 로컬 검증 통과가 외부 준비 상태를 바꾸지 않으며 필요한 후속 기능·운영 범위에서 확인한다.
+4. [기능별 선행 관계](../specs/README.md#선행-관계)에 따라 계획·작업·검증 예제를 작성하고 공통 계약을 확정한 범위부터 [프론트·백엔드 담당](../specs/development-roles.md)을 나눈 뒤 제품 기능을 구현한다.
 
 진행 여부와 세부 준비 항목은 [준비 체크리스트](setup-checklist.md) 한곳에서 관리한다. 구현 순서는 기능의 선행 작업에 맞춰 조정하며 확정된 개발 순서로 취급하지 않는다.
 
@@ -35,24 +35,24 @@ docker compose --env-file infra/development/.env -f infra/development/compose.ya
 # 비공개 파일용 영구 볼륨 준비. HTTP로 공개하지 않는다.
 docker compose --env-file infra/development/.env -f infra/development/compose.yaml --profile storage up -d storage
 npm run db:migrate --workspace=@holdlog/server
-npm run dev:api --workspace=@holdlog/server
+npm run dev:api
 # 별도 터미널
-npm run dev:worker --workspace=@holdlog/server
+npm run dev:worker
 npm run build --workspace=@holdlog/server
 npm test --workspace=@holdlog/server
 # TEST_DATABASE_URL에 Compose 시험 DB 주소(/holdlog_test, port55433)를 로컬로 전달한 뒤
-npm run test:foundation --workspace=@holdlog/server
+npm run test:foundation
 ```
 
-API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답은 [001 기반 인터페이스](../specs/001-development-foundation/contracts/README.md#개발-연결)를 따른다. 운영 모드에서는 두 개발 경로를 등록하지 않는다. wildcard/public API bind와 개발/시험 DB 이름 혼용은 거절하며, 후속 연동에서 필요한 개발 LAN의 사설 IP를 명시할 수 있다. 비공개 파일 볼륨은 후속 파일 구현용 영역이며 현재 worker는 합성 jobId 표식만 저장한다. 루트 실행·서비스 전체 검사 명령 연결은 #9, 웹·모바일 실제 연동은 #10 범위다.
+API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답은 [001 기반 인터페이스](../specs/001-development-foundation/contracts/README.md#개발-연결)를 따른다. 운영 모드에서는 두 개발 경로를 등록하지 않는다. wildcard/public API bind와 개발/시험 DB 이름 혼용은 거절하며, 후속 연동에서 필요한 개발 LAN의 사설 IP를 명시할 수 있다. 비공개 파일 볼륨은 후속 파일 구현용 영역이며 현재 worker는 합성 jobId 표식만 저장한다. 루트 실행·전체 검사 명령은 #9에서 연결했고 웹·모바일의 실제 로컬 연동은 #10에서 검증했다. 시험 DB 사용자는 `holdlog`, 이름은 `holdlog_test`, 포트는55433이다. `TEST_DATABASE_URL`은 실제 시험 비밀번호를 사용해 로컬 환경으로 전달하며 공유 명령·로그에 값을 저장하지 않는다. 비밀번호의 URL 특수 문자는 인코딩한다.
 
 ## 관리자 웹 단독 실행
 
-React/Vite 실행 기반과 개발 연결 검사 도구를 준비했다. [#6 단독 검증](history/development/001-admin-foundation-verification.md)을 수행했고, 실제 브라우저·개발 API 연동은 #10에서 확인한다. 제품 화면을 아직 구현하지 않아 React 실행 영역은 비어 있다.
+React/Vite 실행 기반과 개발 연결 검사 도구를 준비했다. [#6 단독 검증](history/development/001-admin-foundation-verification.md)을 수행했고, 실제 브라우저·개발 API 연동은 [#10 기록](history/development/001-foundation-verification.md#실제-로컬-연동--10--t017t022t023t024)에서 확인했다. 제품 화면을 아직 구현하지 않아 React 실행 영역은 비어 있다.
 
 ```sh
 cp apps/admin/.env.example apps/admin/.env
-npm run dev --workspace=@holdlog/admin
+npm run dev:admin
 # 별도 터미널
 npm test --workspace=@holdlog/admin
 npm run build --workspace=@holdlog/admin
@@ -82,7 +82,7 @@ npm test --workspace=@holdlog/mobile
 npm run prebuild --workspace=@holdlog/mobile
 # 로컬 도구 PATH와 JAVA_HOME/ANDROID_HOME을 준비한 뒤 가상 기기를 명시
 # 터미널1: IPv4 loopback으로 Metro 실행
-npm run dev --workspace=@holdlog/mobile
+npm run dev:mobile
 # 터미널2: 전용 앱 빌드·가상 기기 설치/시작
 npm run android --workspace=@holdlog/mobile -- --device emulator-5554 --no-bundler
 npm run ios --workspace=@holdlog/mobile -- --device generic --output /tmp/holdlog-ios-build --no-bundler
@@ -97,7 +97,9 @@ iOS 설치 대상은 `xcrun simctl list devices available`에서 선택해 먼�
 
 공개 설정은 iOS의 `EXPO_PUBLIC_DEV_API_ORIGIN_IOS`와 Android의 `EXPO_PUBLIC_DEV_API_ORIGIN_ANDROID`만 소비한다. 기본값 예시는 각각 `http://127.0.0.1:3100`, `http://10.0.2.2:3100`이다. Android의 loopback은 가상 기기 자체이므로 거절한다. 명시한 사설 개발 호스트도 사용할 수 있다. 두 설정 누락·잘못된 origin은 이름만 알려주고 실행을 거절한다. DB·서버·관리자 비밀을 공개 변수에 넣지 않는다.
 
-전용 개발 앱의 React Native DevTools 콘솔에서 `holdlogDevelopment.checkConnection('ready')`(또는 `'live'`)와 `holdlogDevelopment.checkContracts()`를 호출한다. 앱 시작만으로 요청하지 않는다. 연결 반환값은 정상·DB503·연결 불가·잘못된 응답을 구분하며 5초 제한을 적용한다. 계약 검사는 합성 입력의 형식 검사이고 제품 권한·업무 동작 검사가 아니다. 실제 가상 기기/API 연결은 #10의 T023에 별도로 기록한다.
+전용 개발 앱의 React Native DevTools 콘솔에서 `holdlogDevelopment.checkConnection('ready')`(또는 `'live'`)와 `holdlogDevelopment.checkContracts()`를 호출한다. 앱 시작만으로 요청하지 않는다. 연결 반환값은 정상·DB503·연결 불가·잘못된 응답을 구분하며 5초 제한을 적용한다. 계약 검사는 합성 입력의 형식 검사이고 제품 권한·업무 동작 검사가 아니다. 실제 가상 기기/API 연결 결과는 [#10 기록](history/development/001-foundation-verification.md#실제-로컬-연동--10--t017t022t023t024)에 있다.
+
+`export:bundle`은 Node의 `--env-file=.env`로 모바일 공개 설정을 먼저 읽는다. Expo가 export 옵션을 평가할 때 앱 설정이 dotenv 로드보다 먼저 실행되므로 이 순서가 필요하다. `.env` 파일은 먼저 예시에서 복사하며 실제 DB·서버 비밀을 넣지 않는다. export 성공은 iOS/Android Metro 번들 생성 증거이며 네이티브 빌드·기기 실행 성공은 위 별도 절차로 확인한다.
 
 생성한 `ios/`·`android/`는 수정 원본이 아니며 Git에서 제외된다. 네이티브 설정은 `app.config.ts`와 config plugin에서 관리한다. 이 앱 식별자는 `com.holdlog.development`이며 배포 식별자를 확정한 것은 아니다.
 
@@ -135,7 +137,21 @@ python3 scripts/check-docs.py
 git diff --check
 ```
 
-위 설치·설정·계약 생성/소비·기존 정적 검사를 수행했다. 계약 검사 결과는 [001 검증 안내](../specs/001-development-foundation/quickstart.md#계약-생성과-소비-검사-결과)를 따른다. 현재 로컬의 기본 `python3` 실행 파일은 종료 코드137로 중단되어 `/usr/bin/python3`로 기존 검사를 통과했다. 이 로컬 환경에서 위 계약·문서 검사와 아래 링크 검사 명령은 `/usr/bin/python3`로 실행한다. 다른 환경에서는 정상 동작하는 Python3를 사용한다. 합성 입력으로 타입/lint 설정을 확인한 결과와 프로젝트 전용 Node 설치 방법은 [검증 기록](history/development/001-shared-foundation-verification.md)을 따른다. 루트 `npm run check`는 manifest/lockfile 일치·계약 검사와 현재 소스·환경 확인용 코드의 lint·타입·도구 회귀 검사를 수행한다. 서비스 실행·빌드·DB·기기 검사는 포함하지 않는다. 계약 생성/검사는 #4에서 구현했으며 서비스 전체 검사 명령은 #9에서, 서버 workspace 실행 명령은 #5에서 구현했고 관리자 웹 workspace 명령은 #6에서 구현했으며 모바일은 #7 범위다.
+위 명령을 별도 작업 폴더에서 재현했다. [#11 재현 기록](history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)에서 실패/원복·번들/로그 경계와 실제 DB 검사의 범위를 확인한다. 현재 로컬 기본 `python3` 실행 파일이 중단되어 기존 정적 검사는 `/usr/bin/python3`로 수행했다. 다른 환경에서는 정상 동작하는 Python3를 사용한다.
+
+루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀56개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `TEST_DATABASE_URL`을 로컬 시험 DB로 전달한 뒤 `npm run test:foundation`으로 별도 실행한다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
+
+필수 설정은 다음과 같다. 값은 로컬 환경 파일에서 관리하고 파일을 Git에 넣지 않는다.
+
+| 대상 | 설정 이름 |
+|---|---|
+| Compose | DEVELOPMENT_DB_PASSWORD·TEST_DB_PASSWORD |
+| API/worker | NODE_ENV·API_HOST·API_PORT·DATABASE_URL·PRIVATE_STORAGE_PATH·ALLOWED_ORIGINS·WORKER_QUEUE |
+| 실제 시험 DB 검사 | TEST_DATABASE_URL |
+| 웹 개발 proxy | ADMIN_DEV_API_ORIGIN |
+| 모바일 공개 설정 | EXPO_PUBLIC_DEV_API_ORIGIN_IOS·EXPO_PUBLIC_DEV_API_ORIGIN_ANDROID |
+
+실패하면 첫 실패 대상·종료 코드와 설정 이름을 확인한다. 계약 원본 변경은 `npm run contracts:generate` 후 `contracts:check`로 확인하며 생성물을 수기로 고치지 않는다. 실제 타입/설정 오류는 원본을 고친 뒤 같은 명령을 재실행한다. DB503이면 Compose의 DB healthy와 접속 이름·포트를 확인하고 `up -d --wait db`로 복구한다. 연결 불가이면 API 실행과 플랫폼별 origin·Vite proxy를 확인한다. 재시작 검증에 `down -v`나 기존 볼륨 삭제를 쓰지 않는다. 모바일 export의 공개 설정 누락은 `.env` 준비와 위 env-file 진입점으로 해결하며 필수 검증을 우회하지 않는다.
 
 기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 
