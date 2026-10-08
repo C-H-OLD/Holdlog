@@ -12,6 +12,7 @@
 | 운동 중 기록·표시줄·종료 동작 | [운동 기록 명세](workout-recording-spec.md) |
 | 서비스 관리자 웹 등록·수정 | [관리자 명세](admin-spec.md) |
 | 기술 구성·미디어 처리·운영 조건 | [기술·운영 명세](technical-spec.md) |
+| 전체 시스템 구성·코드 책임·의존 방향·모노레포 선택 이유 | [아키텍처 안내](architecture.md) |
 | 화면 배치·표시·이동 | [화면 설계](screen-design.md) |
 
 ## 진행과 화면 찾기
