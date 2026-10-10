@@ -14,6 +14,7 @@
 
 새 기록은 해당 폴더에 날짜·주제·결정 이유·영향받는 현재 명세 링크를 적는다. 현재 명세 본문에 논의 과정이나 이전 규칙을 반복하지 않는다.
 
+- [2026-10-10 Refit 참고 모바일 설계](decisions/2026-10-10-mobile-refit-reference.md)
 - [2026-10-07 기반 로컬 실행·연결 검증](development/001-foundation-verification.md)
 - [2026-10-07 관리자 웹 기반 검증](development/001-admin-foundation-verification.md)
 - [2026-10-07 서버·DB·worker 기반 검증](development/001-backend-foundation-verification.md)
