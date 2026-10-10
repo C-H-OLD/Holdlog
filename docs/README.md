@@ -19,6 +19,7 @@
 
 | 찾는 내용 | 문서 |
 |---|---|
+| 서비스별 아키텍처 문서·AGENTS.md의 위치와 준비 상태 | [서비스별 문서 목차](architecture/README.md) |
 | 에이전트 개발 절차·Living Spec | [Spec Kit 개발 흐름](development-workflow.md) · [기능 스펙 목록](../specs/README.md) |
 | 전체 개발 단위·선행 관계·병렬 개발 준비 | [개발 단위 목록](../specs/README.md) · [공통 계약 설계 범위](../specs/002-shared-contracts/contract-scope.md) |
 | 서로 다른 프론트·백엔드 개발자의 담당·전달·검사 | [작업 구분](../specs/development-roles.md) |
