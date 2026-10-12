@@ -2,7 +2,7 @@
 
 이 문서는 전체 구성, 코드의 책임과 의존 방향, 저장소 구성의 이유를 설명하는 진입점이다. 기술·운영 조건은 [기술·운영 명세](technical-spec.md), 제품 동작은 [기능 명세](functional-spec.md), 실행 방법은 [개발 시작 안내](development.md)에서 관리한다. 세부 규칙을 이 문서에 복사하지 않는다.
 
-서비스별 상세 문서와 `AGENTS.md`의 위치·준비 상태는 [서비스별 문서 목차](architecture/README.md)에서 확인한다. [모바일 아키텍처](architecture/mobile.md)는 내부 코드 배치·상태·계약 소비의 설계 기준이며, 실제 구현 상태는 해당 문서와 기능 스펙에서 구분한다.
+서비스별 상세 문서와 `AGENTS.md`의 위치·준비 상태는 [서비스별 문서 목차](architecture/README.md)에서 확인한다. [모바일](architecture/mobile.md)·[관리자 웹](architecture/admin.md)·[서버](architecture/server.md) 아키텍처는 각 영역의 코드 배치·상태·계약 소비·처리 경계의 공통 기준이며, 실제 구현 상태는 해당 문서와 기능 스펙에서 구분한다.
 
 ## 시스템 구성
 
