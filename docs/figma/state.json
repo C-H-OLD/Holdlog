@@ -1,6 +1,6 @@
 {
   "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
-  "phase": "통계 상단 수정·05.07 알림 목록 확정 내용 등록 / 실제 앱 구현 전",
+  "phase": "07.02 가입 정보 입력 기본 시안·명세 추가 / 실제 앱 구현 전",
   "pages": [
     {
       "id": "0:1",
@@ -2619,6 +2619,23 @@
       "pageId": "6:3",
       "status": "사용자 승인·제작·사진·구조 확인 / 실제 구현 전",
       "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=577-34883"
+    },
+    {
+      "id": "695:35615",
+      "number": "07.02.01",
+      "name": "07.02.01 가입 정보 입력 / 빈 입력",
+      "pageId": "6:3",
+      "url": "https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=695-35615",
+      "size": [
+        390,
+        844
+      ],
+      "status": "Figma 제작·PNG 검수 완료 / 앱 미구현",
+      "specificationCardId": "695:35681",
+      "canvasPosition": [
+        60,
+        1068
+      ]
     }
   ],
   "currentScreenRegistry": "screens",
@@ -2742,5 +2759,10 @@
       "450:22709"
     ],
     "verified": true
+  },
+  "signupDesign": {
+    "verification": "docs/history/figma/signup-2026-10-12.json",
+    "emptyAvatarId": "695:35608",
+    "textFieldLabelSwapProperty": "Label component#695:0"
   }
 }

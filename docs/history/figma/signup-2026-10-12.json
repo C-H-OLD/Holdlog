@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-12",
+  "fileKey": "vla4pXPo8FaCWFXfpIbYzx",
+  "screenId": "695:35615",
+  "specificationId": "695:35681",
+  "sectionId": "499:47638",
+  "image": "docs/figma/assets/signup-2026-10-12/07.02.01.png",
+  "components": {
+    "reused": [
+      "Navigation/PageHeader",
+      "Profile/AvatarEditor",
+      "Control/TextField",
+      "Data/FieldLabel",
+      "Navigation/BottomAction",
+      "Control/Button",
+      "Primitive/Icon/User/Regular"
+    ],
+    "addedEmptyAvatar": "695:35608",
+    "labelSwapAddedTo": "10:77",
+    "labelSwapProperty": "Label component#695:0"
+  },
+  "validation": {
+    "size": [
+      390,
+      844
+    ],
+    "instances": 19,
+    "flattenedImageFills": 0,
+    "font": "Noto Sans KR",
+    "specificationGap": 64,
+    "livePngReviewed": true,
+    "disabledButton": {
+      "surface": "#E4E6ED",
+      "text": "#858CA0"
+    },
+    "existingTextFieldDefaultsPreserved": true,
+    "runtimeImplemented": false
+  },
+  "remaining": [
+    "004 가입 증명·사진 실패·복구 계약/구현 설계"
+  ]
+}

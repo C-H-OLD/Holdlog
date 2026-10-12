@@ -1,10 +1,10 @@
 # 현재 화면 시안 목록
 
-정리일: 2026-10-07
+정리일: 2026-10-12
 
 **지금 제작한 최신 Figma 화면과 사용자가 확정한 동작이 기준이다.** 예전 문서나 생성 이미지에 맞추려고 현재 화면을 되돌리지 않는다. 화면에 보이지 않는 저장·권한 규칙은 최신 확정 기능 명세를 따른다. 숫자·사람·브랜드는 예시이며 실제 운영 자료가 아니다.
 
-현재 모바일42개 독립 화면·89개 상태 시안·42개 화면 옆 명세, 관리자 웹3개 독립 화면·5개 상태 시안·3개 명세다. 아래는 화면마다 기본 시안을 연결하며 모든 상태와 노드 링크는 [화면·상태 번호표](./screen-numbering.md)를 따른다. 부품 견본은 독립 화면으로 세지 않는다.
+현재 모바일43개 독립 화면·90개 상태 시안·43개 화면 옆 명세, 관리자 웹3개 독립 화면·5개 상태 시안·3개 명세다. 아래는 화면마다 기본 시안을 연결하며 모든 상태와 노드 링크는 [화면·상태 번호표](./screen-numbering.md)를 따른다. 부품 견본은 독립 화면으로 세지 않는다.
 
 ## 모바일 화면
 
@@ -52,6 +52,7 @@
 | 06.10 | [크루 선택창](./screen-design.md#screen-06-10) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=478-41934) |
 | 06.11 | [회원 기록·통계](./screen-design.md#screen-06-11) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47001) |
 | 07.01 | [로그인](./screen-design.md#screen-07-01) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=499-47741) |
+| 07.02 | [가입 정보 입력](./screen-design.md#screen-07-02) | [현재 기본 시안](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog?node-id=695-35615) |
 
 ## 관리자 웹
 
@@ -74,6 +75,5 @@
 - [최신 브랜드·암장 폼과 나가기 확인 사진](./figma/assets/brand-gym-correction-2026-10-02/review.html)
 
 각 사진 모음은 해당 작업에서 내보낸 자료다. 같은 화면이 여러 자료에 있으면 최신 제작·검증 자료를 우선하며 모든 현재 상태는 위 번호표와 Figma 링크에서 확인한다. `assets/screens/`의 이전 생성 이미지는 초기 참고 자료이며 현재 화면 목록의 기준이 아니다.
-
 
 현재 남은 제작·보완 작업은 작업 목록에서 관리한다. 새로 확정한 작업만 [앞으로 만들 화면 목록](./screen-worklist.md)에 추가한다. 시안 제작·배치 검증과 사용자 최종 검토·실제 프로그램 구현은 구분한다.

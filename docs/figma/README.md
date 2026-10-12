@@ -1,10 +1,12 @@
 # Figma 현재 작업
 
-갱신일: 2026-10-07 · [Holdlog Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog)
+갱신일: 2026-10-12 · [Holdlog Figma](https://www.figma.com/design/vla4pXPo8FaCWFXfpIbYzx/Holdlog)
 
 ## 현재 상태
 
-- 모바일42개 화면·89개 상태·42개 옆 명세. 너비390.
+- 07.02 가입 정보 입력 기본 화면과 옆 명세를 추가했다. [화면](../screen-design.md#screen-07-02) · [현재 PNG](assets/signup-2026-10-12/07.02.01.png) · [공통 부품·검증](../history/figma/signup-2026-10-12.json). 앱 동작은 미구현이다.
+
+- 모바일43개 화면·90개 상태·43개 옆 명세. 너비390.
 - 관리자 웹3개 화면·5개 상태·3개 옆 명세. 너비1440.
 - 오픈소스 안내는 사용자 확인을 마쳤다. 공지 팝업을 다듬고 관리자 삭제 버튼·확인창을 추가했으며 수정안은 사용자 승인을 마쳤다.
 - 상세 메뉴·날짜·시간 선택창은 확정됐으며 해당 일정 작성·상세와 기록 상세 섹션에 배치했다. [현재 위치·검증](../history/figma/shared-overlays-placement-2026-10-06.json).
