@@ -14,6 +14,8 @@
 | 기술 구성·미디어 처리·운영 조건 | [기술·운영 명세](technical-spec.md) |
 | 전체 시스템 구성·코드 책임·의존 방향·모노레포 선택 이유 | [아키텍처 안내](architecture.md) |
 | 모바일 코드 배치·상태 수명·계약 소비·개발 기준 | [모바일 아키텍처](architecture/mobile.md) |
+| 서버 모듈·API·DB·worker 경계·개발 기준 | [서버 아키텍처](architecture/server.md) |
+| 관리자 웹 코드 배치·독립 폼·인증·개발 기준 | [관리자 웹 아키텍처](architecture/admin.md) |
 | 화면 배치·표시·이동 | [화면 설계](screen-design.md) |
 
 ## 진행과 화면 찾기
