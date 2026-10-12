@@ -1423,6 +1423,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/auth/signups": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * completeSignup
+         * @description 가입 증명을 검증해 이름으로 가입 완료. 증명은 일반 회원 권한이 아니며 사진 업로드는 세션 발급 후 수행한다.
+         */
+        post: operations["completeSignup"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -1433,7 +1453,7 @@ export interface components {
         };
         Error: {
             /** @enum {string} */
-            code: "INVALID_INPUT" | "UNAUTHENTICATED" | "FORBIDDEN" | "NOT_FOUND" | "VERSION_CONFLICT" | "PRECONDITION_REQUIRED" | "IDEMPOTENCY_MISMATCH" | "REQUEST_IN_PROGRESS" | "ALREADY_MEMBER" | "INVITE_INVALID" | "JOIN_BLOCKED" | "LINK_CONFLICT" | "LINKED_VISIT_LOCKED" | "DATE_GYM_MISMATCH" | "NOT_ATTENDEE" | "ACTIVE_RECORD_ELSEWHERE" | "ADMIN_TRANSFER_INVALID" | "ADMIN_TRANSFER_REQUIRED" | "ACCOUNT_DELETED" | "UPLOAD_OFFSET_CONFLICT" | "CHECKSUM_MISMATCH" | "UNSUPPORTED_MEDIA" | "MEDIA_NOT_READY" | "REUPLOAD_REQUIRED" | "RANGE_NOT_SATISFIABLE" | "TEMPORARY_FAILURE" | "QUERY_SNAPSHOT_CHANGED" | "TIME_REQUIRED" | "ACTUAL_VISIT_IN_FUTURE" | "WORKOUT_RESULT_DELETED";
+            code: "INVALID_INPUT" | "UNAUTHENTICATED" | "FORBIDDEN" | "NOT_FOUND" | "VERSION_CONFLICT" | "PRECONDITION_REQUIRED" | "IDEMPOTENCY_MISMATCH" | "REQUEST_IN_PROGRESS" | "ALREADY_MEMBER" | "INVITE_INVALID" | "JOIN_BLOCKED" | "LINK_CONFLICT" | "LINKED_VISIT_LOCKED" | "DATE_GYM_MISMATCH" | "NOT_ATTENDEE" | "ACTIVE_RECORD_ELSEWHERE" | "ADMIN_TRANSFER_INVALID" | "ADMIN_TRANSFER_REQUIRED" | "ACCOUNT_DELETED" | "UPLOAD_OFFSET_CONFLICT" | "CHECKSUM_MISMATCH" | "UNSUPPORTED_MEDIA" | "MEDIA_NOT_READY" | "REUPLOAD_REQUIRED" | "RANGE_NOT_SATISFIABLE" | "TEMPORARY_FAILURE" | "QUERY_SNAPSHOT_CHANGED" | "TIME_REQUIRED" | "ACTUAL_VISIT_IN_FUTURE" | "WORKOUT_RESULT_DELETED" | "SIGNUP_ALREADY_COMPLETED";
             /** Format: uuid */
             requestId: string;
             fieldErrors: components["schemas"]["FieldError"][];
@@ -2303,6 +2323,28 @@ export interface components {
             readThrough: string;
             unreadCount: number;
         };
+        SignupProof: {
+            signupToken: string;
+            /** Format: date-time */
+            expiresAt: string;
+        };
+        AuthenticatedLoginResult: {
+            /** @constant */
+            kind: "authenticated";
+            session: components["schemas"]["MobileSession"];
+        };
+        SignupRequiredLoginResult: {
+            /** @constant */
+            kind: "signup_required";
+            signup: components["schemas"]["SignupProof"];
+        };
+        LoginResult: components["schemas"]["AuthenticatedLoginResult"] | components["schemas"]["SignupRequiredLoginResult"];
+        CompleteSignupInput: {
+            signupToken: string;
+            name: string;
+            /** Format: uuid */
+            deviceId: string;
+        };
     };
     responses: never;
     parameters: never;
@@ -2368,7 +2410,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["MobileSession"];
+                    "application/json": components["schemas"]["LoginResult"];
                 };
             };
             /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */
@@ -6571,6 +6613,43 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["NotificationReadAllResult"];
+                };
+            };
+            /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    completeSignup: {
+        parameters: {
+            query?: never;
+            header: {
+                "Idempotency-Key": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompleteSignupInput"];
+            };
+        };
+        responses: {
+            /** @description 요청 성공; 현재 권한으로 구성한 결과 */
+            201: {
+                headers: {
+                    "X-Request-Id"?: string;
+                    ETag?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MobileSession"];
                 };
             };
             /** @description 실패 형식. HTTP 상태/코드 대응은 conventions.md 원본 */

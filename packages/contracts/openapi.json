@@ -2,12 +2,12 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Holdlog 공통 API 계약",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "description": "설계 원본. 서비스 구현·배포·실행 확인 전. 제품 정책은 docs 원본, 프로토콜 의미는 conventions.md 참조."
   },
   "servers": [
     {
-      "url": "/api/v1"
+      "url": "/api/v2"
     }
   ],
   "paths": {
@@ -116,7 +116,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MobileSession"
+                  "$ref": "#/components/schemas/LoginResult"
                 }
               }
             }
@@ -10236,6 +10236,80 @@
           }
         }
       }
+    },
+    "/auth/signups": {
+      "post": {
+        "operationId": "completeSignup",
+        "summary": "completeSignup",
+        "tags": [
+          "004"
+        ],
+        "x-contracts": [
+          "C02"
+        ],
+        "x-policy": "S01",
+        "security": [],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "실패 형식. HTTP 상태/코드 대응은 conventions.md 원본",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "요청 성공; 현재 권한으로 구성한 결과",
+            "headers": {
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MobileSession"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteSignupInput"
+              }
+            }
+          }
+        },
+        "x-policy-sources": [
+          "../../docs/functional-spec.md"
+        ],
+        "description": "가입 증명을 검증해 이름으로 가입 완료. 증명은 일반 회원 권한이 아니며 사진 업로드는 세션 발급 후 수행한다."
+      }
     }
   },
   "components": {
@@ -10292,7 +10366,8 @@
               "QUERY_SNAPSHOT_CHANGED",
               "TIME_REQUIRED",
               "ACTUAL_VISIT_IN_FUTURE",
-              "WORKOUT_RESULT_DELETED"
+              "WORKOUT_RESULT_DELETED",
+              "SIGNUP_ALREADY_COMPLETED"
             ]
           },
           "requestId": {
@@ -14427,6 +14502,90 @@
           "readAt",
           "readThrough",
           "unreadCount"
+        ]
+      },
+      "SignupProof": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "signupToken": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "Z$"
+          }
+        },
+        "required": [
+          "signupToken",
+          "expiresAt"
+        ]
+      },
+      "AuthenticatedLoginResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "authenticated"
+          },
+          "session": {
+            "$ref": "#/components/schemas/MobileSession"
+          }
+        },
+        "required": [
+          "kind",
+          "session"
+        ]
+      },
+      "SignupRequiredLoginResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "signup_required"
+          },
+          "signup": {
+            "$ref": "#/components/schemas/SignupProof"
+          }
+        },
+        "required": [
+          "kind",
+          "signup"
+        ]
+      },
+      "LoginResult": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AuthenticatedLoginResult"
+          },
+          {
+            "$ref": "#/components/schemas/SignupRequiredLoginResult"
+          }
+        ]
+      },
+      "CompleteSignupInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "signupToken": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "deviceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "signupToken",
+          "name",
+          "deviceId"
         ]
       }
     },

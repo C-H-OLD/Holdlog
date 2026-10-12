@@ -8,3 +8,5 @@ export type Read = StorageRead;
 export const invalidJobKind: MediaJob['kind'] = 'invented';
 // @ts-expect-error storage expectedBytes is a number
 export const invalidLength: StorageStart['expectedBytes'] = '1';
+
+export type SignupCommand = import('@holdlog/contracts/http').operations['completeSignup']['requestBody'];

@@ -29,12 +29,13 @@
 | `Account` | id, displayName, profileImageId nullable→Asset, version, createdAt, updatedAt | 프로필 자산 소유자는 본인. 계정 삭제 시 개인 원본·프로필 제거 |
 | `ExternalIdentity` | id, accountId→Account, provider(`google`/`apple`), providerSubject, email nullable | unique(provider, providerSubject). email로 병합 금지. accountId 인덱스. 제공자 토큰 원문 보관하지 않음 |
 | `AuthSession` | id, accountId→Account, deviceId nullable→DeviceInstallation, currentRefreshCredentialId nullable→RefreshCredential, tokenFamilyId UUID, expiresAt, idleExpiresAt, absoluteExpiresAt, rotatedAt nullable, revokedAt nullable | 현재 refresh는 Credential 참조, accountId·revokedAt 인덱스. 갱신 회전·재사용 감지 시 family 회수. 인증 수명 값은 API 계약 원본에서 정의 |
-| `LoginChallenge` | id, nonceHash, createdAt, expiresAt, consumedAt nullable | 5분·1회용. 로그인 저장과 소비 상태 함께 처리. nonce 원문 로그 금지 |
+| `LoginChallenge` | id, nonceHash, createdAt, expiresAt, consumedAt nullable | 5분·1회용. 기존 계정 세션 또는 신규 가입 증명 발급과 소비 상태 함께 처리. nonce 원문 로그 금지 |
+| `SignupProof` | id, tokenHash, provider, providerSubject, email nullable, deviceId UUID, createdAt, expiresAt, consumedAt nullable | tokenHash unique. Account FK 없음. 15분·1회용. 신규 SNS 인증만으로 계정을 생성하지 않음. 이름 가입과 소비를 원자 처리하며 상세 실패·동시성은 [004 가입 설계](../004-identity-profile/signup-design.md)를 따름. 원문 증명 미보관 |
 | `RefreshCredential` | id, sessionId→AuthSession, tokenFamilyId UUID, tokenHash, expiresAt, usedAt nullable, revokedAt nullable | tokenHash unique. 회전된 해시는 family 절대만료까지 재사용 감지용 보존. 원문 토큰 없음 |
 | `AccessCredential` | id, sessionId→AuthSession, tokenHash, expiresAt | tokenHash unique. 불투명 accessToken 원문 미보관. 회수한 session에서 발급된 access도 즉시 거절 |
 | `ServiceAdministrator` | id, loginId, credentialHash, active, version | loginId unique. 공개 가입 없음. 초기 준비 절차는 001. 크루 역할과 독립 |
 | `AdminSession` | id, administratorId→ServiceAdministrator, sessionSecretHash, csrfTokenHash, createdAt, lastActivityAt, expiresAt, revokedAt nullable | 비밀 원문 저장 금지. administratorId·revokedAt 인덱스. 브라우저 계약의 쿠키 조건을 따른다 |
-| `DeviceInstallation` | id, platform(`ios`/`android`), accountId nullable→Account, pushTokenCiphertext nullable, pushTokenHash nullable, pushPermission, appVersion, lastSeenAt, version | 유효 pushTokenHash unique. 로그인·로그아웃 시 소유 계정 갱신. 기기 ID는 계정 접근 권한이 아님 |
+| `DeviceInstallation` | id, platform nullable(`ios`/`android`), accountId nullable→Account, pushTokenCiphertext nullable, pushTokenHash nullable, pushPermission nullable, appVersion nullable, lastSeenAt, version | 유효 pushTokenHash unique. 로그인·로그아웃 시 소유 계정 갱신. 기기 ID는 계정 접근 권한이 아님. 최초 로그인에서 설치 UUID만 있는 행은 platform/pushPermission/appVersion을 null로 두며 추측하지 않는다. 푸시 등록 전 push token은 null이고 발송 대상이 아니다.017이 실제 수신한 필드만 보완하며 API Device projection은 등록 완료 행에서 구성 |
 | `NotificationSettingsAggregate` | id, accountId→Account, version, updatedAt | accountId unique. 세 종류 설정 PATCH의 공통 ETag/If-Match와 잠금 대상이며 각 설정 변경과 함께 증가 |
 | `NotificationPreference` | id, accountId→Account, kind, enabled, version | unique(accountId, kind). 알림 종류는 [푸시 원본](../../docs/functional-spec.md#55-푸시-알림)과 계약 열거값을 따른다 |
 

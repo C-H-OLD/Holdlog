@@ -54,3 +54,5 @@ Node와 실제 Chrome은 공통 예제18개 수락·거절 예제3개 거절을 
 [002 후속 전달](../../specs/002-shared-contracts/quickstart.md#후속003004006-전달)에서003 앱 탐색·공통 UI,004 계정·관리자 세션·보안,006 운영 자료·초기 데이터의 원본과 남은 검사를 확인한다.001 전체 완료는 [001 작업 목록](../../specs/001-development-foundation/tasks.md#phase-6-공통-마무리)과 상위 이슈에서 최종 대조·전달을 포함한 필수 작업의 완료 증거를 모아 판단한다.
 
 현재002의 C12 변경은 [계약2.0.0 변경 안내](conventions.md#002-화면-경로-변경--계약200)를 따른다. 수신 목록·읽음 API/예제와 생성 소비는 [계약2.1.0 C09](conventions.md#수신-목록과-읽음--c09) 및 [002 검사 기록](../../docs/history/development/002-contract-verification.md)을 따른다. 실제 제품 API/DB/UI 구현은017 후속이다.
+
+004 신규 가입 분기는 [계약3.0.0 전환](conventions.md#004-신규-가입-분리--계약300)을 따른다. LoginResult·completeSignup·07.02 Route와 API v2의 원본/생성/관리자 기반 소비를 함께 변경하며 실제 인증 API·앱 가입 동작은004 후속 구현이다.

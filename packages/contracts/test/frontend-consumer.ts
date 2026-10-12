@@ -16,3 +16,9 @@ export const badCount: components['schemas']['ClimbCount'] = { brandId: 'id', gr
 export const badTab: Route['tabContext'] = 'invented';
 // @ts-expect-error required count field is absent
 export const missingCount: components['schemas']['ClimbCount'] = { brandId: 'id', gradeKey: 0 };
+
+export type LoginResponse = operations['login']['responses'][200];
+export type SignupInput = components['schemas']['CompleteSignupInput'];
+export type SignupResponse = operations['completeSignup']['responses'][201];
+export const signupScreen: Route['screenId'] = '07.02';
+export const signupInput: SignupInput = { signupToken: 'synthetic-proof', name: '새 회원', deviceId: '00000000-0000-4000-8000-000000000001' };

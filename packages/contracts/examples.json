@@ -499,6 +499,123 @@
         "blockingCrewIds": [],
         "existingVisitId": null
       }
+    },
+    {
+      "id": "login-existing",
+      "contracts": [
+        "C02"
+      ],
+      "operationId": "login",
+      "schema": "LoginResult",
+      "value": {
+        "kind": "authenticated",
+        "session": {
+          "accessToken": "synthetic-access-token",
+          "accessExpiresAt": "2026-10-12T08:15:00Z",
+          "refreshToken": "synthetic-refresh-token",
+          "refreshExpiresAt": "2026-11-11T08:00:00Z",
+          "profile": {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "name": "예제 회원",
+            "photoFileId": null,
+            "version": 1,
+            "identity": {
+              "provider": "google",
+              "email": "example@example.invalid"
+            }
+          }
+        }
+      },
+      "sourceTests": [
+        "T01"
+      ],
+      "verification": "합성 형식만. 증명 권한/소비/동시성/SQL/응답 유실은004 실행 검사"
+    },
+    {
+      "id": "login-signup-required",
+      "contracts": [
+        "C02"
+      ],
+      "operationId": "login",
+      "schema": "LoginResult",
+      "value": {
+        "kind": "signup_required",
+        "signup": {
+          "signupToken": "synthetic-signup-token",
+          "expiresAt": "2026-10-12T08:15:00Z"
+        }
+      },
+      "sourceTests": [
+        "T01"
+      ],
+      "verification": "합성 형식만. 증명 권한/소비/동시성/SQL/응답 유실은004 실행 검사"
+    },
+    {
+      "id": "complete-signup-input",
+      "contracts": [
+        "C02"
+      ],
+      "operationId": "completeSignup",
+      "schema": "CompleteSignupInput",
+      "value": {
+        "signupToken": "synthetic-signup-token",
+        "name": "새 회원",
+        "deviceId": "00000000-0000-4000-8000-000000000001"
+      },
+      "sourceTests": [
+        "T01"
+      ],
+      "verification": "합성 형식만. 증명 권한/소비/동시성/SQL/응답 유실은004 실행 검사"
+    },
+    {
+      "id": "complete-signup-result",
+      "contracts": [
+        "C02"
+      ],
+      "operationId": "completeSignup",
+      "schema": "MobileSession",
+      "value": {
+        "accessToken": "synthetic-access-token",
+        "accessExpiresAt": "2026-10-12T08:15:00Z",
+        "refreshToken": "synthetic-refresh-token",
+        "refreshExpiresAt": "2026-11-11T08:00:00Z",
+        "profile": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "name": "예제 회원",
+          "photoFileId": null,
+          "version": 1,
+          "identity": {
+            "provider": "google",
+            "email": "example@example.invalid"
+          }
+        }
+      },
+      "sourceTests": [
+        "T01"
+      ],
+      "verification": "합성 형식만. 증명 권한/소비/동시성/SQL/응답 유실은004 실행 검사"
+    },
+    {
+      "id": "signup-already-completed",
+      "contracts": [
+        "C02"
+      ],
+      "operationId": "completeSignup",
+      "schema": "Error",
+      "value": {
+        "code": "SIGNUP_ALREADY_COMPLETED",
+        "requestId": "00000000-0000-4000-8000-000000000001",
+        "fieldErrors": [],
+        "currentVersion": null,
+        "resourceId": null,
+        "retryable": false,
+        "blockingCrewIds": [],
+        "existingVisitId": null
+      },
+      "sourceTests": [
+        "T01"
+      ],
+      "verification": "가입 identity 경합409의 합성 형식 검사. 실제 동시성/계정 단일 생성은004 T021/T030에서 검사"
     }
   ],
   "runtime": [
@@ -612,6 +729,26 @@
         "selectedDate": null,
         "fileId": null
       }
+    },
+    {
+      "id": "signup-route",
+      "schema": "Route",
+      "contracts": [
+        "C12"
+      ],
+      "value": {
+        "screenId": "07.02",
+        "tabContext": "records",
+        "crewId": null,
+        "scheduleId": null,
+        "visitId": null,
+        "personalRecordId": null,
+        "memberAccountId": null,
+        "gymId": null,
+        "inviteId": null,
+        "selectedDate": null,
+        "fileId": null
+      }
     }
   ],
   "mustReject": [
@@ -684,6 +821,68 @@
         "readAt": "2026-10-07T01:00:00Z",
         "readThrough": "synthetic-server-cutoff-102",
         "unreadCount": -1
+      }
+    },
+    {
+      "id": "login-result-mixed",
+      "schema": "LoginResult",
+      "value": {
+        "kind": "authenticated",
+        "session": {
+          "accessToken": "synthetic-access-token",
+          "accessExpiresAt": "2026-10-12T08:15:00Z",
+          "refreshToken": "synthetic-refresh-token",
+          "refreshExpiresAt": "2026-11-11T08:00:00Z",
+          "profile": {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "name": "예제 회원",
+            "photoFileId": null,
+            "version": 1,
+            "identity": {
+              "provider": "google",
+              "email": "example@example.invalid"
+            }
+          }
+        },
+        "signup": {
+          "signupToken": "synthetic-signup-token",
+          "expiresAt": "2026-10-12T08:15:00Z"
+        }
+      }
+    },
+    {
+      "id": "signup-name-blank",
+      "schema": "CompleteSignupInput",
+      "value": {
+        "signupToken": "synthetic-signup-token",
+        "name": "  \t",
+        "deviceId": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "id": "signup-name-missing",
+      "schema": "CompleteSignupInput",
+      "value": {
+        "signupToken": "synthetic-signup-token",
+        "deviceId": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "id": "signup-key-missing",
+      "schema": "CompleteSignupInput",
+      "value": {
+        "name": "새 회원",
+        "deviceId": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "id": "signup-unknown-field",
+      "schema": "CompleteSignupInput",
+      "value": {
+        "signupToken": "synthetic-signup-token",
+        "name": "새 회원",
+        "deviceId": "00000000-0000-4000-8000-000000000001",
+        "photoFileId": null
       }
     }
   ]

@@ -59,7 +59,7 @@ npm run build --workspace=@holdlog/admin
 npm run preview --workspace=@holdlog/admin
 ```
 
-개발 서버는 `http://127.0.0.1:5173`, 빌드 미리보기는 `http://127.0.0.1:4173`이다. `ADMIN_DEV_API_ORIGIN`은 Node 전용 개발 proxy 설정이며 기본 예시는 `http://127.0.0.1:3100`이다. 누락·잘못된 주소는 설정 이름만 출력하고 개발 실행을 거절한다. loopback 또는 사설 개발 호스트의 HTTP(S) origin만 받으며 경로·쿼리·인증정보는 받지 않는다. `/api/v1`과001의 두 health 경로를 상대 경로로 전달한다. proxy는 Origin과 쿠키를 바꾸지 않는다. 빌드·미리보기에는 proxy 설정이 필요하지 않고 개발 연결 도구와 사용자 환경값이 운영 번들에 포함되지 않는다.
+개발 서버는 `http://127.0.0.1:5173`, 빌드 미리보기는 `http://127.0.0.1:4173`이다. `ADMIN_DEV_API_ORIGIN`은 Node 전용 개발 proxy 설정이며 기본 예시는 `http://127.0.0.1:3100`이다. 누락·잘못된 주소는 설정 이름만 출력하고 개발 실행을 거절한다. loopback 또는 사설 개발 호스트의 HTTP(S) origin만 받으며 경로·쿼리·인증정보는 받지 않는다. `/api/v2`과001의 두 health 경로를 상대 경로로 전달한다. proxy는 Origin과 쿠키를 바꾸지 않는다. 빌드·미리보기에는 proxy 설정이 필요하지 않고 개발 연결 도구와 사용자 환경값이 운영 번들에 포함되지 않는다.
 
 개발 서버의 브라우저 콘솔에서 화면 추가 없이 연결 검사를 호출할 수 있다. 기본 요청은 ready이며 live도 선택할 수 있다.
 

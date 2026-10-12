@@ -28,7 +28,7 @@ export default defineConfig(({ command, isPreview, mode }) => {
     customLogger: developmentLogger(),
     server: {
       host: '127.0.0.1', port: 5173, strictPort: true,
-      ...(proxy ? { proxy: { '^/api/v1(?:/|$)': proxy, '^/internal/health/(?:live|ready)(?:\\?|$)': proxy } } : {}),
+      ...(proxy ? { proxy: { '^/api/v2(?:/|$)': proxy, '^/internal/health/(?:live|ready)(?:\\?|$)': proxy } } : {}),
     },
     preview: { host: '127.0.0.1', port: 4173, strictPort: true },
     build: { outDir: 'dist', emptyOutDir: true },
