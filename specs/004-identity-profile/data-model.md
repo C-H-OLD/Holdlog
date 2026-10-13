@@ -2,9 +2,11 @@
 
 논리 필드/제약 원본은 [002 계정·인증](../002-shared-contracts/data-model.md#2-계정기기크루--c02c03), 기간/오류/재요청은 [계약 규칙](../../packages/contracts/conventions.md)이다. 아래는 물리 배치·변경 경계이며 원본 필드를 재정의하지 않는다.
 
+현재 `002_identity.sql`이 `holdlog` schema의 아래 인증 저장소를 만든다. migration/제약/TX 검증과 제품 인증 API 구현은 구분한다. 자세한 실행 범위는 [공통 기반 검증](../../docs/history/development/004-identity-foundation-verification.md)을 따른다.
+
 ## 물리 저장 배치
 
-| 테이블(예정) | 논리 원본 | migration·검사 책임 |
+| 테이블 | 논리 원본 | migration·검사 책임 |
 |---|---|---|
 | accounts / external_identities | Account / ExternalIdentity |004 SHARED. provider+subject unique, FK, positive version. 이메일은 unique/병합 키가 아님 |
 | login_challenges | LoginChallenge |004 SHARED. nonceHash·expiry·소비 상태, 기존 세션 발급 또는 신규 가입 증명 발급 TX에서 단일 소비 |
@@ -34,4 +36,4 @@ migration 파일 번호는 기존 runner 순서 확인 후 지정한다. 이미 
 
 새 로그인에서 기존 설치를 다른 계정에 연결할 때 이전 push token-account 연결은 같은 TX에서 회수하고 이전 암호문/해시를 새 계정용으로 승계하지 않는다. 플랫폼/권한을 LoginInput에 임의 추가하지 않는다. 인증된017 등록이 현재 계정과 설치·실제 token을 확인한 뒤 실제 값만 보완한다. 로그인은017 보호 API를 선행 호출하지 않는다.
 
-SignupProof의 논리 모델은002 계정·인증 원본에 추가했다. SQL migration은 T003의 미구현 작업이다. 이름 가입 이후 photo commit은 별도이며 한 TX로 약속하지 않는다.
+SignupProof의 논리 모델은002 계정·인증 원본에 추가했다. T003의 SQL migration과 시험 DB 단독 검증은 [공통 기반 증거](../../docs/history/development/004-identity-foundation-verification.md)에 연결했다. 제품 인증 API·실제 provider/기기 연동은 아직 구현·검증 전이다. 이름 가입 이후 photo commit은 별도이며 한 TX로 약속하지 않는다.

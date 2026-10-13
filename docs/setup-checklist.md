@@ -44,9 +44,13 @@
 
 Git 작성자 설정과 `git diff --check`는 정상이다. 공통 타입/lint의 정상·오류·복구, 비밀/빌드/저장 자료 Git 제외와 공개 예시 추적 가능 여부를 확인했다. 상세 결과·미수행 범위는 [공통 준비 검증 기록](history/development/001-shared-foundation-verification.md)을 따른다.
 
+## 004 공통 인증 기반
+
+Google/Apple client/audience·서명·Android Apple HTTPS redirect·기기의 준비 조건과 비밀 전달 위치는 [004 연구](../specs/004-identity-profile/research.md#t001-외부-준비와-설정-경계)를 따른다. 공통 SQL/잠금/설정·의존성의 실행 증거는 [공통 기반 검증](history/development/004-identity-foundation-verification.md)에 둔다. 위 외부 계정·실제 로그인·실기기 항목은 이 준비로 완료 처리하지 않는다.
+
 ## 3. 데이터와 API 설계
 
-[공통 API·데이터 계약](../specs/002-shared-contracts/contracts/README.md)과 [논리 데이터 모델](../specs/002-shared-contracts/data-model.md)을 작성·정적 검토했다. 아래 완료 표시는 설계 작성에 한정한다. 실제 DB 테이블·변경 파일·서버 구현·연동 검증은 아직 없다.
+[공통 API·데이터 계약](../specs/002-shared-contracts/contracts/README.md)과 [논리 데이터 모델](../specs/002-shared-contracts/data-model.md)을 작성·정적 검토했다. 아래 완료 표시는 설계 작성에 한정한다.004 공통 인증 저장 SQL/TX 기반은 별도 증거를 따르며 제품 업무 API·전체 기능 연동은 아직 없다.
 
 - [x] 계정·크루 가입·크루별 권한 설계
 - [x] 일정·참여 응답과 공동 방문·실제 참석 분리

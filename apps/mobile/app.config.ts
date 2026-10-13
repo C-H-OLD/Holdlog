@@ -10,6 +10,6 @@ export default function developmentConfig(): ExpoConfig {
     ios: { bundleIdentifier: 'com.holdlog.development', infoPlist: { NSAppTransportSecurity: { NSAllowsArbitraryLoads: false, NSAllowsLocalNetworking: true } } },
     android: { package: 'com.holdlog.development' },
     // SDK57 opts into the scene lifecycle required by Xcode27/iOS27.
-    plugins: ['expo-dev-client', ['expo-build-properties', { ios: { enableSceneSupport: true } }]],
+    plugins: ['expo-dev-client', ['expo-build-properties', { ios: { enableSceneSupport: true } }], ['expo-secure-store', { configureAndroidBackup: true }]],
   };
 }
