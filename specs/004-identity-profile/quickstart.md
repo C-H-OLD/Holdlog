@@ -1,6 +1,6 @@
 # 004 검증과 전달 안내
 
-현재는 설계 문서다. 아래 기존 명령을 제외한004 전용 실행 명령은 구현 작업에서 package.json에 연결한 뒤 실제 결과를 기록한다. 아직 존재하지 않는 인증/관리자 도구 명령을 실행 가능하다고 안내하지 않는다.
+공통 기반의 실행 검사와 후속 제품 검증을 구분한 안내다. 공통 기반 DB 검사는 아래004 전용 명령을 사용한다. 제품 인증 API/관리자 도구는 후속 구현 뒤 실행 결과를 기록한다. 아직 존재하지 않는 인증/관리자 도구 명령을 실행 가능하다고 안내하지 않는다.
 
 ## 현재 수행할 검사
 
@@ -37,6 +37,17 @@ npm run check
 
 ## 계약 전환 선행 확인
 
-이 브랜치의 T006 계약 전환에서 manifest3.0.0·OpenAPI v2·admin proxy/cookie path·07.02 Route와 분기/완료 생성 validator를 확인하고 같은 소스를 사용하는 FE/BE 소비 검사를 한다. 아직 존재하지 않는 completeSignup API를 현재 서비스에서 호출 가능하다고 표시하지 않는다.
+병합한 T006 계약 전환의 manifest3.0.0·OpenAPI v2·admin proxy/cookie path·07.02 Route와 분기/완료 생성 validator를 확인하고 같은 소스를 사용하는 FE/BE 소비 검사를 한다. 아직 존재하지 않는 completeSignup API를 현재 서비스에서 호출 가능하다고 표시하지 않는다.
 
 현재 준비 단계의 수행 범위와 미수행 검사는 [가입 설계·계약 전환 검증](../../docs/history/development/004-signup-preparation.md)을 따른다.
+
+## 공통 기반 검사 — #49
+
+```sh
+npm run check
+# TEST_DATABASE_URL은 개발 안내의 로컬 holdlog_test DB에만 지정. 비밀번호를 공유 명령/로그에 복사하지 않는다.
+npm run test:identity --workspace @holdlog/server
+npm run test:foundation
+```
+
+`test:identity`는 migration·FK/unique/version·TX/잠금·receipt 형식/TTL 검사다. 실제 로그인/가입 API·provider·cookie/기기 동작 완료가 아니다. 새 migration은 기존 파일을 수정하지 않고 추가한다. [구현/호환성 증거](../../docs/history/development/004-identity-foundation-verification.md)를 확인한다.

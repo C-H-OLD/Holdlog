@@ -1,24 +1,24 @@
 # Tasks: 로그인과 내 정보·프로필
 
-> 승인07.02·신규 가입 증명/완료·사진 실패 복구를 반영했다. 계약2.1.0→3.0.0/API v2 원본·생성·기반 소비 전환은 이 브랜치에 반영했다. T006 병합 전 새 DTO 소비 작업은 blocked다. 32개 작업의 완료 표시는 병합·각 실행 증거를 기준으로 갱신하며 제품 구현은 미수행이다.
+> 승인07.02·신규 가입 증명/완료·사진 실패 복구를 반영했다. 계약3.0.0/API v2 전환은 PR #60으로 병합했다. #49는 T001~T005 공통 기반을 구현·단독 검증하며 제품 인증 API·UI/연동은 후속 역할 작업이다. 체크는 각 작업의 구현/검사 범위이며 이슈 종료에는 PR 병합이 필요하다.
 
 **Input**: [설계](plan.md) · [스펙](spec.md) · [연구](research.md) · [저장 모델](data-model.md) · [계약](contracts/README.md)
 
-**Status**: 개발 준비. 제품 구현·실행 작업은 미완료. T006은 로컬 변경 검증 후 병합 대기다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
+**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. 제품 인증 API·실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
 
 ## Phase 1: Setup
 
-- [ ] T001 [SHARED] `specs/004-identity-profile/research.md`와 `docs/setup-checklist.md`에 Google/Apple client/audience·서명·실기기·Android Apple redirect 준비 조건과 비밀 경계를 고정한다. 이름 필수·사진 선택/07.02는 확정이다. 외부 설정 미준비는 해당 실제 연동만 차단하고 합성 서버/관리자 준비를 막지 않는다.
-- [ ] T002 [SHARED] `apps/mobile/app.config.ts`, `apps/mobile/package.json`, `apps/server/package.json`, `package-lock.json`에서 보안 저장/JOSE/Argon2의 설치·타입·빌드 호환성을 확인하고 정확한 버전과 config plugin을 고정한다. provider 후보 선택과 실제 nonce/기기 gate는 T029로 분리해 서버/관리자 준비를 외부 계정 대기로 막지 않는다.
+- [x] T001 [SHARED] `specs/004-identity-profile/research.md`와 `docs/setup-checklist.md`에 Google/Apple client/audience·서명·실기기·Android Apple redirect 준비 조건과 비밀 경계를 고정한다. 이름 필수·사진 선택/07.02는 확정이다. 외부 설정 미준비는 해당 실제 연동만 차단하고 합성 서버/관리자 준비를 막지 않는다.
+- [x] T002 [SHARED] `apps/mobile/app.config.ts`, `apps/mobile/package.json`, `apps/server/package.json`, `package-lock.json`에서 보안 저장/JOSE/Argon2의 설치·타입·빌드 호환성을 확인하고 정확한 버전과 config plugin을 고정한다. provider 후보 선택과 실제 nonce/기기 gate는 T029로 분리해 서버/관리자 준비를 외부 계정 대기로 막지 않는다.
 
 ## Phase 2: Foundational
 
 공통 SQL/receipt/설정은 BE 구현의 선행이다. FE 전송·상태의 mock 단독 개발은 이 SQL을 기다리지 않는다. T029의 실제 provider 어댑터 확정과 FE 순수 로직 검사는 구분한다.
 
-- [ ] T003 [SHARED] `apps/server/db/migrations/002_identity.sql`에서 [004 저장 배치](data-model.md)의 인증/가입증명/관리자/기기/receipt SQL을 추가하고 `apps/server/test/identity.e2e-spec.ts`에서 실제 FK·unique·version·migration 재실행/실패를 검사한다.011 Asset 테이블을 복제하지 않는다. 최초 설치 stub은002 원본의 nullable 경계를 사용하고017 등록 전 push token 미보관·발송 제외를 확인한다.
-- [ ] T004 [SHARED] `apps/server/src/database/transaction.ts`, `apps/server/src/modules/identity/identity.repository.ts`에 같은 client의 TX·잠금·receipt 공통 경계를 마련한다. completeSignup의 비대기 요청 진입 잠금은 [가입 설계](signup-design.md#가입-완료요청키동시성)를 따르고 이후 업무 잠금은 identity key→challenge/proof→Account/Session/Credential/Device 순서·unique경쟁·원문 미보관을 `apps/server/test/identity.e2e-spec.ts`로 확인한다.
-- [ ] T005 [SHARED] `apps/server/src/config/environment.ts`, `apps/server/.env.example`, `apps/server/src/config/logging.ts`에 audience/JWKS·Apple 서버키·CSRF 파생키·allowlist 설정의 검증·비밀 제외를 추가하고 `apps/server/test/config.spec.ts`에서 누락/잘못된 설정·출력 경계를 검사한다. 운영값/키 원문을 예시에 넣지 않는다.
-- [ ] T006 [SHARED] `packages/contracts/openapi.json`, `runtime.schema.json`, `conventions.md`, `examples.json`와 `specs/002-shared-contracts/data-model.md`에 [계약 변경 설계](contracts/README.md)의3.0.0/API v2·LoginResult·SignupProof·CompleteSignupInput/completeSignup·07.02 Route·증명 수명/오류/receipt를 반영한다. `apps/admin/src/api/contracts.ts`, `vite.config.ts`, `apps/admin/test/contracts.test.ts`, `runtime.test.ts`의base/proxy를v2로 맞추고 cookie path 문서·003 전달을 갱신한다. 생성 도구로 재생성한 `packages/contracts/generated/`와 FE/BE 소비 예제를 같은 manifest로 검사한다. `npm run contracts:check`, `npm run check`, 정적 계약/문서 검사와 분기 혼합/unknown JSON 거절을 통과한 전환 PR 병합 전 새 DTO 소비를 착수하지 않는다. 현재 제품 API 배포자가 발견되면 별도 호환 계획 없이 전환하지 않는다.
+- [x] T003 [SHARED] `apps/server/db/migrations/002_identity.sql`에서 [004 저장 배치](data-model.md)의 인증/가입증명/관리자/기기/receipt SQL을 추가하고 `apps/server/test/identity.e2e-spec.ts`에서 실제 FK·unique·version·migration 재실행/실패를 검사한다.011 Asset 테이블을 복제하지 않는다. 최초 설치 stub은002 원본의 nullable 경계를 사용하고017 등록 전 push token 미보관·발송 제외를 확인한다.
+- [x] T004 [SHARED] `apps/server/src/database/transaction.ts`, `apps/server/src/modules/identity/identity.repository.ts`에 같은 client의 TX·잠금·receipt 공통 경계를 마련한다. completeSignup의 비대기 요청 진입 잠금은 [가입 설계](signup-design.md#가입-완료요청키동시성)를 따르고 이후 업무 잠금은 identity key→challenge/proof→Account/Session/Credential/Device 순서·unique경쟁·원문 미보관을 `apps/server/test/identity.e2e-spec.ts`로 확인한다.
+- [x] T005 [SHARED] `apps/server/src/config/environment.ts`, `apps/server/.env.example`, `apps/server/src/config/logging.ts`에 audience/JWKS·Apple 서버키·CSRF 파생키·allowlist 설정의 검증·비밀 제외를 추가하고 `apps/server/test/config.spec.ts`에서 누락/잘못된 설정·출력 경계를 검사한다. 운영값/키 원문을 예시에 넣지 않는다.
+- [x] T006 [SHARED] `packages/contracts/openapi.json`, `runtime.schema.json`, `conventions.md`, `examples.json`와 `specs/002-shared-contracts/data-model.md`에 [계약 변경 설계](contracts/README.md)의3.0.0/API v2·LoginResult·SignupProof·CompleteSignupInput/completeSignup·07.02 Route·증명 수명/오류/receipt를 반영한다. `apps/admin/src/api/contracts.ts`, `vite.config.ts`, `apps/admin/test/contracts.test.ts`, `runtime.test.ts`의base/proxy를v2로 맞추고 cookie path 문서·003 전달을 갱신한다. 생성 도구로 재생성한 `packages/contracts/generated/`와 FE/BE 소비 예제를 같은 manifest로 검사한다. `npm run contracts:check`, `npm run check`, 정적 계약/문서 검사와 분기 혼합/unknown JSON 거절을 통과한 전환 PR 병합 전 새 DTO 소비를 착수하지 않는다. 현재 제품 API 배포자가 발견되면 별도 호환 계획 없이 전환하지 않는다.
 
 ## Phase 3: US1 로그인과 내 정보·프로필 이용 (P1)
 

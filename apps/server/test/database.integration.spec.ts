@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
-import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
@@ -13,8 +13,12 @@ void test('real DB migration history is stable across reconnection and rejects m
   const pool = createDatabase(config);
   const directory = await mkdtemp(join(tmpdir(), 'holdlog-migration-'));
   try {
-    const sql = await readFile(new URL('../../db/migrations/001_foundation.sql', import.meta.url), 'utf8');
-    await writeFile(join(directory, '001_foundation.sql'), sql);
+    // Keep the complete applied history when identity/future migrations have already run.
+    const source = new URL('../../db/migrations/', import.meta.url);
+    for (const name of await readdir(source)) {
+      if (/^\d+_[a-z0-9_]+\.sql$/.test(name)) await writeFile(join(directory, name), await readFile(new URL(name, source), 'utf8'));
+    }
+    const sql = await readFile(new URL('001_foundation.sql', source), 'utf8');
     await migrate(pool, directory);
     await migrate(pool, directory);
     const id = randomUUID();

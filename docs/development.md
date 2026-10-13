@@ -156,3 +156,7 @@ git diff --check
 기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 
 문서 링크와 화면 번호는 프로젝트 루트에서 `python3 scripts/check-docs.py`로 확인한다.
+
+## 004 공통 인증 기반
+
+인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 `TEST_DATABASE_URL`의 로컬 `holdlog_test`에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. 실제 로그인·가입·관리자 API는 후속 구현이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.

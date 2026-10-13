@@ -2,20 +2,20 @@
 
 **Branch**: `codex/004-signup-plan` | **Date**: 2026-10-12 | **Spec**: [spec.md](spec.md)
 
-> 가입 화면07.02와 이름 필수·사진 선택을 반영한 설계. 계약3.0.0·API v2 원본/생성/기반 소비를 이 브랜치에서 준비했다. T006의 병합이 새 DTO 소비의 선행이다. 실제 제품 구현·연동 검증 전이다.
+> 가입 화면07.02와 이름 필수·사진 선택을 반영한 설계. 계약3.0.0·API v2 원본/생성/기반 소비는 PR #60으로 병합했다. #49 범위의 T001~T005 공통 기반을 구현·단독 검증했다. 나머지 역할 작업은 해당 선행을 따르며 제품 인증 API·실제 연동은 미구현·미검증이다.
 
 **Input**: `specs/004-identity-profile/spec.md` · [상위 #45](https://github.com/C-H-OLD/Holdlog/issues/45)
 
 ## Summary
 
-FR-001~006을 서버 인증·프로필, 모바일 세션/화면, 관리자 웹 세션 소비와 실제 연동으로 나눈다. 001 기반과 현행 계약2.1.0에서 출발하며 신규 가입 분기를 위해 계약3.0.0·API v2를 T006에서 원본·생성·소비자까지 함께 전환한다. 이번 산출물은 설계·작업 준비와 공통 계약 전환이다. 제품 API·DB·제공자·기기 인증을 구현하거나 검증한 결과가 아니다.
+FR-001~006을 서버 인증·프로필, 모바일 세션/화면, 관리자 웹 세션 소비와 실제 연동으로 나눈다. 001 기반 위 계약3.0.0·API v2 전환은 T006/PR #60으로 병합했다. 설계·32개 작업 분리를 마쳤고 T001~T005의 SQL/TX/설정·의존성 기반을 구현·단독 검증했다. [수행 증거](../../docs/history/development/004-identity-foundation-verification.md)와 구분해 제품 인증 API·앱 가입 흐름·제공자/기기 실제 연동은 후속으로 유지한다.
 
 모바일 Google/Apple 검증, 불투명 세션, 서비스 관리자 별도 인증을 하나의 서버 identity 업무 모듈로 조립한다. 제공자 SDK가 nonce를 양플랫폼에서 전달하는지 먼저 검증한다. 모바일 공통 탐색은003, 크루/초대는005, 사진 bytes는011, FCM 등록은017, 계정 삭제 실행은021에서 소비한다. 해당 기능을004 구현으로 가져오지 않는다.
 
 ## Technical Context
 
 - **Language/Version**: TypeScript, Node24.21.0·npm11.19.0. 앱 프레임워크 버전은 각 package.json의 고정값을 유지한다.
-- **Primary Dependencies**: NestJS11·pg8, React19/Vite, Expo57/RN0.86. 서버 JOSE 검증·Argon2id와 모바일 보안 저장/제공자 어댑터는 [연구](research.md)의 후보를 호환성 검사 후 SHARED 작업에서 정확한 버전으로 고정한다. 구현 전 선택 증거가 필요하며 현재 설치된 것으로 표시하지 않는다.
+- **Primary Dependencies**: NestJS11·pg8, React19/Vite, Expo57/RN0.86. 서버 JOSE·Argon2id와 모바일 SecureStore는 T002에서 manifest/lockfile로 고정했다. [호환성 증거](../../docs/history/development/004-identity-foundation-verification.md)를 따르며 실제 제공자 어댑터는 T029의 별도 후보/gate다.
 - **Storage**: PostgreSQL 인증/프로필/기기 연결, 기기 보안 저장소. 사진 bytes는011 비공개 저장 어댑터. 관리자 cookie 원문은 브라우저, 서버에는 해시만 둔다.
 - **Testing**: 기존 Node test·타입/lint/build·계약 생성 검사, 실제 PostgreSQL HTTP/동시성 시험, 로컬 신뢰 HTTPS 브라우저, iOS/Android 전용 개발 빌드. 형식 fixture와 실제 제공자 검증을 분리한다.
 - **Target Platform / Project Type**: iOS·Android 모바일 + 관리자 웹 + 단일 NestJS API. worker는 인증 HTTP 시작과 분리한다.
@@ -33,7 +33,7 @@ FR-001~006을 서버 인증·프로필, 모바일 세션/화면, 관리자 웹 �
 | 계약 협업 | 공통 변경을 한 묶음에서 모으고 FE/BE 예제와 작업 분리를 지정 |
 | 증거 | 합성·DB·브라우저·제공자·실기기·미수행을 분리. 현재 단계는 실행 완료 아님 |
 
-제품 입력은 이름 필수·사진 선택으로 확정됐다. 이름 가입 후 사진 저장 실패는 기존 오류 다이얼로그의 재시도/사진 없이 계속하기로 처리한다. 계약3.0.0 전환 전에는 신규 응답/가입 명령을 사용하는 FE/BE 착수를 허용하지 않는다. 실제 제공자 설정은 합성 로직 개발과 구분한다.
+제품 입력은 이름 필수·사진 선택으로 확정됐다. 이름 가입 후 사진 저장 실패는 기존 오류 다이얼로그의 재시도/사진 없이 계속하기로 처리한다. 계약3.0.0 전환을 병합했으므로 FE는 같은 fixtures로 독립 착수할 수 있고 BE는 공통 SQL/설정 병합을 선행으로 둔다. 실제 제공자 설정은 합성 로직 개발과 구분한다.
 
 원칙 위반 없음. 외부 설정/SDK 검증의 미완료는 아래 작업의 차단 조건이며 계약을 약화하는 예외로 취급하지 않는다.
 
@@ -43,7 +43,7 @@ FR-001~006을 서버 인증·프로필, 모바일 세션/화면, 관리자 웹 �
 
 `plan.md` · [research.md](research.md) · [data-model.md](data-model.md) · [contracts/README.md](contracts/README.md) · [quickstart.md](quickstart.md) · [tasks.md](tasks.md).
 
-### Source Code (예정 경로)
+### Source Code (현재 기반과 후속 경로)
 
 ```text
 apps/server/src/modules/identity/     identity.module/controller/service/repository.ts
@@ -83,7 +83,7 @@ infra/development/                   HTTPS용 개발 구성·비밀 없는 예�
 
 ## 계약 전환과 준비 기준
 
-T006은 [계약 변경 설계](contracts/README.md)를 실제 원본에 반영하는 SHARED 선행이다. HTTP breaking과 Route enum 추가의 기존 버전 규칙을 유지해3.0.0·/api/v2로 전환한다. Admin API_BASE_PATH·Vite proxy matcher·cookie path·관련 합성 테스트를 함께 수정하고 생성 DTO·validator·fixture를 재생성한다. health는 `/internal/health/` 기반으로 유지한다. 기존2.1.0/v1은 배포된 제품 API가 아니므로 병행 지원을 약속하지 않는다. 실제 배포 소비자가 발견되면 전환 작업을 중단하고 별도 호환 계획을 세운다. 원본·생성물·관리자 기반 소비의 전환을 이 브랜치에서 준비했으며, 병합과 제품 구현은 별도다.
+T006은 [계약 변경 설계](contracts/README.md)를 실제 원본에 반영하는 SHARED 선행이다. HTTP breaking과 Route enum 추가의 기존 버전 규칙을 유지해3.0.0·/api/v2로 전환한다. Admin API_BASE_PATH·Vite proxy matcher·cookie path·관련 합성 테스트를 함께 수정하고 생성 DTO·validator·fixture를 재생성한다. health는 `/internal/health/` 기반으로 유지한다. 기존2.1.0/v1은 배포된 제품 API가 아니므로 병행 지원을 약속하지 않는다. 실제 배포 소비자가 발견되면 전환 작업을 중단하고 별도 호환 계획을 세운다. 원본·생성물·관리자 기반 소비의 전환은 PR #60으로 병합했다. 제품 인증 구현·실제 연동은 별도다.
 
 ## 외부 선행과 준비 기준
 

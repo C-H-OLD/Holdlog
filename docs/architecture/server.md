@@ -4,7 +4,7 @@
 
 ## 적용 범위와 현재 상태
 
-현재 NestJS API·개발 health 경로·pg 연결·SQL migration runner와 pg-boss 합성 worker가 있다. 제품 인증·업무 API·테이블·파일 처리·푸시·운영 worker는 구현 전이다. 아래 경로 중 `modules/`·`storage/` 등은 목표 배치이며 필요한 구현이 생길 때 만든다. 기존 기반 코드를 폴더 이름 통일만을 위해 옮기지 않는다.
+현재 NestJS API·개발 health 경로·pg 연결·SQL migration runner와 pg-boss 합성 worker가 있다. 004 인증 저장 migration·같은 client의 TX/잠금·최소 receipt·별도 설정 검증 기반을 추가했다. 제품 인증·업무 API·나머지 테이블·파일 처리·푸시·운영 worker는 구현 전이다. 아래 경로 중 `modules/`·`storage/` 등은 목표 배치이며 필요한 구현이 생길 때 만든다. 기존 기반 코드를 폴더 이름 통일만을 위해 옮기지 않는다.
 
 현재 의존성과 실행 명령은 [개발 안내](../development.md)와 manifest를 따른다. DB 접근은 기존 `pg`를 기준으로 하며 ORM이나 별도 서버 프레임워크 도입은 이 문서 작성에 포함하지 않는다. 계약 패키지를 실제 import하는 workspace에는 직접 의존을 선언하고 루트 lockfile을 함께 갱신한다.
 

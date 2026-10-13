@@ -27,6 +27,7 @@ certificates/
 *.key
 *.p12
 *.pfx
+*.p8
 *.jks
 *.keystore
 *.mobileprovision
