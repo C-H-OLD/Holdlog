@@ -6,7 +6,7 @@ HTTP 입력·응답·열거값의 원본은 [openapi.json](openapi.json), 기기
 
 ## 요청·값·버전 — C01
 
-- 기준 경로는 `/api/v1`. JSON은 UTF-8, 필드명 camelCase. ID는 UUID, 시점은 UTC RFC3339 `Z`, 시간대는 IANA 식별자, 날짜는 `YYYY-MM-DD`. 시점은 서버가 파싱하고 유효한 IANA 시간대인지 검증한다. `format` 표기만으로 검증이 완료되지 않는다.
+- 기준 경로는 `/api/v2`. JSON은 UTF-8, 필드명 camelCase. ID는 UUID, 시점은 UTC RFC3339 `Z`, 시간대는 IANA 식별자, 날짜는 `YYYY-MM-DD`. 시점은 서버가 파싱하고 유효한 IANA 시간대인지 검증한다. `format` 표기만으로 검증이 완료되지 않는다.
 - 응답의 선택값 없음은 null, 빈 모음은 []다. PATCH의 누락은 유지, null은 선택값 제거. 빈 PATCH는400이다. PUT은 전체 입력이며 소유자/역할/서버 시각/version은 입력으로 받지 않는다. 배열을 주면 해당 집합을 교체한다. 알 수 없는 JSON 필드는400이다.
 - climbs=null은 운동 수치 전체 미입력, []는 입력 난이도 없음, `{brandId,gradeKey,count:0}`은 명시 입력0. 각 gradeKey 미입력은 행 없음이다. count는 0 이상 정수; (brandId,gradeKey) 중복은400. 브랜드가 다른 기존 수치를 암장 변경만으로 재매핑하거나 제거하지 않는다. 변경하지 않은 기존 난이도는 retired여도 보존하며 신규 입력은 현재 브랜드 정의로 검증한다. 표시·집계는 원본 D05를 따른다.
 - 성공한 단일 변경 가능 자료는 version과 `ETag: "<version>"`를 준다. detail wrapper는 그 안의 주 대상 version을 ETag로 쓴다. 수정/삭제/연결/이관은 OpenAPI에 지정한 `If-Match`를 반드시 보낸다. 없는 경우428, 다른 경우412. 여러 자원을 함께 바꾸는 link-existing의 recordVersion도 저장 직전 검사한다. 부가 자원 버전이 다르면409 LINK_CONFLICT. 업무 제약은409이며 버전 오류와 구분한다.
@@ -26,7 +26,7 @@ Error 필드 정의는 OpenAPI 원본이다. code는 프론트의 기존 다이�
 | 401 | UNAUTHENTICATED·ACCOUNT_DELETED |
 | 403 | FORBIDDEN·JOIN_BLOCKED |
 | 404 | NOT_FOUND·INVITE_INVALID(유효하지 않은 초대) |
-| 409 | IDEMPOTENCY_MISMATCH·REQUEST_IN_PROGRESS·ALREADY_MEMBER·LINK_CONFLICT·LINKED_VISIT_LOCKED·DATE_GYM_MISMATCH·NOT_ATTENDEE·ACTIVE_RECORD_ELSEWHERE·ADMIN_TRANSFER_INVALID·ADMIN_TRANSFER_REQUIRED·ACTUAL_VISIT_IN_FUTURE·UPLOAD_OFFSET_CONFLICT·MEDIA_NOT_READY·QUERY_SNAPSHOT_CHANGED |
+| 409 | SIGNUP_ALREADY_COMPLETED·IDEMPOTENCY_MISMATCH·REQUEST_IN_PROGRESS·ALREADY_MEMBER·LINK_CONFLICT·LINKED_VISIT_LOCKED·DATE_GYM_MISMATCH·NOT_ATTENDEE·ACTIVE_RECORD_ELSEWHERE·ADMIN_TRANSFER_INVALID·ADMIN_TRANSFER_REQUIRED·ACTUAL_VISIT_IN_FUTURE·UPLOAD_OFFSET_CONFLICT·MEDIA_NOT_READY·QUERY_SNAPSHOT_CHANGED |
 | 410 | REUPLOAD_REQUIRED·WORKOUT_RESULT_DELETED |
 | 412 / 428 | VERSION_CONFLICT / PRECONDITION_REQUIRED |
 | 416 / 460 | RANGE_NOT_SATISFIABLE / CHECKSUM_MISMATCH(tus 구간검사) |
@@ -38,7 +38,7 @@ Error 필드 정의는 OpenAPI 원본이다. code는 프론트의 기존 다이�
 
 - 모바일은 불투명 Bearer access token(15분), 회전하는 refresh token(30일 유휴,90일 절대 만료)을 기기 보안 저장소에 보관한다. 서버에는 해시만 저장하고 매 요청에서 세션·계정 상태를 검사한다. refresh 재사용은 해당 family를 회수한다. 이 기간은 계약 구현 기본값이며 변경 시 계약 버전을 갱신한다.
 - 로그인 challenge(5분·1회용)로 nonce를 발급하고 Google/Apple 토큰 서명·issuer·audience·expiry·nonce 및 제공자 subject를 확인한다. Apple authorizationCode는 제공될 때 서버 교환·검증에 사용한다. 제공자 계정을 이메일로 합치지 않는다. Google/Apple SDK 실제 연동은001/004에서 검증한다.
-- 관리자는 별도 loginId/password의 초기 준비 principal이다. 공개 가입/암장 편집을 통한 권한 추가 API 없음. 비밀번호는 Argon2id 해시, 초기 비밀 전달·변경은001 운영 준비 절차다. admin 세션은 idle30분/absolute8시간, HttpOnly·Secure·SameSite=Lax cookie(path=/api/v1/admin), 매 쓰기 X-CSRF-Token와 허용 Origin 검사. 세션 조회로 CSRF 값을 받는다. 모바일 세션과 혼용하지 않는다. cookie 기반 토큰을 JSON에 반환하지 않는다.
+- 관리자는 별도 loginId/password의 초기 준비 principal이다. 공개 가입/암장 편집을 통한 권한 추가 API 없음. 비밀번호는 Argon2id 해시, 초기 비밀 전달·변경은001 운영 준비 절차다. admin 세션은 idle30분/absolute8시간, HttpOnly·Secure·SameSite=Lax cookie(path=/api/v2/admin), 매 쓰기 X-CSRF-Token와 허용 Origin 검사. 세션 조회로 CSRF 값을 받는다. 모바일 세션과 혼용하지 않는다. cookie 기반 토큰을 JSON에 반환하지 않는다.
 - 모든 권한은 현재 대상 크루/소유 관계로 서버가 판단한다. myRole/canEdit/canDelete는 UI 표시 자료다. 마지막 선택 크루는 설정이며 API의 crewId를 대체하지 않는다. 초대 resolve는 로그인 후 최소 확인 자료만 반환; 미가입이면 crewId=null. join에는 inviteId만 전달하고 최종 차단/가입 상태를 재검사한다.
 - my-membership 삭제의 If-Match는 GET crew에서 받은 Crew.version이다. 활성 회원/역할 변화와 이관 때 Crew.version도 증가시킨다. 계정 삭제는 Profile.version을 받고 전체 현재 가입 상태를 잠근 뒤 검사한다. preview는 안내용이며 저장 권한의 근거가 아니다. 이관할 다른 활성 회원이 없는 관리자도 ADMIN_TRANSFER_REQUIRED로 탈퇴·계정 삭제를 거절한다. 빈 크루 삭제 기능을 추가하지 않는다.
 - 로그아웃은 현재 세션과 그 기기의 token-account 연결을 회수한다. 계정 삭제는 전체 인증/토큰을 회수한다. deviceId는 설치별 UUID이며 FCM token 변경 때 같은 PUT으로 갱신한다. path와 body deviceId가 다르면400. 서버에 저장한 토큰만으로 다른 계정에 알림을 보내지 않는다.
@@ -89,3 +89,13 @@ C12의 승인된05.07 알림 목록 화면을 Route.screenId에 추가했다. en
 - `readAllNotifications`는 첫 요청 수락 시 계정별 단조 수신 sequence의 경계를 서버에서 잡고, 그 경계 이하의 현재 허용된 전체 수신 행을 같은 TX에서 읽음 처리한다. 화면에 로드된 행만 처리하지 않는다. readThrough는 서버의 불투명 경계이며 클라이언트 입력으로 받지 않는다. 경계를 잡은 뒤 도착한 새 수신은 안 읽음을 유지해 모두 읽음이 다시 활성화한다. 응답 unreadCount는 완료 시 현재 허용된 행의 값이므로 새 수신이 있으면0보다 클 수 있다.
 - 두 읽음 POST는 UUID Idempotency-Key와 빈 JSON 객체를 요구한다. 동일 키는 같은 계정·operation·path/body에 결합하고 기존 멱등 규칙으로 처리한다. 전체 읽음 재시도는 최초 readThrough를 사용하므로 새 수신까지 다시 읽지 않는다. 키 보존 만료 뒤의 전체 읽음은 새로운 사용자 실행으로 취급한다. 저장 실패는 전체 TX 롤백이며 안 읽음을 성공으로 표시하지 않는다. 응답 유실은 같은 키 재요청/재조회로 저장 여부를 확인한다. 명시적 실패와 성공했지만 응답을 잃은 상태를 혼동하지 않는다. 실패한 요청 재시도에도 최초 경계를 유지하도록 경계 receipt를 읽음 TX와 별도로 먼저 확보하며 개인 내용은 저장하지 않는다.
 - readAt 저장은 발송 작업의 state/sentAt과 독립이다. 푸시 발송 성공이나 대상 화면 열기를 읽음 근거로 사용하지 않는다. 원본 변경은 계약2.1.0의 추가 API/자료형·예제·생성 소비에 함께 반영했다. 실제 권한/원자성/전달은017의 서버 통합 검사다.
+
+## 004 신규 가입 분리 — 계약3.0.0
+
+HTTP login 응답이 MobileSession 단일 형식에서 LoginResult의 authenticated/session 또는 signup_required/signup 분기로 바뀐다. 신규 인증은 Account/Session을 생성하지 않고15분·일회용 SignupProof만 발급한다. proof는 설치UUID·검증한 provider/subject에 묶고 tokenHash만 저장한다. completeSignup은 유효 proof·동일 deviceId·trim한 비공백 이름·UUID Idempotency-Key를 검사해 Account/Identity/Session/Device 연결과 proof 소비를 같은 TX로 저장한다. 일반 보호 API·refresh·관리자·미디어에 proof를 사용할 수 없다.
+
+필수 JSON 필드 누락·unknown 필드·이름 오류는400 INVALID_INPUT이며 해당 경로의 fieldErrors를 반환한다. signupToken 필드는 있지만 증명 확인 불가/만료/소비/설치 불일치이면401 UNAUTHENTICATED다. 유효 proof의 동일 키 진행 중 요청은 업무 잠금 대기 전에 비대기 진입 잠금으로409 REQUEST_IN_PROGRESS를 반환한다. 확인 가능한 receipt의 입력 hash 불일치는409 IDEMPOTENCY_MISMATCH이며, 미커밋 입력 hash가 보이지 않는 진행 중 같은 키는 REQUEST_IN_PROGRESS다. 세부 잠금 순서는004 처리 설계를 따른다. 다른 proof가 동일 identity를 먼저 가입시켰으면409 SIGNUP_ALREADY_COMPLETED로 새 SNS 인증을 요구하고 이름을 덮어쓰지 않는다. SQL 실패는503 TEMPORARY_FAILURE와 전체 rollback이며 동일 입력/키로 재시도한다. 성공 응답 유실·소비 proof 재제출은401이며 재인증하면 기존 계정을 찾는다. 토큰/과거 성공 응답을 receipt에 저장하거나 재반환하지 않는다. proof ID/hash를 익명 receipt 주체로 쓰고 증명 검증 후 처리한다.
+
+사진은 가입 완료 후 기존 인증된 draft/upload/ready/profile 경로로 저장한다. proof-owned upload와 completeSignup의 사진 입력은 없다. 사진 실패로 가입을 취소하거나 계정을 다시 만들지 않는다. [004 처리 설계](../../specs/004-identity-profile/signup-design.md)에서 잠금·재시도·계정 세대·입력 복구를 정한다.
+
+07.02 Route enum 추가와 HTTP breaking을 함께 반영해 계약 major3.0.0 및 API major `/api/v2`로 전환한다. 관리자 cookie path도 `/api/v2/admin`이다. 기존2.1.0/v1은 아직 제품 API 배포 전이며 병행 호환 서비스가 있다는 뜻이 아니다. 모든 생성물·기반 소비의base/proxy를 함께 이관한다. PushPayload.schemaVersion=1과 `/internal/health/`는 그대로다. 실제 배포 소비자가 확인되면 별도 호환 계획 없이 전환하지 않는다. 이 변경은 형식 설계/소비 갱신이며 제품 가입 API 구현 완료가 아니다.

@@ -1111,3 +1111,38 @@ export declare const contractCheck157: ((value: unknown) => boolean) & { errors?
  * Does not coerce values, inject defaults, remove fields, authorize access or validate file bytes.
  */
 export declare const contractCheck158: ((value: unknown) => boolean) & { errors?: unknown };
+/**
+ * Validate a JSON value against the schema identified by the operation/runtime index.
+ * @param {unknown} value - Unmodified JSON data to validate.
+ * @returns {boolean} Whether the schema accepts the value; updates this function's errors with the last result.
+ * Does not coerce values, inject defaults, remove fields, authorize access or validate file bytes.
+ */
+export declare const contractCheck159: ((value: unknown) => boolean) & { errors?: unknown };
+/**
+ * Validate a JSON value against the schema identified by the operation/runtime index.
+ * @param {unknown} value - Unmodified JSON data to validate.
+ * @returns {boolean} Whether the schema accepts the value; updates this function's errors with the last result.
+ * Does not coerce values, inject defaults, remove fields, authorize access or validate file bytes.
+ */
+export declare const contractCheck160: ((value: unknown) => boolean) & { errors?: unknown };
+/**
+ * Validate a JSON value against the schema identified by the operation/runtime index.
+ * @param {unknown} value - Unmodified JSON data to validate.
+ * @returns {boolean} Whether the schema accepts the value; updates this function's errors with the last result.
+ * Does not coerce values, inject defaults, remove fields, authorize access or validate file bytes.
+ */
+export declare const contractCheck161: ((value: unknown) => boolean) & { errors?: unknown };
+/**
+ * Validate a JSON value against the schema identified by the operation/runtime index.
+ * @param {unknown} value - Unmodified JSON data to validate.
+ * @returns {boolean} Whether the schema accepts the value; updates this function's errors with the last result.
+ * Does not coerce values, inject defaults, remove fields, authorize access or validate file bytes.
+ */
+export declare const contractCheck162: ((value: unknown) => boolean) & { errors?: unknown };
+/**
+ * Validate a JSON value against the schema identified by the operation/runtime index.
+ * @param {unknown} value - Unmodified JSON data to validate.
+ * @returns {boolean} Whether the schema accepts the value; updates this function's errors with the last result.
+ * Does not coerce values, inject defaults, remove fields, authorize access or validate file bytes.
+ */
+export declare const contractCheck163: ((value: unknown) => boolean) & { errors?: unknown };

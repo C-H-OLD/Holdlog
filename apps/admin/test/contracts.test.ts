@@ -9,5 +9,5 @@ void test('administrator consumes the existing generated HTTP type and standalon
   const key = index.http.AdminSession as keyof typeof validators;
   assert.ok(validators[key](session));
   assert.equal(validators[key]({ ...session, principalId: 1 }), false);
-  assert.equal(API_BASE_PATH, '/api/v1');
+  assert.equal(API_BASE_PATH, '/api/v2');
 });

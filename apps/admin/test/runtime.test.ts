@@ -42,11 +42,12 @@ void test('real Vite serves React modules and proxies success503/network failure
     available = false;
     assert.deepEqual(await checkDevelopmentConnection('ready', fetcher), { kind: 'database-unavailable', target: 'ready' });
     assert.deepEqual(await checkDevelopmentConnection('live', fetcher), { kind: 'connected', target: 'live' });
-    const product = await fetch(new URL('/api/v1/admin/test?synthetic=1', origin), { headers: { Origin: new URL(origin).origin, Cookie: 'synthetic=1' } });
-    assert.deepEqual(await product.json(), { path: '/api/v1/admin/test?synthetic=1', origin: new URL(origin).origin, cookie: 'synthetic=1' });
+    const product = await fetch(new URL('/api/v2/admin/test?synthetic=1', origin), { headers: { Origin: new URL(origin).origin, Cookie: 'synthetic=1' } });
+    assert.deepEqual(await product.json(), { path: '/api/v2/admin/test?synthetic=1', origin: new URL(origin).origin, cookie: 'synthetic=1' });
     const count = upstreamCalls;
     await fetch(new URL('/internal/health/ready/extra', origin));
     await fetch(new URL('/api/v10/extra', origin));
+    await fetch(new URL('/api/v1/admin/test', origin));
     assert.equal(upstreamCalls, count);
     const close = once(upstream, 'close'); upstream.close(); await close;
     assert.deepEqual(await checkDevelopmentConnection('ready', fetcher), { kind: 'connection-failed', target: 'ready' });

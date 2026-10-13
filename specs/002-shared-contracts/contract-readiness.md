@@ -111,7 +111,7 @@
 
 ## 병합 기준과 다음 작업 전달
 
-[PR #37](https://github.com/trycatch98/Holdlog/pull/37)의 기반 대조/Route와 [PR #38](https://github.com/trycatch98/Holdlog/pull/38)의 수신/읽음·생성 소비가 develop에 병합됐다. 계약2.1.0은 [manifest](../../packages/contracts/generated/manifest.json)의 한 원본으로 맞춘다. 코드·문서 최종 전달 후 #36/#29에서 필수 작업/PR·미수행 범위를 확인해002 완료를 판단한다. 사용자 제품 결정·독립 에이전트·CodeRabbit 검토를 반영했으며 사람 담당 배정/실제 연동 승인과 구분한다.
+[PR #37](https://github.com/trycatch98/Holdlog/pull/37)의 기반 대조/Route와 [PR #38](https://github.com/trycatch98/Holdlog/pull/38)의 수신/읽음·생성 소비가 develop에 병합됐다. 당시 계약2.1.0의 전달 증거는 유지한다. 현행 생성 계약은004의 [가입 분리 전환](../../packages/contracts/conventions.md#004-신규-가입-분리--계약300)과 [manifest](../../packages/contracts/generated/manifest.json)를 따른다. 코드·문서 최종 전달 후 #36/#29에서 필수 작업/PR·미수행 범위를 확인해002 완료를 판단한다. 사용자 제품 결정·독립 에이전트·CodeRabbit 검토를 반영했으며 사람 담당 배정/실제 연동 승인과 구분한다.
 
 | 다음 작업 | 독립적으로 준비할 범위 | 실제 완료 확인의 선행 |
 |---|---|---|
