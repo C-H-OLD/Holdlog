@@ -46,6 +46,19 @@ npm run test:foundation
 
 API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답은 [001 기반 인터페이스](../specs/001-development-foundation/contracts/README.md#개발-연결)를 따른다. 운영 모드에서는 두 개발 경로를 등록하지 않는다. wildcard/public API bind와 개발/시험 DB 이름 혼용은 거절하며, 후속 연동에서 필요한 개발 LAN의 사설 IP를 명시할 수 있다. 비공개 파일 볼륨은 후속 파일 구현용 영역이며 현재 worker는 합성 jobId 표식만 저장한다. 루트 실행·전체 검사 명령은 #9에서 연결했고 웹·모바일의 실제 로컬 연동은 #10에서 검증했다. 시험 DB 사용자는 `holdlog`, 이름은 `holdlog_test`, 포트는55433이다. `TEST_DATABASE_URL`은 실제 시험 비밀번호를 사용해 로컬 환경으로 전달하며 공유 명령·로그에 값을 저장하지 않는다. 비밀번호의 URL 특수 문자는 인코딩한다.
 
+## 모바일 인증 API 실행
+
+004/#51의 서버 단독 구현은 [검증 기록](history/development/004-mobile-identity-api-verification.md)을 따른다. `apps/server/.env`의 `MOBILE_IDENTITY_ENABLED=true`와 실제 Google/Apple 설정을 준비하면 `/api/v2/auth/challenges`, `/auth/sessions`, `/auth/signups`, `/auth/sessions/refresh`, `/auth/sessions/current`, `/me`를 활성화한다(뒤 경로도 모두 `/api/v2` 기준). 설정 누락/오류는 시작 시 거절한다. 기본 예시는 false이며 기존 health/worker는 provider 비밀 없이 실행한다.
+
+```sh
+npm run test --workspace @holdlog/server
+# 개발 안내의 로컬 holdlog_test만 TEST_DATABASE_URL로 비공개 전달
+npm run test:identity --workspace @holdlog/server
+npm run test:foundation
+```
+
+`test`는 provider/생성 입력의 합성 검사, `test:identity`는 실제 DB의 기반·모바일 HTTP·가입·이름 profile·회수/정리 검사다. worker가 매분 만료/소비 가입 증명을 정리한다. 운영 모드에도 정리를 등록하고 개발용 합성 queue는 development/test에만 등록한다. 실제 제공자/기기·관리자·사진 저장 연동은 후속이며 사진 profile 쓰기는011 연결 전 거절한다.
+
 ## 관리자 웹 단독 실행
 
 React/Vite 실행 기반과 개발 연결 검사 도구를 준비했다. [#6 단독 검증](history/development/001-admin-foundation-verification.md)을 수행했고, 실제 브라우저·개발 API 연동은 [#10 기록](history/development/001-foundation-verification.md#실제-로컬-연동--10--t017t022t023t024)에서 확인했다. 제품 화면을 아직 구현하지 않아 React 실행 영역은 비어 있다.
@@ -159,4 +172,4 @@ git diff --check
 
 ## 004 공통 인증 기반
 
-인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 `TEST_DATABASE_URL`의 로컬 `holdlog_test`에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. 실제 로그인·가입·관리자 API는 후속 구현이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.
+인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 `TEST_DATABASE_URL`의 로컬 `holdlog_test`에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. #51 모바일 로그인·가입·이름 profile API의 서버 단독 결과는 [실행 안내](#모바일-인증-api-실행)와 [증거](history/development/004-mobile-identity-api-verification.md)를 따른다. 관리자·실제 제공자/기기 연동은 후속이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.

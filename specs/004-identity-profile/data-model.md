@@ -36,4 +36,4 @@ migration 파일 번호는 기존 runner 순서 확인 후 지정한다. 이미 
 
 새 로그인에서 기존 설치를 다른 계정에 연결할 때 이전 push token-account 연결은 같은 TX에서 회수하고 이전 암호문/해시를 새 계정용으로 승계하지 않는다. 플랫폼/권한을 LoginInput에 임의 추가하지 않는다. 인증된017 등록이 현재 계정과 설치·실제 token을 확인한 뒤 실제 값만 보완한다. 로그인은017 보호 API를 선행 호출하지 않는다.
 
-SignupProof의 논리 모델은002 계정·인증 원본에 추가했다. T003의 SQL migration과 시험 DB 단독 검증은 [공통 기반 증거](../../docs/history/development/004-identity-foundation-verification.md)에 연결했다. 제품 인증 API·실제 provider/기기 연동은 아직 구현·검증 전이다. 이름 가입 이후 photo commit은 별도이며 한 TX로 약속하지 않는다.
+SignupProof의 논리 모델은002 계정·인증 원본에 추가했다. T003의 SQL migration과 시험 DB 단독 검증은 [공통 기반 증거](../../docs/history/development/004-identity-foundation-verification.md)에 연결했다. #51 모바일 인증 API의 [서버 단독 구현/검사](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했고 실제 provider/기기 연동은 후속이다. 이름 가입 이후 photo commit은 별도이며 한 TX로 약속하지 않는다.
