@@ -41,3 +41,21 @@ test('deterministic generation; missing, extra, modified output and stale inputs
     }
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
+
+test('operation checks bind generated validators without a namespace import and preserve operation metadata',async()=>{
+  const output=mkdtempSync(resolve(tmpdir(),'holdlog-operation-checks-'));
+  try {
+    await generate(process.cwd(),output);
+    const checks=await import('file://'+resolve(output,'admin-auth-checks.mjs'));
+    const validators=await import('file://'+resolve(output,'admin-auth-validators.mjs'));
+    const {index}=await import('file://'+resolve(output,'index.mjs'));
+    const login=checks.adminLoginChecks;
+    assert.equal(login.path,index.operations.adminLogin.path);assert.equal(login.method,'post');
+    assert.equal(login.parameters[0].validator,validators[index.operations.adminLogin.parameters[0].validator]);
+    assert.equal(login.body['application/json'].validator({loginId:'fixture',password:'fixture'}),true);
+    assert.equal(login.body['application/json'].validator({loginId:'fixture',password:'fixture',unknown:true}),false);
+    assert.equal(checks.adminSessionChecks.responses['200']['application/json'].validator,validators[index.http.AdminSession]);
+    assert.equal(readFileSync(resolve(output,'admin-auth-checks.mjs'),'utf8').includes('import *'),false);
+    assert.match(readFileSync(resolve(output,'admin-auth-checks.d.mts'),'utf8'),/adminLoginChecks/);
+  } finally {rmSync(output,{recursive:true});}
+});

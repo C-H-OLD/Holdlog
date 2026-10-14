@@ -14,11 +14,12 @@ const scriptRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 /**
  * Compile strict schema validators and bundle their helpers into self-contained client ESM.
  * @param {object} registry - Normalized schema documents and HTTP operations from createRegistry.
+ * @param {string[]} [selectedOperations] - Optional operation IDs whose transitive validators alone are exported.
  * @returns {Promise<{code: string, index: object}>} ESM source and validator/operation lookup metadata.
  * @throws {Error} If schema compilation, reference resolution or bundling fails.
  * Does not write files or mutate fixtures. Binary flags mark byte-validation boundaries, not byte validation success.
  */
-export async function renderValidators(registry) {
+export async function renderValidators(registry, selectedOperations) {
   const ajv = new Ajv2020({ strict: true, strictTypes: false, strictRequired: false, allowUnionTypes: true, allErrors: true, coerceTypes: false, useDefaults: false, removeAdditional: false, inlineRefs: false, code: { source: true, esm: true, formats: formatCode } });
   for (const [name, format] of Object.entries(formats)) ajv.addFormat(name, format);
   for (const document of registry.documents) ajv.addSchema(document);
@@ -52,7 +53,19 @@ export async function renderValidators(registry) {
     for (const headers of Object.values(item.responseHeaders)) for (const [header, schema] of Object.entries(headers)) headers[header] = register(schema);
     index.operations[id] = item;
   }
-  const source = standalone(ajv, exported);
+  let selected = exported;
+  if (selectedOperations) {
+    const used = new Set();
+    for (const id of selectedOperations) {
+      const op = index.operations[id]; if (!op) throw new Error('Unknown selected operation');
+      for (const parameter of op.parameters) used.add(parameter.validator);
+      for (const shape of Object.values(op.body)) used.add(shape.validator);
+      for (const content of Object.values(op.responses)) for (const shape of Object.values(content)) used.add(shape.validator);
+      for (const headers of Object.values(op.responseHeaders)) for (const validator of Object.values(headers)) used.add(validator);
+    }
+    selected = Object.fromEntries([...used].map(name => [name, exported[name]]));
+  }
+  const source = standalone(ajv, selected);
   const result = await build({ stdin: { contents: source, resolveDir: scriptRoot, sourcefile: 'validators-source.mjs' }, bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', logLevel: 'silent', plugins: [{ name: 'contract-formats',
     /**
      * Supply the format helper as a virtual build module so client output has no runtime import.
@@ -64,6 +77,32 @@ export async function renderValidators(registry) {
     builder.onLoad({ filter: /.*/, namespace: 'contract-formats' }, () => ({ contents: runtimeFormatSource, resolveDir: scriptRoot }));
   } }] });
   return { code: result.outputFiles[0].text, index };
+}
+/**
+ * Render named operation bindings to existing validator exports so consumers can tree-shake unused checks.
+ * @param {object} index - Generated operation metadata; validator identities must come from this registry.
+ * @param {string} [validatorModule] - Generator-owned relative module containing the selected standalone checks.
+ * @returns {{code: string, declarations: string}} ESM bindings and public metadata/check types.
+ * @throws {Error} For an operation ID that cannot form a JavaScript export; no source schemas are changed.
+ */
+export function renderOperationChecks(index, validatorModule = './validators.mjs') {
+  const names = new Set(), declarations = [], entries = [];
+  /** Render one generated checked shape without rewriting arbitrary schema/default strings. */
+  function checked(value) { const { validator, ...metadata } = value; names.add(validator); return `{...${JSON.stringify(metadata)},validator:${validator}}`; }
+  /** Preserve media/status keys while rendering their validator functions as direct references. */
+  function record(values, render) { return '{' + Object.entries(values).map(([key, value]) => JSON.stringify(key) + ':' + render(value)).join(',') + '}'; }
+  for (const [id, operation] of Object.entries(index.operations)) {
+    if (!/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(id)) throw new Error('Operation ID cannot form a validator export');
+    const exportName = id + 'Checks';
+    const responseHeaders = record(operation.responseHeaders, headers => record(headers, validator => { names.add(validator); return validator; }));
+    entries.push(`export const ${exportName}={path:${JSON.stringify(operation.path)},method:${JSON.stringify(operation.method)},bodyRequired:${operation.bodyRequired},parameters:[${operation.parameters.map(checked).join(',')}],body:${record(operation.body,checked)},responses:${record(operation.responses,content=>record(content,checked))},responseHeaders:${responseHeaders}};`);
+    declarations.push(`export declare const ${exportName}: OperationChecks;`);
+  }
+  const types = `/** A generated check preserves input and exposes only schema acceptance and its last errors. */
+export type ContractValidator=((value:unknown)=>boolean)&{errors?:unknown};
+export interface OperationChecks {path:string;method:string;bodyRequired:boolean;parameters:{name:string;in:string;required:boolean;schema:Record<string,unknown>;style?:string;explode?:boolean;validator:ContractValidator}[];body:Record<string,{validator:ContractValidator;binary:boolean}>;responses:Record<string,Record<string,{validator:ContractValidator;binary:boolean}>>;responseHeaders:Record<string,Record<string,ContractValidator>>}
+`;
+  return { code: (names.size ? `import {${[...names].sort().join(',')}} from ${JSON.stringify(validatorModule)};\n` : '') + entries.join('\n') + '\n', declarations: types + declarations.join('\n') + '\n' };
 }
 /**
  * Detect a binary format anywhere in a schema, including referenced definitions.
@@ -132,6 +171,10 @@ export function provenance(root) {
 export async function generate(root = scriptRoot, output = resolve(root, 'packages/contracts/generated')) {
   const registry = loadRegistry(root);
   const { code, index } = await renderValidators(registry);
+  const adminOperations = ['adminLogin', 'adminSession', 'adminLogout'];
+  const adminValidators = await renderValidators(registry, adminOperations);
+  const adminIndex = { operations: Object.fromEntries(adminOperations.map(id => [id, index.operations[id]])) };
+  const operationChecks = renderOperationChecks(adminIndex, './admin-auth-validators.mjs');
   const http = astToString(await openapiTS(registry.api));
   const runtime = await runtimeTypes(registry);
   const fixtures = JSON.parse(readFileSync(resolve(root, 'packages/contracts/examples.json')));
@@ -156,6 +199,9 @@ export async function generate(root = scriptRoot, output = resolve(root, 'packag
  */`;
   const files = {
     'http.d.ts': http,
+    'admin-auth-validators.mjs': adminValidators.code,
+    'admin-auth-checks.mjs': operationChecks.code,
+    'admin-auth-checks.d.mts': operationChecks.declarations,
     'empty.mjs': 'export {};\n',
     'client.d.ts': 'export type { ClimbCount, WorkoutDraft, WorkoutLifecycle, WorkoutDisplay, AnnouncementSuppression, PendingInvite, Route, PushPayload, NoticeEntry, OpenSourceManifest } from \'./runtime\';\n',
     'fixtures.d.mts': fixtureDocumentation + '\n' + 'export declare function getFixtures(): { status: string; http: unknown[]; runtime: unknown[]; mustReject: unknown[] };\n',

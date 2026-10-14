@@ -56,3 +56,10 @@ Node와 실제 Chrome은 공통 예제18개 수락·거절 예제3개 거절을 
 현재002의 C12 변경은 [계약2.0.0 변경 안내](conventions.md#002-화면-경로-변경--계약200)를 따른다. 수신 목록·읽음 API/예제와 생성 소비는 [계약2.1.0 C09](conventions.md#수신-목록과-읽음--c09) 및 [002 검사 기록](../../docs/history/development/002-contract-verification.md)을 따른다. 실제 제품 API/DB/UI 구현은017 후속이다.
 
 004 신규 가입 분기는 [계약3.0.0 전환](conventions.md#004-신규-가입-분리--계약300)을 따른다. LoginResult·completeSignup·07.02 Route와 API v2의 원본/생성/관리자 기반 소비를 함께 변경하며 실제 인증 API·앱 가입 동작은004 후속 구현이다.
+
+
+### 관리자 인증 전용 생성 소비
+
+`@holdlog/contracts/admin-auth-checks`의 `adminLoginChecks`·`adminSessionChecks`·`adminLogoutChecks`는 해당 operation의 path/method·parameters·body/responses와 직접 연결된 validator 함수를 제공한다. 원본은 동일한 OpenAPI이며 전체 `operations`/`validators` 진입점도 유지한다. 관리자 웹은 이 모듈로 세 operation의 필요한 검사만 번들에 포함한다. DTO는 기존 `/http`에서 소비하며 새 수기 DTO를 만들지 않는다.
+
+`parameters[].validator`, `body[media].validator`, `responses[status][media].validator`는 JSON 값의 schema acceptance를 검사한다. 전송 parameter는 기존 `/http-input`의 parsing과 required 조건을 지키고 binary 경계는 바이트 검사를 대체하지 않는다. 예제·형식 검사가 실제 cookie/권한·브라우저/API 연동을 증명하지 않는다. 모든 출력은 `npm run contracts:generate`로 생성하고 `contracts:check`로 확인한다.

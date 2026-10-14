@@ -1,6 +1,6 @@
 # 004 검증과 전달 안내
 
-공통 기반과 #51 모바일 인증 API의 서버 단독 검사를 제공한다. `test:identity`는 기반과 모바일 HTTP·가입·이름 profile·회수/정리를 포함하며 [#51 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 따른다. `test:admin-auth`와 bootstrap의 [#52 단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. 실제 provider/기기·관리자 HTTPS 브라우저·사진 연동은 후속이다.
+공통 기반과 #51 모바일 인증 API의 서버 단독 검사를 제공한다. `test:identity`는 기반과 모바일 HTTP·가입·이름 profile·회수/정리를 포함하며 [#51 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 따른다. `test:admin-auth`와 bootstrap의 [#52 단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. #54 관리자 소비·도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 실제 provider/기기·신뢰 HTTPS 브라우저·사진 연동은 후속이다.
 
 ## 현재 수행할 검사
 
