@@ -25,9 +25,11 @@
     "dev:api": "npm run build && node --env-file=.env dist/src/main.js",
     "dev:worker": "npm run build && node --env-file=.env dist/src/worker.js",
     "db:migrate": "npm run build && node --env-file=.env dist/src/database/cli.js",
-    "test": "npm run build && node --test dist/test/config.spec.js dist/test/worker.spec.js dist/test/transaction.spec.js dist/test/identity-foundation.spec.js dist/test/identity.spec.js",
+    "test": "npm run build && node --test dist/test/config.spec.js dist/test/worker.spec.js dist/test/transaction.spec.js dist/test/identity-foundation.spec.js dist/test/identity.spec.js dist/test/admin-bootstrap.spec.js",
     "test:identity": "npm run build && node --test --test-concurrency=1 dist/test/identity.e2e-spec.js dist/test/mobile-identity.e2e-spec.js dist/test/signup.e2e-spec.js dist/test/profile.e2e-spec.js",
-    "test:foundation": "npm run build && node --test --test-concurrency=1 dist/test/*.spec.js dist/test/*e2e-spec.js"
+    "test:foundation": "npm run build && node --test --test-concurrency=1 dist/test/*.spec.js dist/test/*e2e-spec.js",
+    "admin:bootstrap": "npm run build && node --env-file=.env dist/src/tools/admin-bootstrap.js",
+    "test:admin-auth": "npm run build && node --test --test-concurrency=1 dist/test/admin-auth.e2e-spec.js"
   },
   "devDependencies": {
     "@types/pg": "8.23.1"

@@ -6,7 +6,7 @@
 
 인증 동작의 원본은 [C02 사용 규칙](../../../packages/contracts/conventions.md#인증기기관리자--c02c03c09), 저장 대상은 [ServiceAdministrator·AdminSession 모델](../../002-shared-contracts/data-model.md#2-계정기기크루--c02c03), 실제 구현·검증은 [004 계정·인증 FR-006](../../004-identity-profile/spec.md)이다. loginId·credentialHash·active·version의 필드와 HTTP 입력은 원본을 따른다.
 
-실제 실행은 004가 관리자 저장 구조·해시 생성/검증·초기 준비 도구를 구현하고 검증한 뒤 가능하다. 현재 실행 가능한 bootstrap 명령은 없다. 공개 관리자 가입 API나 별도 제품 화면을 만들지 않으며 일반 회원·크루 관리자 역할을 서비스 관리자 권한으로 변환하지 않는다.
+004/#52가 관리자 저장·해시·도구를 구현했다. 현재 명령과 대상 설정은 [개발 안내](../../../docs/development.md#관리자-인증-api와-초기-계정-도구), 단독 실행 결과는 [004 검증 기록](../../../docs/history/development/004-admin-api-verification.md)을 따른다. 공개 관리자 가입 API나 별도 제품 화면을 만들지 않으며 일반 회원·크루 관리자 역할을 서비스 관리자 권한으로 변환하지 않는다.
 
 ## 비밀 입력과 전달
 
