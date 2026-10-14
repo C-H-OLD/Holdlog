@@ -7,6 +7,9 @@ import type pg from 'pg';
 import type { Configuration } from './config/environment.js';
 import { logEvent } from './config/logging.js';
 import { createDatabase } from './database/pool.js';
+import { IdentityModule } from './modules/identity/identity.module.js';
+import { IdentityService, type IdentityVerifier } from './modules/identity/identity.service.js';
+import { IdentityExceptionFilter } from './modules/identity/identity.controller.js';
 import { DATABASE, HealthController } from './health/controller.js';
 
 class DatabaseLifecycle implements OnApplicationShutdown {
@@ -22,12 +25,13 @@ export class AppModule {}
 /**
  * Create a Nest API using validated local settings. The caller listens/closes the app.
  * Development health controllers are absent in production. Errors/logs never contain DB values.
- * No product endpoints, authentication shortcuts or static private-file routes are registered.
+ * Mobile identity endpoints are registered only with an explicitly configured verifier; no static private-file routes exist.
  */
-export async function createApplication(config: Configuration): Promise<NestExpressApplication> {
+export async function createApplication(config: Configuration, identity?: IdentityVerifier): Promise<NestExpressApplication> {
   const pool = createDatabase(config);
   try {
-    const app = await NestFactory.create<NestExpressApplication>({ module: AppModule, controllers: config.environment === 'production' ? [] : [HealthController], providers: [{ provide: DATABASE, useValue: pool }, DatabaseLifecycle] }, { logger: false, abortOnError: false });
+    const app = await NestFactory.create<NestExpressApplication>({ module: AppModule, imports: identity ? [IdentityModule.register(new IdentityService(pool, identity))] : [], controllers: config.environment === 'production' ? [] : [HealthController], providers: [{ provide: DATABASE, useValue: pool }, DatabaseLifecycle] }, { logger: false, abortOnError: false });
+    if (identity) app.useGlobalFilters(new IdentityExceptionFilter(app.getHttpAdapter()));
     app.enableCors({ origin: config.allowedOrigins, credentials: true });
     app.use((_request: IncomingMessage, response: ServerResponse, next: () => void) => {
       response.once('finish', () => logEvent('request.finished', response.statusCode));

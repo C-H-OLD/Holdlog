@@ -2,19 +2,19 @@ import { loadConfiguration } from './config/environment.js';
 import { logEvent, reportStartupFailure } from './config/logging.js';
 import { createDatabase } from './database/pool.js';
 import { migrate } from './database/migrate.js';
-import { createQueue, registerWorker } from './jobs/foundation.js';
+import { createQueue } from './jobs/foundation.js';
+import { registerApplicationWorkers } from './jobs/register.js';
 import { cleanupStartupFailure } from './jobs/shutdown.js';
 
-/** Start the separate local worker; initialize schema, redact failures and drain on signals. */
+/** Start the separate application worker; initialize schema, redact failures and drain on signals. */
 async function main(): Promise<void> {
   const config = loadConfiguration();
-  if (config.environment === 'production') throw new Error('Foundation worker is development-only');
   const pool = createDatabase(config);
   const boss = createQueue(config);
   try {
     await migrate(pool);
     await boss.start();
-    await registerWorker(boss, pool, config.queue);
+    await registerApplicationWorkers(boss, pool, config);
   } catch (error) { await cleanupStartupFailure(boss, pool, error); }
   let stopping = false;
   /** Stop once, allowing active effects to finish before ending DB connections. */
