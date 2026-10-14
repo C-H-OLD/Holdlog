@@ -4,7 +4,7 @@
 
 **Input**: [설계](plan.md) · [스펙](spec.md) · [연구](research.md) · [저장 모델](data-model.md) · [계약](contracts/README.md)
 
-**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. #51 모바일 인증·가입·이름 profile의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 사진·실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
+**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. #51 모바일 인증·가입·이름 profile의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. #57/T025의 [실제 관리자 HTTPS 연동 증거](../../docs/history/development/004-admin-auth-verification.md)를 추가했다. 사진·제공자/기기·나머지 실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
 
 ## Phase 1: Setup
 
@@ -57,7 +57,7 @@
 
 - [ ] T029 [SHARED] `apps/mobile/src/lib/identityProviders.ts`, `apps/mobile/app.config.ts`, `apps/mobile/package.json`, `package-lock.json`에서 Google nonce 재설정/캐시 회피·iOS/Android Apple nonce/state·code 전달·Android HTTPS redirect interception·SecureStore 재설치/백업과 native 빌드를 검증하고 정확한 SDK 버전을 고정한다. `docs/history/development/004-provider-compatibility.md`에 증거를 기록하며 nonce 불지원·유료 후보로 자동 대체하지 않는다. 실제 provider adapter 확정 전 선행이며 Phase3 순수 로직은 fake adapter로 검사한다.
 
-- [ ] T025 [INTEGRATION] `docs/history/development/004-admin-auth-verification.md`에 실제 시험DB·bootstrap·HTTPS 브라우저의 cookie/path·CSRF/Origin·회원/관리자 분리·만료/교체/로그아웃 결과와 명령을 기록한다.006/019의 제품 쓰기 연동이 없으면 합성 보호 API 결과와 구분한다.
+- [x] T025 [INTEGRATION] `docs/history/development/004-admin-auth-verification.md`에 실제 시험DB·bootstrap·HTTPS 브라우저의 cookie/path·CSRF/Origin·회원/관리자 분리·만료/교체/로그아웃 결과와 명령을 기록한다.006/019의 제품 쓰기 연동이 없으면 합성 보호 API 결과와 구분한다.
 - [ ] T026 [INTEGRATION] `docs/history/development/004-mobile-auth-verification.md`에 Google/Apple×iOS/Android 실제 제공자·nonce·재로그인·취소·토큰회전/회수·SecureStore와003 화면 시안 대조 결과를 기록한다. 미준비 제공자/OS/실기기를 통과로 합산하지 않는다.
 - [ ] T027 [INTEGRATION] `docs/history/development/004-cross-feature-verification.md`에서005 초대/크루0·다중/T67/T75·011사진bytes/권한·017로그아웃기기/푸시·021삭제진입을 실제 연동한다. 후속 구현 미준비면 해당 FR 최종 완료를 차단하고 mock 소비 증거만 별도 기록한다.
 - [ ] T028 [INTEGRATION] `specs/004-identity-profile/spec.md`, `quickstart.md`, `docs/setup-checklist.md`와 상위 이슈에 FR-001~006·SC-001~004의 모든 작업/병합/실제검사/보류를 대조하고 전체 완료 여부를 판단한다. 준비 문서나 자식 이슈 수만으로 스펙 완료를 표시하지 않는다.
