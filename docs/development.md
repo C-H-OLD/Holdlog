@@ -177,7 +177,7 @@ git diff --check
 
 ## 관리자 인증 API와 초기 계정 도구
 
-004/#52의 서버 단독 구현과 검사 결과는 [검증 기록](history/development/004-admin-api-verification.md)을 따른다. 관리자 웹 Provider·개발 HTTPS 검사 도구는 #54의 [실행 안내](#관리자-세션-소비와-https-검사)를 따른다. 실제 신뢰 HTTPS 브라우저 연동은 #57 범위다. 공개 관리자 가입 API는 없다.
+004/#52의 서버 단독 구현과 검사 결과는 [검증 기록](history/development/004-admin-api-verification.md)을 따른다. 관리자 웹 Provider·개발 HTTPS 검사 도구는 #54의 [실행 안내](#관리자-세션-소비와-https-검사)를 따른다. 실제 신뢰 HTTPS 브라우저 연동은 #57의 [실행 증거](history/development/004-admin-auth-verification.md)와 [재실행 안내](../infra/development/admin-auth-verification/README.md)를 따른다. 공개 관리자 가입 API는 없다.
 
 `apps/server/.env`의 기반 API/DB 설정을 먼저 준비한다. 시험은 로컬 `holdlog_test`, 개발은 로컬 `holdlog_dev`를 사용한다. 아래 도구는 설정을 먼저 검사하고 실제 터미널에서 비밀번호를 두 번 숨김 입력한다. 인수·환경 변수·pipe로 비밀번호를 전달하지 않는다. 기존 계정의 version은 대상 DB를 읽을 권한이 있는 운영자가 확인한다.
 

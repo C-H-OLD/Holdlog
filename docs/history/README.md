@@ -27,3 +27,5 @@
 - [화면 설명에서 분리한 과정 기록](decisions/2026-10-06-remaining-design-notes.md)
 
 이동 전 상태 스냅샷의 `_archiveMetadata.originalBase`는 원래 상대경로 기준 폴더다. 제거한 사진은 해당 보고서의 `artifactStatus=removed`·`removedPath`로 남기며 현재 파일 링크로 검사하지 않는다.
+
+- [2026-10-14 관리자 인증 실제 HTTPS 연동](development/004-admin-auth-verification.md)

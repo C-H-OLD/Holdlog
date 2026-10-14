@@ -4,7 +4,7 @@
 
 ## 적용 범위와 현재 상태
 
-현재 React/Vite의 빈 실행 화면·개발 API proxy·연결 진단·합성 계약 소비와 Node 검사가 있다. 004/#54의 관리자 API 전송·메모리 세션 Provider와 HTTPS 개발 검사 도구를 추가했다. [단독 검증](../history/development/004-admin-consumer-verification.md)을 따르며, 실제 #52 API·신뢰 브라우저 연결은 #57의 별도 검사다. A02·A03·A04 제품 화면은 구현 전이다. 아래 목표 폴더는 필요한 파일이 생길 때 만들며 문서 작성이 설치·구현·브라우저 검증 완료를 뜻하지 않는다.
+현재 React/Vite의 빈 실행 화면·개발 API proxy·연결 진단·합성 계약 소비와 Node 검사가 있다. 004/#54의 관리자 API 전송·메모리 세션 Provider와 HTTPS 개발 검사 도구를 추가했다. [단독 검증](../history/development/004-admin-consumer-verification.md)을 따르며, 실제 #52 API·신뢰 브라우저 연결은 #57의 [연동 증거](../history/development/004-admin-auth-verification.md)를 따른다. A02·A03·A04 제품 화면은 구현 전이다. 아래 목표 폴더는 필요한 파일이 생길 때 만들며 문서 작성이 설치·구현·브라우저 검증 완료를 뜻하지 않는다.
 
 기존 React·TypeScript·Vite 기반을 유지한다. 라우터·서버 캐시·폼·UI 라이브러리는 아직 설치된 것으로 가정하지 않으며 004·006·019의 상세 계획에서 실제 필요와 호환성을 확인한다. 모바일용 Router·Zustand·네이티브 UI를 어드민의 필수 도구로 복사하지 않는다.
 
@@ -61,7 +61,7 @@ cookie·CSRF·Origin과 만료 기준은 [C02](../../packages/contracts/conventi
 
 `AdminAuthStore`는 principal·CSRF·expiry를 메모리에 두고 `AuthProvider`/`useAdminAuth`는 CSRF 없는 공개 snapshot과 현재 세대의 동작을 연결한다. 006/019는 owner 생성 시 보호자료 cleanup을 주입하고 `runProtected(request, apply)`로 요청·세션 재조회·현재 세대/만료 확인 뒤 동기 apply를 실행한다. 쓰기 request의 CSRF/취소 signal과 같은 입력 재시도 key는 소비자가 유지한다. 네트워크/timeout/계약 실패는 확정401/403과 구분하며 성공으로 바꾸지 않는다. 로그인/로그아웃 cookie 변경은 순서대로 끝내고 세션 조회는 그 완료를 기다린다.
 
-개발 proxy는 개발 편의를 위한 것이다. 기존 proxy가 Origin·cookie를 변경하지 않는 기준을 유지하고 Secure cookie를 약화해 로컬 HTTP에서 인증을 통과시키지 않는다. HTTPS 설정과 개발 검사 경로는 [준비 안내](../../infra/development/admin-https.md)를 따른다. 실제 신뢰 브라우저·서버 연동은004/#57에서 수행한다.
+개발 proxy는 개발 편의를 위한 것이다. 기존 proxy가 Origin·cookie를 변경하지 않는 기준을 유지하고 Secure cookie를 약화해 로컬 HTTP에서 인증을 통과시키지 않는다. HTTPS 설정과 개발 검사 경로는 [준비 안내](../../infra/development/admin-https.md)를 따른다. 실제 신뢰 브라우저·서버 연동은004/#57의 [증거](../history/development/004-admin-auth-verification.md)를 따른다.006/019 제품 쓰기·cleanup 연동은 해당 기능에서 확인한다.
 
 ## 의존 방향과 공개 진입점
 

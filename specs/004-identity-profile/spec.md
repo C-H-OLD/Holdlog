@@ -4,7 +4,7 @@
 
 **Created**: 2026-10-06
 
-**Status**: 가입 설계·계약3.0.0 병합 / 공통 기반 T001~005 구현·단독 검사 / #51 모바일 API 서버 단독 구현·검사 / #52 관리자 API·bootstrap 및 #54 세션 소비·HTTPS 도구 단독 구현·검사 / 사진·실제 연동 전
+**Status**: 가입 설계·계약3.0.0 병합 / 공통 기반 T001~005 구현·단독 검사 / #51 모바일 API 서버 단독 구현·검사 / #52 관리자 API·bootstrap 및 #54 세션 소비·HTTPS 도구 단독 구현·검사 / #57 관리자 실제 HTTPS 연동 검증 / 사진·제공자/기기 연동 전
 
 **Input**: 기존 명세와 최신 시안을 개발 단위로 나누고 선행 관계 및 병렬 개발 전 계약 설계 범위를 정리한다.
 
@@ -108,4 +108,4 @@
 - 병렬 착수 전 필요한 계약: C01·C02·C03·C08·C09·C12. 설계 범위와 완료 조건은 [계약 설계 범위](../002-shared-contracts/contract-scope.md)를 따른다. 계약 확정 후 예제로 독립 개발할 수 있으나 실제 완료는 선행 기능과 연동해 확인한다.
 - 기존 검증 연결: T01·T67·T75. T번호의 기대 결과는 [원본 검증표](../../docs/functional-spec.md#9-기능-완료-확인-시나리오)에 두고 복사하지 않는다.
 - 개발자별 담당·단독 검사·전달과 합친 뒤 완료 기준은 [프론트·백엔드 작업 구분](../development-roles.md)을 따른다.
-- [구현 계획](plan.md)·[32개 작업 목록](tasks.md)을 준비했고 계약3.0.0은 PR #60으로 병합했다. T001~T005 공통 기반의 구현/단독 검증은 [증거](../../docs/history/development/004-identity-foundation-verification.md)를 따른다. #51 모바일 인증·가입·이름 profile API의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 앱 가입 흐름·사진·실제 관리자/제공자/기기 연동은 후속이며004 전체 완료가 아니다.
+- [구현 계획](plan.md)·[32개 작업 목록](tasks.md)을 준비했고 계약3.0.0은 PR #60으로 병합했다. T001~T005 공통 기반의 구현/단독 검증은 [증거](../../docs/history/development/004-identity-foundation-verification.md)를 따른다. #51 모바일 인증·가입·이름 profile API의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. #57/T025의 [관리자 실제 HTTPS 연동 증거](../../docs/history/development/004-admin-auth-verification.md)를 추가했다. 앱 가입 흐름·사진·제공자/기기 연동은 후속이며004 전체 완료가 아니다.
