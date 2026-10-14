@@ -9,6 +9,7 @@
 | 코드 구조·책임·의존 방향 | [공통 아키텍처](docs/architecture.md) · [서비스별 문서 목차](docs/architecture/README.md) |
 | 모바일 설계·개발 | [모바일 작업 안내](apps/mobile/AGENTS.md) · [모바일 아키텍처](docs/architecture/mobile.md) |
 | 서버 설계·개발 | [서버 작업 안내](apps/server/AGENTS.md) · [서버 아키텍처](docs/architecture/server.md) |
+| 공통 계약·생성물 변경 | [계약 작업 안내](packages/contracts/AGENTS.md) · [계약 패키지 안내](packages/contracts/README.md) |
 | 에이전트 기능 개발·변경 | [Spec Kit 개발 흐름](docs/development-workflow.md) · [기능 스펙 목록](specs/README.md) |
 | GitHub 이슈 준비·작업 선택·PR·완료 처리 | [GitHub 개발 흐름](docs/development-workflow.md#github-이슈와-pr) · [개발자 배정 기준](specs/development-roles.md#여러-개발자의-작업-배정) |
 | 기능 구현·수정 | [기능 명세](docs/functional-spec.md) · [기술·운영 명세](docs/technical-spec.md) |

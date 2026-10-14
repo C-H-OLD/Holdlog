@@ -87,3 +87,9 @@ specs/          기능별 범위·설계·작업·검증 기준
 기반과 공통 계약은 001·002의 산출물을 사용한다. 공통 계약 설계 완료를 제품 API나 화면 구현 완료로 취급하지 않는다. 구현 상태와 증거는 [기능 스펙 목록](../specs/README.md), [001 검증 기록](history/development/001-foundation-verification.md), [002 전달 기준](../specs/002-shared-contracts/contract-readiness.md)에서 확인한다.
 
 데이터의 논리 관계는 [002 데이터 모델](../specs/002-shared-contracts/data-model.md), 기록·파일의 소유권과 삭제 영향은 [기록 관계 설계](record-relationships.md)를 따른다. 이 문서는 구체적인 테이블·모듈의 실제 구현을 대신하는 상세 설계가 아니다.
+
+## 현재 연결 흐름과 기능 추가 예시
+
+현재 관리자 개발 연결 검사는 `apps/admin/src/development/connection-check.ts`에서 시작해 Vite의 개발 proxy를 통해 서버 `apps/server/src/health/controller.ts`로 전달된다. ready 검사는 `apps/server/src/database/pool.ts`의 DB 연결 결과를 사용한다. 모바일은 `apps/mobile/src/development/connection-check.ts`에서 기기별 개발 API origin을 사용한다. 이 흐름은 개발 health 확인이며 제품 인증 경로가 아니다. 실제 실행·실패 복구 증거는 [001 기록](history/development/001-foundation-verification.md)에서 확인한다.
+
+새 프로필 기능은 [004](../specs/004-identity-profile/spec.md)의 계획에서 모바일 화면·훅·API·보안 저장과 서버 identity 모듈·migration·검사를 나눈다. 관리자 세션 소비는 관리자 웹 API·Provider에 둔다. 통신 형식 변경이 필요하면 [계약 안내](../packages/contracts/README.md)에서 원본·생성·소비자를 함께 갱신한다. 앱 사이의 구현 import나 health 경로의 제품 API 전용으로는 연결하지 않는다. 구체 파일 배치는 각 [서비스 문서](architecture/README.md)를 따른다.
