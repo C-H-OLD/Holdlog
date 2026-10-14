@@ -20,3 +20,10 @@ export function readDevelopmentOrigin(env: Record<string, string | undefined>): 
     return url.origin;
   } catch { throw new Error('Missing or invalid setting: ADMIN_DEV_API_ORIGIN'); }
 }
+
+/** Keep administrator passwords off plaintext LAN proxy hops; allow loopback HTTP or verified private HTTPS. */
+export function readAdministratorDevelopmentOrigin(env:Record<string,string|undefined>):string {
+  const origin=readDevelopmentOrigin(env),url=new URL(origin);
+  if(url.protocol==='http:'&&!['localhost','[::1]'].includes(url.hostname)&&!url.hostname.startsWith('127.'))throw new Error('Missing or invalid setting: ADMIN_DEV_API_ORIGIN');
+  return origin;
+}

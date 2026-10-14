@@ -152,7 +152,7 @@ git diff --check
 
 위 명령을 별도 작업 폴더에서 재현했다. [#11 재현 기록](history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)에서 실패/원복·번들/로그 경계와 실제 DB 검사의 범위를 확인한다. 현재 로컬 기본 `python3` 실행 파일이 중단되어 기존 정적 검사는 `/usr/bin/python3`로 수행했다. 다른 환경에서는 정상 동작하는 Python3를 사용한다.
 
-루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀75개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `TEST_DATABASE_URL`을 로컬 시험 DB로 전달한 뒤 `npm run test:foundation`으로 별도 실행한다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
+루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀94개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `TEST_DATABASE_URL`을 로컬 시험 DB로 전달한 뒤 `npm run test:foundation`으로 별도 실행한다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
 
 필수 설정은 다음과 같다. 값은 로컬 환경 파일에서 관리하고 파일을 Git에 넣지 않는다.
 
@@ -177,7 +177,7 @@ git diff --check
 
 ## 관리자 인증 API와 초기 계정 도구
 
-004/#52의 서버 단독 구현과 검사 결과는 [검증 기록](history/development/004-admin-api-verification.md)을 따른다. 관리자 웹 Provider/신뢰 HTTPS 브라우저 연동은 #54/#57 범위다. 공개 관리자 가입 API는 없다.
+004/#52의 서버 단독 구현과 검사 결과는 [검증 기록](history/development/004-admin-api-verification.md)을 따른다. 관리자 웹 Provider·개발 HTTPS 검사 도구는 #54의 [실행 안내](#관리자-세션-소비와-https-검사)를 따른다. 실제 신뢰 HTTPS 브라우저 연동은 #57 범위다. 공개 관리자 가입 API는 없다.
 
 `apps/server/.env`의 기반 API/DB 설정을 먼저 준비한다. 시험은 로컬 `holdlog_test`, 개발은 로컬 `holdlog_dev`를 사용한다. 아래 도구는 설정을 먼저 검사하고 실제 터미널에서 비밀번호를 두 번 숨김 입력한다. 인수·환경 변수·pipe로 비밀번호를 전달하지 않는다. 기존 계정의 version은 대상 DB를 읽을 권한이 있는 운영자가 확인한다.
 
@@ -197,3 +197,22 @@ npm run test:foundation --workspace @holdlog/server
 ```
 
 006/019 controller는 `AdminSessionGuard`를 사용한다. 업무 service의 읽기/쓰기는 `AdminSessionService.withAdministrator(cookie, writeContext, callback)`에서 같은 client로 수행하고, 쓰기 context에 Origin/CSRF를 전달한다. callback은 commit/release하지 않고 principal→session→업무 잠금 순서를 따른다. guard 결과만으로 나중의 저장을 허용하지 않는다.
+
+
+## 관리자 세션 소비와 HTTPS 검사
+
+004/#54는 `apps/admin/src/api/auth.ts`의 생성 계약 전송·응답 검사와 `AdminAuthStore`/`AuthProvider`/`useAdminAuth`를 제공한다. 전송은 `@holdlog/contracts/admin-auth-checks`의 세 operation 전용 생성 입력·응답 검사와 메타데이터를 소비해 전체 validator를 브라우저 번들에 싣지 않는다. 기존 `operations`/`validators` 진입점은 그대로 유지한다. 로그인/세션/로그아웃은 상대 `/api/v2/admin` 경로와 same-origin credentials를 사용한다. Origin과 HttpOnly cookie는 브라우저가 관리한다. 로그인/로그아웃의 요청키는 호출자가 만들고 같은 입력 재시도에 유지한다. 자동 쓰기 재시도는 없다.
+
+owner는 CSRF/expiry를 메모리에만 두고 localStorage/sessionStorage·URL·로그를 사용하지 않는다. 초기/재조회 요청을 공유하며 네트워크/timeout·계약 실패와 확정401/403을 구분한다. 로그아웃·계정 전환·만료·unmount는 보호자료 cleanup과 세대 변경을 먼저 수행하고 늦은 응답을 거절한다. 임시 실패는 유효한 세션과 해당 폼 입력을 보존한다. cleanup 실패도 권한 성공으로 공개하지 않는다.
+
+006/019는 안정된 owner를 Provider에 주입하고 보호 캐시/자료 cleanup을 생성 시 연결한다. 업무 요청과 결과 적용은 `runProtected(request, apply)` 안에서 수행한다. request는 메모리 CSRF와 취소 signal을 받아 계약의 쓰기 헤더에 전달하며, owner가 세션을 재조회한 뒤 현재 principal·세대·expiry를 확인할 때만 동기 apply를 실행한다. 서버의 guard/업무 TX 권한 검사를 대신하지 않는다. Query/폼 라이브러리를 설치했다고 가정하지 않는다.
+
+```sh
+npm test --workspace @holdlog/admin
+npm run typecheck --workspace @holdlog/admin
+npm run build --workspace @holdlog/admin
+```
+
+개발 검사 도구는 [HTTPS 준비](../infra/development/admin-https.md)의 인증서/Node 설정으로 `npm run dev:admin`을 실행한 뒤 `https://127.0.0.1:5173/__development/admin-auth`에서 연다. 기본 HTTP 모드에서는 도구가404이며 production build/preview에는 도구가 없다. 신규 제품 로그인 시안을 추가하지 않았다.
+
+[단독 증거](history/development/004-admin-consumer-verification.md)는 합성 API와 임시 TLS를 사용한다. 브라우저 시스템 신뢰와 실제 #52 API의 계정 교체·권한·만료·로그아웃 연동은 #57에서 별도로 확인한다.

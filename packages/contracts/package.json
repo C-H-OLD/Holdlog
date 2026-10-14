@@ -39,6 +39,10 @@
     "./http-input": {
       "types": "./generated/http-input.d.mts",
       "default": "./generated/http-input.mjs"
+    },
+    "./admin-auth-checks": {
+      "types": "./generated/admin-auth-checks.d.mts",
+      "default": "./generated/admin-auth-checks.mjs"
     }
   }
 }

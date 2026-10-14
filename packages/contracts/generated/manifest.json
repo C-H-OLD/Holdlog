@@ -3,19 +3,19 @@
   "node": "24.21.0",
   "npm": "11.19.0",
   "inputs": {
-    "package-lock.json": "d0a5e7777dfd43472b71359b01733f07b643ab4c456f945ac87154502b99109e",
+    "package-lock.json": "feabad7b08cfa05c05b3f2057155b95fe5f0522f5294968471da5b0fa33f7d82",
     "package.json": "7d1a1b3e744f2585d91b6081f17927e7cb4c3f369569337147d5cf37bc1fa616",
     "packages/contracts/conventions.md": "37799d31daf83af27d37eecc82c13f19ab2f6204440d19edae3ed21def1ef901",
     "packages/contracts/examples.json": "69eab1f6334a3ecce6b3838266cab7bc3f6159e23e7b3eea5b9a62d614c12e88",
     "packages/contracts/openapi.json": "a6c798e2f569b90ed5062f0d7f5f2f7aef1e5f7c216e52a64be73c61aca3ab36",
-    "packages/contracts/package.json": "a6112db2868fe5d6ca2fdd74fde21a3daa0900b357c4cb8e3b908d28d43a1d47",
+    "packages/contracts/package.json": "42e39d2f17397b6683100bbf34d82a39f9e6cf2007f5c9a6e0b84facdbd847f4",
     "packages/contracts/runtime.schema.json": "e4a81bbb5505c2950425a7177e3bb6806658006a2ab640e84565599de19fb217",
     "redocly.yaml": "c0a7337c685a5d428cf8c3c644aaeaaa6cce661bc637575e53931a8c10f291ab",
     "scripts/contracts/check-examples.mjs": "6115e997d66c8153f796cb6bf4564fba8d5793e35ae8159fc684e41a62050700",
     "scripts/contracts/check-generated.mjs": "220e3904fa5a4e9ffb6ad6ed1a1b43b2fe07d39a193fe123e5e9a00996ab5dbd",
     "scripts/contracts/check.mjs": "32fc9ce6103c51dfa2f290be8ebb8067493e69352f27a86cedfae2842edd0770",
     "scripts/contracts/formats.mjs": "69b4763e9b3e8e024f5344ba0ed758437fcdc38d5d254dc031791b9beb20c2a1",
-    "scripts/contracts/generate.mjs": "5f5e850918f9a948f385dc0088a06a256d4eff3d13c18f16d6330dfe79358300",
+    "scripts/contracts/generate.mjs": "8a246d82d729752a2663d38f3d3ab4c1970a40342c41e11c144ac1fbf97dee37",
     "scripts/contracts/http-input.mjs": "7e250f5cc6259ddfeb67ec7d9dc0e19ec99d14bceecbdb07eec8fe650666d5af",
     "scripts/contracts/schema-registry.mjs": "93bb6a6ac23b832d8a8be5d13dee72d13af1c32ab53405658a2467b06d3d497c"
   },
@@ -29,6 +29,9 @@
     "typescript": "5.9.3"
   },
   "outputs": [
+    "admin-auth-checks.d.mts",
+    "admin-auth-checks.mjs",
+    "admin-auth-validators.mjs",
     "client.d.ts",
     "empty.mjs",
     "fixtures.d.mts",

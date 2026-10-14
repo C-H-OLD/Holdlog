@@ -4,7 +4,7 @@
 
 **Input**: [설계](plan.md) · [스펙](spec.md) · [연구](research.md) · [저장 모델](data-model.md) · [계약](contracts/README.md)
 
-**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. #51 모바일 인증·가입·이름 profile의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. 관리자 웹·사진·실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
+**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. #51 모바일 인증·가입·이름 profile의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 사진·실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
 
 ## Phase 1: Setup
 
@@ -39,8 +39,8 @@
 - [ ] T031 [FE] [US1] `apps/mobile/src/lib/signupFlow.ts`, `apps/mobile/test/signup.test.ts`에서 signupRequired/completingSignup/authenticated 구분·증명 메모리 보관/만료·이름 검증·입력/초대 보존·계정 세대·응답 유실/보안 저장 실패 재인증을 검사 후 구현한다. 일반 API/탭 진입은 세션 보안 저장 전 막고 기존 회원은07.02를 건너뛴다. T015~016의 계약 전송/상태 adapter 위에서 수행한다.
 - [ ] T017 [FE] [US1] `apps/mobile/src/app/login.tsx`, `signup.tsx`, `(tabs)/profile/index.tsx`, `profile/edit.tsx`, `apps/mobile/src/hooks/mutations/useEditProfile.ts`에07.01/07.02/05.01/05.02를003 부품·라우트와 연결한다.005 PendingInvite·크루 결과 소비,021 삭제 진입과 기존 시안을 대조하고 `apps/mobile/test/profile.test.ts`에 정상/실패 검사를 추가한다.
 - [ ] T018 [FE] [US1] `apps/mobile/src/hooks/mutations/useEditProfile.ts`, `apps/mobile/test/profile.test.ts`에011 image draft/upload/ready의 사진 선택·실패 유지·교체/제거를 연결한다.011 adapter와 T017 조립 뒤 수행한다.
-- [ ] T019 [P] [FE] [US1] `apps/admin/test/auth.test.ts`, `apps/admin/src/api/auth.ts`, `apps/admin/src/providers/AuthProvider.tsx`에 cookie credentials·세션/CSRF 조회·Origin 실패·logout·보호자료 정리를 검사 후 구현한다. 새 로그인 페이지 없이 API/Provider의 fixture 소비로 독립 시작한다.
-- [ ] T020 [FE] [US1] `apps/admin/src/development/admin-auth-check.ts`, `apps/admin/vite.config.ts`, `infra/development/`에서 신뢰 HTTPS·proxy·개발 브라우저 인증 검사 도구를 연결한다. 인증서/키 Git 제외·cookie/Origin 무변경·운영 번들 제외를 확인하고 Node 전용 설정 변경은 공통 담당과 조정한다.
+- [x] T019 [P] [FE] [US1] `apps/admin/test/auth.test.ts`, `apps/admin/src/api/auth.ts`, `apps/admin/src/providers/AuthProvider.tsx`에 cookie credentials·세션/CSRF 조회·Origin 실패·logout·보호자료 정리를 검사 후 구현한다. 새 로그인 페이지 없이 API/Provider의 fixture 소비로 독립 시작한다.
+- [x] T020 [FE] [US1] `apps/admin/src/development/admin-auth-check.ts`, `apps/admin/vite.config.ts`, `infra/development/`에서 신뢰 HTTPS·proxy·개발 브라우저 인증 검사 도구를 연결한다. 인증서/키 Git 제외·cookie/Origin 무변경·운영 번들 제외를 확인하고 Node 전용 설정 변경은 공통 담당과 조정한다.
 
 ## Phase 4: US2 실패와 경계에서 자료 유지 (P1)
 
@@ -51,7 +51,7 @@
 - [x] T021 [BE] [US2] `apps/server/test/identity.e2e-spec.ts`에 첫 가입 요청을 commit 직전에 유지한 상태에서 같은 증명/키의 두 번째 요청은409, 첫 요청은201이며 account/session 각각1개·token 재반환0건임을 검사한다. commit 이후 재요청401·진행 중 다른 입력409·503 이후 같은 키 재시도도 확인한다. challenge/proof 동시소비·같은/다른 증명의 계정 unique경쟁·refresh 동시재사용/회수 commit·현재설치 타계정 재연결·로그아웃 실패/유실·만료경계·삭제상태·receipt 실패를 주입해 token/가입/기록 보존과 금지 처리0건을 검증한다. `apps/server/test/profile.e2e-spec.ts`에서 이름 profile412/428/unknown·rollback을 확인하고 사진 자산 거절은 T014에서 확인한다.
 - [x] T022 [P] [BE] [US2] `apps/server/test/admin-auth.e2e-spec.ts`에서 bootstrap 동시/버전/해시/SQL실패·교체회수·CSRF 재조회·Origin/권한 거절·rollback을 확인한다.
 - [ ] T023 [P] [FE] [US2] `apps/mobile/test/identity.test.ts`, `profile.test.ts`과 `signup.test.ts`에 가입 증명 만료·소비/응답 유실·공백·선택사진 취소/권한거절·갱신 지연·로그아웃/계정변경·보안저장실패·통신실패/401 분리·동일재시도키·입력유지·초대취소·다른계정 draft 차단을 추가한다.
-- [ ] T024 [P] [FE] [US2] `apps/admin/test/auth.test.ts`에 만료/회수·늦은응답·CSRF/권한 실패·다른principal 전환의 보호자료 정리를 검사하고 비밀이 localStorage·로그·운영번들에 없는지 확인한다.
+- [x] T024 [P] [FE] [US2] `apps/admin/test/auth.test.ts`에 만료/회수·늦은응답·CSRF/권한 실패·다른principal 전환의 보호자료 정리를 검사하고 비밀이 localStorage·로그·운영번들에 없는지 확인한다.
 
 ## Phase 5: 제공자 호환성·실제 연동·최종 대조
 
