@@ -4,7 +4,7 @@
 
 **Input**: [설계](plan.md) · [스펙](spec.md) · [연구](research.md) · [저장 모델](data-model.md) · [계약](contracts/README.md)
 
-**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. #51 모바일 인증·가입·이름 profile의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. 관리자·사진·실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
+**Status**: 개발 준비. T006 병합 완료. T001~T005 공통 기반의 [실행 증거](../../docs/history/development/004-identity-foundation-verification.md)를 연결했다. #51 모바일 인증·가입·이름 profile의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. 관리자 웹·사진·실제 연동은 미완료다. `[BE]`·`[FE]`·`[SHARED]`·`[INTEGRATION]`은 담당 역할이며 `[P]`는 선행 충족 뒤 파일이 다른 작업 사이에서만 병렬 가능하다. 상세 규칙은 계약/제품 원본에 두고 여기서 복제하지 않는다. 검사 작업은004 FR/SC에 필요한 실패·원자성·기기 증거를 만들기 위한 것이다.
 
 ## Phase 1: Setup
 
@@ -30,8 +30,8 @@
 - [x] T009 [BE] [US1] `apps/server/src/modules/identity/mobile-session.ts`, `identity.service.ts`에 기존 계정 세션 발급과 신규 SignupProof 발급을 분리한다. challenge 단일 소비·현재 계정/삭제 상태 재검사·세션/기기 원자 저장을 구현한다. 신규 인증만으로 Account/Session/Device 연결을 만들지 않고 증명으로 보호 API에 접근할 수 없음을 검사한다.
 - [x] T030 [BE] [US1] `apps/server/src/modules/identity/signup.ts`, `identity.repository.ts`, `apps/server/test/signup.e2e-spec.ts`에 completeSignup의 증명 hash/15분/설치·trim 이름·요청키·동시 identity 잠금·계정/identity/session/device/proof 원자 저장을 검사 후 구현한다. 입력 오류 미소비·503 rollback·동일 증명/키의 비대기 진입 잠금 및201/409 경합·후발409·성공 응답 유실 뒤 재인증·token 미보관을 검증하며 T009 뒤 수행한다. `apps/server/src/modules/identity/signup-proof-cleanup.ts`와 기존 worker에 만료/소비 증명의 정리 작업을 연결하고 `signup.e2e-spec.ts`에서 주기 실행·재실행·진행 중 잠금·미소비 유효 증명 보존·식별정보 삭제·최소 receipt 보존을 검사한다. 정리 실패 재시도는 가입 API와 독립 실행한다.
 - [x] T010 [BE] [US1] `apps/server/src/modules/identity/identity.controller.ts`, `identity.module.ts`, `apps/server/src/app.module.ts`에 login 분기/completeSignup의 생성 입력 검사·모바일 guard·refresh 회전/재사용 family 회수·현재 기기 로그아웃을 연결한다. `apps/server/package.json`에004 단위/DB 검사 명령을 연결하고 기존 기반 검사를 유지한다.
-- [ ] T011 [P] [BE] [US1] `apps/server/test/admin-auth.e2e-spec.ts`에 관리자 create-only/교체/로그인/session/logout와 회원·크루관리자 거절 검사를 먼저 작성한다. T003~006 뒤 모바일 세션 작업과 파일 경계를 나눠 수행한다.
-- [ ] T012 [BE] [US1] `apps/server/src/tools/admin-bootstrap.ts`, `apps/server/src/modules/identity/admin-session.ts`에서001 절차의 숨김 입력·Argon2id·명시적 version 교체/전체세션회수·별도guard·cookie/CSRF 파생/Origin 검사를 구현하고 관리자 HTTP 연결은 T010 controller 담당과 순차 조정한다.
+- [x] T011 [P] [BE] [US1] `apps/server/test/admin-auth.e2e-spec.ts`에 관리자 create-only/교체/로그인/session/logout와 회원·크루관리자 거절 검사를 먼저 작성한다. T003~006 뒤 모바일 세션 작업과 파일 경계를 나눠 수행한다.
+- [x] T012 [BE] [US1] `apps/server/src/tools/admin-bootstrap.ts`, `apps/server/src/modules/identity/admin-session.ts`에서001 절차의 숨김 입력·Argon2id·명시적 version 교체/전체세션회수·별도guard·cookie/CSRF 파생/Origin 검사를 구현하고 관리자 HTTP 연결은 T010 controller 담당과 순차 조정한다.
 - [x] T013 [BE] [US1] `apps/server/test/profile.e2e-spec.ts`, `apps/server/src/modules/identity/identity.service.ts`, `identity.controller.ts`에 본인 profile 조회·이름 변경·ETag/If-Match·멱등 처리를 검사 후 구현한다. T009/T030/T010과 같은 파일이므로 병렬 변경하지 않는다.
 - [ ] T014 [BE] [US1] `apps/server/src/modules/identity/identity.service.ts`, `apps/server/test/profile.e2e-spec.ts`에 createProfileImageDraft·본인 ready Asset 연결/제거·동일TX 회수/정리를011 서비스와 연결한다.011 migration/서비스 준비가 착수 선행이며004에 별도 업로드·자산 저장을 만들지 않는다.
 - [ ] T015 [P] [FE] [US1] `apps/mobile/test/identity.test.ts`, `apps/mobile/src/api/holdlog/auth.ts`, `profile.ts`에서 transport 주입·생성 타입/응답 검사·계약 오류·요청키/버전을 검사하고 fetch 전송 함수를 구현한다. 서버 구현 대기 없이 fixtures로 시작한다.
@@ -49,7 +49,7 @@
 
 - [ ] T032 [FE] [US2] `apps/mobile/src/lib/signupFlow.ts`, `apps/mobile/src/hooks/mutations/useEditProfile.ts`, `apps/mobile/test/signup.test.ts`에 이름 가입 성공 후011 사진 저장·실패 다이얼로그 재시도/사진 없이 계속하기·GET 결과 복구·늦은 응답/다른 계정 차단을 검사 후 연결한다. T018/T031과011 adapter 선행. 이름 재제출/계정 재생성 없이 기존 session을 사용하며 새 전체 상태 화면을 만들지 않는다.
 - [x] T021 [BE] [US2] `apps/server/test/identity.e2e-spec.ts`에 첫 가입 요청을 commit 직전에 유지한 상태에서 같은 증명/키의 두 번째 요청은409, 첫 요청은201이며 account/session 각각1개·token 재반환0건임을 검사한다. commit 이후 재요청401·진행 중 다른 입력409·503 이후 같은 키 재시도도 확인한다. challenge/proof 동시소비·같은/다른 증명의 계정 unique경쟁·refresh 동시재사용/회수 commit·현재설치 타계정 재연결·로그아웃 실패/유실·만료경계·삭제상태·receipt 실패를 주입해 token/가입/기록 보존과 금지 처리0건을 검증한다. `apps/server/test/profile.e2e-spec.ts`에서 이름 profile412/428/unknown·rollback을 확인하고 사진 자산 거절은 T014에서 확인한다.
-- [ ] T022 [P] [BE] [US2] `apps/server/test/admin-auth.e2e-spec.ts`에서 bootstrap 동시/버전/해시/SQL실패·교체회수·CSRF 재조회·Origin/권한 거절·rollback을 확인한다.
+- [x] T022 [P] [BE] [US2] `apps/server/test/admin-auth.e2e-spec.ts`에서 bootstrap 동시/버전/해시/SQL실패·교체회수·CSRF 재조회·Origin/권한 거절·rollback을 확인한다.
 - [ ] T023 [P] [FE] [US2] `apps/mobile/test/identity.test.ts`, `profile.test.ts`과 `signup.test.ts`에 가입 증명 만료·소비/응답 유실·공백·선택사진 취소/권한거절·갱신 지연·로그아웃/계정변경·보안저장실패·통신실패/401 분리·동일재시도키·입력유지·초대취소·다른계정 draft 차단을 추가한다.
 - [ ] T024 [P] [FE] [US2] `apps/admin/test/auth.test.ts`에 만료/회수·늦은응답·CSRF/권한 실패·다른principal 전환의 보호자료 정리를 검사하고 비밀이 localStorage·로그·운영번들에 없는지 확인한다.
 

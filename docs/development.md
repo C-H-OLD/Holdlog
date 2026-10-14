@@ -152,7 +152,7 @@ git diff --check
 
 위 명령을 별도 작업 폴더에서 재현했다. [#11 재현 기록](history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)에서 실패/원복·번들/로그 경계와 실제 DB 검사의 범위를 확인한다. 현재 로컬 기본 `python3` 실행 파일이 중단되어 기존 정적 검사는 `/usr/bin/python3`로 수행했다. 다른 환경에서는 정상 동작하는 Python3를 사용한다.
 
-루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀56개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `TEST_DATABASE_URL`을 로컬 시험 DB로 전달한 뒤 `npm run test:foundation`으로 별도 실행한다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
+루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀75개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `TEST_DATABASE_URL`을 로컬 시험 DB로 전달한 뒤 `npm run test:foundation`으로 별도 실행한다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
 
 필수 설정은 다음과 같다. 값은 로컬 환경 파일에서 관리하고 파일을 Git에 넣지 않는다.
 
@@ -172,4 +172,28 @@ git diff --check
 
 ## 004 공통 인증 기반
 
-인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 `TEST_DATABASE_URL`의 로컬 `holdlog_test`에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. #51 모바일 로그인·가입·이름 profile API의 서버 단독 결과는 [실행 안내](#모바일-인증-api-실행)와 [증거](history/development/004-mobile-identity-api-verification.md)를 따른다. 관리자·실제 제공자/기기 연동은 후속이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.
+인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 `TEST_DATABASE_URL`의 로컬 `holdlog_test`에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. #51 모바일 로그인·가입·이름 profile API의 서버 단독 결과는 [실행 안내](#모바일-인증-api-실행)와 [증거](history/development/004-mobile-identity-api-verification.md)를 따른다. 관리자 서버 단독 구현은 [실행 안내](#관리자-인증-api와-초기-계정-도구)를 따른다. 실제 제공자/기기·관리자 브라우저 연동은 후속이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.
+
+
+## 관리자 인증 API와 초기 계정 도구
+
+004/#52의 서버 단독 구현과 검사 결과는 [검증 기록](history/development/004-admin-api-verification.md)을 따른다. 관리자 웹 Provider/신뢰 HTTPS 브라우저 연동은 #54/#57 범위다. 공개 관리자 가입 API는 없다.
+
+`apps/server/.env`의 기반 API/DB 설정을 먼저 준비한다. 시험은 로컬 `holdlog_test`, 개발은 로컬 `holdlog_dev`를 사용한다. 아래 도구는 설정을 먼저 검사하고 실제 터미널에서 비밀번호를 두 번 숨김 입력한다. 인수·환경 변수·pipe로 비밀번호를 전달하지 않는다. 기존 계정의 version은 대상 DB를 읽을 권한이 있는 운영자가 확인한다.
+
+```sh
+npm run admin:bootstrap --workspace @holdlog/server -- create <loginId>
+npm run admin:bootstrap --workspace @holdlog/server -- replace <loginId> --expected-version <version>
+```
+
+최초 생성은 중복을 거절한다. 명시적 교체는 active를 유지하고 version 증가·모든 관리자 세션 회수를 같은 트랜잭션에서 처리한다. 실패는 분류 코드와 종료 코드1, 성공은 작업 종류·완료·version만 출력한다. 비밀 전달·응답 유실의 운영 절차는 [초기 관리자 준비 절차](../specs/001-development-foundation/contracts/admin-bootstrap.md)를 따른다.
+
+API에는 `ADMIN_IDENTITY_ENABLED=true`, 독립적인 `ADMIN_CSRF_KEY`(32바이트 canonical base64), 정확한 HTTPS Origin 목록 `ADMIN_ALLOWED_ORIGINS`를 설정하고 기존 `npm run dev:api`로 실행한다. 모바일 provider 설정은 필요 없다. 관리자 CORS와 쓰기 Origin 검사는 관리자 목록만 사용한다. Argon2 검증은 프로세스·시험 DB를 공유하는 모든 API에서 동시에2건으로 제한하고 포화 시 재시도 가능한503을 반환한다. PostgreSQL session advisory lock namespace `holdlog.admin.password-verification`의 slot0/1을 사용하며 연결 반환 전에 해제한다. 브라우저는 신뢰 HTTPS와 `/api/v2/admin` cookie path를 보존하는 proxy가 필요하며, 일반 HTTP Node 검사는 브라우저의 Secure cookie 저장을 입증하지 않는다.
+
+```sh
+# TEST_DATABASE_URL은 비공개 로컬 환경에서 설정한다.
+npm run test:admin-auth --workspace @holdlog/server
+npm run test:foundation --workspace @holdlog/server
+```
+
+006/019 controller는 `AdminSessionGuard`를 사용한다. 업무 service의 읽기/쓰기는 `AdminSessionService.withAdministrator(cookie, writeContext, callback)`에서 같은 client로 수행하고, 쓰기 context에 Origin/CSRF를 전달한다. callback은 commit/release하지 않고 principal→session→업무 잠금 순서를 따른다. guard 결과만으로 나중의 저장을 허용하지 않는다.

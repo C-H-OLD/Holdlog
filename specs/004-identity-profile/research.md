@@ -23,7 +23,7 @@
 
 ## 관리자 해시·세션
 
-- **선택**: `node-argon2`의 PHC hash/verify를 서버 전용 adapter로 사용한다. 임의 SHA password hash나 수제 PHC를 만들지 않는다. async 비용은 구현 환경에서 측정하고 기본 파라미터·정확한 버전을 고정한다. 고엔트로피 session token 해시는 password 비용과 구분한다.
+- **선택**: `node-argon2`의 PHC hash/verify를 서버 전용 adapter로 사용한다. 임의 SHA password hash나 수제 PHC를 만들지 않는다. 0.45.1의 Argon2id memoryCost=65536 KiB/timeCost=3/parallelism=4를 고정했다. 구현 환경의 합성 생성/검증 비용과 실패 검사는 [#52 증거](../../docs/history/development/004-admin-api-verification.md)를 따른다. 고엔트로피 session token 해시는 password 비용과 구분한다.
 - **근거**: [node-argon2](https://github.com/ranisalt/node-argon2), [Node24 crypto](https://nodejs.org/docs/latest-v24.x/api/crypto.html#cryptoargon2algorithm-parameters-callback).
 - **CSRF 선택**: cookie secret + 서버 비밀키 + session ID로 도출해 재조회 가능한 CSRF를 만들고 DB hash와 대조한다. 원문 cookie를 JSON으로 반환하지 않는다. token 교체 방식도 가능하나 여러 탭의 불필요한 무효화를 피한다.
 - **비밀번호 교체**: 모든 기존 관리자 세션을 같은 TX에서 회수하는 내부 처리로 확정한다. active 값/권한/식별자는 교체로 변경하지 않는다.001 초기 준비 원본을 따라 구현·검사한다.

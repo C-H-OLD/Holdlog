@@ -4,7 +4,7 @@
 
 ## 적용 범위와 현재 상태
 
-현재 NestJS API·개발 health 경로·pg 연결·SQL migration runner와 pg-boss 합성 worker가 있다. 004 인증 저장 migration·같은 client의 TX/잠금·최소 receipt·별도 설정 검증 기반을 추가했다. 004/#51은 모바일 인증·가입 완료·이름 profile·회수와 proof 정리의 서버 단독 구현을 추가했다. [검증 기록](../history/development/004-mobile-identity-api-verification.md)을 따른다. 실제 제공자/기기·관리자 인증·나머지 업무 API·파일 처리·푸시와 실제 운영 배포는 후속이다. proof 정리 worker는 운영 분기에도 등록하고 합성 작업은 development/test에만 등록한다. 아래 `modules/identity/`는 현재 구현이고 다른 업무 모듈·`storage/`는 필요한 구현이 생길 때 만든다. 기존 기반 코드를 폴더 이름 통일만을 위해 옮기지 않는다.
+현재 NestJS API·개발 health 경로·pg 연결·SQL migration runner와 pg-boss 합성 worker가 있다. 004 인증 저장 migration·같은 client의 TX/잠금·최소 receipt·별도 설정 검증 기반을 추가했다. 004/#51은 모바일 인증·가입 완료·이름 profile·회수와 proof 정리의 서버 단독 구현을 추가했다. [검증 기록](../history/development/004-mobile-identity-api-verification.md)을 따른다. 004/#52는 별도 관리자 cookie 인증·초기 계정 도구와 [서버 단독 검사](../history/development/004-admin-api-verification.md)를 추가했다. 실제 제공자/기기·관리자 브라우저·나머지 업무 API·파일 처리·푸시와 실제 운영 배포는 후속이다. proof 정리 worker는 운영 분기에도 등록하고 합성 작업은 development/test에만 등록한다. 아래 `modules/identity/`는 현재 구현이고 다른 업무 모듈·`storage/`는 필요한 구현이 생길 때 만든다. 기존 기반 코드를 폴더 이름 통일만을 위해 옮기지 않는다.
 
 현재 의존성과 실행 명령은 [개발 안내](../development.md)와 manifest를 따른다. DB 접근은 기존 `pg`를 기준으로 하며 ORM이나 별도 서버 프레임워크 도입은 이 문서 작성에 포함하지 않는다. 계약 패키지를 실제 import하는 workspace에는 직접 의존을 선언하고 루트 lockfile을 함께 갱신한다.
 
@@ -55,7 +55,7 @@ worker handler → 같은 업무 service·저장 어댑터
 - 인증 경계는 현재 주체·세션을 확인하고 service는 대상 크루·소유·업무 제약을 검사한다. 입력의 accountId·역할·선택 크루나 클라이언트의 canEdit를 권한 근거로 쓰지 않는다. 재요청과 worker 실행에서도 현재 권한·삭제 상태를 필요한 시점에 재검사한다.
 - service의 업무 오류를 HTTP adapter에서 계약의 status·code·허용된 상세값으로 바꾼다. SQL 오류·stack·내부 경로·비밀값을 응답하지 않는다. 인증·권한 검사 전 비공개 대상의 존재나 version을 노출하지 않는다.
 - controller에서 화면용 정책·계산식을 새로 만들지 않는다. 본인 응답과 회원 공개 응답은 별도 projection으로 구성하고, 금지된 값을 전송한 뒤 화면에서 숨기는 방식은 사용하지 않는다.
-- 관리자 인증은 004의 책임이며 모바일 Bearer 세션과 별개다. cookie·CSRF·Origin·초기 관리자 준비는 [C02 원본](../../packages/contracts/conventions.md#인증기기관리자--c02c03c09)과 [초기 관리자 절차](../../specs/001-development-foundation/contracts/admin-bootstrap.md)를 따른다. 개발 health 경로를 인증 우회로 사용하지 않는다.
+- 관리자 인증은 004의 책임이며 모바일 Bearer 세션과 별개다. cookie·CSRF·Origin·초기 관리자 준비는 [C02 원본](../../packages/contracts/conventions.md#인증기기관리자--c02c03c09)과 [초기 관리자 절차](../../specs/001-development-foundation/contracts/admin-bootstrap.md)를 따른다. 006/019의 HTTP는 `AdminSessionGuard`, 업무는 `AdminSessionService.withAdministrator` callback의 같은 client로 현재 권한·CSRF와 저장을 묶는다. 개발 health 경로를 인증 우회로 사용하지 않는다.
 - UTC 시점·현지 날짜·IANA 시간대, PATCH 누락/null, 미입력/명시적 0을 변환 과정에서 보존한다. 응답·헤더·멱등키·오류의 상세 규칙은 [공통 계약 규칙](../../packages/contracts/conventions.md)이 원본이다.
 
 ## DB 접근 경계

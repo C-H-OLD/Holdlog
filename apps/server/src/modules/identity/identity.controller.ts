@@ -8,7 +8,7 @@ import { index } from '@holdlog/contracts/operations';
 import { parseParameter } from '@holdlog/contracts/http-input';
 import { IdentityService } from './identity.service.js';
 import { IdentityError, invalid, unauthenticated } from './errors.js';
-type Operation = 'createLoginChallenge' | 'login' | 'completeSignup' | 'refreshSession' | 'logout' | 'getMyProfile' | 'editMyProfile';
+type Operation = 'createLoginChallenge' | 'login' | 'completeSignup' | 'refreshSession' | 'logout' | 'getMyProfile' | 'editMyProfile' | 'adminLogin' | 'adminSession' | 'adminLogout';
 interface OperationContract { parameters: (Parameters<typeof parseParameter>[0] & { name: string; validator: keyof typeof validators })[]; body?: Record<string, { validator: keyof typeof validators }> }
 type WireRequest = IncomingMessage & { body?: unknown };
 
@@ -20,7 +20,7 @@ export function bearer(request: IncomingMessage): string {
 }
 
 /** Distinguish the parser's empty-body object from an actual JSON body using HTTP framing. */
-function wireBody(request: WireRequest): unknown {
+export function wireBody(request: WireRequest): unknown {
   return !request.headers['transfer-encoding'] && Number(request.headers['content-length'] ?? 0) === 0 ? undefined : request.body;
 }
 
