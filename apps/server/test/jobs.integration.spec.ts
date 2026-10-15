@@ -2,97 +2,78 @@ import assert from 'node:assert/strict';
 import { fork } from 'node:child_process';
 import { once } from 'node:events';
 import { randomUUID } from 'node:crypto';
-import { setTimeout } from 'node:timers/promises';
 import { test } from 'node:test';
-import { createDatabase } from '../src/database/pool.js';
-import { migrate } from '../src/database/migrate.js';
-import { createQueue, recordEffect } from '../src/jobs/foundation.js';
-import { integrationConfiguration } from './helpers.js';
+import type Database from 'better-sqlite3';
+import { withTransaction } from '../src/database/transaction.js';
+import { recordEffect, startFoundationQueue } from '../src/jobs/foundation.js';
+import { enqueue, type QueuePolicy } from '../src/jobs/queue.js';
+import { registerApplicationWorkers } from '../src/jobs/register.js';
+import { startQueue, type QueueRunner } from '../src/jobs/runner.js';
+import { testDatabase, waitFor } from './helpers.js';
 
-void test('pg-boss retries after worker interruption without repeating the committed job effect', { timeout: 45000 }, async () => {
-  const config = integrationConfiguration();
-  const pool = createDatabase(config);
-  const queue = 'foundation-' + randomUUID();
-  const first = createQueue(config);
-  const second = createQueue(config);
-  let id: string | null = null;
+// Short lease and backoff keep lease-expiry recovery within a few hundred milliseconds.
+const policy: QueuePolicy = { baseDelayMs: 50, maxAttempts: 4, leaseMs: 500 };
+
+/** Enqueue one synthetic job in its own transaction and return its id. */
+function add(db: Database.Database, queue: string): string {
+  const jobKey = 'job-' + randomUUID();
+  withTransaction(db, () => enqueue(db, { queue, jobKey, maxAttempts: policy.maxAttempts }));
+  return db.prepare<[string], { id: string }>('SELECT id FROM jobs WHERE job_key=?').get(jobKey)!.id;
+}
+/** Read the state and attempts of one job. */
+function job(db: Database.Database, id: string): { state: string; attempts: number } { return db.prepare<[string], { state: string; attempts: number }>('SELECT state, attempts FROM jobs WHERE id=?').get(id)!; }
+/** Count synthetic effects of one job. */
+function effects(db: Database.Database, id: string): number { return db.prepare('SELECT job_id FROM job_effects WHERE job_id=?').all(id).length; }
+
+void test('an interrupted runner leaves the job to lease expiry and another runner completes it without repeating the effect', { timeout: 20_000 }, async () => {
+  const { db, close } = testDatabase();
+  const queue = 'foundation-' + randomUUID().slice(0, 8), id = add(db, queue);
+  const entered = Promise.withResolvers<void>();
+  const first = startQueue(db, queue, policy, async (claimed, signal) => {
+    recordEffect(db, claimed.id);
+    entered.resolve();
+    // Keep the handler active until stop aborts it, modelling a crash after the effect committed.
+    await new Promise<void>(resolve => signal.addEventListener('abort', () => resolve(), { once: true }));
+    throw new Error('synthetic interruption');
+  }, 20);
+  let second: QueueRunner | undefined;
   try {
-    await migrate(pool);
-    await first.start();
-    await first.createQueue(queue, { retryLimit: 3, retryDelay: 1, expireInSeconds: 5 });
-    const entered = Promise.withResolvers<void>();
-    await first.work(queue, { pollingIntervalSeconds: 0.5 }, async jobs => {
-      for (const job of jobs) {
-        await recordEffect(pool, job.id);
-        entered.resolve();
-        // Keep the handler active until stop aborts it, modeling a crash after commit.
-        await new Promise<void>(resolve => job.signal.addEventListener('abort', () => resolve(), { once: true }));
-        throw new Error('synthetic interruption');
-      }
-    });
-    id = await first.send(queue, {});
-    assert.ok(id);
     await entered.promise;
-    await first.stop({ graceful: false });
-    await second.start();
-    await second.work(queue, { pollingIntervalSeconds: 0.5 }, async jobs => {
-      for (const job of jobs) await recordEffect(pool, job.id);
-    });
-    const deadline = Date.now() + 25000;
-    let completed = false;
-    while (Date.now() < deadline) {
-      const jobs = await second.findJobs(queue, { id });
-      if (jobs[0]?.state === 'completed') { completed = true; assert.ok(jobs[0].retryCount >= 1); break; }
-      await setTimeout(200);
-    }
-    assert.ok(completed, 'interrupted job must complete after restart');
-    assert.equal((await pool.query('SELECT job_id FROM holdlog_foundation.job_effects WHERE job_id=$1', [id])).rowCount, 1);
-    await recordEffect(pool, id);
-    assert.equal((await pool.query('SELECT job_id FROM holdlog_foundation.job_effects WHERE job_id=$1', [id])).rowCount, 1);
-  } finally {
-    await first.stop({ graceful: false });
-    await second.deleteQueue(queue).catch(() => undefined);
-    await second.stop({ graceful: false });
-    if (id) await pool.query('DELETE FROM holdlog_foundation.job_effects WHERE job_id=$1', [id]);
-    await pool.end();
-  }
+    await first.stop(50);
+    second = startFoundationQueue(db, queue, policy, 20);
+    assert.ok(await waitFor(() => job(db, id).state === 'completed', 5000), 'interrupted job must complete after its lease expires');
+    assert.ok(job(db, id).attempts >= 2);
+    assert.equal(effects(db, id), 1);
+    assert.equal(recordEffect(db, id), false);
+    assert.equal(effects(db, id), 1);
+  } finally { await second?.stop(100); close(); }
 });
 
-void test('SIGKILL after effect commit recovers the expired active job in a new worker', { timeout: 45000 }, async () => {
-  const config = integrationConfiguration();
-  const pool = createDatabase(config);
-  const boss = createQueue(config);
-  const queue = 'foundation-' + randomUUID();
-  const child = fork(new URL('./interrupted-worker.js', import.meta.url), [], { env: { ...process.env, FOUNDATION_TEST_QUEUE: queue }, stdio: ['ignore', 'ignore', 'ignore', 'ipc'] });
-  let id: string | null = null;
+void test('SIGKILL after the effect commit recovers the expired running job in a new runner', { timeout: 20_000 }, async () => {
+  const { config, db, close } = testDatabase();
+  const queue = 'foundation-' + randomUUID().slice(0, 8), id = add(db, queue);
+  const child = fork(new URL('./interrupted-worker.js', import.meta.url), [config.databasePath, queue], { stdio: ['ignore', 'ignore', 'inherit', 'ipc'] });
+  let runner: QueueRunner | undefined;
   try {
-    await migrate(pool);
-    await boss.start();
-    await boss.createQueue(queue, { retryLimit: 3, retryDelay: 1, expireInSeconds: 3 });
-    id = await boss.send(queue, {});
-    assert.ok(id);
-    const message = await once(child, 'message', { signal: AbortSignal.timeout(10000) });
+    const message = await once(child, 'message', { signal: AbortSignal.timeout(10_000) });
     assert.equal(message[0], id);
     const exit = once(child, 'exit');
     child.kill('SIGKILL');
     const result = await exit;
     assert.equal(result[1], 'SIGKILL');
-    await boss.work(queue, { pollingIntervalSeconds: 0.5 }, async jobs => { for (const job of jobs) await recordEffect(pool, job.id); });
-    let completed = false;
-    const deadline = Date.now() + 25000;
-    while (Date.now() < deadline) {
-      await boss.supervise(queue);
-      const jobs = await boss.findJobs(queue, { id });
-      if (jobs[0]?.state === 'completed') { completed = true; assert.ok(jobs[0].retryCount >= 1); break; }
-      await setTimeout(200);
-    }
-    assert.ok(completed, 'abruptly interrupted job must recover');
-    assert.equal((await pool.query('SELECT job_id FROM holdlog_foundation.job_effects WHERE job_id=$1', [id])).rowCount, 1);
-  } finally {
-    child.kill('SIGKILL');
-    await boss.deleteQueue(queue).catch(() => undefined);
-    await boss.stop({ graceful: false });
-    if (id) await pool.query('DELETE FROM holdlog_foundation.job_effects WHERE job_id=$1', [id]);
-    await pool.end();
-  }
+    runner = startFoundationQueue(db, queue, policy, 20);
+    assert.ok(await waitFor(() => job(db, id).state === 'completed', 5000), 'abruptly interrupted job must recover');
+    assert.ok(job(db, id).attempts >= 2);
+    assert.equal(effects(db, id), 1);
+  } finally { child.kill('SIGKILL'); await runner?.stop(100); close(); }
+});
+
+void test('development/test registration runs the synthetic queue and stops cleanly', async () => {
+  const { config, db, close } = testDatabase();
+  const workers = registerApplicationWorkers(db, config, { pollMs: 10, cleanupMs: 60_000, foundation: policy });
+  try {
+    const id = add(db, config.queue);
+    assert.ok(await waitFor(() => job(db, id).state === 'completed', 2000));
+    assert.equal(effects(db, id), 1);
+  } finally { await workers.stop(100); close(); }
 });

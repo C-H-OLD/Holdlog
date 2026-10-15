@@ -1,31 +1,23 @@
-import { PgBoss } from 'pg-boss';
-import type pg from 'pg';
-import type { Configuration } from '../config/environment.js';
-import { logEvent } from '../config/logging.js';
+import type Database from 'better-sqlite3';
+import { asPromise, withTransaction } from '../database/transaction.js';
+import type { QueuePolicy } from './queue.js';
+import { startQueue, type QueueRunner } from './runner.js';
 
-/** Create pg-boss on the configured local DB; its internal schema belongs to the library. */
-export function createQueue(config: Configuration): PgBoss {
-  const boss = new PgBoss({ connectionString: config.databaseUrl, schema: 'pgboss', application_name: 'holdlog-foundation-worker', connectionTimeoutMillis: 2000, monitorIntervalSeconds: 1 });
-  boss.on('error', () => logEvent('worker.failed'));
-  return boss;
-}
+/** Synthetic queue policy with the former pg-boss numbers: 4 runs (3 retries), 1 s base backoff, 30 s lease. */
+export const foundationPolicy: QueuePolicy = { baseDelayMs: 1000, maxAttempts: 4, leaseMs: 30_000 };
 
 /**
- * Commit one synthetic effect per pg-boss job UUID. Re-delivery returns false with no new effect.
+ * Commit one synthetic effect per job id. Re-delivery returns false with no new effect.
  * Throws on DB/UUID errors. This marker models retry safety; it performs no product work.
  */
-export async function recordEffect(pool: pg.Pool, jobId: string): Promise<boolean> {
-  const result = await pool.query('INSERT INTO holdlog_foundation.job_effects(job_id) VALUES ($1) ON CONFLICT (job_id) DO NOTHING', [jobId]);
-  return result.rowCount === 1;
+export function recordEffect(db: Database.Database, jobId: string): boolean {
+  return withTransaction(db, () => db.prepare('INSERT INTO job_effects (job_id) VALUES (?) ON CONFLICT (job_id) DO NOTHING').run(jobId).changes === 1);
 }
 
-/** Register the synthetic queue and handler; call boss.stop before closing the effect pool. */
-export async function registerWorker(boss: PgBoss, pool: pg.Pool, queue: string): Promise<void> {
-  await boss.createQueue(queue, { retryLimit: 3, retryDelay: 1, expireInSeconds: 30 });
-  await boss.work(queue, { pollingIntervalSeconds: 0.5 }, async jobs => {
-    for (const job of jobs) {
-      try { await recordEffect(pool, job.id); }
-      catch { throw new Error('Synthetic effect unavailable'); }
-    }
-  });
+/** Start the development/test synthetic queue; an effect failure surfaces as a fixed error without DB details. */
+export function startFoundationQueue(db: Database.Database, queue: string, policy: QueuePolicy = foundationPolicy, pollMs = 500): QueueRunner {
+  return startQueue(db, queue, policy, job => asPromise(() => {
+    try { recordEffect(db, job.id); }
+    catch { throw new Error('Synthetic effect unavailable'); }
+  }), pollMs);
 }

@@ -76,22 +76,12 @@ test('missing manifest fails with the expected target rather than skipping it', 
   });
 });
 
-test('foundation requires an explicit test DB and does not print unrelated secrets', () => {
+test('foundation runs only the server DB command without DB settings and does not print unrelated secrets', () => {
   withFixture(({ run, trace }) => {
-    const result = run('test:foundation', { TEST_DATABASE_URL: '', RUNNER_TEST_SECRET: 'synthetic-secret-marker' });
-    assert.equal(result.status, 1);
-    assert.match(result.stderr, /TEST_DATABASE_URL/);
-    assert.doesNotMatch(result.stdout + result.stderr, /synthetic-secret-marker/);
-    assert.equal(trace(), '');
-  });
-});
-
-test('foundation invokes the existing server test command with its configuration', () => {
-  withFixture(({ run, trace }) => {
-    const result = run('test:foundation', { TEST_DATABASE_URL: 'postgres://synthetic:marker@127.0.0.1:55433/holdlog_test' });
+    const result = run('test:foundation', { RUNNER_TEST_SECRET: 'synthetic-secret-marker' });
     assert.equal(result.status, 0, result.stdout + result.stderr);
     assert.equal(trace(), 'server:test:foundation,');
-    assert.doesNotMatch(result.stdout + result.stderr, /postgres:\/\//);
+    assert.doesNotMatch(result.stdout + result.stderr, /synthetic-secret-marker/);
   });
 });
 

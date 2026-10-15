@@ -19,6 +19,7 @@
 - [x] T004 [SHARED] `apps/server/src/database/transaction.ts`, `apps/server/src/modules/identity/identity.repository.ts`에 같은 client의 TX·잠금·receipt 공통 경계를 마련한다. completeSignup의 비대기 요청 진입 잠금은 [가입 설계](signup-design.md#가입-완료요청키동시성)를 따르고 이후 업무 잠금은 identity key→challenge/proof→Account/Session/Credential/Device 순서·unique경쟁·원문 미보관을 `apps/server/test/identity.e2e-spec.ts`로 확인한다.
 - [x] T005 [SHARED] `apps/server/src/config/environment.ts`, `apps/server/.env.example`, `apps/server/src/config/logging.ts`에 audience/JWKS·Apple 서버키·CSRF 파생키·allowlist 설정의 검증·비밀 제외를 추가하고 `apps/server/test/config.spec.ts`에서 누락/잘못된 설정·출력 경계를 검사한다. 운영값/키 원문을 예시에 넣지 않는다.
 - [x] T006 [SHARED] `packages/contracts/openapi.json`, `runtime.schema.json`, `conventions.md`, `examples.json`와 `specs/002-shared-contracts/data-model.md`에 [계약 변경 설계](contracts/README.md)의3.0.0/API v2·LoginResult·SignupProof·CompleteSignupInput/completeSignup·07.02 Route·증명 수명/오류/receipt를 반영한다. `apps/admin/src/api/contracts.ts`, `vite.config.ts`, `apps/admin/test/contracts.test.ts`, `runtime.test.ts`의base/proxy를v2로 맞추고 cookie path 문서·003 전달을 갱신한다. 생성 도구로 재생성한 `packages/contracts/generated/`와 FE/BE 소비 예제를 같은 manifest로 검사한다. `npm run contracts:check`, `npm run check`, 정적 계약/문서 검사와 분기 혼합/unknown JSON 거절을 통과한 전환 PR 병합 전 새 DTO 소비를 착수하지 않는다. 현재 제품 API 배포자가 발견되면 별도 호환 계획 없이 전환하지 않는다.
+- [x] T033 [BE] `apps/server/`(database·migration001/002·identity·jobs·worker·test), `infra/development/compose.yaml`, `scripts/check-workspaces.mjs`, `scripts/test/check-runner.test.mjs`, `apps/admin/test/runtime.test.ts`, `package-lock.json`, `packages/contracts/generated/manifest.json`에서 서버 저장을 PostgreSQL에서 SQLite(better-sqlite3)로 바꾼다. 완료된 T003~T005·T007~T013·T021·T022·T030과001 T012의 검사를 SQLite 방식으로 다시 통과시키고 HTTP 계약·오류·응답·시각 형식은 바꾸지 않는다. [전환 기록](../../docs/history/decisions/2026-10-14-server-sqlite.md)과 [실행 증거](../../docs/history/development/004-server-sqlite-verification.md)를 남긴다.
 
 ## Phase 3: US1 로그인과 내 정보·프로필 이용 (P1)
 
@@ -66,14 +67,14 @@
 
 | 기준 | 작업 |
 |---|---|
-| FR-001 | T001~010·T015~017·T021·T023·T026·T029~032 |
+| FR-001 | T001~010·T015~017·T021·T023·T026·T029~033 |
 | FR-002 | T015~017·T023·T026~027·T031~032 |
-| FR-003 | T013~018·T023·T027·T032 |
-| FR-004 | T009~010·T016·T021·T023·T026~027 |
+| FR-003 | T013~018·T023·T027·T032~033 |
+| FR-004 | T009~010·T016·T021·T023·T026~027·T033 |
 | FR-005 | T017·T023·T027 |
-| FR-006 | T003~006·T011~012·T019~020·T022·T024~025 |
+| FR-006 | T003~006·T011~012·T019~020·T022·T024~025·T033 |
 | SC-001 | T025~028 |
-| SC-002 | T007·T011·T013·T015~016·T019·T021~027·T030~032 |
+| SC-002 | T007·T011·T013·T015~016·T019·T021~027·T030~033 |
 | SC-003 | T025~028 |
 | SC-004 | T017~018·T026~028·T031~032 |
 
@@ -82,6 +83,8 @@
 T001→T002는 공통 설정·의존성 준비, T003→T004→T005는 SQL/잠금/설정, T006은 별도 계약 전환이다. T006은001 기반에서 독립 착수하며 SHARED가 원본/생성/공통 소비 변경을 한 PR로 모은다. BE/FE 새 가입 DTO 소비는T006 병합이 필수다. BE 모바일 T007→T008→T009→T030→T010→T013, 관리자 T011→T012이며 같은 controller 수정은T010 담당과 순차 조정한다. FE 모바일 T015→T016→T031→T017→T018→T032, 관리자T019→T020. T014/T018/T032는011 준비가 필요하다. T029는T002와 외부 설정/기기 뒤 실제SDK 연결의 선행이며T016/T031 순수fake 검사는 기다리지 않는다. Phase4는 대응 구현 이후이며 T032는 FE 미디어 묶음이 맡는다. T025는관리자 BE/FE, T026은모바일 BE/FE·003·제공자, T027은후속005/011/017/021 해당 기능, T028은전체 검증이 선행이다.
 
 병렬 예시: T006과T003~005는 파일 경계를 나눠 병행할 수 있다. 계약 전환 이후 US1의모바일BE·관리자BE·모바일FE·관리자FE는각자 파일에서 병행하되 같은 controller/lockfile/config는단일 담당이 모은다. US2의T021/T022/T023/T024는대응하는 업무 구현과 단독 검사 이후 서비스별로 병렬 검증한다.
+
+T033은 완료된 BE 작업(T003~T005·T007~T013·T021·T022·T030)의 저장 방식을 SQLite로 바꾸므로 그 뒤에 한다. T014와 이후 서버 작업은 T033의 SQLite 저장 위에서 한다.
 
 ## 구현 전략과 배정 묶음
 
@@ -99,6 +102,7 @@ T001→T002는 공통 설정·의존성 준비, T003→T004→T005는 SQL/잠금
 | [`004/integration-admin`](https://github.com/C-H-OLD/Holdlog/issues/57) | INTEGRATION T025 | admin BE/FE·시험환경.006/019 실운영쓰기 검사는 해당기능 연동과구분 |
 | [`004/integration-mobile`](https://github.com/C-H-OLD/Holdlog/issues/58) | INTEGRATION T026 | mobile BE/FE·003·제공자/기기 |
 | [`004/integration-final`](https://github.com/C-H-OLD/Holdlog/issues/59) | INTEGRATION T027~028 | 위 결과와005/011/017/021. 필수후속 미준비면 완료 차단 |
+| [`004/backend-sqlite`](https://github.com/C-H-OLD/Holdlog/issues/66) | BE T033 | 위 BE 묶음 병합 뒤. 서버 저장 전환·계약 무변경. T014와 후속 서버 작업의 선행 |
 
 각 ID는 위 한 묶음에만 속한다. 실제 담당·진행·PR은 GitHub 작업 이슈에서 관리한다. 모바일/웹 mock 소비는 서버 제품 구현을 기다리지 않으며 공유 파일은 한 담당이 모은다. MVP는 관리자 단독 접근과 모바일 인증/이름 프로필을 먼저 검증하되 사진·후속 연동 미완료를004 전체 완료로 부르지 않는다.
 

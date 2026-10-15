@@ -25,26 +25,25 @@
 
 ## 서버·DB·worker 로컬 실행
 
-[#5 서버 기반 검증](history/development/001-backend-foundation-verification.md)의 서버 단독 실행을 확인했다. Node/npm 버전은 아래 공통 안내를 따른다. 공개 예시를 로컬 설정으로 복사하고 DB 비밀번호를 서로 다른 로컬 값으로 바꾼다. `apps/server/.env`의 DB 비밀번호를 개발 DB 값에 맞추고 `PRIVATE_STORAGE_PATH`를 로컬 전용 절대 경로로 설정한다. 환경 파일은 Git에서 제외된다.
+[#5 서버 기반 검증](history/development/001-backend-foundation-verification.md)의 서버 단독 실행을 확인했다. Node/npm 버전은 아래 공통 안내를 따른다. 공개 예시를 로컬 설정으로 복사한다. `apps/server/.env`의 `DATABASE_PATH`를 저장소 `infra/development/data/holdlog_dev.sqlite`의 절대 경로로, `PRIVATE_STORAGE_PATH`를 로컬 전용 절대 경로로 설정한다. 환경 파일과 `infra/development/data/`는 Git에서 제외된다.
 
 ```sh
-cp infra/development/.env.example infra/development/.env
 cp apps/server/.env.example apps/server/.env
-# 위 두 파일의 로컬 값을 준비한 뒤 실행
-docker compose --env-file infra/development/.env -f infra/development/compose.yaml up -d --wait db test-db
+# DATABASE_PATH의 폴더를 먼저 만든다. SQLite는 없는 폴더에 파일을 만들지 않는다.
+mkdir -p infra/development/data
 # 비공개 파일용 영구 볼륨 준비. HTTP로 공개하지 않는다.
-docker compose --env-file infra/development/.env -f infra/development/compose.yaml --profile storage up -d storage
+docker compose -f infra/development/compose.yaml --profile storage up -d storage
 npm run db:migrate --workspace=@holdlog/server
 npm run dev:api
 # 별도 터미널
 npm run dev:worker
 npm run build --workspace=@holdlog/server
 npm test --workspace=@holdlog/server
-# TEST_DATABASE_URL에 Compose 시험 DB 주소(/holdlog_test, port55433)를 로컬로 전달한 뒤
+# 시험마다 임시 폴더에 새 SQLite 파일을 만든다. 따로 준비할 시험 DB가 없다.
 npm run test:foundation
 ```
 
-API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답은 [001 기반 인터페이스](../specs/001-development-foundation/contracts/README.md#개발-연결)를 따른다. 운영 모드에서는 두 개발 경로를 등록하지 않는다. wildcard/public API bind와 개발/시험 DB 이름 혼용은 거절하며, 후속 연동에서 필요한 개발 LAN의 사설 IP를 명시할 수 있다. 비공개 파일 볼륨은 후속 파일 구현용 영역이며 현재 worker는 합성 jobId 표식만 저장한다. 루트 실행·전체 검사 명령은 #9에서 연결했고 웹·모바일의 실제 로컬 연동은 #10에서 검증했다. 시험 DB 사용자는 `holdlog`, 이름은 `holdlog_test`, 포트는55433이다. `TEST_DATABASE_URL`은 실제 시험 비밀번호를 사용해 로컬 환경으로 전달하며 공유 명령·로그에 값을 저장하지 않는다. 비밀번호의 URL 특수 문자는 인코딩한다.
+API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답은 [001 기반 인터페이스](../specs/001-development-foundation/contracts/README.md#개발-연결)를 따른다. 운영 모드에서는 두 개발 경로를 등록하지 않는다. wildcard/public API bind와 개발/시험 DB 파일 이름 혼용은 거절하며, 후속 연동에서 필요한 개발 LAN의 사설 IP를 명시할 수 있다. 비공개 파일 볼륨은 후속 파일 구현용 영역이며 현재 worker는 합성 jobId 표식만 저장한다. 루트 실행·전체 검사 명령은 #9에서 연결했고 웹·모바일의 실제 로컬 연동은 #10에서 검증했다. DB는 SQLite 파일이다. `DATABASE_PATH`는 절대 경로이고 상위 폴더가 이미 있어야 하며, 파일 이름은 test에서 `holdlog_test.sqlite`, 그 밖에서 `holdlog_dev.sqlite`다. DB 시험은 시험마다 임시 폴더에 새 파일을 만들어 시험 DB 설정이 없다. 이전 PostgreSQL Compose의 `db`·`test-db` 컨테이너와 볼륨은 더 쓰지 않는다. 남아 있으면 각자 `docker compose -f infra/development/compose.yaml --profile storage up -d --remove-orphans storage`와 `docker volume rm holdlog-foundation_development-db holdlog-foundation_test-db`로 지운다. PostgreSQL판에서 서버를 빌드한 적이 있으면 `apps/server/dist`를 지우고 다시 빌드한다. 지운 시험의 빌드 결과가 `test:foundation`에 섞이기 때문이다.
 
 ## 모바일 인증 API 실행
 
@@ -52,7 +51,6 @@ API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답
 
 ```sh
 npm run test --workspace @holdlog/server
-# 개발 안내의 로컬 holdlog_test만 TEST_DATABASE_URL로 비공개 전달
 npm run test:identity --workspace @holdlog/server
 npm run test:foundation
 ```
@@ -152,19 +150,17 @@ git diff --check
 
 위 명령을 별도 작업 폴더에서 재현했다. [#11 재현 기록](history/development/001-foundation-verification.md#별도-폴더-재현과-비밀-경계--11--t027t030)에서 실패/원복·번들/로그 경계와 실제 DB 검사의 범위를 확인한다. 현재 로컬 기본 `python3` 실행 파일이 중단되어 기존 정적 검사는 `/usr/bin/python3`로 수행했다. 다른 환경에서는 정상 동작하는 Python3를 사용한다.
 
-루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀94개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `TEST_DATABASE_URL`을 로컬 시험 DB로 전달한 뒤 `npm run test:foundation`으로 별도 실행한다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
+루트 `npm run check`는 lockfile·계약·모든 workspace lint/typecheck·도구/runner/앱 단독 회귀102개와 웹/API 빌드를 실행한다. 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행은 포함하지 않으며 미수행으로 출력한다. 실제 DB·queue 검사는 `npm run test:foundation`으로 별도 실행한다. 시험마다 임시 SQLite 파일을 만들어 외부 DB나 시험 DB 설정이 필요 없다. `npm run test`, `build:admin`, `build:api`, `dev:api`, `dev:worker`, `dev:admin`, `dev:mobile`도 루트 진입점으로 제공한다. 모바일 Metro 시작과 네이티브 빌드를 구분한다.
 
 필수 설정은 다음과 같다. 값은 로컬 환경 파일에서 관리하고 파일을 Git에 넣지 않는다.
 
 | 대상 | 설정 이름 |
 |---|---|
-| Compose | DEVELOPMENT_DB_PASSWORD·TEST_DB_PASSWORD |
-| API/worker | NODE_ENV·API_HOST·API_PORT·DATABASE_URL·PRIVATE_STORAGE_PATH·ALLOWED_ORIGINS·WORKER_QUEUE |
-| 실제 시험 DB 검사 | TEST_DATABASE_URL |
+| API/worker | NODE_ENV·API_HOST·API_PORT·DATABASE_PATH·PRIVATE_STORAGE_PATH·ALLOWED_ORIGINS·WORKER_QUEUE |
 | 웹 개발 proxy | ADMIN_DEV_API_ORIGIN |
 | 모바일 공개 설정 | EXPO_PUBLIC_DEV_API_ORIGIN_IOS·EXPO_PUBLIC_DEV_API_ORIGIN_ANDROID |
 
-실패하면 첫 실패 대상·종료 코드와 설정 이름을 확인한다. 계약 원본 변경은 `npm run contracts:generate` 후 `contracts:check`로 확인하며 생성물을 수기로 고치지 않는다. 실제 타입/설정 오류는 원본을 고친 뒤 같은 명령을 재실행한다. DB503이면 Compose의 DB healthy와 접속 이름·포트를 확인하고 `up -d --wait db`로 복구한다. 연결 불가이면 API 실행과 플랫폼별 origin·Vite proxy를 확인한다. 재시작 검증에 `down -v`나 기존 볼륨 삭제를 쓰지 않는다. 모바일 export의 공개 설정 누락은 `.env` 준비와 위 env-file 진입점으로 해결하며 필수 검증을 우회하지 않는다.
+실패하면 첫 실패 대상·종료 코드와 설정 이름을 확인한다. 계약 원본 변경은 `npm run contracts:generate` 후 `contracts:check`로 확인하며 생성물을 수기로 고치지 않는다. 실제 타입/설정 오류는 원본을 고친 뒤 같은 명령을 재실행한다. ready503이면 `DATABASE_PATH`의 폴더·파일 권한을 확인하고 `npm run db:migrate --workspace=@holdlog/server`로 migration을 적용한다. 연결 불가이면 API 실행과 플랫폼별 origin·Vite proxy를 확인한다. 재시작 검증에 `down -v`나 기존 볼륨 삭제를 쓰지 않는다. 모바일 export의 공개 설정 누락은 `.env` 준비와 위 env-file 진입점으로 해결하며 필수 검증을 우회하지 않는다.
 
 기능 검증은 [기능 명세9절](functional-spec.md#9-기능-완료-확인-시나리오)의 T01–T80, [운동 검증 기준](workout-recording-spec.md#완료-확인-기준), 해당 [기능 스펙](../specs/README.md)의 완료 기준을 함께 확인하고, 제작된 화면은 현재 Figma와 대조한다. 시안 제작·문서 작성·앱 구현·기기 검증을 각각 구분해 기록한다.
 
@@ -172,14 +168,14 @@ git diff --check
 
 ## 004 공통 인증 기반
 
-인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 `TEST_DATABASE_URL`의 로컬 `holdlog_test`에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. #51 모바일 로그인·가입·이름 profile API의 서버 단독 결과는 [실행 안내](#모바일-인증-api-실행)와 [증거](history/development/004-mobile-identity-api-verification.md)를 따른다. 관리자 서버 단독 구현은 [실행 안내](#관리자-인증-api와-초기-계정-도구)를 따른다. 실제 제공자/기기·관리자 브라우저 연동은 후속이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.
+인증 저장 SQL·TX/잠금·최소 receipt와 mobile/admin 별도 설정 검증을 추가했다. `npm run test:identity --workspace @holdlog/server`는 시험마다 만든 임시 SQLite 파일에서 기반 저장/제약 검사를 수행한다. 전체 기반 DB 검사는 기존 `npm run test:foundation`을 사용한다. 설정 이름·의존성·네이티브 빌드 및 미수행 범위는 [004 공통 기반 검증](history/development/004-identity-foundation-verification.md)을 따른다. #51 모바일 로그인·가입·이름 profile API의 서버 단독 결과는 [실행 안내](#모바일-인증-api-실행)와 [증거](history/development/004-mobile-identity-api-verification.md)를 따른다. 관리자 서버 단독 구현은 [실행 안내](#관리자-인증-api와-초기-계정-도구)를 따른다. 실제 제공자/기기·관리자 브라우저 연동은 후속이며 공개 health/worker 실행에 provider 비밀을 요구하지 않는다.
 
 
 ## 관리자 인증 API와 초기 계정 도구
 
 004/#52의 서버 단독 구현과 검사 결과는 [검증 기록](history/development/004-admin-api-verification.md)을 따른다. 관리자 웹 Provider·개발 HTTPS 검사 도구는 #54의 [실행 안내](#관리자-세션-소비와-https-검사)를 따른다. 실제 신뢰 HTTPS 브라우저 연동은 #57 범위다. 공개 관리자 가입 API는 없다.
 
-`apps/server/.env`의 기반 API/DB 설정을 먼저 준비한다. 시험은 로컬 `holdlog_test`, 개발은 로컬 `holdlog_dev`를 사용한다. 아래 도구는 설정을 먼저 검사하고 실제 터미널에서 비밀번호를 두 번 숨김 입력한다. 인수·환경 변수·pipe로 비밀번호를 전달하지 않는다. 기존 계정의 version은 대상 DB를 읽을 권한이 있는 운영자가 확인한다.
+`apps/server/.env`의 기반 API/DB 설정을 먼저 준비한다. 시험은 `holdlog_test.sqlite`, 개발은 `holdlog_dev.sqlite` 파일을 사용한다. 아래 도구는 설정을 먼저 검사하고 실제 터미널에서 비밀번호를 두 번 숨김 입력한다. 인수·환경 변수·pipe로 비밀번호를 전달하지 않는다. 기존 계정의 version은 대상 DB를 읽을 권한이 있는 운영자가 확인한다.
 
 ```sh
 npm run admin:bootstrap --workspace @holdlog/server -- create <loginId>
@@ -188,15 +184,14 @@ npm run admin:bootstrap --workspace @holdlog/server -- replace <loginId> --expec
 
 최초 생성은 중복을 거절한다. 명시적 교체는 active를 유지하고 version 증가·모든 관리자 세션 회수를 같은 트랜잭션에서 처리한다. 실패는 분류 코드와 종료 코드1, 성공은 작업 종류·완료·version만 출력한다. 비밀 전달·응답 유실의 운영 절차는 [초기 관리자 준비 절차](../specs/001-development-foundation/contracts/admin-bootstrap.md)를 따른다.
 
-API에는 `ADMIN_IDENTITY_ENABLED=true`, 독립적인 `ADMIN_CSRF_KEY`(32바이트 canonical base64), 정확한 HTTPS Origin 목록 `ADMIN_ALLOWED_ORIGINS`를 설정하고 기존 `npm run dev:api`로 실행한다. 모바일 provider 설정은 필요 없다. 관리자 CORS와 쓰기 Origin 검사는 관리자 목록만 사용한다. Argon2 검증은 프로세스·시험 DB를 공유하는 모든 API에서 동시에2건으로 제한하고 포화 시 재시도 가능한503을 반환한다. PostgreSQL session advisory lock namespace `holdlog.admin.password-verification`의 slot0/1을 사용하며 연결 반환 전에 해제한다. 브라우저는 신뢰 HTTPS와 `/api/v2/admin` cookie path를 보존하는 proxy가 필요하며, 일반 HTTP Node 검사는 브라우저의 Secure cookie 저장을 입증하지 않는다.
+API에는 `ADMIN_IDENTITY_ENABLED=true`, 독립적인 `ADMIN_CSRF_KEY`(32바이트 canonical base64), 정확한 HTTPS Origin 목록 `ADMIN_ALLOWED_ORIGINS`를 설정하고 기존 `npm run dev:api`로 실행한다. 모바일 provider 설정은 필요 없다. 관리자 CORS와 쓰기 Origin 검사는 관리자 목록만 사용한다. Argon2 검증은 API 프로세스 안에서 동시에2건으로 제한하고 포화 시 재시도 가능한503을 반환한다. API는 프로세스 하나로 실행한다. 브라우저는 신뢰 HTTPS와 `/api/v2/admin` cookie path를 보존하는 proxy가 필요하며, 일반 HTTP Node 검사는 브라우저의 Secure cookie 저장을 입증하지 않는다.
 
 ```sh
-# TEST_DATABASE_URL은 비공개 로컬 환경에서 설정한다.
 npm run test:admin-auth --workspace @holdlog/server
 npm run test:foundation --workspace @holdlog/server
 ```
 
-006/019 controller는 `AdminSessionGuard`를 사용한다. 업무 service의 읽기/쓰기는 `AdminSessionService.withAdministrator(cookie, writeContext, callback)`에서 같은 client로 수행하고, 쓰기 context에 Origin/CSRF를 전달한다. callback은 commit/release하지 않고 principal→session→업무 잠금 순서를 따른다. guard 결과만으로 나중의 저장을 허용하지 않는다.
+006/019 controller는 `AdminSessionGuard`를 사용한다. 업무 service의 읽기/쓰기는 `AdminSessionService.withAdministrator(cookie, writeContext, callback)`의 같은 IMMEDIATE 트랜잭션에서 수행하고, 쓰기 context에 Origin/CSRF를 전달한다. callback은 동기 함수이며 await하거나 commit하지 않는다. 외부 호출은 callback 밖에서 한다. guard 결과만으로 나중의 저장을 허용하지 않는다.
 
 
 ## 관리자 세션 소비와 HTTPS 검사

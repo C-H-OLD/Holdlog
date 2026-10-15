@@ -42,6 +42,8 @@ local.properties
 *.sql.gz
 *.sqlite
 *.sqlite3
+*.sqlite-wal
+*.sqlite-shm
 infra/development/data/
 infra/development/storage/
 

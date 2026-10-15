@@ -1,195 +1,150 @@
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import { test } from 'node:test';
-import { mkdtemp, readdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtempSync, readdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { createDatabase } from '../src/database/pool.js';
 import { migrate } from '../src/database/migrate.js';
-import { integrationConfiguration } from './helpers.js';
+import { TIME_FORMAT } from '../src/database/time.js';
 import { withTransaction } from '../src/database/transaction.js';
-import { hashSecret, lockIdentityState, trySignupRequestLock, writeReceipt, readReceipt } from '../src/modules/identity/identity.repository.js';
+import { hashSecret, writeReceipt, readReceipt } from '../src/modules/identity/identity.repository.js';
+import { holdDatabase, isoFromNow, sleepSync, testDatabase } from './helpers.js';
 
-void test('one transaction client commits account and receipt together and rolls them both back on failure', async () => {
-  const pool = createDatabase(integrationConfiguration());
+void test('one transaction commits account and receipt together and rolls them both back on failure', () => {
+  const { db, close } = testDatabase();
   const accountId = randomUUID(), key = randomUUID();
+  /** Count rows returned by a one-parameter query. */
+  const rows = (sql: string, value: string) => db.prepare(sql).all(value).length;
   try {
-    await migrate(pool);
-    await assert.rejects(withTransaction(pool, async client => {
-      await client.query('INSERT INTO holdlog.accounts(id, display_name) VALUES ($1,$2)', [accountId, 'rollback fixture']);
-      await writeReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('synthetic-input'), resultStatus: 201, resultResourceId: accountId });
+    assert.throws(() => withTransaction(db, () => {
+      db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?)').run(accountId, 'rollback fixture');
+      writeReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('synthetic-input'), resultStatus: 201, resultResourceId: accountId });
       throw new Error('synthetic failure');
     }), /synthetic failure/);
-    assert.equal((await pool.query('SELECT id FROM holdlog.accounts WHERE id=$1', [accountId])).rowCount, 0);
-    assert.equal((await pool.query('SELECT id FROM holdlog.request_receipts WHERE key=$1', [key])).rowCount, 0);
-    await withTransaction(pool, async client => {
-      await client.query('INSERT INTO holdlog.accounts(id, display_name) VALUES ($1,$2)', [accountId, 'commit fixture']);
-      await writeReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('synthetic-input'), resultStatus: 201, resultResourceId: accountId });
-      const receipt = await readReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key });
+    assert.equal(rows('SELECT id FROM accounts WHERE id=?', accountId), 0);
+    assert.equal(rows('SELECT id FROM request_receipts WHERE "key"=?', key), 0);
+    withTransaction(db, () => {
+      db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?)').run(accountId, 'commit fixture');
+      writeReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('synthetic-input'), resultStatus: 201, resultResourceId: accountId });
+      const receipt = readReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key });
       assert.equal(receipt?.result_resource_id, accountId);
-      assert.equal(await readReceipt(client, { principalScope: 'signup', principalId: accountId, operation: 'synthetic', key }), undefined);
+      assert.equal(readReceipt(db, { principalScope: 'signup', principalId: accountId, operation: 'synthetic', key }), undefined);
     });
-    assert.equal((await pool.query('SELECT id FROM holdlog.accounts WHERE id=$1', [accountId])).rowCount, 1);
-    await assert.rejects(withTransaction(pool, client => writeReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('different-input'), resultStatus: 201 })), { code: '23505' });
-    await pool.query("UPDATE holdlog.request_receipts SET created_at=now()-interval '2 days',expires_at=now()-interval '1 day' WHERE key=$1", [key]);
-    await withTransaction(pool, async client => {
-      assert.equal(await readReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key }), undefined);
-      await writeReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('new-after-retention'), resultStatus: 200 });
-      assert.equal((await readReceipt(client, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key }))?.result_status, 200);
+    assert.equal(rows('SELECT id FROM accounts WHERE id=?', accountId), 1);
+    assert.throws(() => withTransaction(db, () => writeReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('different-input'), resultStatus: 201 })), { code: 'SQLITE_CONSTRAINT_UNIQUE' });
+    db.prepare('UPDATE request_receipts SET created_at=?, expires_at=? WHERE "key"=?').run(isoFromNow(-2 * 86_400_000), isoFromNow(-86_400_000), key);
+    withTransaction(db, () => {
+      assert.equal(readReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key }), undefined);
+      writeReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key, requestHash: hashSecret('new-after-retention'), resultStatus: 200 });
+      assert.equal(readReceipt(db, { principalScope: 'mobile', principalId: accountId, operation: 'synthetic', key })?.result_status, 200);
     });
-  } finally {
-    await pool.query('DELETE FROM holdlog.request_receipts WHERE key=$1', [key]);
-    await pool.query('DELETE FROM holdlog.accounts WHERE id=$1', [accountId]);
-    await pool.end();
-  }
+  } finally { close(); }
 });
 
-void test('signup request lock is nonblocking across clients and is released by rollback', async () => {
-  const pool = createDatabase(integrationConfiguration());
-  const first = await pool.connect(), second = await pool.connect();
-  const proofId = randomUUID(), key = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
-  try {
-    await first.query('BEGIN'); await second.query('BEGIN');
-    assert.equal(await trySignupRequestLock(first, proofId, key), true);
-    assert.equal(await trySignupRequestLock(second, proofId, key), false);
-    assert.equal(await trySignupRequestLock(second, proofId.toUpperCase(), key.toUpperCase()), false);
-    assert.equal(await trySignupRequestLock(second, proofId, randomUUID()), true);
-    await first.query('ROLLBACK');
-    assert.equal(await trySignupRequestLock(second, proofId, key), true);
-  } finally {
-    await first.query('ROLLBACK'); await second.query('ROLLBACK');
-    first.release(); second.release(); await pool.end();
-  }
-});
-
-void test('receipt expiring after BEGIN is absent and replaceable using the current statement time', async () => {
-  const pool = createDatabase(integrationConfiguration());
+void test('a receipt expiring between statements of one transaction is absent and replaceable using the current statement time', () => {
+  const { db, close } = testDatabase();
   const key = { principalScope: 'signup' as const, principalId: randomUUID(), operation: 'expiry-fixture', key: randomUUID() };
   try {
-    await migrate(pool);
-    await withTransaction(pool, client => writeReceipt(client, { ...key, requestHash: hashSecret('first-input'), resultStatus: 409 }));
-    await withTransaction(pool, async client => {
-      // No timing sleeps: position expiry just after this TX's start, before subsequent statements.
-      await client.query("UPDATE holdlog.request_receipts SET created_at=now()-interval '1 day', expires_at=now()+interval '1 microsecond' WHERE key=$1", [key.key]);
-      const boundary = await client.query<{ expired: boolean; after_start: boolean }>('SELECT expires_at < statement_timestamp() AS expired, expires_at > transaction_timestamp() AS after_start FROM holdlog.request_receipts WHERE key=$1', [key.key]);
-      assert.deepEqual(boundary.rows[0], { expired: true, after_start: true });
-      assert.equal(await readReceipt(client, key), undefined);
-      await writeReceipt(client, { ...key, requestHash: hashSecret('new-input'), resultStatus: 201 });
-      assert.equal((await readReceipt(client, key))?.request_hash, hashSecret('new-input'));
+    withTransaction(db, () => writeReceipt(db, { ...key, requestHash: hashSecret('first-input'), resultStatus: 409 }));
+    withTransaction(db, () => {
+      // Expire 50 ms after this statement, then let time pass before the next statements of the same transaction.
+      db.prepare(`UPDATE request_receipts SET created_at=?, expires_at=strftime('${TIME_FORMAT}', 'now', '+0.050 seconds') WHERE "key"=?`).run(isoFromNow(-86_400_000), key.key);
+      assert.ok(readReceipt(db, key));
+      sleepSync(80);
+      assert.equal(readReceipt(db, key), undefined);
+      writeReceipt(db, { ...key, requestHash: hashSecret('new-input'), resultStatus: 201 });
+      assert.equal(readReceipt(db, key)?.request_hash, hashSecret('new-input'));
     });
-  } finally { await pool.query('DELETE FROM holdlog.request_receipts WHERE key=$1', [key.key]); await pool.end(); }
+  } finally { close(); }
 });
 
-void test('same identity locking serializes competing account inserts and the losing transaction leaves no orphan', async () => {
-  const pool = createDatabase(integrationConfiguration());
+void test('a competing identity committed by another process makes the waiting transaction fail with no orphan account', async () => {
+  const { config, db, close } = testDatabase();
   const subject = randomUUID(), firstId = randomUUID(), secondId = randomUUID();
-  const first = await pool.connect();
   try {
-    await migrate(pool); await first.query('BEGIN');
-    await lockIdentityState(first, { identity: { provider: 'google', subject }, accountIds: [firstId] });
-    await first.query('INSERT INTO holdlog.accounts(id,display_name) VALUES ($1,$2)', [firstId, 'first fixture']);
-    await first.query('INSERT INTO holdlog.external_identities(account_id,provider,provider_subject) VALUES ($1,$2,$3)', [firstId, 'google', subject]);
-    let publishPid!: (value: number) => void;
-    const pidReady = new Promise<number>(resolve => { publishPid = resolve; });
-    const second = withTransaction(pool, async client => {
-      publishPid((await client.query<{ pid: number }>('SELECT pg_backend_pid() AS pid')).rows[0]!.pid);
-      await lockIdentityState(client, { identity: { provider: 'google', subject }, accountIds: [secondId, firstId] });
-      await client.query('INSERT INTO holdlog.accounts(id,display_name) VALUES ($1,$2)', [secondId, 'losing fixture']);
-      await client.query('INSERT INTO holdlog.external_identities(account_id,provider,provider_subject) VALUES ($1,$2,$3)', [secondId, 'google', subject]);
-    });
-    const rejected = assert.rejects(second, { code: '23505' });
-    const pid = await pidReady;
-    // Observe the actual DB wait rather than assuming asynchronous scheduling reached the lock.
-    const deadline = Date.now() + 1000;
-    let waiting = false;
-    while (Date.now() < deadline) {
-      waiting = (await pool.query('SELECT 1 FROM pg_locks WHERE pid=$1 AND locktype=$2 AND NOT granted', [pid, 'advisory'])).rowCount === 1;
-      if (waiting) break;
-      await new Promise(resolve => setTimeout(resolve, 10));
-    }
-    assert.equal(waiting, true, 'The second identity transaction must wait on the same identity key');
-    await first.query('COMMIT'); await rejected;
-    assert.equal((await pool.query('SELECT id FROM holdlog.accounts WHERE id=$1', [secondId])).rowCount, 0);
-    assert.equal((await pool.query('SELECT id FROM holdlog.external_identities WHERE provider_subject=$1', [subject])).rowCount, 1);
-  } finally {
-    await first.query('ROLLBACK'); first.release();
-    await pool.query('DELETE FROM holdlog.accounts WHERE id=ANY($1::uuid[])', [[firstId, secondId]]); await pool.end();
-  }
+    const holder = await holdDatabase(config.databasePath, 300, `INSERT INTO accounts (id, display_name) VALUES ('${firstId}', 'first fixture');
+      INSERT INTO external_identities (id, account_id, provider, provider_subject) VALUES ('${randomUUID()}', '${firstId}', 'google', '${subject}');`);
+    const started = Date.now();
+    // BEGIN IMMEDIATE waits for the other process to commit; the unique index then rejects the same identity.
+    assert.throws(() => withTransaction(db, () => {
+      db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?)').run(secondId, 'losing fixture');
+      db.prepare('INSERT INTO external_identities (id, account_id, provider, provider_subject) VALUES (?, ?, ?, ?)').run(randomUUID(), secondId, 'google', subject);
+    }), { code: 'SQLITE_CONSTRAINT_UNIQUE' });
+    assert.ok(Date.now() - started >= 250, 'the second writer must wait for the held write lock');
+    assert.deepEqual(await holder.exited, [0, null]);
+    assert.equal(db.prepare('SELECT id FROM accounts WHERE id=?').all(secondId).length, 0);
+    assert.equal(db.prepare('SELECT id FROM external_identities WHERE provider_subject=?').all(subject).length, 1);
+  } finally { close(); }
 });
 
-void test('DB constraints separate provider identities, preserve nullable installation stubs and reject invalid ownership/version', async () => {
-  const pool = createDatabase(integrationConfiguration());
+void test('DB constraints separate provider identities, preserve nullable installation stubs and reject invalid ownership/version', () => {
+  const { db, close } = testDatabase();
   const accountId = randomUUID(), secondId = randomUUID(), deviceId = randomUUID(), subject = randomUUID();
   try {
-    await migrate(pool);
-    for (const name of ['', ' \t\n']) await assert.rejects(pool.query('INSERT INTO holdlog.accounts(display_name) VALUES ($1)', [name]), { code: '23514' });
-    await assert.rejects(pool.query('INSERT INTO holdlog.accounts(display_name,version) VALUES ($1,0)', ['version fixture']), { code: '23514' });
-    await pool.query('INSERT INTO holdlog.accounts(id,display_name) VALUES ($1,$3),($2,$3)', [accountId, secondId, 'same name fixture']);
+    for (const name of ['', ' \t\n']) assert.throws(() => db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?)').run(randomUUID(), name), { code: 'SQLITE_CONSTRAINT_CHECK' });
+    assert.throws(() => db.prepare('INSERT INTO accounts (id, display_name, version) VALUES (?, ?, 0)').run(randomUUID(), 'version fixture'), { code: 'SQLITE_CONSTRAINT_CHECK' });
+    db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?), (?, ?)').run(accountId, 'same name fixture', secondId, 'same name fixture');
     // Email is shared deliberately; provider+subject alone defines identity uniqueness.
-    await pool.query('INSERT INTO holdlog.external_identities(account_id,provider,provider_subject,email) VALUES ($1,$3,$4,$5),($2,$6,$4,$5)', [accountId, secondId, 'google', subject, 'synthetic@example.invalid', 'apple']);
-    await assert.rejects(pool.query('INSERT INTO holdlog.external_identities(account_id,provider,provider_subject) VALUES ($1,$2,$3)', [secondId, 'google', subject]), { code: '23505' });
-    await assert.rejects(pool.query('INSERT INTO holdlog.external_identities(account_id,provider,provider_subject) VALUES ($1,$2,$3)', [randomUUID(), 'google', randomUUID()]), { code: '23503' });
-    await pool.query('INSERT INTO holdlog.device_installations(id,account_id) VALUES ($1,$2)', [deviceId, accountId]);
-    const device = (await pool.query<{ platform: null; push_permission: null; app_version: null; push_token_hash: null; push_token_ciphertext: null }>('SELECT platform,push_permission,app_version,push_token_hash,push_token_ciphertext FROM holdlog.device_installations WHERE id=$1', [deviceId])).rows[0];
+    db.prepare('INSERT INTO external_identities (id, account_id, provider, provider_subject, email) VALUES (?, ?, ?, ?, ?), (?, ?, ?, ?, ?)')
+      .run(randomUUID(), accountId, 'google', subject, 'synthetic@example.invalid', randomUUID(), secondId, 'apple', subject, 'synthetic@example.invalid');
+    assert.throws(() => db.prepare('INSERT INTO external_identities (id, account_id, provider, provider_subject) VALUES (?, ?, ?, ?)').run(randomUUID(), secondId, 'google', subject), { code: 'SQLITE_CONSTRAINT_UNIQUE' });
+    assert.throws(() => db.prepare('INSERT INTO external_identities (id, account_id, provider, provider_subject) VALUES (?, ?, ?, ?)').run(randomUUID(), randomUUID(), 'google', randomUUID()), { code: 'SQLITE_CONSTRAINT_FOREIGNKEY' });
+    db.prepare('INSERT INTO device_installations (id, account_id) VALUES (?, ?)').run(deviceId, accountId);
+    const device = db.prepare('SELECT platform, push_permission, app_version, push_token_hash, push_token_ciphertext FROM device_installations WHERE id=?').get(deviceId);
     assert.deepEqual(device, { platform: null, push_permission: null, app_version: null, push_token_hash: null, push_token_ciphertext: null });
-    await assert.rejects(pool.query('UPDATE holdlog.device_installations SET push_token_hash=$2 WHERE id=$1', [deviceId, hashSecret('synthetic-push')]), { code: '23514' });
-    await assert.rejects(pool.query('UPDATE holdlog.device_installations SET version=0 WHERE id=$1', [deviceId]), { code: '23514' });
-  } finally {
-    await pool.query('DELETE FROM holdlog.device_installations WHERE id=$1', [deviceId]);
-    await pool.query('DELETE FROM holdlog.accounts WHERE id=ANY($1::uuid[])', [[accountId, secondId]]); await pool.end();
-  }
+    assert.throws(() => db.prepare('UPDATE device_installations SET push_token_hash=? WHERE id=?').run(hashSecret('synthetic-push'), deviceId), { code: 'SQLITE_CONSTRAINT_CHECK' });
+    assert.throws(() => db.prepare('UPDATE device_installations SET version=0 WHERE id=?').run(deviceId), { code: 'SQLITE_CONSTRAINT_CHECK' });
+  } finally { close(); }
 });
 
-void test('refresh credentials and current-refresh pointers cannot cross session families; account removal cascades secrets', async () => {
-  const pool = createDatabase(integrationConfiguration());
+void test('refresh credentials and current-refresh pointers cannot cross session families; account removal cascades secrets', () => {
+  const { db, close } = testDatabase();
   const accountId = randomUUID(), sessionId = randomUUID(), otherSessionId = randomUUID(), family = randomUUID(), otherFamily = randomUUID(), refreshId = randomUUID();
+  const access = isoFromNow(900_000), idle = isoFromNow(30 * 86_400_000), absolute = isoFromNow(90 * 86_400_000);
   try {
-    await migrate(pool);
-    await pool.query('INSERT INTO holdlog.accounts(id,display_name) VALUES ($1,$2)', [accountId, 'session fixture']);
-    await pool.query("INSERT INTO holdlog.auth_sessions(id,account_id,token_family_id,expires_at,idle_expires_at,absolute_expires_at) VALUES ($1,$3,$4,now()+interval '15 minutes',now()+interval '30 days',now()+interval '90 days'),($2,$3,$5,now()+interval '15 minutes',now()+interval '30 days',now()+interval '90 days')", [sessionId, otherSessionId, accountId, family, otherFamily]);
-    await assert.rejects(pool.query("INSERT INTO holdlog.refresh_credentials(session_id,token_family_id,token_hash,expires_at) VALUES ($1,$2,$3,now()+interval '90 days')", [sessionId, otherFamily, hashSecret('wrong-family')]), { code: '23503' });
-    await pool.query("INSERT INTO holdlog.refresh_credentials(id,session_id,token_family_id,token_hash,expires_at) VALUES ($1,$2,$3,$4,now()+interval '90 days')", [refreshId, sessionId, family, hashSecret('synthetic-refresh')]);
-    await assert.rejects(withTransaction(pool, async client => { await client.query('UPDATE holdlog.auth_sessions SET current_refresh_credential_id=$2 WHERE id=$1', [otherSessionId, refreshId]); }), { code: '23503' });
-    await pool.query('UPDATE holdlog.auth_sessions SET current_refresh_credential_id=$2 WHERE id=$1', [sessionId, refreshId]);
-    await pool.query("INSERT INTO holdlog.access_credentials(session_id,token_hash,expires_at) VALUES ($1,$2,now()+interval '15 minutes')", [sessionId, hashSecret('synthetic-access')]);
-    await assert.rejects(pool.query("INSERT INTO holdlog.access_credentials(session_id,token_hash,expires_at) VALUES ($1,$2,now()+interval '15 minutes')", [sessionId, 'raw-synthetic-access']), { code: '23514' });
-    await pool.query('DELETE FROM holdlog.accounts WHERE id=$1', [accountId]);
-    assert.equal((await pool.query('SELECT id FROM holdlog.refresh_credentials WHERE id=$1', [refreshId])).rowCount, 0);
-    assert.equal((await pool.query('SELECT id FROM holdlog.access_credentials WHERE session_id=$1', [sessionId])).rowCount, 0);
-  } finally {
-    await pool.query('DELETE FROM holdlog.accounts WHERE id=$1', [accountId]); await pool.end();
-  }
+    db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?)').run(accountId, 'session fixture');
+    db.prepare('INSERT INTO auth_sessions (id, account_id, token_family_id, expires_at, idle_expires_at, absolute_expires_at) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)')
+      .run(sessionId, accountId, family, access, idle, absolute, otherSessionId, accountId, otherFamily, access, idle, absolute);
+    assert.throws(() => db.prepare('INSERT INTO refresh_credentials (id, session_id, token_family_id, token_hash, expires_at) VALUES (?, ?, ?, ?, ?)').run(randomUUID(), sessionId, otherFamily, hashSecret('wrong-family'), absolute), { code: 'SQLITE_CONSTRAINT_FOREIGNKEY' });
+    db.prepare('INSERT INTO refresh_credentials (id, session_id, token_family_id, token_hash, expires_at) VALUES (?, ?, ?, ?, ?)').run(refreshId, sessionId, family, hashSecret('synthetic-refresh'), absolute);
+    // The deferred pointer check lets the statement pass and fails at COMMIT (787), rolling the transaction back.
+    let statementPassed = false;
+    assert.throws(() => withTransaction(db, () => { db.prepare('UPDATE auth_sessions SET current_refresh_credential_id=? WHERE id=?').run(refreshId, otherSessionId); statementPassed = true; }), { code: 'SQLITE_CONSTRAINT_FOREIGNKEY' });
+    assert.equal(statementPassed, true);
+    db.prepare('UPDATE auth_sessions SET current_refresh_credential_id=? WHERE id=?').run(refreshId, sessionId);
+    db.prepare('INSERT INTO access_credentials (id, session_id, token_hash, expires_at) VALUES (?, ?, ?, ?)').run(randomUUID(), sessionId, hashSecret('synthetic-access'), access);
+    assert.throws(() => db.prepare('INSERT INTO access_credentials (id, session_id, token_hash, expires_at) VALUES (?, ?, ?, ?)').run(randomUUID(), sessionId, 'raw-synthetic-access', access), { code: 'SQLITE_CONSTRAINT_CHECK' });
+    db.prepare('DELETE FROM accounts WHERE id=?').run(accountId);
+    assert.equal(db.prepare('SELECT id FROM refresh_credentials WHERE id=?').all(refreshId).length, 0);
+    assert.equal(db.prepare('SELECT id FROM access_credentials WHERE session_id=?').all(sessionId).length, 0);
+  } finally { close(); }
 });
 
-void test('failed follow-up migration rolls back DDL and history while preserving the applied identity schema', async () => {
-  const pool = createDatabase(integrationConfiguration());
-  const directory = await mkdtemp(join(tmpdir(), 'holdlog-identity-migration-'));
+void test('a failed follow-up migration rolls back DDL and history while preserving the applied identity schema', () => {
+  const { db, close } = testDatabase();
+  const directory = mkdtempSync(join(tmpdir(), 'holdlog-identity-migration-'));
   try {
-    await migrate(pool);
     const source = new URL('../../db/migrations/', import.meta.url);
-    for (const name of await readdir(source)) if (/^\d+_[a-z0-9_]+\.sql$/.test(name)) await writeFile(join(directory, name), await readFile(new URL(name, source), 'utf8'));
-    await writeFile(join(directory, '003_failure.sql'), 'CREATE TABLE holdlog.synthetic_failed_migration(id uuid); SELECT * FROM holdlog.synthetic_missing_table;');
-    await assert.rejects(migrate(pool, directory));
-    assert.equal((await pool.query<{ missing: boolean }>("SELECT to_regclass('holdlog.synthetic_failed_migration') IS NULL AS missing")).rows[0]!.missing, true);
-    assert.equal((await pool.query('SELECT version FROM holdlog_foundation.migrations WHERE version=$1', ['003_failure.sql'])).rowCount, 0);
-    await migrate(pool);
-  } finally { await rm(directory, { recursive: true }); await pool.end(); }
+    for (const name of readdirSync(source)) if (/^\d+_[a-z0-9_]+\.sql$/.test(name)) writeFileSync(join(directory, name), readFileSync(new URL(name, source), 'utf8'));
+    // 999 keeps clear of the next real migration number.
+    writeFileSync(join(directory, '999_failure.sql'), 'CREATE TABLE synthetic_failed_migration (id TEXT) STRICT; SELECT * FROM synthetic_missing_table;');
+    assert.throws(() => migrate(db, directory));
+    assert.equal(db.prepare("SELECT name FROM sqlite_master WHERE name='synthetic_failed_migration'").all().length, 0);
+    assert.equal(db.prepare('SELECT version FROM schema_migrations WHERE version=?').all('999_failure.sql').length, 0);
+    migrate(db);
+  } finally { close(); rmSync(directory, { recursive: true, force: true }); }
 });
 
-void test('identity migration creates the storage boundary and is repeatable without replacing existing accounts', async () => {
-  const pool = createDatabase(integrationConfiguration());
+void test('identity migration creates the storage boundary and is repeatable without replacing existing accounts', () => {
+  const { db, close } = testDatabase();
   const id = randomUUID();
   try {
-    await migrate(pool);
-    const result = await pool.query<{ exists: boolean }>("SELECT to_regclass('holdlog.accounts') IS NOT NULL AS exists");
-    assert.equal(result.rows[0]?.exists, true);
-    await pool.query('INSERT INTO holdlog.accounts(id, display_name) VALUES ($1, $2)', [id, '합성 회원']);
-    await migrate(pool);
-    assert.equal((await pool.query('SELECT id FROM holdlog.accounts WHERE id=$1', [id])).rowCount, 1);
-    const columns = await pool.query<{ column_name: string }>("SELECT column_name FROM information_schema.columns WHERE table_schema='holdlog'");
-    assert.ok(columns.rows.every(row => !['token', 'password', 'response_body', 'id_token', 'signup_token', 'authorization_code'].includes(row.column_name)));
-  } finally {
-    await pool.query('DELETE FROM holdlog.accounts WHERE id=$1', [id]).catch(() => undefined);
-    await pool.end();
-  }
+    assert.equal(db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='accounts'").all().length, 1);
+    db.prepare('INSERT INTO accounts (id, display_name) VALUES (?, ?)').run(id, '합성 회원');
+    migrate(db);
+    assert.equal(db.prepare('SELECT id FROM accounts WHERE id=?').all(id).length, 1);
+    const columns = db.prepare<[], { column_name: string }>("SELECT p.name AS column_name FROM sqlite_master m JOIN pragma_table_info(m.name) p WHERE m.type='table'").all();
+    assert.ok(columns.length > 0);
+    assert.ok(columns.every(row => !['token', 'password', 'response_body', 'id_token', 'signup_token', 'authorization_code'].includes(row.column_name)));
+  } finally { close(); }
 });

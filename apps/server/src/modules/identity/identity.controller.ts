@@ -99,7 +99,7 @@ export class IdentityController {
   /** Validate named signup and its request key; return fresh session secrets only on this201 response. */
   @Post('auth/signups') @HttpCode(201)
   async signup(@Body() body: components['schemas']['CompleteSignupInput'], @Req() request: WireRequest, @Headers('idempotency-key') key: string, @Res({ passthrough: true }) response: ServerResponse) {
-    validateInput('completeSignup', body, request.headers); this.metadata(response); return this.service.signup(body, key.toLowerCase());
+    validateInput('completeSignup', body, request.headers); this.metadata(response); return this.service.signup(body, key);
   }
 
   /** Validate installation-bound refresh and rotate once; reused credentials revoke their family. */
@@ -125,6 +125,6 @@ export class IdentityController {
   async edit(@Body() body: components['schemas']['ProfileInput'], @Req() request: WireRequest, @Headers('idempotency-key') key: string, @Headers('if-match') match: string, @Res({ passthrough: true }) response: ServerResponse) {
     validateInput('editMyProfile', body, request.headers);
     const version = Number(match.slice(1, -1)); if (!Number.isSafeInteger(version)) throw invalid('If-Match');
-    const result = await this.service.editProfile(bearer(request), body, version, key.toLowerCase()); this.metadata(response, result.version); return result;
+    const result = await this.service.editProfile(bearer(request), body, version, key); this.metadata(response, result.version); return result;
   }
 }

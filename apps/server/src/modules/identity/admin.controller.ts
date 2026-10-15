@@ -40,8 +40,9 @@ export class AdminIdentityController {
   async login(@Body() body:components['schemas']['AdminLoginInput'],@Req() request:AdminRequest,@Res({passthrough:true}) response:ServerResponse) {
     this.service.requireOrigin(request.headers.origin);validateInput('adminLogin',body,request.headers);
     const result=await this.service.login(body,request.headers.origin);this.metadata(response);
-    const maxAge=Math.max(0,Math.floor((result.absoluteExpiresAt.getTime()-Date.now())/1000));
-    response.setHeader('Set-Cookie',`${cookieName}=${result.cookie}; ${cookieAttributes}; Max-Age=${maxAge}; Expires=${result.absoluteExpiresAt.toUTCString()}`);return result.session;
+    // Storage returns UTC ISO text; cookie Max-Age/Expires need a Date.
+    const absoluteExpiresAt=new Date(result.absoluteExpiresAt),maxAge=Math.max(0,Math.floor((absoluteExpiresAt.getTime()-Date.now())/1000));
+    response.setHeader('Set-Cookie',`${cookieName}=${result.cookie}; ${cookieAttributes}; Max-Age=${maxAge}; Expires=${absoluteExpiresAt.toUTCString()}`);return result.session;
   }
 
   /** Return stable session-bound CSRF and current idle expiry without exposing the cookie secret. */

@@ -1,19 +1,15 @@
 import { createDatabase } from '../src/database/pool.js';
-import { createQueue, recordEffect } from '../src/jobs/foundation.js';
-import { integrationConfiguration } from './helpers.js';
+import { recordEffect } from '../src/jobs/foundation.js';
+import { startQueue } from '../src/jobs/runner.js';
 
-// Test-only worker fixture: pause after commit so the parent can kill an active process.
-const config = integrationConfiguration();
-const pool = createDatabase(config);
-const boss = createQueue(config);
-const queue = process.env.FOUNDATION_TEST_QUEUE;
-if (!queue?.startsWith('foundation-')) throw new Error('Missing synthetic queue');
-await boss.start();
-await boss.createQueue(queue, { retryLimit: 3, retryDelay: 1, expireInSeconds: 3 });
-await boss.work(queue, { pollingIntervalSeconds: 0.5 }, async jobs => {
-  for (const job of jobs) {
-    await recordEffect(pool, job.id);
-    process.send?.(job.id);
-    await new Promise<void>(() => { /* The parent terminates this active worker. */ });
-  }
-});
+// Test-only worker fixture: claim the job, commit its effect, report the id and stay active until the parent kills it.
+const [path, queue] = process.argv.slice(2);
+if (!path || !queue?.startsWith('foundation-')) throw new Error('Missing synthetic queue');
+const db = createDatabase({ databasePath: path });
+startQueue(db, queue, { baseDelayMs: 50, maxAttempts: 4, leaseMs: 500 }, claimed => {
+  recordEffect(db, claimed.id);
+  process.send?.(claimed.id);
+  return new Promise<void>(() => { /* The parent terminates this active worker. */ });
+}, 20);
+// Keep the process alive while the handler hangs; the parent ends it with SIGKILL.
+setInterval(() => undefined, 1000);

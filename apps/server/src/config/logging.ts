@@ -1,5 +1,5 @@
 /** Emit a fixed event category; raw requests, payloads and exceptions never enter logs. */
-export function logEvent(event: 'api.started' | 'api.failed' | 'identity.failed' | 'request.finished' | 'database.failed' | 'migration.completed' | 'migration.failed' | 'worker.started' | 'worker.failed' | 'worker.stopped', status?: number): void {
+export function logEvent(event: 'api.started' | 'api.failed' | 'identity.failed' | 'request.finished' | 'migration.completed' | 'migration.failed' | 'worker.started' | 'worker.failed' | 'worker.stopped', status?: number): void {
   console.info(JSON.stringify(status === undefined ? { event } : { event, status }));
 }
 

@@ -39,10 +39,10 @@ completeSignup은 name을trim해 공백만인 값을400 INVALID_INPUT으로 거�
 동일 증명·동일 키의 진행 중 요청은 아래 순서로 처리한다. 다른 TX의 미커밋 receipt는 조회되지 않으므로 receipt 조회만으로 중복 실행을 판정하지 않는다.
 
 1. JSON/요청키와 증명의 hash·기한·미소비·설치를 잠금 없는 현재 조회로 검증한다. 이미 소비됐으면401이다.
-2. 같은 TX에서 `(proof ID, completeSignup, Idempotency-Key)`의 요청 진입 advisory lock을 `pg_try_advisory_xact_lock`으로 대기 없이 획득한다. 실패하면 READ COMMITTED의 새 조회로 증명 상태를 재확인하고, 여전히 유효한 진행 중 요청이면 즉시409 REQUEST_IN_PROGRESS, 이미 소비/만료됐다면401로 응답한다. proof/identity 업무 잠금을 기다리기 전에 반환하며 잠금 실패로 receipt나 계정을 저장하지 않는다. 이 시점에 보이는 동일 키 receipt의 입력 hash가 다르면409 IDEMPOTENCY_MISMATCH다. 진행 중 hash가 미커밋으로 보이지 않으면 같은 키의 다른 입력도 REQUEST_IN_PROGRESS로 처리하고 기존 실행과 합치지 않는다.
-3. 진입 잠금을 획득한 요청만 아래 identity→proof→Account 순서의 업무 잠금을 잡고 증명/identity/기한과 receipt를 다시 검증한다. 가입 효과·증명 소비·최소 receipt는 같은 TX로 commit하며 진입 잠금도 commit/rollback과 함께 해제된다.503 rollback 뒤에는 같은 입력/키로 다시 획득할 수 있다.
+2. 같은 TX에서 `(proof ID, completeSignup, Idempotency-Key)`의 요청 진입 잠금을 API 프로세스 메모리의 키 잠금으로 대기 없이 획득한다. 실패하면 같은 트랜잭션의 새 조회로 증명 상태를 재확인하고, 여전히 유효한 진행 중 요청이면 즉시409 REQUEST_IN_PROGRESS, 이미 소비/만료됐다면401로 응답한다. proof/identity 업무 잠금을 기다리기 전에 반환하며 잠금 실패로 receipt나 계정을 저장하지 않는다. 이 시점에 보이는 동일 키 receipt의 입력 hash가 다르면409 IDEMPOTENCY_MISMATCH다. 진행 중 hash가 미커밋으로 보이지 않으면 같은 키의 다른 입력도 REQUEST_IN_PROGRESS로 처리하고 기존 실행과 합치지 않는다.
+3. 진입 잠금을 획득한 요청만 같은 IMMEDIATE TX의 쓰기 잠금 안에서 증명/identity/기한과 receipt를 다시 검증한다. 가입 효과·증명 소비·최소 receipt는 같은 TX로 commit하며 진입 잠금은 TX가 끝나면(commit/rollback) 해제된다.503 rollback 뒤에는 같은 입력/키로 다시 획득할 수 있다.
 
-첫 요청을 commit 직전에 멈춘 동시 시험에서는 두 번째 같은 증명·키 요청이409를 받고 첫 요청만201로 끝나야 한다. account/session은 각각 하나이며 token 재반환은0건이다. commit 후 도착한 재요청은401이다. 별도 영속 in-flight receipt를 먼저 commit해503 rollback과 정리 의미를 바꾸지 않는다.
+API는 프로세스 하나이고 TX는 동기로 실행되어 같은 증명·키의 두 요청이 TX 안에서 겹치지 않는다. 시험은 첫 요청이 commit까지 쥘 진입 잠금을 먼저 잡고, 같은 증명·키 요청(대문자 key·다른 입력 포함)이409를 받는지, 잠금을 푼 뒤 한 요청만201로 끝나는지 확인한다. account/session은 각각 하나이며 token 재반환은0건이다. commit 후 도착한 재요청은401이다. 별도 영속 in-flight receipt를 먼저 commit해503 rollback과 정리 의미를 바꾸지 않는다.
 
 동일provider/subject 가입 경합은 identity key의 transaction advisory lock 또는 같은 효과의 잠금으로 직렬화한다. challenge/proof 발급·로그인·가입 완료에 동일 순서를 적용하고 account가 생긴 뒤는 Account(UUID 정렬)→Session→Credential→Device 순서를 따른다. proof 만료/미소비·기존 identity를 잠금 안에서 다시 검사하며 unique 제약이 최종 방어다. 실패 TX 재시도에서 원래 증명·기한·계정 상태를 재조회한다. hash 충돌은 불필요한 직렬화만 만들며 권한을 섞지 않는다. 외부 네트워크·파일 업로드는 TX 밖이다.
 

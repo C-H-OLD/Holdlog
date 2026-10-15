@@ -22,7 +22,7 @@
 - 사용자 확인: SNS 인증 이후 신규 사용자의 상세 정보 입력·가입 화면이 필요하다. 기존에 빠져 있던 이 흐름을 먼저 설계한다. 임의 기본 이름으로 신규 가입을 완료하지 않는다.
 - 가입 입력 확인: 이름 필수·프로필 사진 선택. 기존 LoginInput/MobileSession만으로 즉시 계정을 생성하는 계획은 재검토한다.
 - 상세 화면과 신규 가입 계약의 설계는 [가입 설계](signup-design.md)에서 확인한다. 새 계약의 병합 후 같은 생성물을 소비한다.
-- 작업 상태: 가입 화면/중간 상태/계약과 실패 복구를 반영한32개 작업을 준비했다. 제품 구현·실제 연동은 미수행이다.
+- 작업 상태: 가입 화면/중간 상태/계약과 실패 복구를 반영한32개 작업을 준비했고 서버 저장 SQLite 전환 T033을 더했다. 제품 구현·실제 연동은 미수행이다.
 
 ## User Scenarios & Testing
 
@@ -108,4 +108,4 @@
 - 병렬 착수 전 필요한 계약: C01·C02·C03·C08·C09·C12. 설계 범위와 완료 조건은 [계약 설계 범위](../002-shared-contracts/contract-scope.md)를 따른다. 계약 확정 후 예제로 독립 개발할 수 있으나 실제 완료는 선행 기능과 연동해 확인한다.
 - 기존 검증 연결: T01·T67·T75. T번호의 기대 결과는 [원본 검증표](../../docs/functional-spec.md#9-기능-완료-확인-시나리오)에 두고 복사하지 않는다.
 - 개발자별 담당·단독 검사·전달과 합친 뒤 완료 기준은 [프론트·백엔드 작업 구분](../development-roles.md)을 따른다.
-- [구현 계획](plan.md)·[32개 작업 목록](tasks.md)을 준비했고 계약3.0.0은 PR #60으로 병합했다. T001~T005 공통 기반의 구현/단독 검증은 [증거](../../docs/history/development/004-identity-foundation-verification.md)를 따른다. #51 모바일 인증·가입·이름 profile API의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 앱 가입 흐름·사진·실제 관리자/제공자/기기 연동은 후속이며004 전체 완료가 아니다.
+- [구현 계획](plan.md)·[33개 작업 목록](tasks.md)을 준비했고 계약3.0.0은 PR #60으로 병합했다. T001~T005 공통 기반의 구현/단독 검증은 [증거](../../docs/history/development/004-identity-foundation-verification.md)를 따른다. #51 모바일 인증·가입·이름 profile API의 [서버 단독 증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 앱 가입 흐름·사진·실제 관리자/제공자/기기 연동은 후속이며004 전체 완료가 아니다.

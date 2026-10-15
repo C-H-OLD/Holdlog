@@ -39,7 +39,7 @@ function jobsFor(task) {
 }
 
 /** Fail before execution when any required target or script is missing or malformed. */
-function preflight(root, jobs, task) {
+function preflight(root, jobs) {
   for (const { name, directory, script } of jobs) {
     let manifest;
     try { manifest = JSON.parse(readFileSync(join(root, directory, 'package.json'), 'utf8')); }
@@ -47,7 +47,6 @@ function preflight(root, jobs, task) {
     if (manifest.name !== name) throw new Error(`${name}: manifest name mismatch`);
     if (typeof manifest.scripts?.[script] !== 'string' || !manifest.scripts[script].trim()) throw new Error(`${name}: ${script} required command missing`);
   }
-  if (task === 'test:foundation' && !process.env.TEST_DATABASE_URL?.trim()) throw new Error('@holdlog/server: test:foundation requires TEST_DATABASE_URL');
 }
 
 /**
@@ -56,14 +55,14 @@ function preflight(root, jobs, task) {
  * @param {string} task - Documented command group; defaults to check.
  * @returns {number} Zero only for successful execution of every selected command.
  * Throws on invalid task/configuration. Child commands inherit configuration and stdio;
- * the runner never prints environment values or raw spawn errors. DB checks require
- * explicit test configuration and are excluded from the default check.
+ * the runner never prints environment values or raw spawn errors. DB checks need no
+ * external DB but run separately through test:foundation, outside the default check.
  */
 function runChecks(root, task = 'check') {
   const jobs = jobsFor(task);
-  preflight(root, jobs, task);
+  preflight(root, jobs);
   if (task === 'check' || task === 'test') {
-    console.log('NOT RUN: test:foundation (explicit local test DB required).');
+    console.log('NOT RUN: test:foundation (DB checks run separately).');
     console.log('NOT RUN: browser/API integration, native device builds and real-device checks (separate verification).');
   }
   for (const { name, directory, script } of jobs) {
