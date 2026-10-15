@@ -35,7 +35,7 @@ apps/
 packages/
   contracts/    공통 API·runtime 계약과 생성 타입·검사 함수·합성 예제
 infra/
-  development/  개발·시험 DB와 파일 볼륨의 Docker Compose 구성
+  development/  비공개 파일 볼륨의 Docker Compose 구성과 무시되는 개발 DB 폴더
 scripts/        계약 생성, workspace 검사, 문서 검사 도구
 docs/           제품·기술·화면 기준과 개발 안내
 specs/          기능별 범위·설계·작업·검증 기준
@@ -80,7 +80,7 @@ specs/          기능별 범위·설계·작업·검증 기준
 |---|---|---|
 | workspace·계약 | 공통 설정·lockfile, 계약 생성·검사, 세 앱의 타입·합성 소비 | 기능별 실제 요청·응답·업무 동작 |
 | API·DB | NestJS/health·SQL 기반,004 모바일 인증·가입·이름 profile·회수의 서버 단독 구현/검사 | 실제 provider/기기·관리자·사진과 나머지 업무 API·권한·트랜잭션 |
-| worker | pg-boss 합성 작업·재시작 검사,004 proof 정리·재시도. 운영 분기는 proof 정리만 등록 | 영상 변환·삭제·알림 처리기와 실제 운영 배포 |
+| worker | 작업 표(`jobs`) 합성 작업·재시작 검사,004 proof 정리 타이머. 운영 분기는 proof 정리만 실행 | 영상 변환·삭제·알림 처리기와 실제 운영 배포 |
 | 모바일·관리자 웹 | 실행·빌드 기반, 브라우저·가상 기기의 로컬 API 연결 | 제품 화면과 기기 기능, 실제 제품 API 연동 |
 | 파일·운영 | 개발 비공개 파일 볼륨 준비 | 파일 저장·전달·권한 검증, FCM·FFmpeg 연동, 물리 서버 배포 |
 

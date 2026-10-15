@@ -1,12 +1,26 @@
-import type { PgBoss } from 'pg-boss';
-import type pg from 'pg';
+import type Database from 'better-sqlite3';
 import type { Configuration } from '../config/environment.js';
-import { registerWorker } from './foundation.js';
-import { registerSignupProofCleanup } from '../modules/identity/signup-proof-cleanup.js';
+import { startSignupProofCleanup } from '../modules/identity/signup-proof-cleanup.js';
+import { foundationPolicy, startFoundationQueue } from './foundation.js';
+import type { QueuePolicy } from './queue.js';
+import type { QueueRunner } from './runner.js';
 
-/** Register application handlers after queue startup; caller owns queue/pool lifetime and startup failure cleanup. */
-export async function registerApplicationWorkers(boss: PgBoss, pool: pg.Pool, config: Configuration): Promise<void> {
+/** Loop timings; production uses the defaults and tests pass shorter values. */
+export interface WorkerTimings { pollMs: number; cleanupMs: number; foundation: QueuePolicy }
+export const defaultTimings: WorkerTimings = { pollMs: 500, cleanupMs: 60_000, foundation: foundationPolicy };
+
+/**
+ * Start application loops after migration; the caller owns the connection and closes it after stop().
+ * stop() first clears the cleanup timer, then stops each queue (wait up to waitMs, then abort unrecorded).
+ */
+export function registerApplicationWorkers(db: Database.Database, config: Configuration, timings: WorkerTimings = defaultTimings): QueueRunner {
   // Product proof cleanup runs in every environment; synthetic effects are restricted to development/test.
-  if (config.environment !== 'production') await registerWorker(boss, pool, config.queue);
-  await registerSignupProofCleanup(boss, pool);
+  const stopCleanup = startSignupProofCleanup(db, timings.cleanupMs);
+  const queues = config.environment === 'production' ? [] : [startFoundationQueue(db, config.queue, timings.foundation, timings.pollMs)];
+  return {
+    async stop(waitMs?: number): Promise<void> {
+      stopCleanup();
+      await Promise.all(queues.map(queue => queue.stop(waitMs)));
+    },
+  };
 }

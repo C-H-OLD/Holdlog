@@ -45,7 +45,7 @@ npm run check
 
 ```sh
 npm run check
-# TEST_DATABASE_URL은 개발 안내의 로컬 holdlog_test DB에만 지정. 비밀번호를 공유 명령/로그에 복사하지 않는다.
+# DB 시험은 시험마다 임시 SQLite 파일을 쓴다. 따로 준비할 시험 DB가 없다.
 npm run test:identity --workspace @holdlog/server
 npm run test:foundation
 ```

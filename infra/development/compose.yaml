@@ -1,42 +1,10 @@
 name: holdlog-foundation
 services:
-  db:
-    image: postgres:17.11@sha256:ae69c452f483507a6b99fb654cf93aad7fe156ffd2c56247707eef4e36d3c12b
-    environment:
-      POSTGRES_USER: holdlog
-      POSTGRES_DB: holdlog_dev
-      POSTGRES_PASSWORD: ${DEVELOPMENT_DB_PASSWORD:?Set DEVELOPMENT_DB_PASSWORD locally}
-    ports:
-      - "127.0.0.1:55432:5432"
-    volumes:
-      - development-db:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U holdlog -d holdlog_dev"]
-      interval: 2s
-      timeout: 2s
-      retries: 20
-  test-db:
-    image: postgres:17.11@sha256:ae69c452f483507a6b99fb654cf93aad7fe156ffd2c56247707eef4e36d3c12b
-    environment:
-      POSTGRES_USER: holdlog
-      POSTGRES_DB: holdlog_test
-      POSTGRES_PASSWORD: ${TEST_DB_PASSWORD:?Set TEST_DB_PASSWORD locally}
-    ports:
-      - "127.0.0.1:55433:5432"
-    volumes:
-      - test-db:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U holdlog -d holdlog_test"]
-      interval: 2s
-      timeout: 2s
-      retries: 20
   storage:
-    image: postgres:17.11@sha256:ae69c452f483507a6b99fb654cf93aad7fe156ffd2c56247707eef4e36d3c12b
+    image: busybox:1.36.1@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
     profiles: ["storage"]
     entrypoint: ["sleep", "infinity"]
     volumes:
       - private-files:/private-files
 volumes:
-  development-db:
-  test-db:
   private-files:

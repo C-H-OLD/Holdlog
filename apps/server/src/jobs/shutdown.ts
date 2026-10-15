@@ -1,13 +1,9 @@
-import type { PgBoss } from 'pg-boss';
-import type pg from 'pg';
-
 /**
- * Close queue and pool after startup failure, even if either cleanup rejects.
- * Always rejects with the original startup error; cleanup values are never logged.
+ * Close the connection after a startup failure and rethrow the original error.
+ * A close failure never replaces the original startup failure; cleanup values are never logged.
  */
-export async function cleanupStartupFailure(boss: Pick<PgBoss, 'stop'>, pool: Pick<pg.Pool, 'end'>, originalError: unknown): Promise<never> {
-  try { await boss.stop({ graceful: false }); }
+export function cleanupStartupFailure(db: { close(): unknown }, originalError: unknown): never {
+  try { db.close(); }
   catch { /* Cleanup must not replace the original startup failure. */ }
-  finally { await pool.end().catch(() => undefined); }
   throw originalError;
 }

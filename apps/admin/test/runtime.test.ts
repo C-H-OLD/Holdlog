@@ -75,7 +75,7 @@ void test('real Vite serves React modules and proxies success503/network failure
 
 void test('production build works without proxy settings and excludes secrets and development health code', async () => {
   const directory = await mkdtemp(join(tmpdir(), 'holdlog-admin-build-'));
-  const names = ['ADMIN_DEV_API_ORIGIN', 'DATABASE_URL', 'SERVER_SECRET', 'VITE_SYNTHETIC_SECRET', 'ADMIN_CSRF_KEY', 'ADMIN_DEV_AUTH_CHECK', 'ADMIN_DEV_TLS_CERT', 'ADMIN_DEV_TLS_KEY', 'NODE_ENV'];
+  const names = ['ADMIN_DEV_API_ORIGIN', 'DATABASE_PATH', 'SERVER_SECRET', 'VITE_SYNTHETIC_SECRET', 'ADMIN_CSRF_KEY', 'ADMIN_DEV_AUTH_CHECK', 'ADMIN_DEV_TLS_CERT', 'ADMIN_DEV_TLS_KEY', 'NODE_ENV'];
   const previous = names.map(name => process.env[name]);
   const marker = 'synthetic-bundle-secret-marker';
   delete process.env.ADMIN_DEV_API_ORIGIN;

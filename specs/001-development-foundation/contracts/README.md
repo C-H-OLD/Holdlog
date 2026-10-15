@@ -17,7 +17,7 @@
 | `npm run build:admin` / `build:api` | 웹/API 빌드. 모바일은 플랫폼별 전용 개발 빌드 |
 | `npm run test:foundation` | 실제 시험 DB·API·합성 queue 검사와 미수행 외부 검사 구분 |
 
-`test:foundation`은 명시적 `TEST_DATABASE_URL`을 요구하며 기존 서버의 시험 DB·queue 검사를 호출한다. 기본 `check`·`test`는 이 DB 검사와 실제 브라우저/API 연동·모바일 네이티브 빌드/기기 검사를 수행하지 않았다고 출력한다. Python 문서/계약 정적 검사는 `python3 scripts/check-docs.py`·`python3 scripts/check-contracts.py`로 별도 실행한다.
+`test:foundation`은 DB 설정 없이 서버의 DB·queue 검사를 호출한다. 시험마다 임시 SQLite 파일을 만든다. 기본 `check`·`test`는 이 DB 검사와 실제 브라우저/API 연동·모바일 네이티브 빌드/기기 검사를 수행하지 않았다고 출력한다. Python 문서/계약 정적 검사는 `python3 scripts/check-docs.py`·`python3 scripts/check-contracts.py`로 별도 실행한다.
 
 검사 실패는 비정상 종료하고 대상·원인을 알려준다. 누락된 설정의 값과 비밀은 출력하지 않는다.
 
@@ -26,7 +26,7 @@
 | 경로 | 입력·결과 | 확인 범위 |
 |---|---|---|
 | `GET /internal/health/live` | body 없음.200 `{"status":"ok"}` | API 프로세스 응답 |
-| `GET /internal/health/ready` | body 없음. DB 쿼리 성공200 `{"status":"ready"}`, 실패503 `{"status":"unavailable"}` | API와 DB 연결. 상세 DB 주소·오류·비밀 미반환 |
+| `GET /internal/health/ready` | body 없음. migration 적용 확인200 `{"status":"ready"}`, 미적용·실패503 `{"status":"unavailable"}` | API와 DB 파일·migration. 상세 DB 경로·오류·비밀 미반환 |
 
 001 개발 전용이며 [현행 제품 API](../../../packages/contracts/openapi.json) 계약에 추가하지 않는다. 개발 네트워크에서만 접근하며 운영에 외부 노출하지 않는다. 모바일/웹 테스트 진입점에서 성공·실패를 소비하고 새 화면은 추가하지 않는다. worker 상태·합성 작업 재개는 별도 검사다.
 

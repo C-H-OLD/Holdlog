@@ -1,7 +1,7 @@
-import { isAbsolute } from 'node:path';
+import { basename, dirname, isAbsolute } from 'node:path';
 import { isIP } from 'node:net';
 import { createPrivateKey, type KeyObject } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 
 export interface IdentityConfiguration {
   google: { audiences: string[]; issuers: string[]; jwksUrl: string };
@@ -73,7 +73,7 @@ export interface Configuration {
   environment: 'development' | 'test' | 'production';
   host: string;
   port: number;
-  databaseUrl: string;
+  databasePath: string;
   storagePath: string;
   allowedOrigins: string[];
   queue: string;
@@ -87,13 +87,18 @@ function isLocalHost(host: string): boolean {
   return parts[0] === 127 || parts[0] === 10 || (parts[0] === 192 && parts[1] === 168) || (parts[0] === 172 && parts[1]! >= 16 && parts[1]! <= 31);
 }
 
+/** Report whether an existing directory is at the path; unreadable or missing paths are false. */
+function isDirectory(path: string): boolean {
+  try { return statSync(path).isDirectory(); } catch { return false; }
+}
+
 /**
  * Validate foundation settings before opening sockets. Input is process.env by default.
  * Returns validated local configuration; throws names only on missing/invalid settings.
  * Production may be used to verify disabled development routes, with local data only.
  */
 export function loadConfiguration(env: NodeJS.ProcessEnv = process.env): Configuration {
-  const required = ['NODE_ENV', 'API_HOST', 'API_PORT', 'DATABASE_URL', 'PRIVATE_STORAGE_PATH', 'ALLOWED_ORIGINS', 'WORKER_QUEUE'] as const;
+  const required = ['NODE_ENV', 'API_HOST', 'API_PORT', 'DATABASE_PATH', 'PRIVATE_STORAGE_PATH', 'ALLOWED_ORIGINS', 'WORKER_QUEUE'] as const;
   const invalid = new Set<string>();
   for (const name of required) if (!env[name]?.trim()) invalid.add(name);
   const environment = env.NODE_ENV;
@@ -102,12 +107,11 @@ export function loadConfiguration(env: NodeJS.ProcessEnv = process.env): Configu
   if (!isLocalHost(host) || host === 'localhost' || host === '[::1]') invalid.add('API_HOST');
   const port = Number(env.API_PORT);
   if (!/^\d+$/.test(env.API_PORT ?? '') || !Number.isInteger(port) || port < 1 || port > 65535) invalid.add('API_PORT');
-  try {
-    const url = new URL(env.DATABASE_URL ?? '');
-    // Foundation refuses remote/operational databases even in a production-mode smoke test.
-    const expectedDatabase = environment === 'test' ? '/holdlog_test' : '/holdlog_dev';
-    if (!['postgres:', 'postgresql:'].includes(url.protocol) || !isLocalHost(url.hostname) || url.pathname !== expectedDatabase || !url.username || !url.password || url.search || url.hash) invalid.add('DATABASE_URL');
-  } catch { invalid.add('DATABASE_URL'); }
+  const databasePath = env.DATABASE_PATH ?? '';
+  // Foundation refuses operational database files even in a production-mode smoke test.
+  const expectedFile = environment === 'test' ? 'holdlog_test.sqlite' : 'holdlog_dev.sqlite';
+  // SQLite cannot create a missing parent folder (errcode 14), so report the setting name before opening.
+  if (!isAbsolute(databasePath) || basename(databasePath) !== expectedFile || !isDirectory(dirname(databasePath))) invalid.add('DATABASE_PATH');
   if (!isAbsolute(env.PRIVATE_STORAGE_PATH ?? '')) invalid.add('PRIVATE_STORAGE_PATH');
   const origins = (env.ALLOWED_ORIGINS ?? '').split(',').map(value => value.trim());
   for (const origin of origins) {
@@ -116,5 +120,5 @@ export function loadConfiguration(env: NodeJS.ProcessEnv = process.env): Configu
   }
   if (!/^[a-z][a-z0-9-]{0,62}$/.test(env.WORKER_QUEUE ?? '')) invalid.add('WORKER_QUEUE');
   if (invalid.size) throw new Error('Missing or invalid settings: ' + [...invalid].join(', '));
-  return { environment: environment as Configuration['environment'], host, port, databaseUrl: env.DATABASE_URL!, storagePath: env.PRIVATE_STORAGE_PATH!, allowedOrigins: origins, queue: env.WORKER_QUEUE! };
+  return { environment: environment as Configuration['environment'], host, port, databasePath, storagePath: env.PRIVATE_STORAGE_PATH!, allowedOrigins: origins, queue: env.WORKER_QUEUE! };
 }

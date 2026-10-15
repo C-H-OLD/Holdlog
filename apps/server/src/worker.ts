@@ -2,30 +2,29 @@ import { loadConfiguration } from './config/environment.js';
 import { logEvent, reportStartupFailure } from './config/logging.js';
 import { createDatabase } from './database/pool.js';
 import { migrate } from './database/migrate.js';
-import { createQueue } from './jobs/foundation.js';
 import { registerApplicationWorkers } from './jobs/register.js';
+import type { QueueRunner } from './jobs/runner.js';
 import { cleanupStartupFailure } from './jobs/shutdown.js';
 
 /** Start the separate application worker; initialize schema, redact failures and drain on signals. */
-async function main(): Promise<void> {
+function main(): void {
   const config = loadConfiguration();
-  const pool = createDatabase(config);
-  const boss = createQueue(config);
+  const db = createDatabase(config);
+  let workers: QueueRunner;
   try {
-    await migrate(pool);
-    await boss.start();
-    await registerApplicationWorkers(boss, pool, config);
-  } catch (error) { await cleanupStartupFailure(boss, pool, error); }
+    migrate(db);
+    workers = registerApplicationWorkers(db, config);
+  } catch (error) { cleanupStartupFailure(db, error); }
   let stopping = false;
-  /** Stop once, allowing active effects to finish before ending DB connections. */
+  /** Stop once: clear the cleanup timer, give active handlers 10 s, abort the rest, then close the DB. */
   const stop = async (): Promise<void> => {
     if (stopping) return;
     stopping = true;
-    try { await boss.stop({ graceful: true, timeout: 10000 }); }
-    finally { await pool.end(); logEvent('worker.stopped'); }
+    try { await workers.stop(10_000); }
+    finally { db.close(); logEvent('worker.stopped'); }
   };
   process.once('SIGINT', () => { void stop().catch(error => reportStartupFailure(error, 'worker')); });
   process.once('SIGTERM', () => { void stop().catch(error => reportStartupFailure(error, 'worker')); });
   logEvent('worker.started');
 }
-await main().catch(error => reportStartupFailure(error, 'worker'));
+try { main(); } catch (error) { reportStartupFailure(error, 'worker'); }

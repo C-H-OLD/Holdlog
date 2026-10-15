@@ -25,7 +25,7 @@ npm run contracts:generate
 npm run check
 ```
 
-실제 로컬 앱·웹·API/worker·DB의 설치/실행·공개 설정 이름·실패 복구는 [개발 안내](../../docs/development.md)를 따른다. 루트 check는 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행을 포함하지 않는다. 시험 DB 검사는 로컬 TEST_DATABASE_URL을 준비해 `npm run test:foundation`으로 별도 실행한다.
+실제 로컬 앱·웹·API/worker·DB의 설치/실행·공개 설정 이름·실패 복구는 [개발 안내](../../docs/development.md)를 따른다. 루트 check는 실제 DB·브라우저/API 연동·네이티브 빌드·기기 실행을 포함하지 않는다. DB 검사는 시험마다 임시 SQLite 파일을 만들어 `npm run test:foundation`으로 별도 실행한다.
 
 ## 001 기반에서 확인한 범위
 

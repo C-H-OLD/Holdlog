@@ -3,7 +3,7 @@
   "node": "24.21.0",
   "npm": "11.19.0",
   "inputs": {
-    "package-lock.json": "feabad7b08cfa05c05b3f2057155b95fe5f0522f5294968471da5b0fa33f7d82",
+    "package-lock.json": "554c496cdd1da2b1e861752dcb3de7451c6ae8860ed4c02b34fa139966b1c151",
     "package.json": "7d1a1b3e744f2585d91b6081f17927e7cb4c3f369569337147d5cf37bc1fa616",
     "packages/contracts/conventions.md": "37799d31daf83af27d37eecc82c13f19ab2f6204440d19edae3ed21def1ef901",
     "packages/contracts/examples.json": "69eab1f6334a3ecce6b3838266cab7bc3f6159e23e7b3eea5b9a62d614c12e88",

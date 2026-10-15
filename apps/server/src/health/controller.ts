@@ -1,21 +1,25 @@
 import { Controller, Get, Inject, ServiceUnavailableException } from '@nestjs/common';
-import type pg from 'pg';
+import type Database from 'better-sqlite3';
 
 export const DATABASE = Symbol('foundation.database');
 
 @Controller('internal/health')
 export class HealthController {
-  /** Inject the local DB pool; no product identity or permission bypass is installed. */
-  constructor(@Inject(DATABASE) private readonly pool: pg.Pool) {}
+  /** Inject the API's SQLite connection; no product identity or permission bypass is installed. */
+  constructor(@Inject(DATABASE) private readonly db: Database.Database) {}
 
   /** Return API process liveness only; worker/DB readiness is a separate observation. */
   @Get('live')
   live(): { status: 'ok' } { return { status: 'ok' }; }
 
-  /** Query the real DB; return 503 with a fixed body and no SQL/connection error on failure. */
+  /**
+   * Return ready only after migrations were applied to this DB file; otherwise 503 with a fixed body.
+   * Opening a SQLite file rarely fails, so SELECT 1 alone would always pass. No SQL/file error is exposed.
+   */
   @Get('ready')
-  async ready(): Promise<{ status: 'ready' }> {
-    try { await this.pool.query('SELECT 1'); return { status: 'ready' }; }
-    catch { throw new ServiceUnavailableException({ status: 'unavailable' }); }
+  ready(): { status: 'ready' } {
+    try { if (this.db.prepare('SELECT 1 FROM schema_migrations LIMIT 1').get()) return { status: 'ready' }; }
+    catch { /* A missing history table or unreadable file is reported as unavailable below. */ }
+    throw new ServiceUnavailableException({ status: 'unavailable' });
   }
 }

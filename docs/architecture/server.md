@@ -4,9 +4,9 @@
 
 ## 적용 범위와 현재 상태
 
-현재 NestJS API·개발 health 경로·pg 연결·SQL migration runner와 pg-boss 합성 worker가 있다. 004 인증 저장 migration·같은 client의 TX/잠금·최소 receipt·별도 설정 검증 기반을 추가했다. 004/#51은 모바일 인증·가입 완료·이름 profile·회수와 proof 정리의 서버 단독 구현을 추가했다. [검증 기록](../history/development/004-mobile-identity-api-verification.md)을 따른다. 004/#52는 별도 관리자 cookie 인증·초기 계정 도구와 [서버 단독 검사](../history/development/004-admin-api-verification.md)를 추가했다. 실제 제공자/기기·관리자 브라우저·나머지 업무 API·파일 처리·푸시와 실제 운영 배포는 후속이다. proof 정리 worker는 운영 분기에도 등록하고 합성 작업은 development/test에만 등록한다. 아래 `modules/identity/`는 현재 구현이고 다른 업무 모듈·`storage/`는 필요한 구현이 생길 때 만든다. 기존 기반 코드를 폴더 이름 통일만을 위해 옮기지 않는다.
+현재 NestJS API·개발 health 경로·SQLite 연결(better-sqlite3)·SQL migration runner와 작업 표 기반 합성 worker가 있다. SQLite 전환 이유는 [결정 기록](../history/decisions/2026-10-14-server-sqlite.md)에 있다. 004 인증 저장 migration·같은 연결의 IMMEDIATE TX·최소 receipt·별도 설정 검증 기반을 추가했다. 004/#51은 모바일 인증·가입 완료·이름 profile·회수와 proof 정리의 서버 단독 구현을 추가했다. [검증 기록](../history/development/004-mobile-identity-api-verification.md)을 따른다. 004/#52는 별도 관리자 cookie 인증·초기 계정 도구와 [서버 단독 검사](../history/development/004-admin-api-verification.md)를 추가했다. 실제 제공자/기기·관리자 브라우저·나머지 업무 API·파일 처리·푸시와 실제 운영 배포는 후속이다. proof 정리 worker는 운영 분기에도 등록하고 합성 작업은 development/test에만 등록한다. 아래 `modules/identity/`는 현재 구현이고 다른 업무 모듈·`storage/`는 필요한 구현이 생길 때 만든다. 기존 기반 코드를 폴더 이름 통일만을 위해 옮기지 않는다.
 
-현재 의존성과 실행 명령은 [개발 안내](../development.md)와 manifest를 따른다. DB 접근은 기존 `pg`를 기준으로 하며 ORM이나 별도 서버 프레임워크 도입은 이 문서 작성에 포함하지 않는다. 계약 패키지를 실제 import하는 workspace에는 직접 의존을 선언하고 루트 lockfile을 함께 갱신한다.
+현재 의존성과 실행 명령은 [개발 안내](../development.md)와 manifest를 따른다. DB 접근은 `better-sqlite3`의 동기 API와 직접 쓴 SQL을 기준으로 하며 ORM이나 별도 서버 프레임워크 도입은 이 문서 작성에 포함하지 않는다. 계약 패키지를 실제 import하는 workspace에는 직접 의존을 선언하고 루트 lockfile을 함께 갱신한다.
 
 ## 모듈 책임과 코드 배치
 
@@ -23,7 +23,7 @@ apps/server/
     ├── app.module.ts           # API 모듈 조립
     ├── worker.ts               # 별도 worker 시작·종료
     ├── config/                 # 설정 검증·안전한 로그
-    ├── database/               # pool·migration·트랜잭션 도구
+    ├── database/               # 연결·migration·트랜잭션·시각 도구
     ├── health/                 # 기존 개발 상태 확인
     ├── jobs/                   # 대기열 연결·handler 등록·종료
     ├── modules/                # identity 구현, crews·catalog·records 등은 후속
@@ -46,7 +46,7 @@ controller는 HTTP, service는 업무 처리, repository는 SQL 접근을 맡는
 ## API와 업무 로직 경계
 
 ```text
-HTTP → controller·입력 검사·인증 경계 → 업무 service → repository → PostgreSQL
+HTTP → controller·입력 검사·인증 경계 → 업무 service → repository → SQLite
                                               ↘ 저장 어댑터·작업 등록
 worker handler → 같은 업무 service·저장 어댑터
 ```
@@ -55,15 +55,15 @@ worker handler → 같은 업무 service·저장 어댑터
 - 인증 경계는 현재 주체·세션을 확인하고 service는 대상 크루·소유·업무 제약을 검사한다. 입력의 accountId·역할·선택 크루나 클라이언트의 canEdit를 권한 근거로 쓰지 않는다. 재요청과 worker 실행에서도 현재 권한·삭제 상태를 필요한 시점에 재검사한다.
 - service의 업무 오류를 HTTP adapter에서 계약의 status·code·허용된 상세값으로 바꾼다. SQL 오류·stack·내부 경로·비밀값을 응답하지 않는다. 인증·권한 검사 전 비공개 대상의 존재나 version을 노출하지 않는다.
 - controller에서 화면용 정책·계산식을 새로 만들지 않는다. 본인 응답과 회원 공개 응답은 별도 projection으로 구성하고, 금지된 값을 전송한 뒤 화면에서 숨기는 방식은 사용하지 않는다.
-- 관리자 인증은 004의 책임이며 모바일 Bearer 세션과 별개다. cookie·CSRF·Origin·초기 관리자 준비는 [C02 원본](../../packages/contracts/conventions.md#인증기기관리자--c02c03c09)과 [초기 관리자 절차](../../specs/001-development-foundation/contracts/admin-bootstrap.md)를 따른다. 006/019의 HTTP는 `AdminSessionGuard`, 업무는 `AdminSessionService.withAdministrator` callback의 같은 client로 현재 권한·CSRF와 저장을 묶는다. 개발 health 경로를 인증 우회로 사용하지 않는다.
+- 관리자 인증은 004의 책임이며 모바일 Bearer 세션과 별개다. cookie·CSRF·Origin·초기 관리자 준비는 [C02 원본](../../packages/contracts/conventions.md#인증기기관리자--c02c03c09)과 [초기 관리자 절차](../../specs/001-development-foundation/contracts/admin-bootstrap.md)를 따른다. 006/019의 HTTP는 `AdminSessionGuard`, 업무는 `AdminSessionService.withAdministrator`의 동기 callback으로 같은 IMMEDIATE 트랜잭션 안에서 현재 권한·CSRF와 저장을 묶는다. 개발 health 경로를 인증 우회로 사용하지 않는다.
 - UTC 시점·현지 날짜·IANA 시간대, PATCH 누락/null, 미입력/명시적 0을 변환 과정에서 보존한다. 응답·헤더·멱등키·오류의 상세 규칙은 [공통 계약 규칙](../../packages/contracts/conventions.md)이 원본이다.
 
 ## DB 접근 경계
 
 - SQL은 parameter binding으로 실행한다. 동적 정렬·컬럼 등 바인딩할 수 없는 식별자는 허용 목록으로 제한한다. repository가 request·response·React 타입에 의존하지 않게 한다.
-- 여러 repository의 변경은 service가 연 트랜잭션의 같은 `pg` client를 전달해 실행한다. 트랜잭션 안에서 pool로 별도 쿼리를 보내거나 repository마다 commit해 원자성을 깨지 않는다. 실패 시 rollback하고 client는 반드시 반환한다.
+- 여러 repository의 변경은 service가 `withTransaction`(BEGIN IMMEDIATE)으로 연 트랜잭션 안에서 같은 연결로 실행한다. 프로세스마다 연결은 하나다. 트랜잭션 callback은 동기 함수이며 그 안에서 await하거나 repository마다 commit해 원자성을 깨지 않는다. 실패 시 rollback한다.
 - version·현재 가입·소유·연결 제약은 저장 직전 잠금·조건부 변경·DB 제약으로 보호한다. 먼저 조회하고 나중에 저장하는 검사만으로 동시 요청을 막았다고 보지 않는다. 모든 관계 변경은 [공통 잠금 순서](../../specs/002-shared-contracts/data-model.md#9-함께-저장할-범위와-잠금-순서)를 따른다. 기능별 계획에서는 이 순서에 맞는 잠금 대상·실행 절차·고유 제약과 계약의 충돌 결과를 구체화한다.
-- 제품의 업무 변경·사건·OutboxEntry·성공 receipt는 [공통 원자 저장 범위](../../specs/002-shared-contracts/data-model.md#9-함께-저장할-범위와-잠금-순서)에 따라 같은 DB 트랜잭션으로 commit한다. 작업은 commit 이후 outbox dispatcher가 pg-boss에 전달하며, 사건·전달 순서와 재전달 처리는 [작업 계약](../../packages/contracts/conventions.md#파일업로드이력작업--c08c11)을 따른다. 직접 enqueue로 이 경로를 대체하지 않는다. 외부 파일 처리·푸시 호출을 긴 DB 트랜잭션 안에서 기다리지 않는다.
+- 제품의 업무 변경·사건·OutboxEntry·성공 receipt는 [공통 원자 저장 범위](../../specs/002-shared-contracts/data-model.md#9-함께-저장할-범위와-잠금-순서)에 따라 같은 DB 트랜잭션으로 commit한다. 작업은 commit 이후 outbox dispatcher가 작업 표(`jobs`)에 전달하며, 사건·전달 순서와 재전달 처리는 [작업 계약](../../packages/contracts/conventions.md#파일업로드이력작업--c08c11)을 따른다. 직접 enqueue로 이 경로를 대체하지 않는다. 외부 파일 처리·푸시 호출을 긴 DB 트랜잭션 안에서 기다리지 않는다.
 - 멱등 receipt와 업무 중복 제약을 함께 설계한다. 같은 키의 입력·버전 결합, 현재 권한 재검사, 삭제 결과 재생성 금지는 계약 원본을 따른다. 합성 job 표식 검사는 제품 멱등성의 완료 증거가 아니다.
 - SQL 변경은 `db/migrations/`의 runner 규칙에 맞춰 추가한다. 적용된 파일을 수정·제거하지 않고 새 migration으로 고친다. 번호 충돌과 공용 변경 담당을 먼저 확인하며 실제 빈 DB·업그레이드 DB의 실행 결과를 구분한다. 초기 운영 자료와 시험 fixture를 migration에 임의로 섞지 않는다.
 

@@ -15,9 +15,9 @@ FR-001~006을 서버 인증·프로필, 모바일 세션/화면, 관리자 웹 �
 ## Technical Context
 
 - **Language/Version**: TypeScript, Node24.21.0·npm11.19.0. 앱 프레임워크 버전은 각 package.json의 고정값을 유지한다.
-- **Primary Dependencies**: NestJS11·pg8, React19/Vite, Expo57/RN0.86. 서버 JOSE·Argon2id와 모바일 SecureStore는 T002에서 manifest/lockfile로 고정했다. [호환성 증거](../../docs/history/development/004-identity-foundation-verification.md)를 따르며 실제 제공자 어댑터는 T029의 별도 후보/gate다.
-- **Storage**: PostgreSQL 인증/프로필/기기 연결, 기기 보안 저장소. 사진 bytes는011 비공개 저장 어댑터. 관리자 cookie 원문은 브라우저, 서버에는 해시만 둔다.
-- **Testing**: 기존 Node test·타입/lint/build·계약 생성 검사, 실제 PostgreSQL HTTP/동시성 시험, 로컬 신뢰 HTTPS 브라우저, iOS/Android 전용 개발 빌드. 형식 fixture와 실제 제공자 검증을 분리한다.
+- **Primary Dependencies**: NestJS11·better-sqlite3 13.0.3, React19/Vite, Expo57/RN0.86. 서버 JOSE·Argon2id와 모바일 SecureStore는 T002에서 manifest/lockfile로 고정했다. [호환성 증거](../../docs/history/development/004-identity-foundation-verification.md)를 따르며 실제 제공자 어댑터는 T029의 별도 후보/gate다.
+- **Storage**: SQLite 인증/프로필/기기 연결, 기기 보안 저장소. 사진 bytes는011 비공개 저장 어댑터. 관리자 cookie 원문은 브라우저, 서버에는 해시만 둔다.
+- **Testing**: 기존 Node test·타입/lint/build·계약 생성 검사, 실제 SQLite 파일의 HTTP/동시성 시험(다른 프로세스의 쓰기 잠금 포함), 로컬 신뢰 HTTPS 브라우저, iOS/Android 전용 개발 빌드. 형식 fixture와 실제 제공자 검증을 분리한다.
 - **Target Platform / Project Type**: iOS·Android 모바일 + 관리자 웹 + 단일 NestJS API. worker는 인증 HTTP 시작과 분리한다.
 - **Performance Goals**: 임의 SLA 추가 없음. Argon2 비용·JWKS 캐시/키 교체·기한·갱신 동시 요청을 로컬 측정하고 결과를 남긴다. 계약의 세션 기간을 바꾸지 않는다.
 - **Constraints**: 이메일 병합 금지, 매 요청 현재 세션/계정 검사, nonce 재사용 금지, 입력/로그/번들에 비밀 노출 금지. 관리자 신규 로그인 화면은 현재 시안에 없으므로 API 소비와 브라우저 검증 도구까지만 준비한다.

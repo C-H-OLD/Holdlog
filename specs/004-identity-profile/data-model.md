@@ -2,7 +2,7 @@
 
 논리 필드/제약 원본은 [002 계정·인증](../002-shared-contracts/data-model.md#2-계정기기크루--c02c03), 기간/오류/재요청은 [계약 규칙](../../packages/contracts/conventions.md)이다. 아래는 물리 배치·변경 경계이며 원본 필드를 재정의하지 않는다.
 
-현재 `002_identity.sql`이 `holdlog` schema의 아래 인증 저장소를 만든다. migration/제약/TX 검증과 제품 인증 API 구현은 구분한다. 자세한 실행 범위는 [공통 기반 검증](../../docs/history/development/004-identity-foundation-verification.md)을 따른다.
+현재 `002_identity.sql`이 SQLite DB 파일에 아래 인증 저장소를 STRICT 표로 만든다. migration/제약/TX 검증과 제품 인증 API 구현은 구분한다. 자세한 실행 범위는 [공통 기반 검증](../../docs/history/development/004-identity-foundation-verification.md)을 따른다.
 
 ## 물리 저장 배치
 
