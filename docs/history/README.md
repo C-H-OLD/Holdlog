@@ -29,3 +29,5 @@
 이동 전 상태 스냅샷의 `_archiveMetadata.originalBase`는 원래 상대경로 기준 폴더다. 제거한 사진은 해당 보고서의 `artifactStatus=removed`·`removedPath`로 남기며 현재 파일 링크로 검사하지 않는다.
 
 - [2026-10-14 관리자 인증 실제 HTTPS 연동](development/004-admin-auth-verification.md)
+
+- [2026-10-19 모바일 인증·가입 소비 단독 검증](development/004-mobile-consumer-verification.md)

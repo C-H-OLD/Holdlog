@@ -34,7 +34,7 @@
 - [x] T012 [BE] [US1] `apps/server/src/tools/admin-bootstrap.ts`, `apps/server/src/modules/identity/admin-session.ts`에서001 절차의 숨김 입력·Argon2id·명시적 version 교체/전체세션회수·별도guard·cookie/CSRF 파생/Origin 검사를 구현하고 관리자 HTTP 연결은 T010 controller 담당과 순차 조정한다.
 - [x] T013 [BE] [US1] `apps/server/test/profile.e2e-spec.ts`, `apps/server/src/modules/identity/identity.service.ts`, `identity.controller.ts`에 본인 profile 조회·이름 변경·ETag/If-Match·멱등 처리를 검사 후 구현한다. T009/T030/T010과 같은 파일이므로 병렬 변경하지 않는다.
 - [ ] T014 [BE] [US1] `apps/server/src/modules/identity/identity.service.ts`, `apps/server/test/profile.e2e-spec.ts`에 createProfileImageDraft·본인 ready Asset 연결/제거·동일TX 회수/정리를011 서비스와 연결한다.011 migration/서비스 준비가 착수 선행이며004에 별도 업로드·자산 저장을 만들지 않는다.
-- [ ] T015 [P] [FE] [US1] `apps/mobile/test/identity.test.ts`, `apps/mobile/src/api/holdlog/auth.ts`, `profile.ts`에서 transport 주입·생성 타입/응답 검사·계약 오류·요청키/버전을 검사하고 fetch 전송 함수를 구현한다. 서버 구현 대기 없이 fixtures로 시작한다.
+- [x] T015 [P] [FE] [US1] `apps/mobile/test/identity.test.ts`, `apps/mobile/src/api/holdlog/auth.ts`, `profile.ts`에서 transport 주입·생성 타입/응답 검사·계약 오류·요청키/버전을 검사하고 fetch 전송 함수를 구현한다. 서버 구현 대기 없이 fixtures로 시작한다.
 - [ ] T016 [FE] [US1] `apps/mobile/src/lib/secureSession.ts`, `identityProviders.ts`, `apps/mobile/src/providers/AuthProvider.tsx`에서 fake provider로 순수 상태를 먼저 검사하고 T029 병합 전에는 fake provider로 독립 검사하고 실제 연결에는 검증 adapter를 소비해 보안 저장·세대/단일refresh·로그아웃 정리를 구현하고 `apps/mobile/test/identity.test.ts`로 저장 실패·취소를 검사한다.
 - [ ] T031 [FE] [US1] `apps/mobile/src/lib/signupFlow.ts`, `apps/mobile/test/signup.test.ts`에서 signupRequired/completingSignup/authenticated 구분·증명 메모리 보관/만료·이름 검증·입력/초대 보존·계정 세대·응답 유실/보안 저장 실패 재인증을 검사 후 구현한다. 일반 API/탭 진입은 세션 보안 저장 전 막고 기존 회원은07.02를 건너뛴다. T015~016의 계약 전송/상태 adapter 위에서 수행한다.
 - [ ] T017 [FE] [US1] `apps/mobile/src/app/login.tsx`, `signup.tsx`, `(tabs)/profile/index.tsx`, `profile/edit.tsx`, `apps/mobile/src/hooks/mutations/useEditProfile.ts`에07.01/07.02/05.01/05.02를003 부품·라우트와 연결한다.005 PendingInvite·크루 결과 소비,021 삭제 진입과 기존 시안을 대조하고 `apps/mobile/test/profile.test.ts`에 정상/실패 검사를 추가한다.
@@ -103,3 +103,7 @@ T001→T002는 공통 설정·의존성 준비, T003→T004→T005는 SQL/잠금
 각 ID는 위 한 묶음에만 속한다. 실제 담당·진행·PR은 GitHub 작업 이슈에서 관리한다. 모바일/웹 mock 소비는 서버 제품 구현을 기다리지 않으며 공유 파일은 한 담당이 모은다. MVP는 관리자 단독 접근과 모바일 인증/이름 프로필을 먼저 검증하되 사진·후속 연동 미완료를004 전체 완료로 부르지 않는다.
 
 후속005/011/017/021의 착수 선행은 [`004/backend-mobile-identity`](https://github.com/C-H-OLD/Holdlog/issues/51)의 검증·병합된 인증 경계이며 상위 #45 종료나 [`004/integration-final`](https://github.com/C-H-OLD/Holdlog/issues/59) 종료가 아니다. 관리자006/019는 [`004/backend-admin-auth`](https://github.com/C-H-OLD/Holdlog/issues/52)를 소비한다.004의 최종 교차 검증은 각 후속의 해당 기능 구현 결과를 소비하며 이들의 상위 스펙 전체 종료를 기다리지 않는다.
+
+## 모바일 소비 구현 진행
+
+#53의 [단독 검증 기록](../../docs/history/development/004-mobile-consumer-verification.md)을 따른다. T015는 생성 계약 전송과 단독 검사를 완료했다. T016/T031의 순수 저장·인증/가입 상태와 T017의 이름 편집 명령/훅, T023의 합성 실패·동시성 검사를 구현했다. T016 실제 adapter/보안 저장 기기 검증은 #50/T029, T031의 실제 탭 진입·초대 소비와 T017 화면 조립은003/005/021, T023의 실제 사진·기기 검사는011/후속 연동이 남아 해당 전체 체크는 유지한다. 제품 화면·실제 제공자/기기·전체 #53 완료로 취급하지 않는다.

@@ -48,6 +48,8 @@ API 기본 주소는 `http://127.0.0.1:3100`이다. 개발 연결 경로·응답
 
 ## 모바일 인증 API 실행
 
+004/#53의 [모바일 소비 단독 검증](history/development/004-mobile-consumer-verification.md)은 생성 계약 전송·보안 저장 포트·세션/가입 상태·이름 편집을 합성 provider/저장소로 검사한다. `npm run test --workspace=@holdlog/mobile`로 실행한다. 실제 SDK와 설치 식별자/보안 저장 검증은 #50, 화면·라우트 조립은003/T017 뒤 활성화하며 현재 `App.tsx`는 빈 기반 화면을 유지한다.
+
 004/#51의 서버 단독 구현은 [검증 기록](history/development/004-mobile-identity-api-verification.md)을 따른다. `apps/server/.env`의 `MOBILE_IDENTITY_ENABLED=true`와 실제 Google/Apple 설정을 준비하면 `/api/v2/auth/challenges`, `/auth/sessions`, `/auth/signups`, `/auth/sessions/refresh`, `/auth/sessions/current`, `/me`를 활성화한다(뒤 경로도 모두 `/api/v2` 기준). 설정 누락/오류는 시작 시 거절한다. 기본 예시는 false이며 기존 health/worker는 provider 비밀 없이 실행한다.
 
 ```sh

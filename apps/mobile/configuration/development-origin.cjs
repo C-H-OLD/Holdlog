@@ -26,3 +26,4 @@ function readDevelopmentOrigins(env) {
   };
 }
 exports.readDevelopmentOrigins = readDevelopmentOrigins;
+exports.isLocalHost = isLocalHost;

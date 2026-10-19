@@ -4,17 +4,17 @@
 
 ## 적용 범위와 현재 상태
 
-현재 앱은 Expo 전용 개발 빌드, 빈 루트 화면, 개발 API 연결 진단과 합성 계약 소비까지 갖추고 있다. 아래 목표 구조와 도구 선택 방향은 후속 구현의 기준이며, 디렉터리·제품 화면·인증·상태 관리가 이미 구현됐다는 뜻은 아니다.
+현재 앱은 Expo 전용 개발 빌드, 빈 루트 화면, 개발 API 연결 진단과 합성 계약 소비를 제공한다. 004의 인증·가입 API 전송, 보안 저장 포트, 순수 인증 상태/가입 흐름과 Context·이름 편집 훅을 추가했지만 루트 화면에는 활성화하지 않았다. 실제 SDK·기기 검증은004/T029, 제품 화면·라우트 조립은003/004/T017의 선행 조건이 남아 있다. [단독 검증 기록](../history/development/004-mobile-consumer-verification.md)을 따른다.
 
 | 구분 | 현재 | 후속 적용 |
 |---|---|---|
 | 실행·검사 | npm workspace, 루트 lockfile·ESLint·엄격 TypeScript, Expo 기본 Metro, Node 테스트 | 기존 기반 유지. 정확한 버전·명령은 [개발 안내](../development.md)와 manifest에서 관리 |
 | 진입점 | `index.js` → `App.tsx`, 개발 진단 등록 | 003에서 Expo Router 진입점으로 전환하면서 개발 진단 유지 |
 | 탐색·서버 상태 | 관련 라이브러리 미설치 | Expo Router·TanStack Query를 채택하는 방향으로 003 상세 설계와 호환성 확인 |
-| 공유 입력·기기 저장 | 제품용 구현 없음 | 여러 화면이 공유하는 클라이언트 상태에는 Zustand, 세션 전달에는 Context, 화면 내부 상태에는 React 기본 상태 사용. 영속 저장은 수명별 별도 설계 |
-| 계약 | 생성 타입과 실제 JavaScript 검사 함수를 합성 자료로 소비 | 같은 공개 진입점을 제품 API 계층에서 사용. 계약 패키지는 자동 HTTP 클라이언트가 아님 |
+| 공유 입력·기기 저장 | 004 인증/가입 순수 상태·Context·주입 가능한 보안 저장과 SecureStore 어댑터. 실제 기기 미검증 | 여러 화면 공유 입력은 Zustand, 화면 내부는 React 기본 상태. 설치 식별자·네이티브 활성화는 T029 검증 뒤 연결 |
+| 계약 | 생성 타입·좁은 인증 operation 검사와 fetch API 전송. 합성 응답 단독 검증 | 실제 제공자·서버·기기와 화면 연결. 계약 패키지는 자동 HTTP 클라이언트가 아님 |
 
-현재 계약 import는 루트 workspace 연결로 해석되며 mobile manifest에는 `@holdlog/contracts` 직접 의존 선언이 빠져 있다. 초기 설정 보완 시 계약 패키지의 실제 package version으로 직접 의존을 선언하고 고정 Node/npm으로 루트 lockfile을 함께 갱신한다. package version과 OpenAPI/runtime의 계약 버전은 구분한다.
+mobile manifest에 `@holdlog/contracts`의 실제 package version을 직접 선언하고 루트 lockfile을 함께 관리한다. package version과 OpenAPI/runtime의 계약 버전은 구분한다.
 
 이 문서는 모바일 공통 설계다. [003 앱 탐색과 공통 화면 부품](../../specs/003-app-shell/spec.md)의 라우트·부품별 상세 계획, 작업 목록과 실행 검증은 별도로 준비한다. 운동·업로드·인증 등 각 기능 구현을 003에 합치지 않는다.
 
@@ -67,7 +67,7 @@ apps/mobile/
 | 색상·타이포·query key | `constants/`. 역할별 파일로 구분 |
 | 화면 전용 표시·입력 타입 | 사용하는 파일 가까이 두고 여러 곳에서 쓰면 `types/`. 통신 DTO는 contracts에서 import |
 
-이 경로들은 배치 예시이며 아직 생성하지 않았다. 순수 유틸을 `lib/`와 `utils/`에 중복 분류하지 않는다. 기능 담당은 [기능 스펙 목록](../../specs/README.md)을 따르며, 같은 화면에 여러 기능이 필요하면 기존 [화면별 주 담당](../../specs/README.md#전체-화면-담당-연결)이 연결한다.
+이 경로들은 배치 기준이다. 004의 `api/holdlog`, `lib`, `providers`, 이름 편집 훅만 일부 구현했고 나머지는 후속이다. 순수 유틸을 `lib/`와 `utils/`에 중복 분류하지 않는다. 기능 담당은 [기능 스펙 목록](../../specs/README.md)을 따르며, 같은 화면에 여러 기능이 필요하면 기존 [화면별 주 담당](../../specs/README.md#전체-화면-담당-연결)이 연결한다.
 
 ## 공용 UI와 API 호출 경계
 

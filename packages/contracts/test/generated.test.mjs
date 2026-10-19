@@ -59,3 +59,26 @@ test('operation checks bind generated validators without a namespace import and 
     assert.match(readFileSync(resolve(output,'admin-auth-checks.d.mts'),'utf8'),/adminLoginChecks/);
   } finally {rmSync(output,{recursive:true});}
 });
+
+test('mobile identity checks expose only seven operations and their generated validators', async () => {
+  const output = mkdtempSync(resolve(tmpdir(), 'holdlog-mobile-checks-'));
+  try {
+    await generate(process.cwd(), output);
+    const expected = ['createLoginChallenge', 'login', 'completeSignup', 'refreshSession', 'logout', 'getMyProfile', 'editMyProfile'];
+    assert.equal(readdirSync(output).includes('mobile-identity-checks.mjs'), true);
+    const checks = await import('file://' + resolve(output, 'mobile-identity-checks.mjs'));
+    const validators = await import('file://' + resolve(output, 'mobile-identity-validators.mjs'));
+    const { index } = await import('file://' + resolve(output, 'index.mjs'));
+    assert.deepEqual(Object.keys(checks).sort(), expected.map(id => id + 'Checks').sort());
+    for (const id of expected) {
+      const check = checks[id + 'Checks'];
+      assert.equal(check.path, index.operations[id].path);
+      for (const parameter of index.operations[id].parameters) assert.equal(check.parameters.find(p => p.name === parameter.name).validator, validators[parameter.validator]);
+    }
+    assert.equal(checks.completeSignupChecks.body['application/json'].validator({ signupToken: 'proof', name: 'Name', deviceId: '123e4567-e89b-42d3-a456-426614174000' }), true);
+    assert.equal(checks.completeSignupChecks.body['application/json'].validator({ signupToken: 'proof', name: ' ', deviceId: '123e4567-e89b-42d3-a456-426614174000' }), false);
+    assert.equal(readFileSync(resolve(output, 'mobile-identity-checks.mjs'), 'utf8').includes('import *'), false);
+    assert.equal(Object.keys(validators).length < Object.keys(await import('file://' + resolve(output, 'validators.mjs'))).length, true);
+    assert.equal(readFileSync(resolve(output, 'mobile-identity-validators.mjs'), 'utf8').includes('node:'), false);
+  } finally { rmSync(output, { recursive: true }); }
+});
