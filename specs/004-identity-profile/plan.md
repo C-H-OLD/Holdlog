@@ -2,7 +2,7 @@
 
 **Branch**: `codex/004-signup-plan` | **Date**: 2026-10-12 | **Spec**: [spec.md](spec.md)
 
-> 가입 화면07.02와 이름 필수·사진 선택을 반영한 설계. 계약3.0.0·API v2 원본/생성/기반 소비는 PR #60으로 병합했다. #49 범위의 T001~T005 공통 기반을 구현·단독 검증했다. #51 모바일 인증·가입·이름 profile API와 서버 단독 검사는 [증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 따른다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. 사진·실제 연동은 후속이다.
+> 가입 화면07.02와 이름 필수·사진 선택을 반영한 설계. 계약3.0.0·API v2 원본/생성/기반 소비는 PR #60으로 병합했다. #49 범위의 T001~T005 공통 기반을 구현·단독 검증했다. #51 모바일 인증·가입·이름 profile API와 서버 단독 검사는 [증거](../../docs/history/development/004-mobile-identity-api-verification.md)를 따른다. #52 관리자 API·bootstrap의 [단독 증거](../../docs/history/development/004-admin-api-verification.md)를 추가했다. #54 관리자 세션 소비·HTTPS 개발 도구의 [단독 증거](../../docs/history/development/004-admin-consumer-verification.md)를 추가했다. #57/T025의 [관리자 실제 HTTPS 연동 증거](../../docs/history/development/004-admin-auth-verification.md)를 추가했다. 사진·제공자/기기·나머지 실제 연동은 후속이다.
 
 **Input**: `specs/004-identity-profile/spec.md` · [상위 #45](https://github.com/C-H-OLD/Holdlog/issues/45)
 
