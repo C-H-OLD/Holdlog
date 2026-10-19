@@ -22,7 +22,7 @@ Holdlog/
 ├── packages/
 │   └── contracts/
 │       ├── README.md                 # 기존 계약 안내
-│       └── AGENTS.md                 # 빈 파일: 별도 지침 필요성 검토 후 작성
+│       └── AGENTS.md                 # 계약 원본·생성·소비 작업 안내
 └── specs/
     └── development-roles.md           # 역할·공통 파일 변경·협업 기준
 ```
@@ -32,7 +32,7 @@ Holdlog/
 | 모바일 | [모바일 아키텍처](mobile.md) | [apps/mobile/AGENTS.md](../../apps/mobile/AGENTS.md) | 공통 설계·지침 작성. 기능별 상세 계획·제품 구현·검증은 후속 |
 | 관리자 웹 | [관리자 웹 아키텍처](admin.md) | [apps/admin/AGENTS.md](../../apps/admin/AGENTS.md) | 공통 기준·지침 작성. 004/006/019 상세 계획·제품 구현·검증은 후속 |
 | 서버 | [서버 아키텍처](server.md) | [apps/server/AGENTS.md](../../apps/server/AGENTS.md) | 공통 기준·지침 작성. 기능별 DB/API/worker 상세 계획·구현·검증은 후속 |
-| 공통 계약 | [기존 계약 안내](../../packages/contracts/README.md) | [packages/contracts/AGENTS.md](../../packages/contracts/AGENTS.md) | 기존 안내 유지·빈 지침 파일 |
+| 공통 계약 | [기존 계약 안내](../../packages/contracts/README.md) | [packages/contracts/AGENTS.md](../../packages/contracts/AGENTS.md) | 기존 안내를 참조하는 작업 목차 작성 |
 
 ## 기존 규칙 원본
 
@@ -41,4 +41,4 @@ Holdlog/
 - 실행·검사·네이티브 생성물 관리는 [개발 시작 안내](../development.md)를 따른다.
 - 문서 위치와 원본 관리는 [문서 관리 규칙](../work-rules.md#문서-관리)을 따른다.
 
-기능별 상세 계획·작업 목록은 각 스펙에서 준비한다. 모바일은 [003](../../specs/003-app-shell/spec.md), 관리자 인증은 [004](../../specs/004-identity-profile/spec.md), 운영 자료는 [006](../../specs/006-gym-catalog-admin/spec.md), 공지는 [019](../../specs/019-announcements/spec.md)에 연결한다. 공통 계약의 별도 지침 필요성은 기존 패키지 안내와 겹치는지 검토한 뒤 판단한다. 문서 작성이 기능 구현·기기 검증이나 이슈 전체 완료를 의미하지 않는다.
+기능별 상세 계획·작업 목록은 각 스펙에서 준비한다. 모바일은 [003](../../specs/003-app-shell/spec.md), 관리자 인증은 [004](../../specs/004-identity-profile/spec.md), 운영 자료는 [006](../../specs/006-gym-catalog-admin/spec.md), 공지는 [019](../../specs/019-announcements/spec.md)에 연결한다. 공통 계약의 지침은 패키지 내부에서 시작한 작업도 원본·생성물 변경 기준을 찾도록 목차만 두고 상세 규칙을 복제하지 않는다. 문서 작성이 기능 구현·기기 검증이나 이슈 전체 완료를 의미하지 않는다.
