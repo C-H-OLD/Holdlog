@@ -43,6 +43,10 @@
     "./admin-auth-checks": {
       "types": "./generated/admin-auth-checks.d.mts",
       "default": "./generated/admin-auth-checks.mjs"
+    },
+    "./mobile-identity-checks": {
+      "types": "./generated/mobile-identity-checks.d.mts",
+      "default": "./generated/mobile-identity-checks.mjs"
     }
   }
 }

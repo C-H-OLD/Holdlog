@@ -63,3 +63,9 @@ Node와 실제 Chrome은 공통 예제18개 수락·거절 예제3개 거절을 
 `@holdlog/contracts/admin-auth-checks`의 `adminLoginChecks`·`adminSessionChecks`·`adminLogoutChecks`는 해당 operation의 path/method·parameters·body/responses와 직접 연결된 validator 함수를 제공한다. 원본은 동일한 OpenAPI이며 전체 `operations`/`validators` 진입점도 유지한다. 관리자 웹은 이 모듈로 세 operation의 필요한 검사만 번들에 포함한다. DTO는 기존 `/http`에서 소비하며 새 수기 DTO를 만들지 않는다.
 
 `parameters[].validator`, `body[media].validator`, `responses[status][media].validator`는 JSON 값의 schema acceptance를 검사한다. 전송 parameter는 기존 `/http-input`의 parsing과 required 조건을 지키고 binary 경계는 바이트 검사를 대체하지 않는다. 예제·형식 검사가 실제 cookie/권한·브라우저/API 연동을 증명하지 않는다. 모든 출력은 `npm run contracts:generate`로 생성하고 `contracts:check`로 확인한다.
+
+### 모바일 계정 전용 생성 소비
+
+`@holdlog/contracts/mobile-identity-checks`는 `createLoginChallenge`·`login`·`completeSignup`·`refreshSession`·`logout`·`getMyProfile`·`editMyProfile`의 `*Checks`를 제공한다. 기존 관리자 전용 생성과 같은 도구로 필요한 operation·전이 validator만 묶고, DTO는 `/http`에서 소비한다. 별도 스키마나 계약 버전을 만들지 않으며 전체 생성물과 관리자 출력도 유지한다.
+
+모바일 전송 계층은 생성된 입력·parameter·성공/오류 응답·응답 header 검사를 사용한다. 요청키는 호출자가 명시적으로 제공하고 프로필의 `If-Match`·`ETag`는 기존 version 규약을 따른다. 이 진입점의 형식 검사는 실제 제공자 인증·기기 보안 저장·API/DB 연동을 증명하지 않는다.

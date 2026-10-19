@@ -175,6 +175,9 @@ export async function generate(root = scriptRoot, output = resolve(root, 'packag
   const adminValidators = await renderValidators(registry, adminOperations);
   const adminIndex = { operations: Object.fromEntries(adminOperations.map(id => [id, index.operations[id]])) };
   const operationChecks = renderOperationChecks(adminIndex, './admin-auth-validators.mjs');
+  const mobileOperations = ['createLoginChallenge', 'login', 'completeSignup', 'refreshSession', 'logout', 'getMyProfile', 'editMyProfile'];
+  const mobileValidators = await renderValidators(registry, mobileOperations);
+  const mobileChecks = renderOperationChecks({ operations: Object.fromEntries(mobileOperations.map(id => [id, index.operations[id]])) }, './mobile-identity-validators.mjs');
   const http = astToString(await openapiTS(registry.api));
   const runtime = await runtimeTypes(registry);
   const fixtures = JSON.parse(readFileSync(resolve(root, 'packages/contracts/examples.json')));
@@ -202,6 +205,9 @@ export async function generate(root = scriptRoot, output = resolve(root, 'packag
     'admin-auth-validators.mjs': adminValidators.code,
     'admin-auth-checks.mjs': operationChecks.code,
     'admin-auth-checks.d.mts': operationChecks.declarations,
+    'mobile-identity-validators.mjs': mobileValidators.code,
+    'mobile-identity-checks.mjs': mobileChecks.code,
+    'mobile-identity-checks.d.mts': mobileChecks.declarations,
     'empty.mjs': 'export {};\n',
     'client.d.ts': 'export type { ClimbCount, WorkoutDraft, WorkoutLifecycle, WorkoutDisplay, AnnouncementSuppression, PendingInvite, Route, PushPayload, NoticeEntry, OpenSourceManifest } from \'./runtime\';\n',
     'fixtures.d.mts': fixtureDocumentation + '\n' + 'export declare function getFixtures(): { status: string; http: unknown[]; runtime: unknown[]; mustReject: unknown[] };\n',
